@@ -32,6 +32,10 @@
 
 Το σύστημα πρέπει να κρατάει στη μνήμη τις ενεργές παραγγελίες για να τις διαχειρίζονται οι υπάλληλοι, *[καθώς και τα συνολικά ημερήσια και μηνιαία έσοδα για να πληροφορεί την διεύθυνση.](./docs/markdown/uc6-manager-records.md)*
 
-### Use case diagram
+### Use case Diagram
 
 ![Use case diagram](./docs/markdown/uml/requirements/use-case-diagram.png)
+
+### Domain Diagram
+
+![Domain Model](domain-model-1.png)
