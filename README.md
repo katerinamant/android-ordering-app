@@ -38,4 +38,4 @@
 
 ### Domain Diagram
 
-![Domain Model](domain-model-1.png)
+![Domain Model](./docs/markdown/uml/requirements/domain-model.png)
