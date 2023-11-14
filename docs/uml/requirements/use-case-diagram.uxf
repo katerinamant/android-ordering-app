@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>640</x>
-      <y>240</y>
-      <w>80</w>
-      <h>110</h>
+      <x>344</x>
+      <y>192</y>
+      <w>64</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Πελάτης </panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>260</x>
-      <y>260</y>
-      <w>60</w>
-      <h>110</h>
+      <x>40</x>
+      <y>208</y>
+      <w>48</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Barista </panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>200</y>
-      <w>90</w>
-      <h>120</h>
+      <x>96</x>
+      <y>160</y>
+      <w>72</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;100.0;70.0;10.0</additional_attributes>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>390</y>
-      <w>140</w>
-      <h>70</h>
+      <x>152</x>
+      <y>312</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Εκτέλεση
 Παραγγελίας </panel_attributes>
@@ -49,10 +49,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>330</y>
-      <w>90</w>
-      <h>110</h>
+      <x>96</x>
+      <y>264</y>
+      <w>72</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;70.0;90.0</additional_attributes>
@@ -60,10 +60,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>170</y>
-      <w>140</w>
-      <h>70</h>
+      <x>152</x>
+      <y>136</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Σύνδεση 
 Barista</panel_attributes>
@@ -72,10 +72,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>500</x>
-      <y>520</y>
-      <w>140</w>
-      <h>70</h>
+      <x>232</x>
+      <y>416</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Παρακολούθηση
 Παραγγελίας </panel_attributes>
@@ -84,10 +84,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>730</x>
-      <y>520</y>
-      <w>140</w>
-      <h>70</h>
+      <x>416</x>
+      <y>416</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Καταχώρηση 
 Παραγγελίας </panel_attributes>
@@ -96,10 +96,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1040</x>
-      <y>260</y>
-      <w>80</w>
-      <h>110</h>
+      <x>664</x>
+      <y>208</y>
+      <w>64</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Διεύθυνση</panel_attributes>
     <additional_attributes/>
@@ -107,10 +107,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>820</x>
-      <y>170</y>
-      <w>140</w>
-      <h>70</h>
+      <x>488</x>
+      <y>136</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Σύνδεση/Εγγραφή 
 Προσωπικού</panel_attributes>
@@ -119,10 +119,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>820</x>
-      <y>380</y>
-      <w>140</w>
-      <h>70</h>
+      <x>488</x>
+      <y>304</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Διαχείριση
 Μenu</panel_attributes>
@@ -131,10 +131,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>820</x>
-      <y>280</y>
-      <w>140</w>
-      <h>70</h>
+      <x>488</x>
+      <y>224</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Προβολή 
 Εσόδων</panel_attributes>
@@ -143,10 +143,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>950</x>
-      <y>290</y>
-      <w>100</w>
-      <h>40</h>
+      <x>592</x>
+      <y>232</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
@@ -154,10 +154,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>950</x>
-      <y>200</y>
-      <w>100</w>
-      <h>100</h>
+      <x>592</x>
+      <y>160</y>
+      <w>80</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
@@ -165,10 +165,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>950</x>
-      <y>330</y>
-      <w>100</w>
-      <h>100</h>
+      <x>592</x>
+      <y>264</y>
+      <w>80</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;80.0;80.0;10.0</additional_attributes>
@@ -176,10 +176,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>330</y>
-      <w>130</w>
-      <h>210</h>
+      <x>280</x>
+      <y>264</y>
+      <w>104</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;190.0;110.0;10.0</additional_attributes>
@@ -187,10 +187,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>330</y>
-      <w>120</w>
-      <h>210</h>
+      <x>376</x>
+      <y>264</y>
+      <w>96</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;100.0;190.0</additional_attributes>
@@ -198,21 +198,10 @@ Barista</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1650</x>
-      <y>200</y>
-      <w>120</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>Use case 1</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>970</x>
-      <y>440</y>
-      <w>140</w>
-      <h>70</h>
+      <x>608</x>
+      <y>352</y>
+      <w>112</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Διαχείριση 
 Τραπεζιών</panel_attributes>
@@ -221,10 +210,10 @@ Barista</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1030</x>
-      <y>350</y>
-      <w>30</w>
-      <h>110</h>
+      <x>656</x>
+      <y>280</y>
+      <w>24</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
