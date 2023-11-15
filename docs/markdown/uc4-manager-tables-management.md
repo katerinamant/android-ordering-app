@@ -79,3 +79,5 @@
 
 ### Activity Diagram - Εισαγωγή Τραπεζιού
 ![ΠΧ4 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-manage-tables.png)
+
+### Sequence Diagram - Εισαγωγή τραπεζιού 
