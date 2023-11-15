@@ -5,17 +5,16 @@
     <id>UMLClass</id>
     <coordinates>
       <x>220</x>
-      <y>290</y>
+      <y>300</y>
       <w>210</w>
-      <h>110</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Διεύθυνση
 --
 όνομα
 τηλέφωνο
 διεύθυνση
-όνομαΧρήστη
-κωδικός</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -105,13 +104,13 @@ m2=*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>310</x>
-      <y>390</y>
+      <y>380</y>
       <w>40</w>
-      <h>100</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -182,11 +181,11 @@ m2=1
       <x>310</x>
       <y>200</y>
       <w>40</w>
-      <h>110</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -234,7 +233,7 @@ m2=1</panel_attributes>
       <h>310</h>
     </coordinates>
     <panel_attributes>απασχολεί &gt;</panel_attributes>
-    <additional_attributes>770.0;290.0;870.0;290.0;870.0;20.0;10.0;20.0;10.0;60.0</additional_attributes>
+    <additional_attributes>770.0;290.0;870.0;290.0;870.0;20.0;10.0;20.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
