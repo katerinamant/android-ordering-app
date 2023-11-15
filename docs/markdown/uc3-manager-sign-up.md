@@ -26,3 +26,6 @@
 
 ### Activity Diagram
 ![ΠΧ3 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-manager-sign-up.png)
+
+### Sequence Diagram 
+![ΠΧ3 - Εγγραφή Μαγαζιού](uml/requirements/sequence-manager-sign-up.png)
