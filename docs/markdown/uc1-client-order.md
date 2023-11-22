@@ -23,3 +23,6 @@
 
 ### Activity Diagram
 ![ΠΧ1 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-client-order.png)
+
+### Sequence Diagram 
+![ΠΧ1 - Διάγραμμα Ακολουθίας](uml/requirements/sequence-order.png)

@@ -82,5 +82,5 @@
 *7α. Η διεύθυνση διαλέγει "Ακύρωση"*
 1. Η περίπτωση χρήσης επιστρέφει στο βήμα 4 της βασικής ροής.
 
-### Activity Diagram - Εισαγωγή προϊόντος
+### Activity Diagram 
 ![ΠΧ5 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-manage-menu.png)

@@ -77,5 +77,8 @@
 *7α. Η διεύθυνση διαλέγει "Ακύρωση"*
 1. Η περίπτωση χρήσης επιστρέφει στο βήμα 4 της βασικής ροής.
 
-### Activity Diagram - Εισαγωγή Τραπεζιού
+### Activity Diagram 
 ![ΠΧ4 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-manage-tables.png)
+
+### Sequence Diagram 
+![ΠΧ4 - Διάγραμμα Ακολουθίας](uml/requirements/sequence-manage-tables.png)
