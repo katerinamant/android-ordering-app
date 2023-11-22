@@ -32,5 +32,5 @@
 ### Activity Diagram
 ![ΠΧ8 - Διάγραμμα Δραστηριότητας](../markdown/uml/requirements/activity-process-order.png)
 
-### Sequence Diagram 
-![ΠΧ8 - Διάγραμμα Ακολουθίας](uml/requirements/process-order-sequence-diagram.png)
+### Sequence Diagram
+![ΠΧ8 - Διάγραμμα Ακολουθίας](uml/requirements/sequence-process-order.png)
