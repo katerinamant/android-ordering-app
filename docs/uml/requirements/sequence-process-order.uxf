@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>240</x>
-      <y>30</y>
+      <x>260</x>
+      <y>0</y>
       <w>60</w>
       <h>110</h>
     </coordinates>
@@ -15,19 +15,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>120</y>
+      <x>280</x>
+      <y>90</y>
       <w>30</w>
-      <h>830</h>
+      <h>940</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;810.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;920.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>460</x>
-      <y>50</y>
+      <x>1020</x>
+      <y>30</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -37,21 +37,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>70</y>
+      <x>560</x>
+      <y>50</y>
       <w>30</w>
-      <h>880</h>
+      <h>980</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;860.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;960.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>180</x>
-      <y>130</y>
-      <w>420</w>
-      <h>800</h>
+      <x>490</x>
+      <y>100</y>
+      <w>640</w>
+      <h>910</h>
     </coordinates>
     <panel_attributes>loop
 --
@@ -59,35 +59,24 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>260</x>
-      <y>210</y>
-      <w>20</w>
-      <h>700</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>190</y>
-      <w>250</w>
+      <x>570</x>
+      <y>180</y>
+      <w>260</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getNextOrder()</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>500</x>
-      <y>210</y>
+      <x>560</x>
+      <y>180</y>
       <w>20</w>
-      <h>60</h>
+      <h>790</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -95,45 +84,34 @@ getNextOrder()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>250</y>
-      <w>250</w>
+      <x>570</x>
+      <y>230</y>
+      <w>260</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;.
-Next Order</panel_attributes>
-    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+    <panel_attributes>lt=&lt;.
+Order</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>310</y>
-      <w>250</w>
+      <x>820</x>
+      <y>210</y>
+      <w>260</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setOrderStatus(In_progress)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>500</x>
-      <y>330</y>
-      <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>190</x>
-      <y>400</y>
-      <w>390</w>
-      <h>360</h>
+      <x>500</x>
+      <y>370</y>
+      <w>620</w>
+      <h>520</h>
     </coordinates>
     <panel_attributes>alt
 --
@@ -161,56 +139,34 @@ setOrderStatus(In_progress)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>650</y>
-      <w>250</w>
+      <x>570</x>
+      <y>640</y>
+      <w>260</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 cancelItem(item)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>500</x>
-      <y>470</y>
-      <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>450</y>
-      <w>250</w>
+      <x>570</x>
+      <y>430</y>
+      <w>260</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 cancelOrder()</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>500</x>
-      <y>670</y>
-      <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>210</x>
-      <y>590</y>
-      <w>340</w>
-      <h>150</h>
+      <x>510</x>
+      <y>570</y>
+      <w>600</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>loop
 --
@@ -219,26 +175,243 @@ cancelOrder()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>30</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>:BaristaUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>810</y>
-      <w>250</w>
+      <x>280</x>
+      <y>160</y>
+      <w>300</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-setOrderStatus(Completed)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>lt=&lt;-
+Πραγματοποίηση επόμενης παραγγελίας</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>30</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>:BaristaController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>50</y>
+      <w>30</w>
+      <h>980</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;960.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>500</x>
-      <y>830</y>
+      <x>810</x>
+      <y>200</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>50</y>
+      <w>30</w>
+      <h>980</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;960.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1060</x>
+      <y>230</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>260</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+showOrderDetails(order)</panel_attributes>
+    <additional_attributes>10.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>810</x>
+      <y>450</y>
+      <w>20</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>460</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+setOrderStatus(Canceled)</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1060</x>
+      <y>480</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>810</x>
+      <y>660</y>
+      <w>20</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>660</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+removeItem(item)</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1060</x>
+      <y>680</y>
+      <w>20</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>710</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Order</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>740</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Order</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>780</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+showOrderDetails(order)</panel_attributes>
+    <additional_attributes>10.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>900</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OrderCompleted()</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>810</x>
+      <y>920</y>
+      <w>20</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1060</x>
+      <y>940</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>920</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+setOrderStatus(Completed)</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
