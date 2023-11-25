@@ -46,19 +46,6 @@
     <additional_attributes>10.0;10.0;10.0;960.0</additional_attributes>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>490</x>
-      <y>100</y>
-      <w>640</w>
-      <h>910</h>
-    </coordinates>
-    <panel_attributes>loop
---
-[while there are orders pending]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>570</x>
