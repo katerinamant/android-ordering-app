@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>9</zoom_level>
+  <zoom_level>16</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
-      <y>900</y>
-      <w>198</w>
-      <h>126</h>
+      <x>320</x>
+      <y>1600</y>
+      <w>352</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -24,10 +24,10 @@ password: String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>108</x>
-      <y>81</y>
-      <w>351</w>
-      <h>315</h>
+      <x>192</x>
+      <y>208</y>
+      <w>624</w>
+      <h>512</h>
     </coordinates>
     <panel_attributes>Cafeteria
 --
@@ -37,30 +37,28 @@ password: String)
 -brand: String
 -DailyRevenue: float
 -MonthlyRevenue: float[]
--tablesList: Table[]
--menu: Product[]
+-tablesList: ArrayList&lt;Table&gt;
 --
 #setInfo(address: String,phoneNumber:String,
-SSN: String, brand:String)
-#changeInfo(address: String,phoneNumber:String,
 SSN: String, brand:String)
 +getMonthlyRevenue(month: int, year:int): float{query}
 +getDailyRevenue(day:int, month: int, year: int): float{query}
 +calculateCost(cost: float)
-+getTablesList(): Table[]{query}
++getTablesList(): ArrayList&lt;Table&gt;{query}
 +showTables()
 +addToTablesList(table: Table)
-+addToMenu(product: Product)
-+removeFromMenu(product: Product)</panel_attributes>
++addToProducts(product: Product)
++removeFromProducts(product: Product)
++getProducts():ArrayList&lt;Product&gt;{query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>162</x>
-      <y>468</y>
-      <w>243</w>
-      <h>189</h>
+      <x>288</x>
+      <y>832</y>
+      <w>432</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>Product
 --
@@ -81,10 +79,10 @@ availability: boolean)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>477</y>
-      <w>243</w>
-      <h>144</h>
+      <x>928</x>
+      <y>848</y>
+      <w>432</w>
+      <h>256</h>
     </coordinates>
     <panel_attributes>OrderInfo
 --
@@ -100,10 +98,10 @@ availability: boolean)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>468</y>
-      <w>243</w>
-      <h>189</h>
+      <x>1536</x>
+      <y>800</y>
+      <w>432</w>
+      <h>368</h>
     </coordinates>
     <panel_attributes>Order
 --
@@ -118,16 +116,17 @@ status: String)
 +addRevenue(totalCost: float)
 +getDate(): Date{query}
 +getTotalCost(): float{query}
-+removeItem(item: Product)</panel_attributes>
++removeItem(item: Product)
++addToOrderQueue(order:Order)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>918</x>
-      <y>693</y>
-      <w>144</w>
-      <h>108</h>
+      <x>1632</x>
+      <y>1232</y>
+      <w>256</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>"Enumeration"
 Status
@@ -141,10 +140,10 @@ completed</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>720</y>
-      <w>270</w>
-      <h>108</h>
+      <x>272</x>
+      <y>1280</y>
+      <w>480</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>ProductCategory
 --
@@ -160,14 +159,14 @@ completed</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1215</x>
-      <y>495</y>
-      <w>189</w>
-      <h>117</h>
+      <x>2160</x>
+      <y>880</y>
+      <w>336</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>Barista
 --
-
+-orderQueue: ArrayList&lt;Order&gt;
 --
 +getNextOrder(): Order{query}
 -showOrderDetails(order: Order)
@@ -178,10 +177,10 @@ completed</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>873</x>
-      <y>189</y>
-      <w>225</w>
-      <h>108</h>
+      <x>1552</x>
+      <y>336</y>
+      <w>400</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>Table
 --
@@ -196,10 +195,10 @@ id: int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>972</x>
-      <y>648</y>
-      <w>27</w>
-      <h>63</h>
+      <x>1744</x>
+      <y>1152</y>
+      <w>48</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
@@ -207,23 +206,23 @@ id: int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>387</y>
-      <w>36</w>
-      <h>99</h>
+      <x>480</x>
+      <y>704</y>
+      <w>64</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>234</y>
-      <w>441</w>
-      <h>36</h>
+      <x>800</x>
+      <y>416</y>
+      <w>784</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -233,10 +232,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>549</y>
-      <w>144</w>
-      <h>36</h>
+      <x>704</x>
+      <y>976</y>
+      <w>256</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -246,10 +245,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>540</y>
-      <w>126</w>
-      <h>45</h>
+      <x>1344</x>
+      <y>960</y>
+      <w>224</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -260,10 +259,10 @@ is included in &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>279</x>
-      <y>648</y>
-      <w>117</w>
-      <h>90</h>
+      <x>496</x>
+      <y>1152</y>
+      <w>208</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -274,10 +273,10 @@ is included in &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1098</x>
-      <y>531</y>
-      <w>135</w>
-      <h>45</h>
+      <x>1952</x>
+      <y>944</y>
+      <w>240</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -289,9 +288,9 @@ is made by &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>234</y>
-      <w>198</w>
-      <h>756</h>
+      <y>416</y>
+      <w>352</w>
+      <h>1344</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -302,10 +301,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>369</x>
-      <y>603</y>
-      <w>963</w>
-      <h>396</h>
+      <x>656</x>
+      <y>1072</y>
+      <w>1712</w>
+      <h>704</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;410.0;1050.0;420.0;1050.0;10.0</additional_attributes>
@@ -313,29 +312,29 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>279</x>
+      <x>496</x>
       <y>0</y>
-      <w>1053</w>
-      <h>513</h>
+      <w>1872</w>
+      <h>912</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1
 employs &gt;</panel_attributes>
-    <additional_attributes>1150.0;550.0;1150.0;20.0;10.0;20.0;10.0;90.0</additional_attributes>
+    <additional_attributes>1150.0;550.0;1150.0;20.0;10.0;20.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>972</x>
-      <y>288</y>
-      <w>90</w>
-      <h>198</h>
+      <x>1728</x>
+      <y>512</y>
+      <w>160</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 registers &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
 </diagram>
