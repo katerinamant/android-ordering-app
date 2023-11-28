@@ -1,58 +1,281 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>208</x><y>128</y><w>168</w><h>104</h></coordinates><panel_attributes>Καφετέρια
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>160</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Καφετέρια
 --
 επωνυμία
 διεύθυνση
 τηλέφωνο
 ΑΦΜ
 /ημερήσιαΈσοδα
-/μηναίαΈσοδα</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1056</x><y>464</y><w>168</w><h>64</h></coordinates><panel_attributes>Barista
+/μηναίαΈσοδα</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>984</x>
+      <y>368</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Barista
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>744</x><y>464</y><w>168</w><h>64</h></coordinates><panel_attributes>Παραγγελία
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>368</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Παραγγελία
 --
 /συνολικόΚόστος
 κατάσταση
-ημερομηνία</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>744</x><y>168</y><w>168</w><h>64</h></coordinates><panel_attributes>Τραπέζι
+ημερομηνία</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>200</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Τραπέζι
 --
 QR
-αριθμόςΤραπεζιού</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>368</x><y>192</y><w>392</w><h>32</h></coordinates><panel_attributes>m1=1
-m2=*</panel_attributes><additional_attributes>10;10;470;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>456</y><w>168</w><h>80</h></coordinates><panel_attributes>Προϊόν
+αριθμόςΤραπεζιού</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>224</y>
+      <w>392</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>360</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Προϊόν
 --
 τιμή
 όνομα
 διαθεσιμότητα
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>224</y><w>32</w><h>96</h></coordinates><panel_attributes>m1=1
-m2=*</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>816</x><y>224</y><w>80</w><h>256</h></coordinates><panel_attributes>m1= 1
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>256</y>
+      <w>32</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>256</y>
+      <w>88</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>m1= 1
 m2= *
-καταχωρεί &gt;</panel_attributes><additional_attributes>10;10;10;300</additional_attributes></element><element><id>Relation</id><coordinates><x>368</x><y>480</y><w>112</w><h>40</h></coordinates><panel_attributes>m1=1
+καταχωρεί &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>384</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>m1=1
 m2=*
-</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>480</y><w>168</w><h>40</h></coordinates><panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>384</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=*
 m2=1
-εκτελείται από &gt;</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>640</y><w>168</w><h>56</h></coordinates><panel_attributes>Χρήστης
+εκτελείται από &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>640</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Χρήστης
 --
 όνομαΧρήστη
 κωδικός
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>368</x><y>520</y><w>784</w><h>168</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;190;960;190;960;10</additional_attributes></element><element><id>Relation</id><coordinates><x>72</x><y>184</y><w>152</w><h>504</h></coordinates><panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>424</y>
+      <w>776</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;310.0;950.0;310.0;950.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>64</x>
+      <y>216</y>
+      <w>96</w>
+      <h>472</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=1
 m2=1
-</panel_attributes><additional_attributes>170;600;10;600;10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>104</y><w>984</w><h>416</h></coordinates><panel_attributes>απασχολεί &gt;
+</panel_attributes>
+    <additional_attributes>100.0;560.0;10.0;560.0;10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>248</x>
+      <y>136</y>
+      <w>976</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>απασχολεί &gt;
 m1=*
-m2=1</panel_attributes><additional_attributes>1140;490;1210;490;1210;20;10;20;10;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>744</x><y>560</y><w>168</w><h>88</h></coordinates><panel_attributes>"Enumeration"
+m2=1</panel_attributes>
+    <additional_attributes>1130.0;330.0;1200.0;330.0;1200.0;20.0;10.0;20.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>472</y>
+      <w>168</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>"Enumeration"
 Κατάσταση
 --
 σε αναμονή
 σε εξέλιξη
 ολοκληρωμένη
-ακυρωμένη</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>816</x><y>520</y><w>24</w><h>56</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>464</x><y>464</y><w>160</w><h>56</h></coordinates><panel_attributes>ΣτοιχείαΠαραγγελίας
+ακυρωμένη</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>424</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>368</y>
+      <w>160</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ΣτοιχείαΠαραγγελίας
 --
 ποσότητα
-περιγραφή</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>480</y><w>144</w><h>40</h></coordinates><panel_attributes>m1=*
+περιγραφή</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>384</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>m1=*
 m2=1
 περιέχεται σε &gt;
-</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>304</y><w>160</w><h>56</h></coordinates><panel_attributes>ΚατηγορίαΠροϊόντος
+</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>512</y>
+      <w>160</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ΚατηγορίαΠροϊόντος
 --
 όνομα
 περιγραφή
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>352</y><w>72</w><h>120</h></coordinates><panel_attributes>m1=1
-m2=*
-περιέχει &gt;</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element></diagram>
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>432</y>
+      <w>104</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+περιέχεται σε &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>
