@@ -4,12 +4,19 @@ import java.util.ArrayList;
 
 public class Table {
     private int QRCode;
-    private int ID;
-    private ArrayList<Order> orders;
+    private int id;
 
-    public int getQRCode() {return QRCode;};
-    public int getID() {return ID;};
-    public void createNewTable(int QRCode, int id) {};
-    public void addOrder(Order order) {};
-    public void removeOrder(Order order) {};
+    // Default constructor
+    public Table() { }
+
+    public Table(int QRCode, int id) {
+        this.QRCode = QRCode;
+        this.id = id;
+    }
+
+    public void setQRCode(int QRCode) { this.QRCode = QRCode; }
+    public int getQRCode() { return QRCode; }
+
+    public void setId(int id) { this.id = id; }
+    public int getId() { return id; }
 }
