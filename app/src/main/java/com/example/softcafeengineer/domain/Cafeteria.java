@@ -1,4 +1,4 @@
-package main.java.com.example.softcafeengineer.domain;
+package com.example.softcafeengineer.domain;
 
 import java.util.*;
 

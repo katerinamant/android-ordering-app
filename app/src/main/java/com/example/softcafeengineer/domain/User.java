@@ -1,4 +1,4 @@
-package main.java.com.example.softcafeengineer.domain;
+package com.example.softcafeengineer.domain;
 
 public class User {
     private String username;
