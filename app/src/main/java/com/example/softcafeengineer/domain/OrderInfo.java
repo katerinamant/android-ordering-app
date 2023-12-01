@@ -1,19 +1,26 @@
 package main.java.com.example.softcafeengineer.domain;
 
-import java.util.*;
-
-public class OrderInfo {
+public class OrderInfo
+{
     private int quantity;
-    private String description;
-    private Order order;
     private Product product;
+    private String description;
 
-    private void setQuantity() {};
-    private void setDescription() {};
-    private void setProduct() {};
-    private void setOrder() {};
-    public int getQuantity() {return quantity;};
-    public String getDescription() {return description;};
-    public Order getOrder() {return order;};
-    public Product getProduct() {return product;};
+    // Default constructor
+    public OrderInfo() { }
+
+    public OrderInfo(int quantity, Product product, String description) {
+        this.quantity = quantity;
+        this.product = product;
+        this.description = description;
+    }
+
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public int getQuantity() { return this.quantity; }
+
+    public void setProduct(Product product) { this.product = product; }
+    public Product getProduct() { return this.product; }
+
+    public void setDescription(String description) { this.description = description; }
+    public String getDescription() { return this.description; }
 }

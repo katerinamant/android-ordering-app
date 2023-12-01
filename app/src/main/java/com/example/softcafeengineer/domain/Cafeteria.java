@@ -1,26 +1,112 @@
 package main.java.com.example.softcafeengineer.domain;
 
-import java.util.ArrayList;
+import java.util.*;
 
-public class Cafeteria {
+public class Cafeteria
+{
     private String address;
     private String phoneNumber;
     private String SSN;
     private String brand;
-    private float DailyRevenue;
-    private float[] MonthlyRevenue;
-    private ArrayList<Table> tablesList = new ArrayList<Table>();
-    private ArrayList<Product> products = new ArrayList<Product>();
-    private ArrayList<Barista> baristas = new ArrayList<Barista>();
-    
-    protected void setInfo(String address, String phoneNumber, String SSN, String brand){}
-    public float[] getMonthlyRevenue(int month, int year){return MonthlyRevenue;}
-    public float getDailyRevenue(int day, int month, int year){return DailyRevenue;}
-    public void calculateCost(float cost){}
-    public ArrayList<Table> getTablesList(){return tablesList;}
-    public void showTables(){}
-    public void addToTablesList(Table table){}
-    public void addToProducts(Product product){}
-    public void removeFromProducts(Product product){}
-    public ArrayList<Product> getProducts(){return products;}
+    private HashMap<String, ArrayList<Double>> monthlyRevenue; // "month-year : [dailyRevenues]"
+    private double todaysRevenue;
+    private ArrayList<Table> tablesList;
+    private ArrayList<Product> productsList;
+    private ArrayList<Barista> baristasList;
+
+    // Default constructor
+    public Cafeteria() {
+        this.todaysRevenue = 0;
+        this.monthlyRevenue = new HashMap<String, ArrayList<Double>>();
+        this.tablesList = new ArrayList<Table>();
+        this.productsList = new ArrayList<Product>();
+        this.baristasList = new ArrayList<Barista>();
+    }
+
+    public Cafeteria(String address, String phoneNumber, String SSN, String brand) {
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.SSN = SSN;
+        this.brand = brand;
+        this.todaysRevenue = 0;
+        this.monthlyRevenue = new HashMap<String, ArrayList<Double>>();
+        this.tablesList = new ArrayList<Table>();
+        this.productsList = new ArrayList<Product>();
+        this.baristasList = new ArrayList<Barista>();
+    }
+
+    public void setAddress(String address) { this.address = address; }
+    public String getAddress() { return this.address; }
+
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public String getPhoneNumber() { return this.phoneNumber; }
+
+    public void setSSN(String SSN) { this.SSN = SSN; }
+    public String getSSN() { return this.SSN; }
+
+    public void setBrand(String brand) { this.brand = brand; }
+    public String getBrand() { return this.brand; }
+
+    public double getDailyRevenue(int day, int month, int year) throws Exception {
+        String date = String.format("%d-%d", month, year);
+
+        if (!this.monthlyRevenue.containsKey(date))
+        {
+            // If today's month and year is not in the HashMap
+            throw new Exception("Invalid input!");
+        }
+        else
+        {
+            return this.monthlyRevenue.get(date).get(day - 1);
+        }
+    }
+
+    public ArrayList<Double> getMonthlyRevenue(int month, int year) throws Exception {
+        String date = String.format("%d-%d", month, year);
+
+        if (!this.monthlyRevenue.containsKey(date))
+        {
+            // If today's month and year is not in the HashMap
+            throw new Exception("Invalid input!");
+        }
+        else
+        {
+            return this.monthlyRevenue.get(date);
+        }
+    }
+
+    public double getTodaysRevenue() { return this.todaysRevenue; }
+    public void increaseRevenue(double amount) {
+        this.todaysRevenue += amount;
+    }
+
+    public void closeDay(int month, int year) {
+        String date = String.format("%d-%d", month, year);
+
+        if (!this.monthlyRevenue.containsKey(date))
+        {
+            // If today's month and year is not in the HashMap
+            ArrayList<Double> new_month = new ArrayList<Double>();
+            new_month.add(this.todaysRevenue);
+            this.monthlyRevenue.put(date, new_month);
+        }
+        else
+        {
+            // Today's month and year is in the HashMap
+            this.monthlyRevenue.get(date).add(this.todaysRevenue);
+        }
+        this.todaysRevenue = 0;
+    }
+
+    public ArrayList<Table> getTablesList() { return this.tablesList; }
+    public void addToTables(Table table) { this.tablesList.add(table); }
+    public void removeFromTables(Table table) { this.tablesList.remove(table); }
+
+    public ArrayList<Product> getProductsList() { return this.productsList; }
+    public void addToProducts(Product product) { this.productsList.add(product); }
+    public void removeFromProducts(Product product) { this.productsList.add(product); }
+
+    public ArrayList<Barista> getBaristasList() { return this.baristasList; }
+    public void addToBaristas(Barista barista) { this.baristasList.add(barista); }
+    public void removeFromBaristas(Barista barista) { this.baristasList.add(barista); }
 }
