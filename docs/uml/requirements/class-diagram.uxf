@@ -1,215 +1,239 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>16</zoom_level>
+  <help_text>Space for diagram notes</help_text>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>1600</y>
-      <w>352</w>
-      <h>224</h>
+      <x>483</x>
+      <y>854</y>
+      <w>154</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>User
 --
--username: String
--password: String 
+- username : String
+- password : String
 --
-+getUsername(): String{query}
-+getPassword(): String{query}
-#newUser(username: String, 
-password: String)
-</panel_attributes>
++ setUsername(user : String)
++ getUsername(): String {query}
++ setPassword(pass : String)
++ getPassword(): String {query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>208</y>
-      <w>624</w>
-      <h>512</h>
+      <x>427</x>
+      <y>63</y>
+      <w>336</w>
+      <h>371</h>
     </coordinates>
     <panel_attributes>Cafeteria
 --
--address: String
--phoneNumber: String
--SSN: String 
--brand: String
--DailyRevenue: float
--MonthlyRevenue: float[]
--tablesList: ArrayList&lt;Table&gt;
+- address : String
+- phoneNumber : String
+- SSN : String
+- brand : String
+- montlyRevenue : HashMap&lt;String, ArrayList&lt;Double&gt;&gt;
+- todaysRevenue : double
+- tablesList : ArrayList&lt;Table&gt;
+- productsList : ArrayList&lt;Product&gt;
+- baristasList: ArrayList&lt;Barista&gt;
 --
-#setInfo(address: String,phoneNumber:String,
-SSN: String, brand:String)
-+getMonthlyRevenue(month: int, year:int): float{query}
-+getDailyRevenue(day:int, month: int, year: int): float{query}
-+calculateCost(cost: float)
-+getTablesList(): ArrayList&lt;Table&gt;{query}
-+showTables()
-+addToTablesList(table: Table)
-+addToProducts(product: Product)
-+removeFromProducts(product: Product)
-+getProducts():ArrayList&lt;Product&gt;{query}</panel_attributes>
++ setAddress(address : String)
++ getAddress(): String {query}
++ setPhoneNumber(phoneNumber : String)
++ getPhoneNumber(): String {query}
++ setSSN(SSN : String)
++ getSSN(): String {query}
++ setBrand(brand: String)
++ getBrand(): String {query}
++ getDailyRevenue(day : int, month : int, year : int) : double {query}
++ getMonthlyRevenue(month : int, year : int) : ArrayList&lt;Double&gt; {query}
++ getTodaysRevenue(): double {query}
++ increaseRevenue(amount : int)
++ closeDay(month : int, year : int)
++ getTablesList(): ArrayList&lt;Table&gt; {query}
++ addToTables(table : Table)
++ removeFromTables(table : Table)
++ getProductsList(): ArrayList&lt;Product&gt; {query}
++ addToProducts(product : Product)
++ removeFromProducts(product : Product)
++ getBaristasList(): ArrayList&lt;Barista&gt; {query}
++ addToBaristas(barista : Barista)
++ removeFromBaristas(barista : Barista)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>832</y>
-      <w>432</w>
-      <h>336</h>
+      <x>469</x>
+      <y>483</y>
+      <w>189</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Product
 --
--price: float
--name: String
--availability: boolean
+- price : double
+- name : String
+- availability : boolean
 --
-#setProductInfo(price: float, name: String, 
-availability: boolean)
-#changePrice(price: float)
-#changeAvailability()
-+getPrice(): float{query}
-+getAvailability(): boolean{query}
-+getName(): String{query}
++ setPrice(price : double)
++ getPrice(): double {query}
++ setName(name : String)
++ getName(): String {query}
++ setAvailability(availability : boolean)
++ toggleAvailability()
++ getAvailability(): boolean {query}
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>928</x>
-      <y>848</y>
-      <w>432</w>
-      <h>256</h>
+      <x>749</x>
+      <y>490</y>
+      <w>189</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>OrderInfo
 --
--quantity: int
--description: String
+- quantity : int
+- product : Product
+- description : String
 --
-#setDescription(description: String)
-#setQuantity(quantity: int)
-+getDescription(): String{query}
-+getQuantity(): int{query} </panel_attributes>
++ setQuantity(quantity : int)
++ getQuantity(): int {query}
++ setProduct(product : Product)
++ getProduct(): Product {query}
++ setDescription(description : String)
++ getDescription(): String {query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1536</x>
-      <y>800</y>
-      <w>432</w>
-      <h>368</h>
+      <x>1015</x>
+      <y>455</y>
+      <w>210</w>
+      <h>203</h>
     </coordinates>
     <panel_attributes>Order
 --
--totalCost: float
--date: Date
--status: String
+- status : Status
+- orderList: ArrayList&lt;OrderInfo&gt;
+- date : Date
+- totalCost : double
+- registered_by : Table
 --
-#setOrderInfo(totalCost: float, date: Date),
-status: String)
-+setOrderStatus(status: String)
-+getOrderStatus(): String{query}
-+addRevenue(totalCost: float)
-+getDate(): Date{query}
-+getTotalCost(): float{query}
-+removeItem(item: Product)
-+addToOrderQueue(order:Order)</panel_attributes>
++ setOrderStatus(status : Status)
++ getOrderStatus(): Status {query}
++ getOrderList(): ArrayList&lt;OrderInfo&gt; {query}
++ addToOrder(orderLine : OrderInfo)
++ removeFromOrder(orderLine : OrderInfo)
++ setDate(date : Date)
++ getDate(): Date {query}
++ setTotalCost(totalCost : float)
++ getTotalCost(): float {query}
++ setTable(table : Table)
++ getTable(): Table {query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1632</x>
-      <y>1232</y>
-      <w>256</w>
-      <h>192</h>
+      <x>1057</x>
+      <y>700</y>
+      <w>112</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>"Enumeration"
 Status
 --
-in_progress
-canceled
-waiting
-completed</panel_attributes>
+IN_PROGRESS
+CANCELED
+WAITING
+COMPLETED</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>272</x>
-      <y>1280</y>
-      <w>480</w>
-      <h>192</h>
+      <x>462</x>
+      <y>686</y>
+      <w>210</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>ProductCategory
 --
--name:String
--description: String
+- name : String
+- description : String
+- products : ArrayList&lt;Product&gt;
 --
-#setInfo(name: String, description: String)
-+getName(): String{query}
-+getDescription(): String{query}
++ setName(name : String)
++ getName(): String {query}
++ setDescription(desc : String)
++ getDescription(): String {query}
++ getProductsList(): ArrayList&lt;Product&gt; {query}
++ addToProducts(product : Product)
++ removeFromProducts(product : Product)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2160</x>
-      <y>880</y>
-      <w>336</w>
-      <h>208</h>
+      <x>1288</x>
+      <y>504</y>
+      <w>168</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Barista
 --
--orderQueue: ArrayList&lt;Order&gt;
+
 --
-+getNextOrder(): Order{query}
--showOrderDetails(order: Order)
--cancelOrder(order: Order)
--cancelItem(item: String)</panel_attributes>
++ getExecutingOrder(): Order {query}
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1552</x>
-      <y>336</y>
-      <w>400</w>
-      <h>192</h>
+      <x>1022</x>
+      <y>259</y>
+      <w>175</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Table
 --
-QRCode: int
-id: int
+QRCode : int
+id : int
 --
-+getQRCode(): {query}
-+getID(): int{query}
-+createNewTable(QRCode: int, id: int)</panel_attributes>
++ setQRCode(QRCode : int)
++ getQRCode(): int {query}
++ setID(id : int)
++ getID(): int {query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1744</x>
-      <y>1152</y>
-      <w>48</w>
-      <h>112</h>
+      <x>1106</x>
+      <y>651</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>704</y>
-      <w>64</w>
-      <h>160</h>
+      <x>553</x>
+      <y>427</y>
+      <w>28</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -219,23 +243,23 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>416</y>
-      <w>784</w>
-      <h>64</h>
+      <x>756</x>
+      <y>301</y>
+      <w>280</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1</panel_attributes>
-    <additional_attributes>470.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>380.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>976</y>
-      <w>256</w>
-      <h>64</h>
+      <x>651</x>
+      <y>546</y>
+      <w>112</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -245,10 +269,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>960</y>
-      <w>224</w>
-      <h>80</h>
+      <x>931</x>
+      <y>539</y>
+      <w>98</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -259,82 +283,82 @@ is included in &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>1152</y>
-      <w>208</w>
-      <h>160</h>
+      <x>560</x>
+      <y>623</y>
+      <w>91</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1
 is included in &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1952</x>
-      <y>944</y>
-      <w>240</w>
-      <h>80</h>
+      <x>1218</x>
+      <y>532</y>
+      <w>84</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1
 is made by &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>0</x>
-      <y>416</y>
-      <w>352</w>
-      <h>1344</h>
+      <x>343</x>
+      <y>301</y>
+      <w>154</w>
+      <h>623</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;10.0;20.0;810.0;200.0;810.0</additional_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0;10.0;860.0;200.0;860.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>1072</y>
-      <w>1712</w>
-      <h>704</h>
+      <x>630</x>
+      <y>588</y>
+      <w>749</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;410.0;1050.0;420.0;1050.0;10.0</additional_attributes>
+    <additional_attributes>10.0;460.0;1050.0;460.0;1050.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>0</y>
-      <w>1872</w>
-      <h>912</h>
+      <x>560</x>
+      <y>7</y>
+      <w>819</w>
+      <h>511</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1
 employs &gt;</panel_attributes>
-    <additional_attributes>1150.0;550.0;1150.0;20.0;10.0;20.0;10.0;130.0</additional_attributes>
+    <additional_attributes>1150.0;710.0;1150.0;20.0;10.0;20.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1728</x>
-      <y>512</y>
-      <w>160</w>
-      <h>320</h>
+      <x>1099</x>
+      <y>343</y>
+      <w>70</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 registers &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
   </element>
 </diagram>

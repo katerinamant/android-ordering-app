@@ -38,3 +38,6 @@
 ### Domain Diagram
 
 ![Domain Model](./docs/markdown/uml/requirements/domain-model.png)
+
+### Class Diagram
+![Class Diagram](./docs/markdown/uml/requirements/class-diagram.png)
