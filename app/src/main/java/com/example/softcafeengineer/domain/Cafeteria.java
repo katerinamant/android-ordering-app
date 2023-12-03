@@ -105,9 +105,9 @@ public class Cafeteria
 
     public ArrayList<Product> getProductsList() { return this.productsList; }
     public void addToProducts(Product product) { this.productsList.add(product); }
-    public void removeFromProducts(Product product) { this.productsList.add(product); }
+    public void removeFromProducts(Product product) { this.productsList.remove(product); }
 
     public ArrayList<Barista> getBaristasList() { return this.baristasList; }
     public void addToBaristas(Barista barista) { this.baristasList.add(barista); }
-    public void removeFromBaristas(Barista barista) { this.baristasList.add(barista); }
+    public void removeFromBaristas(Barista barista) { this.baristasList.remove(barista); }
 }
