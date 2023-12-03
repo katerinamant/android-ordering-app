@@ -8,7 +8,7 @@ public class Cafeteria
     private String phoneNumber;
     private String SSN;
     private String brand;
-    private HashMap<String, ArrayList<Double>> monthlyRevenue; // "month-year : [dailyRevenues]"
+    private HashMap<String, List<Double>> monthlyRevenue; // "month-year : [dailyRevenues]"
     private double todaysRevenue;
     private ArrayList<Table> tablesList;
     private ArrayList<Product> productsList;
@@ -17,7 +17,7 @@ public class Cafeteria
     // Default constructor
     public Cafeteria() {
         this.todaysRevenue = 0;
-        this.monthlyRevenue = new HashMap<String, ArrayList<Double>>();
+        this.monthlyRevenue = new HashMap<String, List<Double>>();
         this.tablesList = new ArrayList<Table>();
         this.productsList = new ArrayList<Product>();
         this.baristasList = new ArrayList<Barista>();
@@ -29,7 +29,7 @@ public class Cafeteria
         this.SSN = SSN;
         this.brand = brand;
         this.todaysRevenue = 0;
-        this.monthlyRevenue = new HashMap<String, ArrayList<Double>>();
+        this.monthlyRevenue = new HashMap<String, List<Double>>();
         this.tablesList = new ArrayList<Table>();
         this.productsList = new ArrayList<Product>();
         this.baristasList = new ArrayList<Barista>();
@@ -47,13 +47,13 @@ public class Cafeteria
     public void setBrand(String brand) { this.brand = brand; }
     public String getBrand() { return this.brand; }
 
-    public double getDailyRevenue(int day, int month, int year) throws Exception {
+    public double getDailyRevenue(int day, int month, int year) throws InvalidRevenueInputException {
         String date = String.format("%d-%d", month, year);
 
         if (!this.monthlyRevenue.containsKey(date))
         {
             // If today's month and year is not in the HashMap
-            throw new Exception("Invalid input!");
+            throw new InvalidRevenueInputException(String.format("No records of month %d/%d", month, year));
         }
         else
         {
@@ -61,13 +61,13 @@ public class Cafeteria
         }
     }
 
-    public ArrayList<Double> getMonthlyRevenue(int month, int year) throws Exception {
+    public List<Double> getMonthlyRevenue(int month, int year) throws InvalidRevenueInputException {
         String date = String.format("%d-%d", month, year);
 
         if (!this.monthlyRevenue.containsKey(date))
         {
             // If today's month and year is not in the HashMap
-            throw new Exception("Invalid input!");
+            throw new InvalidRevenueInputException(String.format("No records of month %d/%d", month, year));
         }
         else
         {
@@ -75,25 +75,26 @@ public class Cafeteria
         }
     }
 
+    public HashMap<String, List<Double>> getMonthlyRevenueMap() { return this.monthlyRevenue; }
     public double getTodaysRevenue() { return this.todaysRevenue; }
     public void increaseRevenue(double amount) {
         this.todaysRevenue += amount;
     }
 
-    public void closeDay(int month, int year) {
+    public void closeDay(int day, int month, int year) {
         String date = String.format("%d-%d", month, year);
 
         if (!this.monthlyRevenue.containsKey(date))
         {
             // If today's month and year is not in the HashMap
-            ArrayList<Double> new_month = new ArrayList<Double>();
-            new_month.add(this.todaysRevenue);
+            List<Double> new_month = new ArrayList<Double>(Collections.nCopies(31, null));
+            new_month.add(day - 1, this.todaysRevenue);
             this.monthlyRevenue.put(date, new_month);
         }
         else
         {
             // Today's month and year is in the HashMap
-            this.monthlyRevenue.get(date).add(this.todaysRevenue);
+            this.monthlyRevenue.get(date).add(day - 1, this.todaysRevenue);
         }
         this.todaysRevenue = 0;
     }
