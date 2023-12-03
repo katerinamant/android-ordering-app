@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.domain;
 
-import java.util.ArrayList;
-
 public class Product
 {
     private double price;

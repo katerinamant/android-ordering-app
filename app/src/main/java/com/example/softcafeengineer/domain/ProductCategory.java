@@ -9,11 +9,14 @@ public class ProductCategory
     private ArrayList<Product> products;
 
     // Default constructor
-    public ProductCategory() { }
+    public ProductCategory() {
+        this.products = new ArrayList<Product>();
+    }
 
     public ProductCategory(String name, String description) {
         this.name = name;
         this.description = description;
+        this.products = new ArrayList<Product>();
     }
 
     public void setName(String name) { this.name = name; }

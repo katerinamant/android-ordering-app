@@ -1,12 +1,7 @@
 package com.example.softcafeengineer.domain;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 
 public class OrderTest
 {

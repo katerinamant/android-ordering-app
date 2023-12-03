@@ -8,7 +8,7 @@ public class Cafeteria
     private String phoneNumber;
     private String SSN;
     private String brand;
-    private HashMap<String, List<Double>> monthlyRevenue; // "month-year : [dailyRevenues]"
+    private HashMap<String, List<Double>> monthlyRevenue; // "month-year" : [dailyRevenues]
     private double todaysRevenue;
     private ArrayList<Table> tablesList;
     private ArrayList<Product> productsList;

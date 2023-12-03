@@ -96,6 +96,7 @@ public class CafeteriaTest
         Assert.assertTrue(cafe.getTablesList().isEmpty());
         Table new_table = new Table();
         cafe.addToTables(new_table);
+        Assert.assertTrue(cafe.getTablesList().contains(new_table));
         Assert.assertEquals(1, cafe.getTablesList().size());
         cafe.removeFromTables(new_table);
         Assert.assertFalse(cafe.getTablesList().contains(new_table));
@@ -109,6 +110,7 @@ public class CafeteriaTest
         Assert.assertTrue(cafe.getProductsList().isEmpty());
         Product new_product = new Product();
         cafe.addToProducts(new_product);
+        Assert.assertTrue(cafe.getProductsList().contains(new_product));
         Assert.assertEquals(1, cafe.getProductsList().size());
         cafe.removeFromProducts(new_product);
         Assert.assertFalse(cafe.getProductsList().contains(new_product));
@@ -122,6 +124,7 @@ public class CafeteriaTest
         Assert.assertTrue(cafe.getBaristasList().isEmpty());
         Barista new_barista = new Barista();
         cafe.addToBaristas(new_barista);
+        Assert.assertTrue(cafe.getBaristasList().contains(new_barista));
         Assert.assertEquals(1, cafe.getBaristasList().size());
         cafe.removeFromBaristas(new_barista);
         Assert.assertFalse(cafe.getBaristasList().contains(new_barista));
