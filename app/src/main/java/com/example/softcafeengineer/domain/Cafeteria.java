@@ -76,7 +76,9 @@ public class Cafeteria
     }
 
     public HashMap<String, List<Double>> getMonthlyRevenueMap() { return this.monthlyRevenue; }
+
     public double getTodaysRevenue() { return this.todaysRevenue; }
+
     public void increaseRevenue(double amount) {
         this.todaysRevenue += amount;
     }
