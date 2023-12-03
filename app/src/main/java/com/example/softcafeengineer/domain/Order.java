@@ -13,7 +13,7 @@ public class Order
 
     private Status status;
     private ArrayList<OrderInfo> orderList;
-    private String date;
+    private Date date;
     private double totalCost;
     private Table registered_by;
 
@@ -24,7 +24,7 @@ public class Order
         this.totalCost = 0;
     }
 
-    public Order(String date, Table table) {
+    public Order(Date date, Table table) {
         this.status = Status.WAITING;
         this.orderList = new ArrayList<OrderInfo>();
         this.date = date;
@@ -39,8 +39,8 @@ public class Order
     public void addToOrder(OrderInfo orderLine) { this.orderList.add(orderLine); }
     public void removeFromOrder(OrderInfo orderLine) { this.orderList.remove(orderLine); }
 
-    public void setDate(String date) { this.date = date; }
-    public String getDate() { return this.date; }
+    public void setDate(Date date) { this.date = date; }
+    public Date getDate() { return this.date; }
 
     public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
     public double getTotalCost() { return this.totalCost; }

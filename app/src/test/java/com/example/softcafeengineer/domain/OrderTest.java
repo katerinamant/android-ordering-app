@@ -23,11 +23,12 @@ public class OrderTest
     }
 
     @Test
-    public void set_values() {
+    public void set_values() throws Exception {
         Order order = new Order();
 
-        order.setDate("1-1-1");
-        Assert.assertEquals("1-1-1", order.getDate());
+        Date date = new Date(1, 1, 1);
+        order.setDate(date);
+        Assert.assertEquals(date, order.getDate());
         Table table = new Table();
         order.setTable(table);
         Assert.assertEquals(table, order.getTable());
@@ -40,14 +41,15 @@ public class OrderTest
     }
 
     @Test
-    public void constructor_with_args() {
+    public void constructor_with_args() throws Exception {
         Table table = new Table();
-        Order order = new Order("1-1-1", table);
+        Date date = new Date(1, 1, 1);
+        Order order = new Order(date, table);
 
         Assert.assertEquals(Order.Status.WAITING, order.getOrderStatus());
         Assert.assertTrue(order.getOrderList().isEmpty());
         Assert.assertEquals(0.0, order.getTotalCost(), 0.0);
-        Assert.assertEquals("1-1-1", order.getDate());
+        Assert.assertEquals(date, order.getDate());
         Assert.assertEquals(table, order.getTable());
     }
 
