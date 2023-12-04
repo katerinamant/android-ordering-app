@@ -4,13 +4,6 @@ import java.util.*;
 
 public class Order
 {
-    public enum Status {
-        IN_PROGRESS,
-        CANCELED,
-        WAITING,
-        COMPLETED
-    }
-
     private Status status;
     private ArrayList<OrderInfo> orderList;
     private Date date;

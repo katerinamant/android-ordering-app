@@ -7,17 +7,17 @@ public class OrderTest
 {
     @Test
     public void enum_status() {
-        Assert.assertEquals("IN_PROGRESS", Order.Status.IN_PROGRESS.name());
-        Assert.assertEquals("CANCELED", Order.Status.CANCELED.name());
-        Assert.assertEquals("WAITING", Order.Status.WAITING.name());
-        Assert.assertEquals("COMPLETED", Order.Status.COMPLETED.name());
+        Assert.assertEquals("IN_PROGRESS", Status.IN_PROGRESS.name());
+        Assert.assertEquals("CANCELED", Status.CANCELED.name());
+        Assert.assertEquals("WAITING", Status.WAITING.name());
+        Assert.assertEquals("COMPLETED", Status.COMPLETED.name());
     }
 
     @Test
     public void default_constructor(){
         Order order = new Order();
 
-        Assert.assertEquals(Order.Status.WAITING, order.getOrderStatus());
+        Assert.assertEquals(Status.WAITING, order.getOrderStatus());
         Assert.assertTrue(order.getOrderList().isEmpty());
         Assert.assertEquals(0.0, order.getTotalCost(), 0.0);
     }
@@ -33,8 +33,8 @@ public class OrderTest
         order.setTable(table);
         Assert.assertEquals(table, order.getTable());
 
-        order.setOrderStatus(Order.Status.CANCELED);
-        Assert.assertEquals(Order.Status.CANCELED, order.getOrderStatus());
+        order.setOrderStatus(Status.CANCELED);
+        Assert.assertEquals(Status.CANCELED, order.getOrderStatus());
 
         order.setTotalCost(10.0);
         Assert.assertEquals(10.0, order.getTotalCost(), 0.0);
@@ -46,7 +46,7 @@ public class OrderTest
         Date date = new Date(1, 1, 1);
         Order order = new Order(date, table);
 
-        Assert.assertEquals(Order.Status.WAITING, order.getOrderStatus());
+        Assert.assertEquals(Status.WAITING, order.getOrderStatus());
         Assert.assertTrue(order.getOrderList().isEmpty());
         Assert.assertEquals(0.0, order.getTotalCost(), 0.0);
         Assert.assertEquals(date, order.getDate());
