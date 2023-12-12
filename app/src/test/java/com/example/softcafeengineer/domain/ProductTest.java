@@ -21,7 +21,8 @@ public class ProductTest
 
     @Test
     public void constructor_with_args() {
-        Product prod = new Product(10.0, "Kafes", true);
+        ProductCategory cat = new ProductCategory("coffee", "coffee");
+        Product prod = new Product(10.0, "Kafes", true, cat);
 
         Assert.assertEquals(10.0, prod.getPrice(), 0.0);
         Assert.assertEquals("Kafes", prod.getName());

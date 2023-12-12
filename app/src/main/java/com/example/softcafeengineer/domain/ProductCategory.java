@@ -6,17 +6,13 @@ public class ProductCategory
 {
     private String name;
     private String description;
-    private ArrayList<Product> products;
 
     // Default constructor
-    public ProductCategory() {
-        this.products = new ArrayList<Product>();
-    }
+    public ProductCategory() {};
 
     public ProductCategory(String name, String description) {
         this.name = name;
         this.description = description;
-        this.products = new ArrayList<Product>();
     }
 
     public void setName(String name) { this.name = name; }
@@ -24,8 +20,4 @@ public class ProductCategory
 
     public void setDescription(String desc) { this.description = desc; }
     public String getDescription() { return this.description; }
-
-    public ArrayList<Product> getProductsList() { return this.products; }
-    public void addToProducts(Product product) { this.products.add(product); }
-    public void removeFromProducts(Product product) { this.products.remove(product); }
 }

@@ -11,5 +11,4 @@ public class Barista extends User
         super(user, pass);
     }
 
-    public Order getExecutingOrder() { return this.executingOrder; }
 }

@@ -23,4 +23,6 @@ public class OrderInfo
 
     public void setDescription(String description) { this.description = description; }
     public String getDescription() { return this.description; }
+
+    public double calculateCost() {return 1.0;} //not final
 }

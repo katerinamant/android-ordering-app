@@ -9,6 +9,7 @@ public class Order
     private Date date;
     private double totalCost;
     private Table registered_by;
+    private Barista barista;
 
     // Default constructor
     public Order() {
@@ -48,7 +49,15 @@ public class Order
         }
         this.totalCost = res;
     }
-
     public void setTable(Table table) { this.registered_by = table; }
     public Table getTable() { return this.registered_by; }
+
+    public void order_execution() { status = Status.IN_PROGRESS;}
+    public void cancelOrder() {status = Status.CANCELED; }
+    public void orderCompleted() { status = Status.COMPLETED;}
+
+    public void setBarista(Barista bar) {this.barista = bar;}
+    public Barista getBarista() {return this.barista;}
+
+
 }
