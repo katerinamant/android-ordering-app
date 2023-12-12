@@ -21,17 +21,23 @@ public class ProductTest
 
         prod.setCategory(pc);
         Assert.assertEquals(pc, prod.getCategory());
+
+        Cafeteria cafe = new Cafeteria();
+        prod.setCafe(cafe);
+        Assert.assertEquals(cafe, prod.getCafe());
     }
 
     @Test
     public void constructor_with_args() {
         ProductCategory cat = new ProductCategory("coffee", "coffee");
-        Product prod = new Product(10.0, "Kafes", true, cat);
+        Cafeteria cafe = new Cafeteria();
+        Product prod = new Product(10.0, "Kafes", true, cat, cafe);
 
         Assert.assertEquals(10.0, prod.getPrice(), 0.0);
         Assert.assertEquals("Kafes", prod.getName());
         Assert.assertTrue(prod.getAvailability());
         Assert.assertEquals(cat, prod.getCategory());
+        Assert.assertEquals(cafe, prod.getCafe());
     }
 
     @Test

@@ -6,15 +6,17 @@ public class Product
     private String name;
     private boolean availability;
     private ProductCategory category;
+    private Cafeteria cafe;
 
     // Default constructor
     public Product() { }
 
-    public Product(double price, String name, boolean availability, ProductCategory category) {
+    public Product(double price, String name, boolean availability, ProductCategory category, Cafeteria cafe) {
         this.price = price;
         this.name = name;
         this.availability = availability;
         this.category = category;
+        this.cafe = cafe;
     }
 
     public void setPrice(double price) { this.price = price; }
@@ -29,4 +31,7 @@ public class Product
 
     public void setCategory(ProductCategory category) {this.category = category;}
     public ProductCategory getCategory() {return this.category;}
+
+    public void setCafe(Cafeteria cafe) { this.cafe = cafe; }
+    public Cafeteria getCafe() { return this.cafe; }
 }

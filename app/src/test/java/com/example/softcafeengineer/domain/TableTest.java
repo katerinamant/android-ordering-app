@@ -14,13 +14,19 @@ public class TableTest
 
         table.setId(1);
         Assert.assertEquals(1, table.getId());
+
+        Cafeteria cafe = new Cafeteria();
+        table.setCafe(cafe);
+        Assert.assertEquals(cafe, table.getCafe());
     }
 
     @Test
     public void constructor_with_args() {
-        Table table = new Table(1, 1);
+        Cafeteria cafe = new Cafeteria();
+        Table table = new Table(1, 1, cafe);
 
         Assert.assertEquals(1, table.getQRCode());
         Assert.assertEquals(1, table.getId());
+        Assert.assertEquals(cafe, table.getCafe());
     }
 }

@@ -14,13 +14,19 @@ public class BaristaTest
 
         barista.setPassword("1234");
         Assert.assertEquals("1234", barista.getPassword());
+
+        Cafeteria cafe = new Cafeteria();
+        barista.setCafe(cafe);
+        Assert.assertEquals(cafe, barista.getCafe());
     }
 
     @Test
     public void constructor_with_args() {
-        Barista barista = new Barista("User", "1234");
+        Cafeteria cafe = new Cafeteria();
+        Barista barista = new Barista("User", "1234", cafe);
 
         Assert.assertEquals("User", barista.getUsername());
         Assert.assertEquals("1234", barista.getPassword());
+        Assert.assertEquals(cafe, barista.getCafe());
     }
 }
