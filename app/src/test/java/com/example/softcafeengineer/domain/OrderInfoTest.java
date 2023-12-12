@@ -6,7 +6,7 @@ import org.junit.Test;
 public class OrderInfoTest
 {
     @Test
-    public void set_values() {
+    public void set_values() throws Exception {
         OrderInfo orderInfo = new OrderInfo();
 
         orderInfo.setQuantity(2);
@@ -19,6 +19,14 @@ public class OrderInfoTest
         orderInfo.setDescription("Xoris Zaxari");
         Assert.assertEquals("Xoris Zaxari", orderInfo.getDescription());
     }
+
+    @Test(expected = InvalidInputException.class)
+    public void invalid_quantity() throws Exception {
+        OrderInfo orderInfo = new OrderInfo();
+
+        orderInfo.setQuantity(-2);
+    }
+
 
     @Test
     public void constructor_with_args() {

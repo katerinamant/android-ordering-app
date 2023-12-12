@@ -15,7 +15,13 @@ public class OrderInfo
         this.description = description;
     }
 
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setQuantity(int quantity) throws InvalidInputException {
+        if (quantity < 0) {
+            throw new InvalidInputException("Invalid quantity input!");
+        } else {
+            this.quantity = quantity;
+        }
+    }
     public int getQuantity() { return this.quantity; }
 
     public void setProduct(Product product) { this.product = product; }
@@ -24,5 +30,5 @@ public class OrderInfo
     public void setDescription(String description) { this.description = description; }
     public String getDescription() { return this.description; }
 
-    public double calculateCost() {return 1.0;} //not final
+    public double calculateCost() { return this.product.getPrice() * quantity; }
 }

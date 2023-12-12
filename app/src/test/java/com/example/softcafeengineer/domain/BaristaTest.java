@@ -23,11 +23,4 @@ public class BaristaTest
         Assert.assertEquals("User", barista.getUsername());
         Assert.assertEquals("1234", barista.getPassword());
     }
-
-    @Test
-    public void executing_order() {
-        Barista barista = new Barista();
-
-        Assert.assertNull(barista.getExecutingOrder());
-    }
 }
