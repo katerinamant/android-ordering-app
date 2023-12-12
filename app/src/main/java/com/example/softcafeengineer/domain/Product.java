@@ -26,4 +26,7 @@ public class Product
     public void setAvailability(boolean availability) { this.availability = availability; }
     public void toggleAvailability() { this.availability = !this.availability; }
     public boolean getAvailability() { return this.availability; }
+
+    public void setCategory(ProductCategory category) {this.category = category;}
+    public ProductCategory getCategory() {return this.category;}
 }

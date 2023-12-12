@@ -10,8 +10,6 @@ public class CafeteriaTest
     public void default_constructor(){
         Cafeteria cafe = new Cafeteria();
 
-        Assert.assertEquals(0.0, cafe.getTodaysRevenue(), 0.0);
-        Assert.assertTrue(cafe.getMonthlyRevenueMap().isEmpty());
         Assert.assertTrue(cafe.getTablesList().isEmpty());
         Assert.assertTrue(cafe.getProductsList().isEmpty());
         Assert.assertTrue(cafe.getBaristasList().isEmpty());
@@ -42,52 +40,11 @@ public class CafeteriaTest
         Assert.assertEquals("2108203314", cafe.getPhoneNumber());
         Assert.assertEquals("123456789", cafe.getSSN());
         Assert.assertEquals("OPA", cafe.getBrand());
-        Assert.assertEquals(0.0, cafe.getTodaysRevenue(), 0.0);
-        Assert.assertTrue(cafe.getMonthlyRevenueMap().isEmpty());
         Assert.assertTrue(cafe.getTablesList().isEmpty());
         Assert.assertTrue(cafe.getProductsList().isEmpty());
         Assert.assertTrue(cafe.getBaristasList().isEmpty());
     }
 
-    @Test
-    public void increase_revenue() {
-       Cafeteria cafe = new Cafeteria();
-
-       Assert.assertEquals(0, cafe.getTodaysRevenue(), 0.0);
-       cafe.increaseRevenue(15.0);
-       Assert.assertEquals(15.0, cafe.getTodaysRevenue(), 0.0);
-    }
-
-    @Test
-    public void revenue() throws Exception {
-        Cafeteria cafe = new Cafeteria();
-
-        cafe.increaseRevenue(15.0);
-        cafe.closeDay(3, 12, 2023); // creates December 2023 entry in HashMap
-        Assert.assertEquals(15.0, cafe.getDailyRevenue(3, 12, 2023), 0.0);
-        Assert.assertEquals(0.0, cafe.getTodaysRevenue(), 0.0); // after closing, todaysRevenue is again 0
-
-        cafe.increaseRevenue(20.0);
-        cafe.closeDay(4, 12, 2023); // December 2023 already in Hashmap
-        Assert.assertEquals(20.0, cafe.getDailyRevenue(4, 12, 2023), 0.0);
-
-        List<Double> december = cafe.getMonthlyRevenue(12, 2023);
-        Assert.assertNull(december.get(0));
-        Assert.assertEquals(15.0, december.get(3 - 1), 0.0);
-        Assert.assertEquals(20.0, december.get(4 - 1), 0.0);
-    }
-
-    @Test(expected = InvalidRevenueInputException.class)
-    public void daily_revenue_exception() throws Exception {
-        Cafeteria cafe = new Cafeteria();
-        double dec_first = cafe.getDailyRevenue(1, 12, 2023);
-    }
-
-    @Test(expected = InvalidRevenueInputException.class)
-    public void monthly_revenue_exception() throws Exception {
-        Cafeteria cafe = new Cafeteria();
-        List<Double> december = cafe.getMonthlyRevenue(12, 2023);
-    }
 
     @Test
     public void tables_list() {

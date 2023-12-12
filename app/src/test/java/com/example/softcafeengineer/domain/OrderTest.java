@@ -70,14 +70,15 @@ public class OrderTest
     @Test
     public void calculate_cost() {
         Order order = new Order();
+        ProductCategory pc = new ProductCategory();
 
-        Product prod1 = new Product(10.0, "1", true);
+        Product prod1 = new Product(10.0, "1", true, pc);
         OrderInfo order_line1 = new OrderInfo(1, prod1, "");
         order.addToOrder(order_line1);
         order.calculateCost();
         Assert.assertEquals(10.0, order.getTotalCost(), 0.0);
 
-        Product prod2 = new Product(20.0, "2", true);
+        Product prod2 = new Product(20.0, "2", true, pc);
         OrderInfo order_line2 = new OrderInfo(5, prod2, "");
         order.addToOrder(order_line2);
         order.calculateCost();

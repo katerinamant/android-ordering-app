@@ -8,6 +8,7 @@ public class ProductTest
     @Test
     public void set_values() {
         Product prod = new Product();
+        ProductCategory pc = new ProductCategory();
 
         prod.setPrice(10.0);
         Assert.assertEquals(10.0, prod.getPrice(), 0.0);
@@ -17,6 +18,9 @@ public class ProductTest
 
         prod.setAvailability(true);
         Assert.assertTrue(prod.getAvailability());
+
+        prod.setCategory(pc);
+        Assert.assertEquals(pc, prod.getCategory());
     }
 
     @Test
@@ -27,6 +31,7 @@ public class ProductTest
         Assert.assertEquals(10.0, prod.getPrice(), 0.0);
         Assert.assertEquals("Kafes", prod.getName());
         Assert.assertTrue(prod.getAvailability());
+        Assert.assertEquals(cat, prod.getCategory());
     }
 
     @Test

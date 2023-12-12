@@ -27,7 +27,7 @@
 + removeFromTables(table : Table)
 + getBaristasList(): ArrayList&lt;Barista&gt; {query}
 + addToBaristas(barista : Barista)
-+ removeFromBaristas(barista : Barista)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>318</y><w>162</w><h>126</h></coordinates><panel_attributes>Product
++ removeFromBaristas(barista : Barista)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>312</y><w>162</w><h>132</h></coordinates><panel_attributes>Product
 --
 - price : double
 - name : String
@@ -40,7 +40,8 @@
 + setAvailability(availability : boolean)
 + toggleAvailability()
 + getAvailability(): boolean {query}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>324</y><w>162</w><h>114</h></coordinates><panel_attributes>OrderInfo
++ setCategory(category : ProductCategory)
++ getCategory() : ProductCategory {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>324</y><w>162</w><h>114</h></coordinates><panel_attributes>OrderInfo
 --
 - quantity : int
 - description : String
@@ -94,9 +95,9 @@ id : int
 + setQRCode(QRCode : int)
 + getQRCode(): int {query}
 + setID(id : int)
-+ getID(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>264</y><w>24</w><h>66</h></coordinates><panel_attributes>lt=-
++ getID(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>264</y><w>24</w><h>60</h></coordinates><panel_attributes>lt=-
 m1=*
-m2=1</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>162</y><w>234</w><h>24</h></coordinates><panel_attributes>lt=-
+m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>162</y><w>234</w><h>24</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1</panel_attributes><additional_attributes>370;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>366</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=-
 m1=*
