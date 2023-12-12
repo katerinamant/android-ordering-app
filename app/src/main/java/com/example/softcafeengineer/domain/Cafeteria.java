@@ -18,7 +18,7 @@ public class Cafeteria
         this.productsList = new ArrayList<Product>();
         this.baristasList = new ArrayList<Barista>();
     }
-
+    //Constructor with arguments
     public Cafeteria(String address, String phoneNumber, String SSN, String brand) {
         this.address = address;
         this.phoneNumber = phoneNumber;
