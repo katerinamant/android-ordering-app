@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>168</x><y>600</y><w>132</w><h>84</h></coordinates><panel_attributes>User
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>168</x><y>600</y><w>132</w><h>78</h></coordinates><panel_attributes>User
 --
 - username : String
 - password : String
@@ -6,7 +6,7 @@
 + setUsername(user : String)
 + getUsername(): String {query}
 + setPassword(pass : String)
-+ getPassword(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>54</y><w>288</w><h>210</h></coordinates><panel_attributes>Cafeteria
++ getPassword(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>54</y><w>288</w><h>198</h></coordinates><panel_attributes>Cafeteria
 --
 - address : String
 - phoneNumber : String
@@ -27,7 +27,7 @@
 + removeFromTables(table : Table)
 + getBaristasList(): ArrayList&lt;Barista&gt; {query}
 + addToBaristas(barista : Barista)
-+ removeFromBaristas(barista : Barista)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>312</y><w>162</w><h>132</h></coordinates><panel_attributes>Product
++ removeFromBaristas(barista : Barista)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>300</y><w>162</w><h>138</h></coordinates><panel_attributes>Product
 --
 - price : double
 - name : String
@@ -41,7 +41,7 @@
 + toggleAvailability()
 + getAvailability(): boolean {query}
 + setCategory(category : ProductCategory)
-+ getCategory() : ProductCategory {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>324</y><w>162</w><h>114</h></coordinates><panel_attributes>OrderInfo
++ getCategory() : ProductCategory {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>324</y><w>162</w><h>96</h></coordinates><panel_attributes>OrderInfo
 --
 - quantity : int
 - description : String
@@ -68,7 +68,7 @@
 + getTotalCost(): double {query}
 + calculateCost()
 + setTable(table : Table)
-+ getTable(): Table {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>504</y><w>96</w><h>72</h></coordinates><panel_attributes>"Enumeration"
++ getTable(): Table {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>504</y><w>96</w><h>66</h></coordinates><panel_attributes>"Enumeration"
 Status
 --
 IN_PROGRESS
@@ -95,9 +95,9 @@ id : int
 + setQRCode(QRCode : int)
 + getQRCode(): int {query}
 + setID(id : int)
-+ getID(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>264</y><w>24</w><h>60</h></coordinates><panel_attributes>lt=-
++ getID(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>264</y><w>24</w><h>48</h></coordinates><panel_attributes>lt=-
 m1=*
-m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>162</y><w>234</w><h>24</h></coordinates><panel_attributes>lt=-
+m2=1</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>162</y><w>234</w><h>24</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1</panel_attributes><additional_attributes>370;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>366</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=-
 m1=*
@@ -105,10 +105,10 @@ m2=1
 is included in </panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>366</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-is included in </panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>438</y><w>66</w><h>60</h></coordinates><panel_attributes>lt=-
+is included in </panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>432</y><w>66</w><h>66</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-is included in </panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>798</x><y>360</y><w>66</w><h>30</h></coordinates><panel_attributes>lt=-
+is included in </panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>798</x><y>360</y><w>66</w><h>30</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
 is processed
@@ -121,7 +121,7 @@ m2=1
 employs </panel_attributes><additional_attributes>1150;550;1150;20;10;20;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>696</x><y>198</y><w>48</w><h>102</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-registers </panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>738</x><y>474</y><w>132</w><h>132</h></coordinates><panel_attributes>Date
+registers </panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>738</x><y>474</y><w>132</w><h>126</h></coordinates><panel_attributes>Date
 --
 - day : int
 - month : int
@@ -134,4 +134,4 @@ registers </panel_attributes><additional_attributes>10;10;10;150</additional_att
 + setYear(year : int)
 + getYear(): int {query}
 + equals(obj : Object): boolean
-+ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>84</x><y>642</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>918</x><y>270</y><w>18</w><h>96</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>696</x><y>204</y><w>18</w><h>102</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>372</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>372</y><w>84</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>438</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>162</y><w>114</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>258</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>798</x><y>366</y><w>72</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element></diagram>
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>84</x><y>642</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>918</x><y>270</y><w>18</w><h>96</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>696</x><y>204</y><w>18</w><h>102</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>372</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>372</y><w>84</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>432</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>162</y><w>114</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>246</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>798</x><y>366</y><w>72</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element></diagram>
