@@ -32,6 +32,9 @@ public class OrderTest
         Table table = new Table();
         order.setTable(table);
         Assert.assertEquals(table, order.getTable());
+        Barista barista = new Barista();
+        order.setBarista(barista);
+        Assert.assertEquals(barista, order.getBarista());
 
         order.setOrderStatus(Status.CANCELED);
         Assert.assertEquals(Status.CANCELED, order.getOrderStatus());
@@ -84,5 +87,57 @@ public class OrderTest
         order.addToOrder(order_line2);
         order.calculateCost();
         Assert.assertEquals(110.0, order.getTotalCost(), 0.0);
+    }
+
+    @Test
+    public void execute_order() throws Exception {
+        Order order = new Order();
+
+        Barista barista = new Barista();
+        order.executeOrder(barista);
+        Assert.assertEquals(Status.IN_PROGRESS, order.getOrderStatus());
+        Assert.assertEquals(barista, order.getBarista());
+    }
+
+    @Test(expected = InvalidStatusException.class)
+    public void execute_order_exception() throws Exception {
+        Order order = new Order();
+
+        order.setOrderStatus(Status.COMPLETED);
+        order.executeOrder(new Barista());
+    }
+
+    @Test
+    public void complete_order() throws Exception {
+        Order order = new Order();
+
+        Barista barista = new Barista();
+        order.executeOrder(barista);
+        order.completeOrder();
+        Assert.assertEquals(Status.COMPLETED, order.getOrderStatus());
+    }
+
+    @Test(expected = InvalidStatusException.class)
+    public void complete_order_exception() throws Exception {
+        Order order = new Order();
+
+        order.setOrderStatus(Status.COMPLETED);
+        order.completeOrder();
+    }
+
+    @Test
+    public void cancel_order() throws Exception {
+        Order order = new Order();
+
+        order.cancelOrder();
+        Assert.assertEquals(Status.CANCELED, order.getOrderStatus());
+    }
+
+    @Test(expected = InvalidStatusException.class)
+    public void cancel_order_exception() throws Exception {
+        Order order = new Order();
+
+        order.setOrderStatus(Status.COMPLETED);
+        order.cancelOrder();
     }
 }

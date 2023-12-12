@@ -51,12 +51,31 @@ public class Order
     public void setTable(Table table) { this.registered_by = table; }
     public Table getTable() { return this.registered_by; }
 
-    public void order_execution() { status = Status.IN_PROGRESS;}
-    public void cancelOrder() { status = Status.CANCELED; }
-    public void orderCompleted() { status = Status.COMPLETED;}
-
     public void setBarista(Barista bar) { this.barista = bar; }
     public Barista getBarista() { return this.barista; }
 
+    public void executeOrder(Barista barista) throws InvalidStatusException {
+        if (this.status == Status.WAITING) {
+            status = Status.IN_PROGRESS;
+            this.setBarista(barista);
+        } else {
+            throw new InvalidStatusException(String.format("Error changing order status from %s to %s.", this.status.name(), Status.IN_PROGRESS.name()));
+        }
+    }
 
+    public void completeOrder() throws InvalidStatusException {
+        if (this.status == Status.IN_PROGRESS) {
+            status = Status.COMPLETED;
+        } else {
+            throw new InvalidStatusException(String.format("Error changing order status from %s to %s.", this.status.name(), Status.COMPLETED.name()));
+        }
+    }
+
+    public void cancelOrder() throws InvalidStatusException {
+        if (this.status != Status.COMPLETED) {
+            status = Status.CANCELED;
+        } else {
+            throw new InvalidStatusException(String.format("Error changing order status from %s to %s.", this.status.name(), Status.CANCELED.name()));
+        }
+    }
 }
