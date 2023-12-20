@@ -13,6 +13,21 @@
         android:theme="@style/Theme.SoftcafeEngineer"
         tools:targetApi="31">
         <activity
+            android:name=".view.StartScreens.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartScreens.EmployeeLogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartScreens.ManagerLogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartScreens.ScanTableActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartScreens.WelcomeScreenActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
