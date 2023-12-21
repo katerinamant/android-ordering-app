@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.view.Barista.LogIn.BaristaLogInActivity;
 import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
 
 public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView
@@ -56,7 +57,7 @@ public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeS
 
     @Override
     public void employeeLogIn() {
-        Intent intent = new Intent(WelcomeScreenActivity.this, EmployeeLogInActivity.class);
+        Intent intent = new Intent(WelcomeScreenActivity.this, BaristaLogInActivity.class);
         startActivity(intent);
     }
 
