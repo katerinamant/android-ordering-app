@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6D1D1"
+    android:background="@color/background"
     tools:context=".view.StartScreens.ScanTableActivity">
 
     <TextView
@@ -17,7 +17,7 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/enter_table_info"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#49454F"
+        android:textColor="@color/text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

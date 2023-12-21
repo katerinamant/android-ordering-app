@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6D1D1"
+    android:background="@color/background"
     tools:context=".view.StartScreens.WelcomeScreenActivity">
 
     <Button
@@ -33,7 +33,7 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="#49454F"
+        android:textColor="@color/text"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:layout_marginTop="84dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/not_registered"
-        android:textColor="#49454F"
+        android:textColor="@color/text"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_1_2" />

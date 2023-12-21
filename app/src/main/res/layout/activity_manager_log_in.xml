@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6D1D1"
+    android:background="@color/background"
     tools:context=".view.StartScreens.ManagerLogInActivity">
 
     <EditText
@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
-        android:textColor="#4A4650"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_3_2" />
 
@@ -27,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:textColor="#4A4650"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_3_3" />
 
@@ -38,7 +38,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="@string/enter_username"
-        android:textColor="#4A4650"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_3_1" />
 
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="@string/enter_password"
-        android:textColor="#4A4650"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_3_1" />
 
@@ -61,7 +61,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/welcome_back"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#49454F"
+        android:textColor="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

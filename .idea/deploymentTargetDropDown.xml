@@ -6,20 +6,7 @@
         <State />
       </entry>
       <entry key="WelcomeScreenActivity">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="90191c188048" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-12-20T20:02:31.871770200Z" />
-        </State>
+        <State />
       </entry>
       <entry key="app">
         <State />
