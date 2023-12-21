@@ -10,4 +10,6 @@
     <string name="welcome_back">Welcome Back!</string>
     <string name="enter_password">Enter password:</string>
     <string name="enter_username">Enter username:</string>
+    <string name="log_in">Log In</string>
+    <string name="ok">OK</string>
 </resources>

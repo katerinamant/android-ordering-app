@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
 
 public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
