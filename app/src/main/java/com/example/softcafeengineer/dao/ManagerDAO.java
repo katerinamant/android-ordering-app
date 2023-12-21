@@ -6,8 +6,7 @@ public interface ManagerDAO
 {
     /**
      * Look up user by
-     * username and
-     * password
+     * username and password
      */
     User find(String username, String password);
 

@@ -1,15 +1,25 @@
 <resources>
     <string name="app_name">Softcafe Engineer</string>
-    <string name="sign_up_here">Sign-up here</string>
-    <string name="not_registered">Not registered?</string>
-    <string name="employee_log_in">Barista Log-In</string>
-    <string name="manager_log_in">Manager Log-In</string>
+
+    <!-- WelcomeScreen -->
     <string name="welcome">Welcome</string>
     <string name="order">Order</string>
-    <string name="enter_table_info">Enter table info:</string>
+    <string name="manager_log_in">Manager Log-In</string>
+    <string name="employee_log_in">Barista Log-In</string>
+    <string name="not_registered">Not registered?</string>
+    <string name="sign_up_here">Sign-up here</string>
+
+    <!-- ScanTable -->
+    <string name="enter_table_id">* Enter table unique id:</string>
+    <string name="submit">Submit</string>
+
+    <!-- Manager & Barista LogIn -->
     <string name="welcome_back">Welcome Back!</string>
-    <string name="enter_password">Enter password:</string>
-    <string name="enter_username">Enter username:</string>
+    <string name="please_enter_info_msg">Please enter the information provided by your management</string>
+    <string name="enter_username">* Enter username:</string>
+    <string name="enter_password">* Enter password:</string>
     <string name="log_in">Log In</string>
+
+    <!-- Alert -->
     <string name="ok">OK</string>
 </resources>

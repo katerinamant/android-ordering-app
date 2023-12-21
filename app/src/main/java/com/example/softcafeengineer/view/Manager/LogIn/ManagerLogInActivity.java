@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.view.StartScreens.ScanTableActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ManagerLogInActivity extends AppCompatActivity implements ManagerLogInView
@@ -37,7 +36,7 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
         // Login button is disabled
         login_button_enabled = false;
-        loginButton.setAlpha(.5f);
+        loginButton.setAlpha(.5f); // set opacity to seem disabled
         usernameField.addTextChangedListener(loginWatcher);
         passwordField.addTextChangedListener(loginWatcher);
 

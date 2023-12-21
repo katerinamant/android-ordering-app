@@ -3,21 +3,21 @@ package com.example.softcafeengineer.domain;
 import java.util.ArrayList;
 
 public class Table {
-    private int QRCode;
-    private int id;
+    private String QRCode; // the unique id for customers to use to submit orders
+    private int id; // the id within the cafe for the employees to recognise the table
     private Cafeteria cafe;
 
     // Default constructor
     public Table() { }
 
-    public Table(int QRCode, int id, Cafeteria cafe) {
+    public Table(String QRCode, int id, Cafeteria cafe) {
         this.QRCode = QRCode;
         this.id = id;
         this.cafe = cafe;
     }
 
-    public void setQRCode(int QRCode) { this.QRCode = QRCode; }
-    public int getQRCode() { return QRCode; }
+    public void setQRCode(String QRCode) { this.QRCode = QRCode; }
+    public String getQRCode() { return QRCode; }
 
     public void setId(int id) { this.id = id; }
     public int getId() { return id; }

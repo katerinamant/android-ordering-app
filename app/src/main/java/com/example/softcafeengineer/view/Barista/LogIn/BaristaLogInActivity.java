@@ -38,7 +38,7 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
 
         // Login button is disabled
         login_button_enabled = false;
-        loginButton.setAlpha(.5f);
+        loginButton.setAlpha(.5f); // set opacity to seem disabled
         usernameField.addTextChangedListener(loginWatcher);
         passwordField.addTextChangedListener(loginWatcher);
 

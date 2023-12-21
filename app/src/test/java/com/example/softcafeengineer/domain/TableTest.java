@@ -9,8 +9,8 @@ public class TableTest
     public void set_values() {
         Table table = new Table();
 
-        table.setQRCode(1);
-        Assert.assertEquals(1, table.getQRCode());
+        table.setQRCode("1");
+        Assert.assertEquals("1", table.getQRCode());
 
         table.setId(1);
         Assert.assertEquals(1, table.getId());
@@ -23,9 +23,9 @@ public class TableTest
     @Test
     public void constructor_with_args() {
         Cafeteria cafe = new Cafeteria();
-        Table table = new Table(1, 1, cafe);
+        Table table = new Table("1", 1, cafe);
 
-        Assert.assertEquals(1, table.getQRCode());
+        Assert.assertEquals("1", table.getQRCode());
         Assert.assertEquals(1, table.getId());
         Assert.assertEquals(cafe, table.getCafe());
     }

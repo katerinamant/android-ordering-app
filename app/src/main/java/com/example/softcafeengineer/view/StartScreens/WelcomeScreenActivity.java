@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.view.Barista.LogIn.BaristaLogInActivity;
 import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
+import com.example.softcafeengineer.view.Order.ScanTable.ScanTableActivity;
 
 public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView
 {
