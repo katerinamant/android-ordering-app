@@ -14,6 +14,10 @@ public class UserTest
 
         user.setPassword("1234");
         Assert.assertEquals("1234", user.getPassword());
+
+        Cafeteria cafe = new Cafeteria();
+        user.setCafe(cafe);
+        Assert.assertEquals(cafe, user.getCafe());
     }
 
     @Test

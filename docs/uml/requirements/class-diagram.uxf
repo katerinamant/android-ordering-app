@@ -8,7 +8,7 @@
       <x>266</x>
       <y>742</y>
       <w>154</w>
-      <h>91</h>
+      <h>119</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -18,7 +18,9 @@
 + setUsername(user : String)
 + getUsername(): String {query}
 + setPassword(pass : String)
-+ getPassword(): String {query}</panel_attributes>
++ getPassword(): String {query}
++ setCafe(cafe : Cafeteria)
++ getCafe(): Cafeteria {query}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -176,8 +178,7 @@ COMPLETED</panel_attributes>
 --
 
 --
-+ setCafe(cafe : Cafeteria)
-+ getCafe(): Cafeteria {query}
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -298,6 +299,7 @@ is processed
     <panel_attributes>lt=-
 m1=1
 m2=1
+managed by
 </panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0;20.0;870.0;200.0;870.0</additional_attributes>
   </element>

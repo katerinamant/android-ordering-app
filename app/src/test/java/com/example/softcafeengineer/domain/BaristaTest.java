@@ -23,10 +23,9 @@ public class BaristaTest
     @Test
     public void constructor_with_args() {
         Cafeteria cafe = new Cafeteria();
-        Barista barista = new Barista("User", "1234", cafe);
+        Barista barista = new Barista("User", "1234");
 
         Assert.assertEquals("User", barista.getUsername());
         Assert.assertEquals("1234", barista.getPassword());
-        Assert.assertEquals(cafe, barista.getCafe());
     }
 }
