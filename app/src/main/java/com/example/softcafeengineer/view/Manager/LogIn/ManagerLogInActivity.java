@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.StartScreens.ScanTableActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
@@ -21,13 +22,14 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
     private EditText usernameField, passwordField;
     private Button loginButton;
     private boolean login_button_enabled;
+    private String username, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_log_in);
 
-        final ManagerLogInPresenter presenter = new ManagerLogInPresenter(this);
+        final ManagerLogInPresenter presenter = new ManagerLogInPresenter(this, new ManagerDAOMemory());
 
         usernameField = findViewById(R.id.edit_txt_3_1);
         passwordField = findViewById(R.id.edit_txt_3_2);
@@ -41,7 +43,7 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onLogin(login_button_enabled); }
+            public void onClick(View view) { presenter.onLogin(login_button_enabled, username, password); }
         });
     }
 
@@ -52,8 +54,8 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String username = usernameField.getText().toString();
-            String password = passwordField.getText().toString();
+            username = usernameField.getText().toString();
+            password = passwordField.getText().toString();
             if(!username.isEmpty() && !password.isEmpty()) {
                 loginButton.setAlpha(1.0f);
                 login_button_enabled = true;

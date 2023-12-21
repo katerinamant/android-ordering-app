@@ -2,21 +2,29 @@ package com.example.softcafeengineer.view.Manager.LogIn;
 
 import android.util.Log;
 
+import com.example.softcafeengineer.dao.ManagerDAO;
+import com.example.softcafeengineer.domain.User;
+
 public class ManagerLogInPresenter
 {
     private ManagerLogInView view;
+    private ManagerDAO users;
 
-    public ManagerLogInPresenter(ManagerLogInView view) { this.view = view; }
+    public ManagerLogInPresenter(ManagerLogInView view, ManagerDAO users) {
+        this.view = view;
+        this.users = users;
+    }
 
-    void onLogin(boolean login_button_enabled) {
+    void onLogin(boolean login_button_enabled, String username, String password) {
         if(!login_button_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill the required fields.");
         }
         else {
             // Look up credentials
-            boolean found = false; //placeholder for DAO
-            if(found) {
+            User result = users.find(username, password);
+
+            if(result != null) {
                 // Correct credentials, change Activity
                 view.successfulLogIn();
             } else {
