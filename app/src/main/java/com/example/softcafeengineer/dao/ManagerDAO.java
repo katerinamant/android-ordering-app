@@ -13,7 +13,6 @@ public interface ManagerDAO
 
     /**
      * Save new user
-     * or updated user
      */
     boolean save(User user);
 

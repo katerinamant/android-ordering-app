@@ -10,8 +10,7 @@ public class ManagerDAOMemory implements ManagerDAO
 {
     protected static List<User> users = new ArrayList<User>();
 
-    public ManagerDAOMemory() { users.add(new User("katerina", "123")); }
-
+    @Override
     public User find(String username, String password) {
         for(User u : users) {
             if(u.getUsername().equalsIgnoreCase(username)) {
@@ -28,6 +27,7 @@ public class ManagerDAOMemory implements ManagerDAO
         return null;
     }
 
+    @Override
     public boolean save(User user) {
         if(users.contains(user)) return false;
 
@@ -43,6 +43,7 @@ public class ManagerDAOMemory implements ManagerDAO
         return true;
     }
 
+    @Override
     public void delete(User user) {
         users.remove(user);
     }
