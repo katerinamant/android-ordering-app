@@ -20,25 +20,25 @@ public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeS
 
         final WelcomeScreenPresenter presenter = new WelcomeScreenPresenter(this);
 
-        findViewById(R.id.btn_1_1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_order).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 presenter.onOrder();
             }
         });
 
-        findViewById(R.id.btn_1_2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_manager_login).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 presenter.onManagerLogIn();
             }
         });
 
-        findViewById(R.id.btn_1_3).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_barista_login).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 presenter.onEmployeeLogIn();
             }
         });
 
-        findViewById(R.id.btn_1_4).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_wlcm_sing_up).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 presenter.onSignUp();
             }

@@ -8,7 +8,7 @@
     tools:context=".view.Barista.LogIn.BaristaLogInActivity">
 
     <TextView
-        android:id="@+id/txt_view_4_1"
+        android:id="@+id/txt_welcome_brst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -32,10 +32,10 @@
         android:textColor="@color/text"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_4_1" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_welcome_brst" />
 
     <TextView
-        android:id="@+id/txt_view_4_3"
+        android:id="@+id/txt_brst_enter_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_view_4_2" />
 
     <EditText
-        android:id="@+id/edit_txt_4_1"
+        android:id="@+id/edit_txt_brst_username_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -56,10 +56,10 @@
         android:inputType="textFilter"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_4_3" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_brst_enter_username" />
 
     <TextView
-        android:id="@+id/txt_view_4_4"
+        android:id="@+id/txt_brst_enter_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -67,10 +67,10 @@
         android:text="@string/enter_password"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_4_1" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_brst_username_login" />
 
     <EditText
-        android:id="@+id/edit_txt_4_2"
+        android:id="@+id/edit_txt_brst_password_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -79,10 +79,10 @@
         android:inputType="textPassword"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_4_4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_brst_enter_password" />
 
     <Button
-        android:id="@+id/btn_4_1"
+        android:id="@+id/btn_brst_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -91,5 +91,5 @@
         android:text="@string/log_in"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_4_2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_brst_password_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

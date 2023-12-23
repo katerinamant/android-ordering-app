@@ -8,7 +8,7 @@
     tools:context=".view.Manager.LogIn.ManagerLogInActivity">
 
     <EditText
-        android:id="@+id/edit_txt_3_1"
+        android:id="@+id/edit_txt_mngr_username_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,10 +18,10 @@
         android:inputType="textFilter"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_3_2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_mngr_enter_username" />
 
     <EditText
-        android:id="@+id/edit_txt_3_2"
+        android:id="@+id/edit_txt_mngr_password_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,10 +30,10 @@
         android:inputType="textPassword"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_3_3" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_mngr_enter_password" />
 
     <TextView
-        android:id="@+id/txt_view_3_2"
+        android:id="@+id/txt_mngr_enter_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,10 +41,10 @@
         android:text="@string/enter_username"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_view_3_1" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_welcome_mngr" />
 
     <TextView
-        android:id="@+id/txt_view_3_3"
+        android:id="@+id/txt_mngr_enter_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -52,10 +52,10 @@
         android:text="@string/enter_password"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_3_1" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_username_login" />
 
     <TextView
-        android:id="@+id/txt_view_3_1"
+        android:id="@+id/txt_welcome_mngr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_3_1"
+        android:id="@+id/btn_mngr_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -77,6 +77,6 @@
         android:text="@string/log_in"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_3_2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_password_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

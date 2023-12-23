@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
+import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
+
 
 public class ManagerLogInActivity extends AppCompatActivity implements ManagerLogInView
 {
@@ -30,9 +31,9 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
         final ManagerLogInPresenter presenter = new ManagerLogInPresenter(this, new ManagerDAOMemory());
 
-        usernameField = findViewById(R.id.edit_txt_3_1);
-        passwordField = findViewById(R.id.edit_txt_3_2);
-        loginButton = findViewById(R.id.btn_3_1);
+        usernameField = findViewById(R.id.edit_txt_mngr_username_login);
+        passwordField = findViewById(R.id.edit_txt_mngr_password_login);
+        loginButton = findViewById(R.id.btn_mngr_login);
 
         // Login button is disabled
         login_button_enabled = false;
@@ -71,7 +72,7 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
     @Override
     public void successfulLogIn() {
-        Intent intent = new Intent(ManagerLogInActivity.this, WelcomeScreenActivity.class); //placeholder for ManagerPortalActivity
+        Intent intent = new Intent(ManagerLogInActivity.this, ManagerActionsActivity.class);
         startActivity(intent);
     }
 

@@ -25,6 +25,9 @@
             android:name=".view.Order.ScanTable.ScanTableActivity"
             android:exported="true" />
         <activity
+            android:name=".view.Manager.Actions.ManagerActionsActivity"
+            android:exported="true"/>
+        <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
             android:exported="true">
             <intent-filter>

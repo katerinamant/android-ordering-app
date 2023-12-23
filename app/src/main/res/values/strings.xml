@@ -1,24 +1,32 @@
 <resources>
+    <!-- Universal-->
     <string name="app_name">Softcafe Engineer</string>
+    <string name="welcome_back">Welcome Back!</string>
 
     <!-- WelcomeScreen -->
-    <string name="welcome">Welcome</string>
-    <string name="order">Order</string>
-    <string name="manager_log_in">Manager Log-In</string>
-    <string name="employee_log_in">Barista Log-In</string>
-    <string name="not_registered">Not registered?</string>
-    <string name="sign_up_here">Sign-up here</string>
+    <string name="welcome">Welcome👋</string>
+    <string name="order">Order🗒️</string>
+    <string name="manager_log_in">Manager Log-In👨‍💼</string>
+    <string name="employee_log_in">Barista Log-In👨‍🍳</string>
+    <string name="not_registered">Not registered?🤨</string>
+    <string name="sign_up_here">Sign-up here🤭</string>
 
     <!-- ScanTable -->
     <string name="enter_table_id">* Enter table unique id:</string>
     <string name="submit">Submit</string>
 
     <!-- Manager & Barista LogIn -->
-    <string name="welcome_back">Welcome Back!</string>
-    <string name="please_enter_info_msg">Please enter the information provided by your management</string>
+    <string name="please_enter_info_msg">Please enter the information provided by your management🤫</string>
     <string name="enter_username">* Enter username:</string>
     <string name="enter_password">* Enter password:</string>
     <string name="log_in">Log In</string>
+
+    <!-- Manager Actions -->
+    <string name="edit_Cinfo">Edit cafeteria\'s info☕</string>
+    <string name="manage_employees">Manage employees🕺</string>
+    <string name="manage_tables">Manage tables🪑</string>
+    <string name="edit_menu">Edit menu🍽</string>
+    <string name="show_revenue">Revenue breakdown🤑</string>
 
     <!-- Alert -->
     <string name="ok">OK</string>

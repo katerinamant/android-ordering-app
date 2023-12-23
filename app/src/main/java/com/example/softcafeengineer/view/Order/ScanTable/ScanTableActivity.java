@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
-import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ScanTableActivity extends AppCompatActivity implements ScanTableView
@@ -32,8 +30,8 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
 
         final ScanTablePresenter presenter = new ScanTablePresenter(this, new TableDAOMemory());
 
-        idField = findViewById(R.id.edit_txt_2_1);
-        submitButton = findViewById(R.id.btn_2_1);
+        idField = findViewById(R.id.edit_txt_table_id);
+        submitButton = findViewById(R.id.btn_submit_table_id);
 
         // Submit button is disabled
         submit_button_enabled = false;

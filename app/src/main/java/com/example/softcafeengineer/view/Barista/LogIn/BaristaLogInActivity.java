@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Barista.LogIn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +15,6 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
-import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
-import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInPresenter;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class BaristaLogInActivity extends AppCompatActivity implements BaristaLogInView
@@ -25,6 +24,7 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
     private boolean login_button_enabled;
     private String username, password;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +32,9 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
 
         final BaristaLogInPresenter presenter = new BaristaLogInPresenter(this, new BaristaDAOMemory());
 
-        usernameField = findViewById(R.id.edit_txt_4_1);
-        passwordField = findViewById(R.id.edit_txt_4_2);
-        loginButton = findViewById(R.id.btn_4_1);
+        usernameField = findViewById(R.id.edit_txt_brst_username_login);
+        passwordField = findViewById(R.id.edit_txt_brst_password_login);
+        loginButton = findViewById(R.id.btn_brst_login);
 
         // Login button is disabled
         login_button_enabled = false;
