@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.view.Barista.LogIn.BaristaLogInActivity;
 import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
+import com.example.softcafeengineer.view.Manager.SignUp.ManagerSignUpActivity;
 import com.example.softcafeengineer.view.Order.ScanTable.ScanTableActivity;
 
 public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView
@@ -64,7 +65,7 @@ public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeS
 
     @Override
     public void signUp() {
-        Intent intent = new Intent(WelcomeScreenActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(WelcomeScreenActivity.this, ManagerSignUpActivity.class);
         startActivity(intent);
     }
 }
