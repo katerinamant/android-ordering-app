@@ -13,10 +13,13 @@
         android:theme="@style/Theme.SoftcafeEngineer"
         tools:targetApi="31">
         <activity
+            android:name=".view.Manager.SignUp.ManagerSignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.Barista.LogIn.BaristaLogInActivity"
             android:exported="false" />
         <activity
-            android:name=".view.StartScreens.SignUpActivity"
+            android:name=".view.Manager.SignUp.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".view.Manager.LogIn.ManagerLogInActivity"
