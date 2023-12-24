@@ -22,10 +22,20 @@ public class ManagerSignUpPresenter
         }
         else
         {
-            User newUser = new User(username, password);
-            if (!users.save(newUser))
+            // If the username is not being used
+            if (!users.exists(username) ) {
+                if (password.matches("\\w+") && password.length() < 8) {
+                    User newUser = new User(username, password);
+                    view.Continue();
+                }
+                else
+                {
+                    view.showToast("Your password must be more than 8 latin characters with no gaps");
+                }
+            }
+            else
             {
-              view.showToast("This username is already in use. Please choose a different one");
+                view.showToast("This username is already in use");
             }
         }
     }

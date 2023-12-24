@@ -11,6 +11,12 @@ public interface ManagerDAO
     User find(String username, String password);
 
     /**
+     * Check to see if
+     * username is already in use
+     */
+    boolean exists(String username);
+
+    /**
      * Save new user
      */
     boolean save(User user);

@@ -27,6 +27,17 @@ public class ManagerDAOMemory implements ManagerDAO
         return null;
     }
 
+    public boolean exists(String username) {
+      for (User u : users)
+      {
+          if (u.getUsername().equalsIgnoreCase(username))
+          {
+            return true;
+          }
+      }
+      return false;
+    }
+
     @Override
     public boolean save(User user) {
         if(users.contains(user)) return false;

@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
+import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
 import com.example.softcafeengineer.view.Manager.SignUp.ManagerSignUpActivity;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
@@ -19,8 +20,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 {
     private EditText addressField, phoneNumberField, ssnField, brandField;
     private Button finishButton;
-    private String address, brand;
-    private int phoneNumber, ssn;
+    private String username, password, address, phoneNumber, ssn, brand;
     private boolean finish_enabled;
 
     @Override
@@ -30,6 +30,9 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory());
 
+        Intent intent = getIntent();
+        username = intent.getStringExtra("name");
+        password = intent.getStringExtra("password");
         finish_enabled = false;
 
         addressField = findViewById(R.id.edit_txt_mngr_address_infoinput);
@@ -40,7 +43,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {presenter.onFinish(finish_enabled, address, phoneNumber, ssn, brand);};
+            public void onClick(View view) {presenter.onFinish(finish_enabled, username, password, address, phoneNumber, ssn, brand);};
         });
     }
 
@@ -54,6 +57,6 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
     @Override
     public void showToast(String msg)
     {
-
+        Toast.makeText(InfoInputActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 }

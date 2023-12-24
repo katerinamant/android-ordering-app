@@ -35,10 +35,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="@string/enter_username"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="157dp" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_signup_welcome"
+        tools:layout_editor_absoluteX="35dp" />
 
     <EditText
         android:id="@+id/edit_txt_mngr_password_signup"
