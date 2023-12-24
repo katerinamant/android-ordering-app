@@ -11,8 +11,6 @@ import android.view.View;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
-import com.example.softcafeengineer.view.Manager.SignUp.ManagerSignUpActivity;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 
@@ -35,10 +33,10 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
         password = intent.getStringExtra("password");
         finish_enabled = false;
 
-        addressField = findViewById(R.id.edit_txt_mngr_address_infoinput);
-        phoneNumberField = findViewById(R.id.edit_txt_mngr_phoneNumber_infoinput);
-        ssnField = findViewById(R.id.edit_txt_mngr_ssn_infoinput);
-        brandField = findViewById(R.id.edit_txt_mngr_brand_infoinput);
+        addressField = findViewById(R.id.edit_txt_mngr_adress_info);
+        phoneNumberField = findViewById(R.id.edit_txt_mngr_phone_info);
+        ssnField = findViewById(R.id.edit_txt_mngr_ssn_info);
+        brandField = findViewById(R.id.edit_txt_mngr_brand_info);
         finishButton = findViewById(R.id.edit_txt_mngr_finish_infoinput);
 
         finishButton.setOnClickListener(new View.OnClickListener() {

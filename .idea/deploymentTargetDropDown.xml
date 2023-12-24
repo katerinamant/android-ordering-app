@@ -5,13 +5,16 @@
       <entry key="BaristaLogInActivity">
         <State />
       </entry>
+      <entry key="InfoInputActivity">
+        <State />
+      </entry>
       <entry key="ManagerLogInActivity">
         <State />
       </entry>
-      <entry key="ScanTableActivity">
+      <entry key="ManagerSignUpActivity">
         <State />
       </entry>
-      <entry key="WelcomeScreenActivity">
+      <entry key="ScanTableActivity">
         <State />
       </entry>
       <entry key="app">

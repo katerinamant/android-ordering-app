@@ -18,7 +18,7 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/manager_log_in"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_barista_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_order" />
@@ -68,7 +68,7 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/employee_log_in"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_order" />
 
@@ -76,7 +76,7 @@
         android:id="@+id/txt_not_registered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="84dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/not_registered"
@@ -91,11 +91,13 @@
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="70dp"
+        android:layout_marginEnd="37dp"
         android:backgroundTint="@color/light_button"
         android:fontFamily="sans-serif-medium"
         android:text="@string/sign_up_here"
         android:textColor="@color/white"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_not_registered"
         app:layout_constraintTop_toBottomOf="@+id/btn_barista_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,12 +14,9 @@
         tools:targetApi="31">
         <activity
             android:name=".view.Manager.SignUp.ManagerSignUpActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.Barista.LogIn.BaristaLogInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.Manager.SignUp.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".view.Manager.LogIn.ManagerLogInActivity"
@@ -30,6 +27,9 @@
         <activity
             android:name=".view.Manager.Actions.ManagerActionsActivity"
             android:exported="true"/>
+        <activity
+            android:name=".view.Manager.InfoInput.InfoInputActivity"
+            android:exported="true" />
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
             android:exported="true">

@@ -7,44 +7,52 @@
     android:background="@color/background">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_manager_info_enter_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="28dp"
         android:text="@string/Address"
+        android:textColor="@color/text"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_header"
-        tools:layout_editor_absoluteX="31dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_header" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_manager_info_enter_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/Phone_Number"
+        android:textColor="@color/text"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_address_infoinput"
-        tools:layout_editor_absoluteX="31dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_adress_info" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/txt_manager_info_enter_ssn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/SSN"
+        android:textColor="@color/text"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_phoneNumber_infoinput"
-        tools:layout_editor_absoluteX="31dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_phone_info" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/txt_manager_info_enter_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/Brand"
+        android:textColor="@color/text"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_ssn_infoinput"
-        tools:layout_editor_absoluteX="31dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_ssn_info" />
 
     <TextView
         android:id="@+id/txt_manager_info_header"
@@ -62,44 +70,52 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_address_infoinput"
+        android:id="@+id/edit_txt_mngr_adress_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="31dp" />
+        android:textColor="@color/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_address" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_phoneNumber_infoinput"
+        android:id="@+id/edit_txt_mngr_phone_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="31dp" />
+        android:textColor="@color/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_phone" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_ssn_infoinput"
+        android:id="@+id/edit_txt_mngr_ssn_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="31dp" />
+        android:textColor="@color/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_ssn" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_brand_infoinput"
+        android:id="@+id/edit_txt_mngr_brand_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:layout_editor_absoluteX="29dp" />
+        android:textColor="@color/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_brand" />
 
     <Button
         android:id="@+id/edit_txt_mngr_finish_infoinput"
@@ -109,7 +125,9 @@
         android:layout_marginEnd="100dp"
         android:backgroundTint="@color/dark_button"
         android:text="Finish"
+        android:textColor="@color/white"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_brand_infoinput" />
+        app:layout_constraintStart_toEndOf="@+id/edit_txt_mngr_brand_info"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_brand_info" />
 </androidx.constraintlayout.widget.ConstraintLayout>
