@@ -6,4 +6,5 @@ import androidx.lifecycle.ViewModel;
 public interface ManagerSignUpView
   {
     void showToast(String msg);
+    void Continue();
 }

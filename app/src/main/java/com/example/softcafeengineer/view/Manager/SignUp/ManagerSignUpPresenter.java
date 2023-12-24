@@ -3,7 +3,8 @@ package com.example.softcafeengineer.view.Manager.SignUp;
 import com.example.softcafeengineer.dao.ManagerDAO;
 import com.example.softcafeengineer.domain.User;
 
-public class ManagerSignUpPresenter {
+public class ManagerSignUpPresenter
+{
     private ManagerSignUpView view;
     private ManagerDAO users;
 
