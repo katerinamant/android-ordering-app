@@ -24,7 +24,7 @@ public class ManagerSignUpPresenter
                 if(password.length() >= 8) {
                     User newUser = new User(username, password);
                     users.save(newUser);
-                    view.successfulContinue();
+                    view.successfulContinue(newUser);
                 }
                 else {
                     view.showToast("Your password must have a minimum length of 8 characters.");

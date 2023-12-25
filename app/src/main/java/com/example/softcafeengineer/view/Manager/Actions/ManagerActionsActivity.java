@@ -16,6 +16,7 @@ import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 public class ManagerActionsActivity extends AppCompatActivity implements ManagerActionsView
 {
     private TextView header;
+    private String brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,8 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
         header = findViewById(R.id.txt_manager_activity_header);
         // Get cafe brand from previous Activity
         Intent intent = getIntent();
-        header.setText(String.format("Welcome back, %s!", intent.getStringExtra("cafe_brand")));
+        brand = intent.getStringExtra("cafe_brand");
+        header.setText(String.format("Welcome back, %s!", brand));
 
         findViewById(R.id.btn_edit_Cinfo).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

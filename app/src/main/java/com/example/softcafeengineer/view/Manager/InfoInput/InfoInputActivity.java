@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.domain.User;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
@@ -32,10 +33,11 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory(), new CafeteriaDAOMemory());
 
-        // Get username and password from ManagerSignUpActivity
+        // Get user from ManagerSignUpActivity
         Intent intent = getIntent();
-        username = intent.getStringExtra("name");
-        password = intent.getStringExtra("password");
+        User user = (User) intent.getParcelableExtra("user");
+        username = user.getUsername();
+        password = user.getPassword();
 
         addressField = findViewById(R.id.edit_txt_mngr_adress_info);
         phoneNumberField = findViewById(R.id.edit_txt_mngr_phone_info);

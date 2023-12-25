@@ -4,6 +4,7 @@ import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.ManagerDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.User;
+
 public class InfoInputPresenter
 {
     private InfoInputView view;

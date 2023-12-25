@@ -1,5 +1,7 @@
 package com.example.softcafeengineer.view.Manager.SignUp;
 
+import com.example.softcafeengineer.domain.User;
+
 //
 public interface ManagerSignUpView
 {
@@ -8,7 +10,7 @@ public interface ManagerSignUpView
     * with valid credentials
     * they are redirected to the InfoInputActivity
     */
-    void successfulContinue();
+    void successfulContinue(User newUser);
 
     void showToast(String msg);
 }

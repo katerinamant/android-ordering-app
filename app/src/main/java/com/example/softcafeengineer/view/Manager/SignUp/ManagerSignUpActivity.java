@@ -3,6 +3,7 @@ package com.example.softcafeengineer.view.Manager.SignUp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.view.View;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.User;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory ;
 import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputActivity;
 
@@ -68,10 +70,9 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
     };
 
     @Override
-    public void successfulContinue() {
+    public void successfulContinue(User newUser) {
         Intent intent = new Intent(ManagerSignUpActivity.this, InfoInputActivity.class);
-        intent.putExtra("username", username);
-        intent.putExtra("password", password);
+        intent.putExtra("user", (Parcelable) newUser);
         startActivity(intent);
     }
 
