@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
+        android:digits='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^*(),.\/;'
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@color/text"
@@ -64,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/text"
@@ -74,13 +76,27 @@
         android:id="@+id/edit_txt_mngr_continue_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:backgroundTint="@color/dark_button"
-        android:text="Continue"
+        android:text="@string/continue_btn"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/edit_txt_mngr_password_signup"
+        app:layout_constraintTop_toBottomOf="@id/txt_manager_signup_password_info" />
+
+    <TextView
+        android:id="@+id/txt_manager_signup_password_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/password_info"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_password_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

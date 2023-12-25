@@ -23,13 +23,14 @@
             android:exported="false" />
         <activity
             android:name=".view.Order.ScanTable.ScanTableActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.Manager.Actions.ManagerActionsActivity"
             android:exported="true"/>
         <activity
             android:name=".view.Manager.InfoInput.InfoInputActivity"
             android:exported="true" />
+        <!-- Main Activity -->
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
             android:exported="true">

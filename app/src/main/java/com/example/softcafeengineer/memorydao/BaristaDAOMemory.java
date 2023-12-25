@@ -3,6 +3,7 @@ package com.example.softcafeengineer.memorydao;
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,20 +29,18 @@ public class BaristaDAOMemory implements BaristaDAO
         return null;
     }
 
-    @Override
-    public boolean save(Barista barista) {
-        if(baristas.contains(barista)) return false;
-
-        // Barista is not in list
-        // Each barista must have a unique username
-        for(Barista b : baristas) {
-            if(b.getUsername().equalsIgnoreCase(barista.getUsername())) {
-                // Cannot add barista due to username conflict
-                return false;
-            }
+    public boolean exists(String username) {
+        for (Barista b : baristas) {
+            if (b.getUsername().equalsIgnoreCase(username)) return true;
         }
+        return false;
+    }
+
+    @Override
+    public void save(Barista barista) {
+        // No need to check if username is in use
+        // As long as we use the exists method first
         baristas.add(barista);
-        return true;
     }
 
     @Override

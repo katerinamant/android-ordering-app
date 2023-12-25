@@ -20,6 +20,8 @@
     <string name="enter_username">* Enter username:</string>
     <string name="enter_password">* Enter password:</string>
     <string name="log_in">Log In</string>
+    <string name="continue_btn">Continue</string>
+    <string name="password_info">Use at least 8 characters.\nValid characters include:\n\u2022 Upper and lower case latin characters\n\u2022 Numbers\n\u2022 Symbols [ !@#$%^*(),.\/; ]</string>
 
     <!-- Manager Actions -->
     <string name="edit_Cinfo">Edit cafeteria\'s info ☕</string>

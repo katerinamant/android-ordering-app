@@ -11,9 +11,15 @@ public interface BaristaDAO
     Barista find(String username, String password);
 
     /**
+     * Check to see if
+     * username is already in use (ignore case)
+     */
+    boolean exists(String username);
+
+    /**
      * Save new barista
      */
-    boolean save(Barista barista);
+    void save(Barista barista);
 
     /**
      * Delete barista

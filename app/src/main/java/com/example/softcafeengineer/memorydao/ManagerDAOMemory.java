@@ -28,30 +28,17 @@ public class ManagerDAOMemory implements ManagerDAO
     }
 
     public boolean exists(String username) {
-      for (User u : users)
-      {
-          if (u.getUsername().equalsIgnoreCase(username))
-          {
-            return true;
-          }
+      for (User u : users) {
+          if (u.getUsername().equalsIgnoreCase(username)) return true;
       }
       return false;
     }
 
     @Override
-    public boolean save(User user) {
-        if(users.contains(user)) return false;
-
-        // User is not in list
-        // Each user must have a unique username
-        for(User u : users) {
-            if(u.getUsername().equalsIgnoreCase(user.getUsername())) {
-                // Cannot add user due to username conflict
-                return false;
-            }
-        }
+    public void save(User user) {
+        // No need to check if username is in use
+        // As long as we use the exists method first
         users.add(user);
-        return true;
     }
 
     @Override

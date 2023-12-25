@@ -13,15 +13,13 @@ import android.view.View;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory ;
-import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputActivity;
 
 public class ManagerSignUpActivity extends AppCompatActivity implements ManagerSignUpView
 {
-    private ManagerSignUpView viewModel;
-    private Button continueButton;
-    private boolean signUp_enabled;
     private EditText usernameField, passwordField;
+    private Button continueButton;
+    private boolean continue_button_enabled;
     private String username, password;
 
     @Override
@@ -31,14 +29,19 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
 
         final ManagerSignUpPresenter presenter = new ManagerSignUpPresenter(this, new ManagerDAOMemory());
 
-        signUp_enabled = false;
         usernameField = findViewById(R.id.edit_txt_mngr_username_signup);
         passwordField = findViewById(R.id.edit_txt_mngr_password_signup);
         continueButton = findViewById(R.id.edit_txt_mngr_continue_signup);
 
+        // Continue button is disabled
+        continue_button_enabled = false;
+        continueButton.setAlpha(.5f); // set opacity to seem disabled
+        usernameField.addTextChangedListener(signUpWatcher);
+        passwordField.addTextChangedListener(signUpWatcher);
+
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {presenter.onContinue(signUp_enabled, username, password); signUp_enabled = false;}
+            public void onClick(View view) { presenter.onContinue(continue_button_enabled, username, password); }
         });
     }
 
@@ -52,10 +55,10 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
             password = passwordField.getText().toString();
             if(!username.isEmpty() && !password.isEmpty()) {
                 continueButton.setAlpha(1.0f);
-                signUp_enabled = true;
+                continue_button_enabled = true;
             } else {
                 continueButton.setAlpha(.5f);
-                signUp_enabled = false;
+                continue_button_enabled = false;
             }
         }
 
@@ -65,17 +68,16 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
     };
 
     @Override
-    public void showToast(String msg)
-    {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void Continue()
-    {
+    public void successfulContinue() {
         Intent intent = new Intent(ManagerSignUpActivity.this, InfoInputActivity.class);
         intent.putExtra("username", username);
         intent.putExtra("password", password);
         startActivity(intent);
+    }
+
+    @Override
+    public void showToast(String msg)
+    {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }

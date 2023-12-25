@@ -12,14 +12,14 @@ public interface ManagerDAO
 
     /**
      * Check to see if
-     * username is already in use
+     * username is already in use (ignore case)
      */
     boolean exists(String username);
 
     /**
      * Save new user
      */
-    boolean save(User user);
+    void save(User user);
 
     /**
      * Delete user
