@@ -39,4 +39,8 @@
     <string name="Phone_Number">* Enter phone number</string>
     <string name="SSN">* Enter SSN</string>
     <string name="Brand">* Enter brand name</string>
+
+    <!-- Revenue -->
+    <string name="Month_Title">💵 Monthly total:</string>
+    <string name="No_records">no records</string>
 </resources>

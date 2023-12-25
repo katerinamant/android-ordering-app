@@ -13,8 +13,11 @@
         android:theme="@style/Theme.SoftcafeEngineer"
         tools:targetApi="31">
         <activity
-            android:name=".view.Manager.SignUp.ManagerSignUpActivity"
+            android:name=".view.Manager.Revenue.ManagerRevenueActivity"
             android:exported="true" />
+        <activity
+            android:name=".view.Manager.SignUp.ManagerSignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".view.Barista.LogIn.BaristaLogInActivity"
             android:exported="false" />
@@ -26,11 +29,10 @@
             android:exported="false" />
         <activity
             android:name=".view.Manager.Actions.ManagerActionsActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.Manager.InfoInput.InfoInputActivity"
-            android:exported="true" />
-        <!-- Main Activity -->
+            android:exported="true" /> <!-- Main Activity -->
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
             android:exported="true">

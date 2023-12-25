@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
+import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ManagerActionsActivity extends AppCompatActivity implements ManagerActionsView
@@ -88,7 +89,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void revenue_breakdown(){
-        Intent intent = new Intent(ManagerActionsActivity.this, WelcomeScreenActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, ManagerRevenueActivity.class);
         startActivity(intent);
     }
 }
