@@ -11,14 +11,14 @@
         android:id="@+id/btn_edit_Cinfo"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/edit_Cinfo"
         android:textColor="@color/white"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_activity_header" />
 
     <Button
         android:id="@+id/btn_manage_employees"
@@ -54,6 +54,7 @@
         android:layout_marginTop="55dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/edit_menu"
+        android:textColor="@color/white"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -67,20 +68,23 @@
         android:layout_marginTop="55dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/show_revenue"
+        android:textColor="@color/white"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_edit_menu" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="278dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="70dp"
+        android:id="@+id/txt_manager_activity_header"
+        android:layout_width="287dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="@string/welcome_back"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="32dp"
+        android:textColor="@color/text"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

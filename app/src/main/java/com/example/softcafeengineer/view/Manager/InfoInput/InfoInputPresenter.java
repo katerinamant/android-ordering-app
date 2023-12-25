@@ -37,7 +37,7 @@ public class InfoInputPresenter
                 User user = users.find(username, password);
                 user.setCafe(cafe);
 
-                view.successfulFinish();
+                view.successfulFinish(cafe);
             }
         }
     }

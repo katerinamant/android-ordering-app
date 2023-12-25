@@ -87,9 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:digits="1234567890+"
+        android:digits="1234567890"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_phone" />
@@ -102,7 +102,7 @@
         android:layout_marginTop="10dp"
         android:digits="1234567890"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_ssn" />

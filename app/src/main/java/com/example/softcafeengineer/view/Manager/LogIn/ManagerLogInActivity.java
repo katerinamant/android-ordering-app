@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
@@ -70,8 +72,9 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
     };
 
     @Override
-    public void successfulLogIn() {
+    public void successfulLogIn(Cafeteria cafe) {
         Intent intent = new Intent(ManagerLogInActivity.this, ManagerActionsActivity.class);
+        intent.putExtra("cafe_brand", cafe.getBrand());
         startActivity(intent);
     }
 

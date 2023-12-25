@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.view.View;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
@@ -81,8 +82,9 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
     };
 
     @Override
-    public void successfulFinish() {
+    public void successfulFinish(Cafeteria cafe) {
         Intent intent = new Intent(InfoInputActivity.this, ManagerActionsActivity.class);
+        intent.putExtra("cafe_brand", cafe.getBrand());
         startActivity(intent);
     }
 

@@ -1,5 +1,7 @@
 package com.example.softcafeengineer.view.Manager.InfoInput;
 
+import com.example.softcafeengineer.domain.Cafeteria;
+
 public interface InfoInputView
 {
     /**
@@ -7,7 +9,7 @@ public interface InfoInputView
      * with valid credentials
      * they are redirected to the ManagerActionsActivity
      */
-    void successfulFinish();
+    void successfulFinish(Cafeteria cafe);
 
     void showToast(String msg);
 }

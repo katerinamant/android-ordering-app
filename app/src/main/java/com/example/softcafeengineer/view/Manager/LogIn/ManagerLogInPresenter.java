@@ -26,7 +26,7 @@ public class ManagerLogInPresenter
 
             if(result != null) {
                 // Correct credentials, change Activity
-                view.successfulLogIn();
+                view.successfulLogIn(result.getCafe());
             } else {
                 // Incorrect credentials, showing error
                 view.showError("Log In unsuccessful.", "The credentials provided were invalid. Try again.");

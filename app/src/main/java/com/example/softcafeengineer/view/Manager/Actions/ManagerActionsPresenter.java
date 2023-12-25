@@ -1,15 +1,10 @@
 package com.example.softcafeengineer.view.Manager.Actions;
 
-import com.example.softcafeengineer.dao.ManagerDAO;
-
 public class ManagerActionsPresenter
 {
     private ManagerActionsView view;
-//    private ManagerDAO users;
-    public ManagerActionsPresenter(ManagerActionsView view){
-        this.view = view;
-//        this.users = users;
-    }
+
+    public ManagerActionsPresenter(ManagerActionsView view) { this.view = view; }
 
     void onEditCInfo(){
         view.edit_Cinfo();

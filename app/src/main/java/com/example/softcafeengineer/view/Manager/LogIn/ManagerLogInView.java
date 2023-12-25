@@ -1,5 +1,7 @@
 package com.example.softcafeengineer.view.Manager.LogIn;
 
+import com.example.softcafeengineer.domain.Cafeteria;
+
 public interface ManagerLogInView
 {
     /**
@@ -7,7 +9,7 @@ public interface ManagerLogInView
      * with correct credentials
      * they are redirected to the ManagerActionsActivity
      */
-    void successfulLogIn();
+    void successfulLogIn(Cafeteria cafe);
 
     void showError(String title, String msg);
 

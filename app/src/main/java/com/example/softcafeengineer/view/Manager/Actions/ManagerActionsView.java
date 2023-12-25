@@ -1,6 +1,7 @@
 package com.example.softcafeengineer.view.Manager.Actions;
 
-public interface ManagerActionsView {
+public interface ManagerActionsView
+{
 
     /*
      * when the user clicks on the "Edit cafeteria's info" button
