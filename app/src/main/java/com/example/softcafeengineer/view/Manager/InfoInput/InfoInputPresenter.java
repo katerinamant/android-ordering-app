@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Manager.InfoInput;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.ManagerDAO;
+import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.User;
 
@@ -10,11 +11,13 @@ public class InfoInputPresenter
     private InfoInputView view;
     private ManagerDAO users;
     private CafeteriaDAO cafes;
+    private MonthlyRevenueDAO revenue;
 
-    public InfoInputPresenter(InfoInputView view, ManagerDAO users, CafeteriaDAO cafes) {
+    public InfoInputPresenter(InfoInputView view, ManagerDAO users, CafeteriaDAO cafes, MonthlyRevenueDAO revenue) {
         this.view = view;
         this.users = users;
         this.cafes = cafes;
+        this.revenue = revenue;
     }
 
     public void onFinish(Boolean finish_enabled,String username, String password, String address, String phoneNum, String ssn, String brand) {
@@ -33,6 +36,7 @@ public class InfoInputPresenter
                 // Create new Cafeteria object
                 Cafeteria cafe = new Cafeteria(address, phoneNum, ssn, brand);
                 cafes.save(cafe);
+                revenue.addCafeteria(brand);
 
                 // Retrieve user from ManagerSignUpActivity and set cafeteria attribute
                 User user = users.find(username, password);
