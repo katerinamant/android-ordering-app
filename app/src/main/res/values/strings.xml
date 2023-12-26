@@ -41,6 +41,10 @@
     <string name="Brand">* Enter brand name</string>
 
     <!-- Revenue -->
-    <string name="Month_Title">💵 Monthly total:</string>
-    <string name="No_records">no records</string>
+    <string name="choose_year">\n🗓️ Choose year:</string>
+    <string name="choose_month">\n🗓️ Choose month:</string>
+    <string name="monthly_total">💵 Monthly total:</string>
+    <string name="daily_total">💰 Daily total:</string>
+    <string name="choose_day">\n🗓️ Choose day:</string>
+    <string name="no_records">no records</string>
 </resources>

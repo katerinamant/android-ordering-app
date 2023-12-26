@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -74,7 +75,7 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
     @Override
     public void successfulLogIn(Cafeteria cafe) {
         Intent intent = new Intent(ManagerLogInActivity.this, ManagerActionsActivity.class);
-        intent.putExtra("cafe_brand", cafe.getBrand());
+        intent.putExtra("cafe", (Parcelable) cafe);
         startActivity(intent);
     }
 

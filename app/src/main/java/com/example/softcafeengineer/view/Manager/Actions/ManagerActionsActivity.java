@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
@@ -90,6 +92,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
     @Override
     public void revenue_breakdown(){
         Intent intent = new Intent(ManagerActionsActivity.this, ManagerRevenueActivity.class);
+        intent.putExtra("cafe_brand", brand);
         startActivity(intent);
     }
 }

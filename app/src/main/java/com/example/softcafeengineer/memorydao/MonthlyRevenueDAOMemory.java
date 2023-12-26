@@ -1,6 +1,8 @@
 package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.revenue.MonthlyRevenues;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,40 +10,35 @@ import java.util.HashMap;
 
 public class MonthlyRevenueDAOMemory implements MonthlyRevenueDAO
 {
-    private HashMap<String, ArrayList<Double>> revenue = new HashMap<String, ArrayList<Double>>(); // "month-year" : [dailyRevenues]
+    private HashMap<String, MonthlyRevenues> revenues = new HashMap<String, MonthlyRevenues>(); // "cafeteria brand" : [Monthly Revenues obj]
 
     @Override
-    public boolean containsMonth(String key) {
-        return this.revenue.containsKey(key);
+    public boolean containsCafeteria(String brand) {
+        return this.revenues.containsKey(brand);
     }
 
     @Override
-    public double getDay(String key, int day) {
-        // No need to check if it contains this key
-        // As long as we use containsMonth first.
-        return this.revenue.get(key).get(day - 1);
+    public void addCafeteria(String brand) {
+        this.revenues.put(brand, new MonthlyRevenues(brand));
     }
 
     @Override
-    public void setDay(String key, int day, double amount) {
-        if(!this.revenue.containsKey(key)) {
-            // Today's month and year is not in the HashMap
-            ArrayList<Double> month = new ArrayList<Double>(Collections.nCopies(31, -1.0));
-            month.add(day - 1, amount);
-            this.revenue.put(key, month);
-        } else {
-            this.revenue.get(key).add(day - 1, amount);
-        }
+    public boolean containsMonth(String brand, String key) {
+        return this.revenues.get(brand).containsMonth(key);
     }
 
     @Override
-    public double getMonthTotal(String key) {
-        // No need to check if it contains this key
-        // As long as we use containsMonth first.
-        double total = 0;
-        for(int i=0; i<31; i++) {
-            total += this.revenue.get(key).get(i);
-        }
-        return total;
+    public double getDay(String brand, String key, int day) {
+        return this.revenues.get(brand).getDay(key, day);
+    }
+
+    @Override
+    public void setDay(String brand, String key, int day, double amount) {
+        this.revenues.get(brand).setDay(key, day, amount);
+    }
+
+    @Override
+    public double getMonthTotal(String brand, String key) {
+        return this.revenues.get(brand).getMonthTotal(key);
     }
 }
