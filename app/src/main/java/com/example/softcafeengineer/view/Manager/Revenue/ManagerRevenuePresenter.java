@@ -20,7 +20,7 @@ public class ManagerRevenuePresenter
     public void onCalculate(boolean calculate_button_enabled, int year, int month, int day) {
         if (!calculate_button_enabled) {
             // Fields not filled, showing toast
-            view.showToast("Please fille the required fields.");
+            view.showToast("Please fill the required fields.");
         } else {
             if (!revenue.containsCafeteria(this.brand)) {
                 // Cafeteria is not saved in DAO

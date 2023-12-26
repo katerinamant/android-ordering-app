@@ -11,7 +11,7 @@ import java.util.List;
 public class ManagerDAOMemory implements ManagerDAO
 {
     protected static List<User> users = new ArrayList<User>();
-    protected static HashMap<String, Barista> username_to_manager = new HashMap<String, Barista>();
+    protected static HashMap<String, User> username_to_manager = new HashMap<String, User>();
 
     @Override
     public User find(String username, String password) {

@@ -53,6 +53,7 @@
     <string name="na">NA</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="add">Add new</string>
 
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>

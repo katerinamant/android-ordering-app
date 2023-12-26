@@ -75,7 +75,7 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
     @Override
     public void successfulLogIn(Cafeteria cafe) {
         Intent intent = new Intent(ManagerLogInActivity.this, ManagerActionsActivity.class);
-        intent.putExtra("cafe", (Parcelable) cafe);
+        intent.putExtra("cafe_brand", cafe.getBrand());
         startActivity(intent);
     }
 
