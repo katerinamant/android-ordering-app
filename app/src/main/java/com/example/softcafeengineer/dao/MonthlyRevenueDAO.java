@@ -38,4 +38,10 @@ public interface MonthlyRevenueDAO
      * for a specific cafeteria
      */
     double getMonthTotal(String brand, String key);
+
+    /**
+     * Changes key when cafeteria
+     * changes brand
+     */
+    void updateCafeteria(String old_brand, String new_brand);
 }

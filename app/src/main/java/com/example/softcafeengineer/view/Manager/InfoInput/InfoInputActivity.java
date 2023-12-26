@@ -44,7 +44,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
         phoneNumberField = findViewById(R.id.edit_txt_mngr_phone_info);
         ssnField = findViewById(R.id.edit_txt_mngr_ssn_info);
         brandField = findViewById(R.id.edit_txt_mngr_brand_info);
-        finishButton = findViewById(R.id.edit_txt_mngr_finish_infoinput);
+        finishButton = findViewById(R.id.btn_mngr_finish_infoinput);
 
         // Finish button is disabled
         finish_button_enabled = false;

@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.Revenue;
 
-import com.example.softcafeengineer.domain.Date;
-
 public interface ManagerRevenueView
 {
     /**

@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.revenue;
 
-import com.example.softcafeengineer.domain.Cafeteria;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

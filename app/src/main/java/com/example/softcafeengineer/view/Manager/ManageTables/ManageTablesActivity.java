@@ -11,7 +11,6 @@ import android.os.Bundle;
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Table;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ManageTablesActivity extends AppCompatActivity implements ManageTablesView, TableRecyclerViewAdapter.ItemSelectionListener
@@ -28,7 +27,6 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         if(savedInstanceState == null) {
             Intent intent = getIntent();
             String brand = intent.getStringExtra("cafe_brand");
-            viewModel.getPresenter().findAll("kafeteria");
         }
         List<Table> tableList = viewModel.getPresenter().getTableResults();
         // Recycler view

@@ -49,4 +49,12 @@ public class MonthlyRevenueDAOMemory implements MonthlyRevenueDAO
         // As long as we use containsCafeteria first.
         return this.revenues.get(brand).getMonthTotal(key);
     }
+
+    @Override
+    public void updateCafeteria(String old_brand, String new_brand) {
+        MonthlyRevenues obj = this.revenues.get(old_brand);
+        this.revenues.remove(old_brand);
+        obj.setCafeBrand(new_brand);
+        this.revenues.put(new_brand, obj);
+    }
 }

@@ -34,11 +34,18 @@
     <string name="ok">OK</string>
 
     <!-- Info Input -->
-    <string name="Info">Please enter your information 🙏</string>
-    <string name="Address">* Enter address</string>
-    <string name="Phone_Number">* Enter phone number</string>
-    <string name="SSN">* Enter SSN</string>
-    <string name="Brand">* Enter brand name</string>
+    <string name="enter_info">Please enter your information 🙏</string>
+    <string name="enter_address">* Enter address</string>
+    <string name="enter_phone_number">* Enter phone number</string>
+    <string name="enter_SSN">* Enter SSN</string>
+    <string name="enter_brand">* Enter brand name</string>
+    <string name="finish">Finish</string>
+
+    <!-- Edit cafeteria info -->
+    <string name="edit_address">* Edit address</string>
+    <string name="edit_phone_number">* Edit phone number</string>
+    <string name="edit_SSN">* Edit SSN</string>
+    <string name="edit_brand">* Edit brand name</string>
 
     <!-- Manage Tables -->
     <string name="table_number_title">Table number:</string>
