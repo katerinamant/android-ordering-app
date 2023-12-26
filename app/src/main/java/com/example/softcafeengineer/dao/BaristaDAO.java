@@ -12,7 +12,8 @@ public interface BaristaDAO
 
     /**
      * Check to see if
-     * username is already in use (ignore case)
+     * username is already in use.
+     * We only allow lower latin characters on input.
      */
     boolean exists(String username);
 

@@ -6,6 +6,7 @@ import com.example.softcafeengineer.domain.Table;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,45 +14,51 @@ import java.util.Set;
 public class TableDAOMemory implements TableDAO
 {
     protected static List<Table> tables = new ArrayList<Table>();
+    protected static HashMap<String, Table> id_to_table = new HashMap<String, Table>();
+    protected static HashMap<String, ArrayList<Table>> cafeteria_to_tables = new HashMap<String, ArrayList<Table>>();
 
     @Override
-    public Table find(String id) {
-        for(Table t : tables) {
-            if(t.getQRCode().equals(id)) {
-                return t;
-            }
+    public Table find(String unique_id) {
+        if(id_to_table.containsKey(unique_id)) {
+            return id_to_table.get(unique_id);
         }
-        // Invalid id
         return null;
     }
 
     @Override
     public List<Table> findAll(String cafeteria_brand) {
-        List<Table> result = new ArrayList<>();
-        for(Table t : tables) {
-            if (t.getCafe().getBrand().equals(cafeteria_brand)) {
-                result.add(t);
-            }
+        if(cafeteria_to_tables.containsKey(cafeteria_brand)) {
+            return cafeteria_to_tables.get(cafeteria_brand);
         }
-        return result;
+        return new ArrayList<>();
     }
 
     @Override
-    public boolean save(Table table) {
-        if(tables.contains(table)) return false;
+    public boolean exists(String unique_id) {
+        return id_to_table.containsKey(unique_id);
+    }
 
-        // Table is not in list
-        // Each table must have a unique id
-        for(Table t : tables) {
-            if(t.getQRCode().equals(table.getQRCode())) {
-                // Cannot add table due to id conflict
-                return false;
-            }
-        }
+    @Override
+    public void save(Table table) {
+        // No need to check if id is in use
+        // As long as we use the exists method first
         tables.add(table);
-        return true;
+        id_to_table.put(table.getQRCode(), table);
+
+        String brand_key = table.getCafe().getBrand();
+        if(cafeteria_to_tables.containsKey(brand_key)) {
+            cafeteria_to_tables.get(brand_key).add(table);
+        } else {
+            ArrayList<Table> tables = new ArrayList<Table>();
+            tables.add(table);
+            cafeteria_to_tables.put(brand_key, tables);
+        }
     }
 
     @Override
-    public void delete(Table table) { tables.remove(table); }
+    public void delete(Table table) {
+        id_to_table.remove(table.getQRCode());
+        cafeteria_to_tables.get(table.getCafe().getBrand()).remove(table);
+        tables.remove(table);
+    }
 }

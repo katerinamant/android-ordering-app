@@ -4,15 +4,18 @@ import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CafeteriaDAOMemory implements CafeteriaDAO
 {
     protected static List<Cafeteria> cafes = new ArrayList<Cafeteria>();
+    protected static HashMap<String, Cafeteria> brand_to_cafe = new HashMap<String, Cafeteria>();
+
     @Override
     public Cafeteria find(String brand) {
-        for(Cafeteria c : cafes) {
-            if(c.getBrand().equals(brand)) return c;
+        if(brand_to_cafe.containsKey(brand)) {
+            return brand_to_cafe.get(brand);
         }
         // Cafeteria not found
         return null;
@@ -20,10 +23,7 @@ public class CafeteriaDAOMemory implements CafeteriaDAO
 
     @Override
     public boolean exists(String brand) {
-        for (Cafeteria c : cafes) {
-            if (c.getBrand().equals(brand)) return true;
-        }
-        return false;
+        return brand_to_cafe.containsKey(brand);
     }
 
     @Override
@@ -31,8 +31,12 @@ public class CafeteriaDAOMemory implements CafeteriaDAO
         // No need to check if brand is in use
         // As long as we use the exists method first
         cafes.add(cafe);
+        brand_to_cafe.put(cafe.getBrand(), cafe);
     }
 
     @Override
-    public void delete(Cafeteria cafe) { cafes.remove(cafe); }
+    public void delete(Cafeteria cafe) {
+        brand_to_cafe.remove(cafe.getBrand());
+        cafes.remove(cafe);
+    }
 }

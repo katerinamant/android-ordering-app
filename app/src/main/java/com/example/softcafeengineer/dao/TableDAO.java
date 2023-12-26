@@ -19,9 +19,15 @@ public interface TableDAO
     List<Table> findAll(String cafeteria_brand);
 
     /**
+     * Check to see if id
+     * is already in use.
+     */
+    boolean exists(String id);
+
+    /**
      * Save new table
      */
-    boolean save(Table table);
+    void save(Table table);
 
     /**
      * Delete table
