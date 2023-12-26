@@ -24,21 +24,29 @@ public class MonthlyRevenueDAOMemory implements MonthlyRevenueDAO
 
     @Override
     public boolean containsMonth(String brand, String key) {
+        // No need to check if it contains this cafeteria
+        // As long as we use containsCafeteria first.
         return this.revenues.get(brand).containsMonth(key);
     }
 
     @Override
     public double getDay(String brand, String key, int day) {
+        // No need to check if it contains this cafeteria
+        // As long as we use containsCafeteria first.
         return this.revenues.get(brand).getDay(key, day);
     }
 
     @Override
     public void setDay(String brand, String key, int day, double amount) {
+        // No need to check if it contains this cafeteria
+        // As long as we use containsCafeteria first.
         this.revenues.get(brand).setDay(key, day, amount);
     }
 
     @Override
     public double getMonthTotal(String brand, String key) {
+        // No need to check if it contains this cafeteria
+        // As long as we use containsCafeteria first.
         return this.revenues.get(brand).getMonthTotal(key);
     }
 }
