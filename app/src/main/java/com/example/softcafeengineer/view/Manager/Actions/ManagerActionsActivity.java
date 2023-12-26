@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
+import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
@@ -79,7 +80,8 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void manage_tables(){
-        Intent intent = new Intent(ManagerActionsActivity.this, WelcomeScreenActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, ManageTablesActivity.class);
+        intent.putExtra("cafe_brand", brand);
         startActivity(intent);
     }
 

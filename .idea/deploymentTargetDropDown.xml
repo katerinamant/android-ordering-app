@@ -5,6 +5,9 @@
       <entry key="InfoInputActivity">
         <State />
       </entry>
+      <entry key="ManageTablesActivity">
+        <State />
+      </entry>
       <entry key="ManagerActionsActivity">
         <State />
       </entry>
@@ -12,9 +15,6 @@
         <State />
       </entry>
       <entry key="ManagerSignUpActivity">
-        <State />
-      </entry>
-      <entry key="ScanTableActivity">
         <State />
       </entry>
       <entry key="app">

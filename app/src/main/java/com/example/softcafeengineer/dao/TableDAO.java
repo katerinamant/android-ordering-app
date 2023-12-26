@@ -1,7 +1,8 @@
 package com.example.softcafeengineer.dao;
 
 import com.example.softcafeengineer.domain.Table;
-import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 public interface TableDAO
 {
@@ -10,6 +11,12 @@ public interface TableDAO
      * unique id
      */
     Table find(String id);
+
+    /**
+     * Find all tables belonging
+     * to a specific Cafeteria
+     */
+    List<Table> findAll(String cafeteria_brand);
 
     /**
      * Save new table

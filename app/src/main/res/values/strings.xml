@@ -40,6 +40,13 @@
     <string name="SSN">* Enter SSN</string>
     <string name="Brand">* Enter brand name</string>
 
+    <!-- Manage Tables -->
+    <string name="table_number_title">Table number:</string>
+    <string name="table_unique_id_title">Table unique id:</string>
+    <string name="na">NA</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>
     <string name="choose_month">\n🗓️ Choose month:</string>

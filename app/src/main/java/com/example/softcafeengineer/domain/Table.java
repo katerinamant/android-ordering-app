@@ -1,8 +1,8 @@
 package com.example.softcafeengineer.domain;
 
-import java.util.ArrayList;
 
-public class Table {
+public class Table
+{
     private String QRCode; // the unique id for customers to use to submit orders
     private int id; // the id within the cafe for the employees to recognise the table
     private Cafeteria cafe;

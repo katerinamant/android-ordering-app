@@ -5,7 +5,10 @@ import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Table;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class TableDAOMemory implements TableDAO
 {
@@ -18,9 +21,19 @@ public class TableDAOMemory implements TableDAO
                 return t;
             }
         }
-
         // Invalid id
         return null;
+    }
+
+    @Override
+    public List<Table> findAll(String cafeteria_brand) {
+        List<Table> result = new ArrayList<>();
+        for(Table t : tables) {
+            if (t.getCafe().getBrand().equals(cafeteria_brand)) {
+                result.add(t);
+            }
+        }
+        return result;
     }
 
     @Override
