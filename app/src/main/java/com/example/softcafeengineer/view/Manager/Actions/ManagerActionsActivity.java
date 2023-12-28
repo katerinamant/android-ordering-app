@@ -14,6 +14,8 @@ import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.EditInfo.EditInfoActivity;
+import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
+import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesActivity;
 import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
@@ -76,7 +78,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void manage_employees(){
-        Intent intent = new Intent(ManagerActionsActivity.this, WelcomeScreenActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, ManageEmployeesActivity.class); // placeholder
         startActivity(intent);
     }
 
@@ -89,7 +91,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void edit_menu(){
-        Intent intent = new Intent(ManagerActionsActivity.this, WelcomeScreenActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, EditMenuActivity.class); // placeholder
         startActivity(intent);
     }
 

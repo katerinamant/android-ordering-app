@@ -35,9 +35,15 @@
             android:exported="false" />
         <activity
             android:name=".view.Manager.Actions.ManagerActionsActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.Manager.InfoInput.InfoInputActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.Manager.ManageEmployees.ManageEmployeesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.Manager.EditMenu.EditMenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
