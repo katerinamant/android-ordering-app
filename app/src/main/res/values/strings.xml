@@ -44,7 +44,7 @@
     <!-- Edit cafeteria info -->
     <string name="edit_address">* Address</string>
     <string name="edit_phone_number">* Phone number</string>
-    <string name="edit_SSN">* SSN</string>
+    <string name="edit_SSN">* Social Security Number</string>
     <string name="edit_brand">* Brand name</string>
 
     <!-- Manage Tables -->
@@ -63,4 +63,9 @@
     <string name="monthly_total">💵 Monthly total:</string>
     <string name="daily_total">💰 Daily total:</string>
     <string name="no_records">no records</string>
+
+    <!-- Popup -->
+    <string name="cancel">Cancel</string>
+    <string name="addB">Add</string>
+    <string name="newTableID">* New table id</string>
 </resources>
