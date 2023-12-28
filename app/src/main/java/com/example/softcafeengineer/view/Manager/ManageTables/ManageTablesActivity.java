@@ -7,6 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.PopupWindow;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Table;
@@ -35,6 +44,27 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         recyclerView.setAdapter(new TableRecyclerViewAdapter(tableList, this));
 
 
+        Button add_table = (Button) findViewById(R.id.btn_manage_tables_add);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relative);
+
+        add_table.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popup_add_table, null);
+                PopupWindow popupWindow = new PopupWindow(container, width, height, true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                container.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
+            }
+        });
     }
 
     @Override
