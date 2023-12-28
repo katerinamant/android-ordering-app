@@ -42,10 +42,10 @@
     <string name="finish">Finish</string>
 
     <!-- Edit cafeteria info -->
-    <string name="edit_address">* Edit address</string>
-    <string name="edit_phone_number">* Edit phone number</string>
-    <string name="edit_SSN">* Edit SSN</string>
-    <string name="edit_brand">* Edit brand name</string>
+    <string name="edit_address">* Address</string>
+    <string name="edit_phone_number">* Phone number</string>
+    <string name="edit_SSN">* SSN</string>
+    <string name="edit_brand">* Brand name</string>
 
     <!-- Manage Tables -->
     <string name="table_number_title">Table number:</string>
