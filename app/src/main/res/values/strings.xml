@@ -55,6 +55,10 @@
     <string name="delete">Delete</string>
     <string name="add">Add new</string>
 
+    <!-- Manage Employees -->
+    <string name="employee_password">Password:</string>
+    <string name="employee_username">Username:</string>
+
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>
     <string name="choose_month">\n🗓️ Choose month:</string>

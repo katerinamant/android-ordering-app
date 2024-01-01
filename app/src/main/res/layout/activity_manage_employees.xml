@@ -11,14 +11,35 @@
         android:id="@+id/txt_employees"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Employees"
+        android:text="@string/manage_employees"
         android:textAlignment="center"
         android:textColor="@color/text"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_emloyees"
+        android:layout_width="match_parent"
+        android:layout_height="519dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_employees" />
+
+    <Button
+        android:id="@+id/btn_manage_employees_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/dark_button"
+        android:text="@string/add"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_emloyees" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
