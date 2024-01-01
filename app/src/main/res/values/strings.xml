@@ -71,5 +71,6 @@
     <!-- Popup -->
     <string name="cancel">Cancel</string>
     <string name="addB">Add</string>
-    <string name="newTableID">* New table id</string>
+    <string name="newTableID">Unique id</string>
+    <string name="newTableNumber">Table Number</string>
 </resources>
