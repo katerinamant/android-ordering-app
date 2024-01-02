@@ -22,27 +22,30 @@ public class EditInfoPresenter
         return this.cafe;
     }
 
-    public void onFinish(boolean finish_enabled, boolean text_changed, String address, String phoneNum, String ssn, String old_brand, String new_brand) {
+    public void onFinish(boolean finish_enabled, boolean text_changed, String prev_address, String prev_phone_number, String prev_ssn, String prev_brand, String address, String phoneNum, String ssn, String brand) {
         if(!finish_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
         } else if(!text_changed) {
+            // Fields filled and no text changed
             view.successfulFinish(this.cafe);
         } else {
+            // Fields filled and text changed
             if(phoneNum.length() != 10) {
                 view.showToast("Invalid phone number. Must contain 10 characters.");
             } else if(ssn.length() != 9) {
                 view.showToast("Invalid SSN. Must contain 9 characters.");
-            } else if(!new_brand.equals(old_brand) && cafeteriaDAO.exists(new_brand)) {
+            } else if(!brand.equals(prev_brand) && cafeteriaDAO.exists(brand)) {
+                // Brand changed and new one is taken
                 view.showToast("This brand is already in use.");
             } else {
                 // Update new Cafeteria object
-                this.cafe.setAddress(address);
-                this.cafe.setPhoneNumber(phoneNum);
-                this.cafe.setSSN(ssn);
-                if(!new_brand.equals(old_brand)) {
-                    this.cafe.setBrand(new_brand);
-                    revenueDAO.updateCafeteria(old_brand, new_brand);
+                if(!address.equals(prev_address)) this.cafe.setAddress(address);
+                if(!phoneNum.equals(prev_phone_number))  this.cafe.setPhoneNumber(phoneNum);
+                if(!ssn.equals(prev_ssn)) this.cafe.setSSN(ssn);
+                if(!brand.equals(prev_brand)) {
+                    cafeteriaDAO.updateCafeteria(prev_brand, brand);
+                    revenueDAO.updateCafeteria(prev_brand, brand);
                 }
 
                 view.successfulFinish(this.cafe);

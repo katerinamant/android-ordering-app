@@ -2,6 +2,7 @@ package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.revenue.MonthlyRevenues;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,5 +39,14 @@ public class CafeteriaDAOMemory implements CafeteriaDAO
     public void delete(Cafeteria cafe) {
         brand_to_cafe.remove(cafe.getBrand());
         cafes.remove(cafe);
+    }
+
+    @Override
+    public void updateCafeteria(String old_brand, String new_brand) {
+        Cafeteria cafe = brand_to_cafe.get(old_brand);
+        brand_to_cafe.remove(old_brand);
+        cafe.setBrand(new_brand);
+        cafe.setBrand(new_brand);
+        brand_to_cafe.put(new_brand, cafe);
     }
 }

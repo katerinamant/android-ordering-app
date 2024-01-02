@@ -19,12 +19,11 @@ import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 {
-    private String intent_brand;
     private Cafeteria cafe;
     private EditText addressField, phoneNumberField, ssnField, brandField;
     private Button finishButton;
     private boolean finish_button_enabled, text_changed;
-    private String address, phoneNumber, ssn, new_brand;
+    private String address, phoneNumber, ssn, brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +32,23 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 
         // Get cafe brand from previous Activity
         Intent intent = getIntent();
-        intent_brand = intent.getStringExtra("cafe_brand");
+        String prev_brand = intent.getStringExtra("cafe_brand");
 
-        final EditInfoPresenter presenter = new EditInfoPresenter(this, intent_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory());
+        final EditInfoPresenter presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory());
         cafe = presenter.getCafe();
 
+        String prev_address = cafe.getAddress();
         addressField = findViewById(R.id.edit_txt_mngr_edit_address);
-        addressField.setText(cafe.getAddress());
+        addressField.setText(prev_address);
+        String prev_phone_number = cafe.getPhoneNumber();
         phoneNumberField = findViewById(R.id.edit_txt_mngr_edit_phone);
-        phoneNumberField.setText(cafe.getPhoneNumber());
+        phoneNumberField.setText(prev_phone_number);
+        String prev_ssn = cafe.getSSN();
         ssnField = findViewById(R.id.edit_txt_mngr_edit_ssn);
-        ssnField.setText(cafe.getSSN());
+        ssnField.setText(prev_ssn);
         brandField = findViewById(R.id.edit_txt_mngr_edit_brand);
-        brandField.setText(cafe.getBrand());
+        brandField.setText(prev_brand);
+
         finishButton = findViewById(R.id.btn_mngr_finish_editinfo);
         text_changed = false;
 
@@ -59,7 +62,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, address, phoneNumber, ssn, intent_brand, new_brand); }
+            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, prev_address, prev_phone_number, prev_ssn, prev_brand, address, phoneNumber, ssn, brand); }
         });
     }
 
@@ -73,8 +76,8 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
             address = addressField.getText().toString().trim();
             phoneNumber = phoneNumberField.getText().toString();
             ssn = ssnField.getText().toString();
-            new_brand = brandField.getText().toString().trim();
-            if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !new_brand.isEmpty()) {
+            brand = brandField.getText().toString().trim();
+            if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;
             } else {

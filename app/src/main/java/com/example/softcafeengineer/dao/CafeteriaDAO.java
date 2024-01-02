@@ -24,4 +24,10 @@ public interface CafeteriaDAO
      * Delete cafeteria
      */
     void delete(Cafeteria cafe);
+
+    /**
+     * Changes key when cafeteria
+     * changes brand
+     */
+    void updateCafeteria(String old_brand, String new_brand);
 }
