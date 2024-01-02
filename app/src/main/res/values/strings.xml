@@ -74,4 +74,5 @@
     <string name="confirm">Confirm</string>
     <string name="newTableID">Unique id</string>
     <string name="newTableNumber">Table Number</string>
+    <string name="confirm_table_delete">Are you sure you want to delete this table❓</string>
 </resources>

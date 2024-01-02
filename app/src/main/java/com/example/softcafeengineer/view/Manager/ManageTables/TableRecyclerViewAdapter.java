@@ -42,6 +42,11 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
                 listener.editTable(currentTable);
             }
         });
+
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { listener.deleteTable(currentTable); }
+        });
     }
 
     @Override
@@ -68,5 +73,11 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
          * button for a specific table
          */
         void editTable(Table t);
+
+        /**
+         * User clicked the "Delete"
+         * button for a specific table
+         */
+        void deleteTable(Table t);
     }
 }

@@ -47,6 +47,10 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
     private boolean confirm_edit_enabled, text_changed;
     private String newTableNumber, newEditUniqueId;
 
+    // Delete table pop up
+    private PopupWindow delete_table_popup;
+    private Button confirmDeleteButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,6 +168,9 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
     public void successfulDelete() {
         // User successfully deleted a table
         // Restart activity with an updated tables list
+        delete_table_popup.dismiss();
+        finish();
+        startActivity(getIntent());
     }
 
     @Override
@@ -249,6 +256,43 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         @Override
         public void onClick(View v) {
             viewModel.getPresenter().onEditTable(selected_table, confirm_edit_enabled, text_changed, prev_table_number, prev_unique_id, newTableNumber, newEditUniqueId);
+        }
+    };
+
+
+    @Override
+    public void deleteTable(Table t) {
+        selected_table = t;
+        // Inflate popup layout
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View pop_up = layoutInflater.inflate(R.layout.popup_delete_table, null);
+
+        // Create and show edit table popup
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        delete_table_popup = new PopupWindow(pop_up, width, height, true);
+        delete_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+
+        confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_table);
+        confirmDeleteButton.setOnClickListener(onConfirmDeleteButton);
+
+        Button cancelButton = pop_up.findViewById(R.id.btn_cancel_delete_table);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            // User clicked the cancel button
+            // inside the add new table pop up
+            @Override
+            public void onClick(View v) {
+                delete_table_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+            }
+        });
+    }
+
+    View.OnClickListener onConfirmDeleteButton = new View.OnClickListener() {
+        // User clicked the confirm button
+        // inside the delete table pop up
+        @Override
+        public void onClick(View v) {
+            viewModel.getPresenter().onDeleteTable(selected_table);
         }
     };
 }

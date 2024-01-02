@@ -60,11 +60,6 @@ public class ManageTablesPresenter
         }
     }
 
-    public void deleteTable(Table t) {
-        tableDAO.delete(t);
-        view.successfulDelete();
-    }
-
     public void onEditTable(Table table, boolean confirm_edit_enabled, boolean text_changed, int prev_table_number, String prev_unique_id, String tableNumber_string, String uniqueId) {
         if(!confirm_edit_enabled) {
             // Fields not filled, showing toast
@@ -88,5 +83,10 @@ public class ManageTablesPresenter
                 view.successfulEdit();
             }
         }
+    }
+
+    public void onDeleteTable(Table table) {
+        tableDAO.delete(table);
+        view.successfulDelete();
     }
 }
