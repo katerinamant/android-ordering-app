@@ -23,7 +23,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
     private Cafeteria cafe;
     private EditText addressField, phoneNumberField, ssnField, brandField;
     private Button finishButton;
-    private boolean finish_button_enabled;
+    private boolean finish_button_enabled, text_changed;
     private String address, phoneNumber, ssn, new_brand;
 
     @Override
@@ -47,6 +47,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         brandField = findViewById(R.id.edit_txt_mngr_edit_brand);
         brandField.setText(cafe.getBrand());
         finishButton = findViewById(R.id.btn_mngr_finish_editinfo);
+        text_changed = false;
 
         // Finish button is enabled
         finish_button_enabled = true;
@@ -58,7 +59,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onFinish(finish_button_enabled, address, phoneNumber, ssn, intent_brand, new_brand); }
+            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, address, phoneNumber, ssn, intent_brand, new_brand); }
         });
     }
 
@@ -68,10 +69,11 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            address = addressField.getText().toString();
+            text_changed = true;
+            address = addressField.getText().toString().trim();
             phoneNumber = phoneNumberField.getText().toString();
             ssn = ssnField.getText().toString();
-            new_brand = brandField.getText().toString();
+            new_brand = brandField.getText().toString().trim();
             if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !new_brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;

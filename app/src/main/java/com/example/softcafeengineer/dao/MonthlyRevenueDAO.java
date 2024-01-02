@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.dao;
 
-import com.example.softcafeengineer.domain.Cafeteria;
-
 public interface MonthlyRevenueDAO
 {
     /**

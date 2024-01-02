@@ -66,10 +66,10 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            address = addressField.getText().toString();
+            address = addressField.getText().toString().trim();
             phoneNumber = phoneNumberField.getText().toString();
             ssn = ssnField.getText().toString();
-            brand = brandField.getText().toString();
+            brand = brandField.getText().toString().trim();
             if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;

@@ -22,12 +22,13 @@ public class EditInfoPresenter
         return this.cafe;
     }
 
-    public void onFinish(boolean finish_enabled, String address, String phoneNum, String ssn, String old_brand, String new_brand) {
+    public void onFinish(boolean finish_enabled, boolean text_changed, String address, String phoneNum, String ssn, String old_brand, String new_brand) {
         if(!finish_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
-        }
-        else {
+        } else if(!text_changed) {
+            view.successfulFinish(this.cafe);
+        } else {
             if(phoneNum.length() != 10) {
                 view.showToast("Invalid phone number. Must contain 10 characters.");
             } else if(ssn.length() != 9) {
@@ -44,7 +45,7 @@ public class EditInfoPresenter
                     revenueDAO.updateCafeteria(old_brand, new_brand);
                 }
 
-                view.successfulFinish(cafe);
+                view.successfulFinish(this.cafe);
             }
         }
     }
