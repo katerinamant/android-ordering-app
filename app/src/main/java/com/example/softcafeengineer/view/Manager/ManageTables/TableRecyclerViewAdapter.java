@@ -36,10 +36,10 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
         holder.tableNumber.setText(String.valueOf(currentTable.getId()));
         holder.tableUniqueId.setText(String.valueOf(currentTable.getQRCode()));
 
-        holder.delete_button.setOnClickListener(new View.OnClickListener() {
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.deleteTable(currentTable);
+                listener.editTable(currentTable);
             }
         });
     }
@@ -51,17 +51,22 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView tableNumber, tableUniqueId;
-        public final Button delete_button;
+        public final Button editButton, deleteButton;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             tableNumber = view.findViewById(R.id.table_layout_table_number);
             tableUniqueId = view.findViewById(R.id.table_layout_table_id);
-            delete_button = view.findViewById(R.id.table_layout_btn_delete);
+            editButton = view.findViewById(R.id.table_layout_btn_edit);
+            deleteButton = view.findViewById(R.id.table_layout_btn_delete);
         }
     }
 
     public interface ItemSelectionListener {
-        void deleteTable(Table t);
+        /**
+         * User clicked the "Edit"
+         * button for a specific table
+         */
+        void editTable(Table t);
     }
 }

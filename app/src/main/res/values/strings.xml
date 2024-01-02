@@ -68,9 +68,10 @@
     <string name="daily_total">💰 Daily total:</string>
     <string name="no_records">no records</string>
 
-    <!-- Popup -->
+    <!-- Popups -->
     <string name="cancel">Cancel</string>
     <string name="addB">Add</string>
+    <string name="confirm">Confirm</string>
     <string name="newTableID">Unique id</string>
     <string name="newTableNumber">Table Number</string>
 </resources>

@@ -33,4 +33,10 @@ public interface TableDAO
      * Delete table
      */
     void delete(Table table);
+
+    /**
+     * Changes key when table
+     * changes unique id
+     */
+    void updateTable(String old_unique_id, String new_unique_id);
 }

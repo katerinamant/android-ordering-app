@@ -62,5 +62,31 @@ public class ManageTablesPresenter
 
     public void deleteTable(Table t) {
         tableDAO.delete(t);
+        view.successfulDelete();
+    }
+
+    public void onEditTable(Table table, boolean confirm_edit_enabled, boolean text_changed, int prev_table_number, String prev_unique_id, String tableNumber_string, String uniqueId) {
+        if(!confirm_edit_enabled) {
+            // Fields not filled, showing toast
+            view.showToast("Please fill all the required fields.");
+        } else if(!text_changed) {
+            // Fields filled and no text changed
+            view.successfulEdit();
+        } else {
+            // Fields filled and text changed
+            if(!uniqueId.equals(prev_unique_id) && tableDAO.exists(uniqueId)) {
+                // Unique id is in use, showing error
+                view.showError("Unique id is taken.", "Please provide a different unique id.");
+            } else {
+                // Update table object
+                int tableNumber = Integer.parseInt(tableNumber_string);
+                if(tableNumber != prev_table_number) table.setId(tableNumber);
+                if(!uniqueId.equals(prev_unique_id)) {
+                    tableDAO.updateTable(prev_unique_id, uniqueId);
+                }
+
+                view.successfulEdit();
+            }
+        }
     }
 }

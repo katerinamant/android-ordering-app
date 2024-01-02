@@ -46,7 +46,6 @@ public class CafeteriaDAOMemory implements CafeteriaDAO
         Cafeteria cafe = brand_to_cafe.get(old_brand);
         brand_to_cafe.remove(old_brand);
         cafe.setBrand(new_brand);
-        cafe.setBrand(new_brand);
         brand_to_cafe.put(new_brand, cafe);
     }
 }

@@ -8,6 +8,18 @@ public interface ManageTablesView
      */
     void successfulNewTable();
 
+    /**
+     * Dismiss popup window
+     * when table is edited successfully
+     */
+    void successfulEdit();
+
+    /**
+     * Dismiss popup window
+     * when table is deleted
+     */
+    void successfulDelete();
+
     void showError(String title, String msg);
 
     void showToast(String msg);

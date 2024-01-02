@@ -13,15 +13,12 @@
         android:text="@string/newTableID"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_table_number"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_table_number" />
 
     <EditText
-        android:id="@+id/edit_text_table_id"
+        android:id="@+id/edit_text_add_table_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -30,12 +27,10 @@
         android:inputType="text"
         android:padding="10dp"
         android:textColor="@color/text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add_table_id"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_add_table_id" />
 
     <Button
         android:id="@+id/btn_final_add_table"
@@ -52,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toEndOf="@+id/btn_cancel_add_table"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_table_id"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_table_id"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -67,7 +62,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_table_id"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_table_id"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -83,7 +78,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_text_table_number"
+        android:id="@+id/edit_text_add_table_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

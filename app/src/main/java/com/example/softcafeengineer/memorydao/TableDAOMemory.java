@@ -10,13 +10,13 @@ import java.util.List;
 public class TableDAOMemory implements TableDAO
 {
     protected static List<Table> tables = new ArrayList<Table>();
-    protected static HashMap<String, Table> id_to_table = new HashMap<String, Table>();
+    protected static HashMap<String, Table> unique_id_to_table = new HashMap<String, Table>();
     protected static HashMap<String, ArrayList<Table>> cafeteria_to_tables = new HashMap<String, ArrayList<Table>>();
 
     @Override
     public Table find(String unique_id) {
-        if(id_to_table.containsKey(unique_id)) {
-            return id_to_table.get(unique_id);
+        if(unique_id_to_table.containsKey(unique_id)) {
+            return unique_id_to_table.get(unique_id);
         }
         return null;
     }
@@ -31,7 +31,7 @@ public class TableDAOMemory implements TableDAO
 
     @Override
     public boolean exists(String unique_id) {
-        return id_to_table.containsKey(unique_id);
+        return unique_id_to_table.containsKey(unique_id);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class TableDAOMemory implements TableDAO
         // No need to check if id is in use
         // As long as we use the exists method first
         tables.add(table);
-        id_to_table.put(table.getQRCode(), table);
+        unique_id_to_table.put(table.getQRCode(), table);
 
         String brand_key = table.getCafe().getBrand();
         if(cafeteria_to_tables.containsKey(brand_key)) {
@@ -53,8 +53,16 @@ public class TableDAOMemory implements TableDAO
 
     @Override
     public void delete(Table table) {
-        id_to_table.remove(table.getQRCode());
+        unique_id_to_table.remove(table.getQRCode());
         cafeteria_to_tables.get(table.getCafe().getBrand()).remove(table);
         tables.remove(table);
+    }
+
+    @Override
+    public void updateTable(String old_unique_id, String new_unique_id) {
+        Table table = unique_id_to_table.get(old_unique_id);
+        unique_id_to_table.remove(old_unique_id);
+        table.setQRCode(new_unique_id);
+        unique_id_to_table.put(new_unique_id, table);
     }
 }
