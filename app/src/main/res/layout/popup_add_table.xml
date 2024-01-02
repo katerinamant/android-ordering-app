@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/light_button"
-    android:backgroundTint="#8A7575">
+    android:background="@drawable/layout_bg">
 
     <TextView
         android:id="@+id/txt_add_table_id"
@@ -27,8 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,7 +88,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
+        android:textColor="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_add_table_number" />

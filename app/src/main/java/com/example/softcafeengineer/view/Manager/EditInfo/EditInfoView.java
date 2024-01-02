@@ -11,5 +11,5 @@ public interface EditInfoView
      */
     void successfulFinish(Cafeteria cafe);
 
-    void showToast(String s);
+    void showToast(String msg);
 }

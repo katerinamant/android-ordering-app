@@ -2,7 +2,10 @@ package com.example.softcafeengineer.view.Manager.ManageTables;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.TableDAO;
+import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 
 public class ManageTablesViewModel extends ViewModel {
@@ -12,6 +15,8 @@ public class ManageTablesViewModel extends ViewModel {
         this.presenter = new ManageTablesPresenter();
         TableDAO tableDAO = new TableDAOMemory();
         presenter.setTableDAO(tableDAO);
+        CafeteriaDAO cafeteriaDAO = new CafeteriaDAOMemory();
+        presenter.setCafeteriaDAO(cafeteriaDAO);
     }
 
     public ManageTablesPresenter getPresenter() { return this.presenter; }
