@@ -2,7 +2,6 @@ package com.example.softcafeengineer.view.Order.ScanTable;
 
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Table;
-import com.example.softcafeengineer.domain.User;
 
 public class ScanTablePresenter
 {

@@ -1,11 +1,8 @@
 package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
-import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.revenue.MonthlyRevenues;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class MonthlyRevenueDAOMemory implements MonthlyRevenueDAO

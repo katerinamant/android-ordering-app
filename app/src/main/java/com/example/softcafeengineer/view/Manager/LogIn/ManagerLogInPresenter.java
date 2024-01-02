@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.LogIn;
 
-import android.util.Log;
-
 import com.example.softcafeengineer.dao.ManagerDAO;
 import com.example.softcafeengineer.domain.User;
 

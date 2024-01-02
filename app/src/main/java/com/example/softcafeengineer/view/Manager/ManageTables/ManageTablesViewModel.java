@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.TableDAO;
-import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 

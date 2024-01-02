@@ -21,7 +21,6 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
-import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Table;
 
 import java.util.List;
@@ -91,7 +90,6 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
                         popupWindow.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
                     }
                 });
-
             }
         });
     }

@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.ManageTables;
 
-import com.example.softcafeengineer.domain.Cafeteria;
-
 public interface ManageTablesView
 {
     /**

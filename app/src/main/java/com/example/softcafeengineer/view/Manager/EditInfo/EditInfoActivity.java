@@ -16,7 +16,6 @@ import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
-import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputActivity;
 
 public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 {

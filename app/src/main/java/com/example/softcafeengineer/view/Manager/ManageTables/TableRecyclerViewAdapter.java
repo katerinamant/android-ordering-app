@@ -1,6 +1,5 @@
 package com.example.softcafeengineer.view.Manager.ManageTables;
 
-import android.content.ClipData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

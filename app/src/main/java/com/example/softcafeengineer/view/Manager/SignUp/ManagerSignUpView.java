@@ -2,7 +2,7 @@ package com.example.softcafeengineer.view.Manager.SignUp;
 
 import com.example.softcafeengineer.domain.User;
 
-//
+
 public interface ManagerSignUpView
 {
     /**

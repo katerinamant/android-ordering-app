@@ -2,7 +2,6 @@ package com.example.softcafeengineer.view.Barista.LogIn;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
-import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInView;
 
 public class BaristaLogInPresenter
 {

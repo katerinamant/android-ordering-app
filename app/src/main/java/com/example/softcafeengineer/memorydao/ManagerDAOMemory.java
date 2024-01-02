@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.ManagerDAO;
-import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.User;
 
 import java.util.ArrayList;

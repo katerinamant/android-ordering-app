@@ -1,9 +1,6 @@
 package com.example.softcafeengineer.view.Manager.Revenue;
 
-import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
-import com.example.softcafeengineer.domain.Cafeteria;
-import com.example.softcafeengineer.domain.Date;
 
 public class ManagerRevenuePresenter
 {

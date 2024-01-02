@@ -4,21 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.util.Log;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.softcafeengineer.R;
-import com.example.softcafeengineer.domain.Cafeteria;
-import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.EditInfo.EditInfoActivity;
 import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
 import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesActivity;
 import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
-import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ManagerActionsActivity extends AppCompatActivity implements ManagerActionsView
 {

@@ -2,8 +2,6 @@ package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
-import com.example.softcafeengineer.domain.Cafeteria;
-import com.example.softcafeengineer.domain.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
