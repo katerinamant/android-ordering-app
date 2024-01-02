@@ -50,7 +50,7 @@
         android:id="@+id/employee_layout_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/na"
@@ -64,14 +64,15 @@
         android:id="@+id/empoyee_layout_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/na"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/text"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_employee_username"
-        tools:layout_editor_absoluteX="128dp" />
+        app:layout_constraintStart_toEndOf="@+id/txt_employee_password"
+        app:layout_constraintTop_toBottomOf="@+id/txt_employee_username" />
 
     <Button
         android:id="@+id/employee_layout_btn_edit"

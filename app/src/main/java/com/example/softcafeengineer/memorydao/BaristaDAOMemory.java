@@ -12,6 +12,8 @@ public class BaristaDAOMemory implements BaristaDAO
     protected static List<Barista> baristas = new ArrayList<Barista>();
     protected static HashMap<String, Barista> username_to_barista = new HashMap<String, Barista>();
 
+    protected static HashMap<String, ArrayList<Barista>> cafeteria_to_baristas = new HashMap<String, ArrayList<Barista>>();
+
     @Override
     public Barista find(String username, String password) {
         if(username_to_barista.containsKey(username)) {
@@ -28,6 +30,14 @@ public class BaristaDAOMemory implements BaristaDAO
         return null;
     }
 
+    @Override
+    public List<Barista> findAll(String cafeteria_brand) {
+        if(cafeteria_to_baristas.containsKey(cafeteria_brand)) {
+            return cafeteria_to_baristas.get(cafeteria_brand);
+        }
+        return new ArrayList<>();
+    }
+
     public boolean exists(String username) {
         return username_to_barista.containsKey(username);
     }
@@ -38,11 +48,21 @@ public class BaristaDAOMemory implements BaristaDAO
         // As long as we use the exists method first
         baristas.add(barista);
         username_to_barista.put(barista.getUsername(), barista);
+
+        String brand_key = barista.getCafe().getBrand();
+        if(cafeteria_to_baristas.containsKey(brand_key)) {
+            cafeteria_to_baristas.get(brand_key).add(barista);
+        } else {
+            ArrayList<Barista> baristas = new ArrayList<Barista>();
+            baristas.add(barista);
+            cafeteria_to_baristas.put(brand_key, baristas);
+        }
     }
 
     @Override
     public void delete(Barista barista) {
         username_to_barista.remove(barista.getUsername());
+        cafeteria_to_baristas.get(barista.getCafe().getBrand()).remove(barista);
         baristas.remove(barista);
     }
 }

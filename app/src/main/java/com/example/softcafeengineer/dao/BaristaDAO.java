@@ -2,6 +2,8 @@ package com.example.softcafeengineer.dao;
 
 import com.example.softcafeengineer.domain.Barista;
 
+import java.util.List;
+
 public interface BaristaDAO
 {
     /**
@@ -9,6 +11,12 @@ public interface BaristaDAO
      * username and password
      */
     Barista find(String username, String password);
+
+    /**
+     * Find all employees working
+     * in a specific Cafeteria
+     */
+    List<Barista> findAll(String cafeteria_brand);
 
     /**
      * Check to see if

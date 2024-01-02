@@ -2,15 +2,24 @@ package com.example.softcafeengineer.view.Manager.ManageEmployees;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
-import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
+import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesPresenter;
 
 public class ManageEmployeesViewModel extends ViewModel {
-    ManageEmployeesPresenter presenter;
-    public ManageEmployeesViewModel(){
-        presenter = new ManageEmployeesPresenter(new BaristaDAOMemory(), new ManagerDAOMemory());
+    private ManageEmployeesPresenter presenter;
+
+    public ManageEmployeesViewModel() {
+        this.presenter = new ManageEmployeesPresenter();
+        BaristaDAO baristaDAO = new BaristaDAOMemory();
+        presenter.setBaristaDAO(baristaDAO);
     }
-    public ManageEmployeesPresenter getPresenter(){
-        return presenter;
+
+    public ManageEmployeesPresenter getPresenter() { return this.presenter; }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        // release resources
     }
 }

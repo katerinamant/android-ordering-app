@@ -9,20 +9,28 @@ import java.util.List;
 
 public class ManageEmployeesPresenter {
     private BaristaDAO baristaDAO;
-    private ManagerDAO managerDao;
+    private ManagerDAO managerDAO;
+    private ManageEmployeesView view;
+    private String cafe_brand;
     private List<Barista> employeeResults = new ArrayList<>();
-    ManageEmployeesView view;
-    public ManageEmployeesPresenter(BaristaDAO baristaDAO, ManagerDAO managerDAO){
-        this.baristaDAO = baristaDAO;
-        this.managerDao = managerDAO;
+
+    public void setBaristaDAO(BaristaDAO baristaDAO) { this.baristaDAO = baristaDAO; }
+    public BaristaDAO getBaristaDAO() { return this.baristaDAO; }
+
+    public void setBrand(String brand) {
+        // Set cafe brand
+        // and update employeeResults
+        this.cafe_brand = brand;
+        this.findAll(this.cafe_brand);
     }
-    public void setView(ManageEmployeesView v){
-        this.view = v;
+    public String getBrand() { return this.cafe_brand; }
+
+    public void setView(ManageEmployeesView view) { this.view = view; }
+
+    public void findAll(String brand) {
+        this.employeeResults.clear();
+        this.employeeResults = baristaDAO.findAll(brand);
     }
-    public List<Barista> getEmployeeResults(){
-        return this.employeeResults;
-    }
-    public void deleteEmloyee( Barista b ){
-        baristaDAO.delete(b);
-    }
+
+    public List<Barista> getEmployeeResults() { return this.employeeResults; }
 }

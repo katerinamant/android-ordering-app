@@ -17,8 +17,9 @@ import java.util.List;
 public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRecyclerViewAdapter.ViewHolder> {
     private final List<Barista> mValues;
     private final ItemSelectionListener listener;
-    public EmployeeRecyclerViewAdapter(List<Barista> b, ItemSelectionListener listener){
-        this.mValues = b;
+
+    public EmployeeRecyclerViewAdapter(List<Barista> items, ItemSelectionListener listener){
+        this.mValues = items;
         this.listener = listener;
     }
     @NonNull
@@ -30,19 +31,19 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
     @Override
     public void onBindViewHolder(@NonNull EmployeeRecyclerViewAdapter.ViewHolder holder, int position) {
         final Barista currentEmployee = mValues.get(position);
-        holder.employee_password.setText(String.valueOf(currentEmployee.getPassword()));
         holder.employee_username.setText(String.valueOf(currentEmployee.getUsername()));
+        holder.employee_password.setText(String.valueOf(currentEmployee.getPassword()));
 
-        holder.delete_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.deleteEmployee(currentEmployee);
-            }
-        });
         holder.edit_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 listener.editEmployee(currentEmployee);
+            }
+        });
+        holder.delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.deleteEmployee(currentEmployee);
             }
         });
     }
@@ -53,19 +54,27 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView employee_password, employee_username;
-        public final Button delete_button;
-        public final Button edit_button;
+        public final Button edit_button, delete_button;
+
         public ViewHolder(@NonNull View view) {
             super(view);
-            employee_password = view.findViewById(R.id.employee_layout_username);
             employee_username = view.findViewById(R.id.empoyee_layout_password);
-            delete_button = view.findViewById(R.id.employee_layout_btn_delete);
+            employee_password = view.findViewById(R.id.employee_layout_username);
             edit_button = view.findViewById(R.id.employee_layout_btn_edit);
+            delete_button = view.findViewById(R.id.employee_layout_btn_delete);
         }
     }
     public interface ItemSelectionListener{
-        void deleteEmployee(Barista b);
-
+        /**
+         * User clicked the "Edit"
+         * button for a specific employee
+         */
         void editEmployee(Barista b);
+
+        /**
+         * User clicked the "Delete"
+         * button for a specific employee
+         */
+        void deleteEmployee(Barista b);
     }
 }
