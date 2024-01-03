@@ -13,8 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
-import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
+import com.example.softcafeengineer.view.Barista.Actions.BaristaActionsActivity;
 
 public class BaristaLogInActivity extends AppCompatActivity implements BaristaLogInView
 {
@@ -71,8 +72,10 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
     };
 
     @Override
-    public void successfulLogIn() {
-        Intent intent = new Intent(BaristaLogInActivity.this, WelcomeScreenActivity.class); //placeholder for ActiveOrdersActivity
+    public void successfulLogIn(Barista barista) {
+        Intent intent = new Intent(BaristaLogInActivity.this, BaristaActionsActivity.class);
+        intent.putExtra("username", barista.getUsername());
+        intent.putExtra("cafe_brand", barista.getCafe().getBrand());
         startActivity(intent);
     }
 

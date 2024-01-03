@@ -20,11 +20,11 @@ public class BaristaLogInPresenter
         }
         else {
             // Look up credentials
-            Barista result = baristas.find(username, password); //placeholder for DAO
+            Barista result = baristas.find(username, password);
 
             if(result != null) {
                 // Correct credentials, change Activity
-                view.successfulLogIn();
+                view.successfulLogIn(result);
             } else {
                 // Incorrect credentials, showing error
                 view.showError("Log In unsuccessful.", "The credentials provided were invalid. Try again.");

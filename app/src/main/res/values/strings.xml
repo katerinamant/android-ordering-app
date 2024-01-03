@@ -81,4 +81,10 @@
     <string name="monthly_total">💵 Monthly total:</string>
     <string name="daily_total">💰 Daily total:</string>
     <string name="no_records">no records</string>
+
+    <!-- Barista Actions -->
+    <string name="hello">Hello!</string>
+    <string name="close_day">Close day</string>
+    <string name="total_cost">Total cost:</string>
+    <string name="view">View</string>
 </resources>

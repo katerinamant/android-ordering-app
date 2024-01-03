@@ -16,7 +16,6 @@ import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
 
 public class ManagerActionsActivity extends AppCompatActivity implements ManagerActionsView
 {
-    private TextView header;
     private String brand;
 
     @Override
@@ -26,7 +25,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
         final ManagerActionsPresenter presenter = new ManagerActionsPresenter(this);
 
-        header = findViewById(R.id.txt_manager_activity_header);
+        TextView header = findViewById(R.id.txt_manager_activity_header);
         // Get cafe brand from previous Activity
         Intent intent = getIntent();
         brand = intent.getStringExtra("cafe_brand");

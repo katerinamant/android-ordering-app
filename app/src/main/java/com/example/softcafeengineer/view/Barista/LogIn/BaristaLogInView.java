@@ -1,5 +1,7 @@
 package com.example.softcafeengineer.view.Barista.LogIn;
 
+import com.example.softcafeengineer.domain.Barista;
+
 public interface BaristaLogInView
 {
     /**
@@ -7,7 +9,7 @@ public interface BaristaLogInView
      * with correct credentials
      * they are redirected to the ActiveOrdersActivity
      */
-    void successfulLogIn();
+    void successfulLogIn(Barista barista);
 
     void showError(String title, String msg);
 
