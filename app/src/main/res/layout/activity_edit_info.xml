@@ -132,4 +132,14 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_brand" />
+
+    <RelativeLayout
+        android:id="@+id/relative_edit_info"
+        android:layout_width="404dp"
+        android:layout_height="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_mngr_finish_editinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_edit_info_header">
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

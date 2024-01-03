@@ -46,6 +46,7 @@
     <string name="edit_phone_number">* Phone number</string>
     <string name="edit_SSN">* Social Security Number</string>
     <string name="edit_brand">* Brand name</string>
+    <string name="confirm_changes">Are you sure you want to confirm these changes❓</string>
 
     <!-- Manage Tables -->
     <string name="table_number_title">Table number:</string>

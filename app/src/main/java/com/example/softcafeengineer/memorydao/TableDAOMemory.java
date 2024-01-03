@@ -68,8 +68,13 @@ public class TableDAOMemory implements TableDAO
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {
-        ArrayList<Table> tables = cafeteria_to_tables.get(old_brand);
-        cafeteria_to_tables.remove(old_brand);
-        cafeteria_to_tables.put(new_brand, tables);
+        if(cafeteria_to_tables.containsKey(old_brand)) {
+            ArrayList<Table> tables  = cafeteria_to_tables.get(old_brand);
+            cafeteria_to_tables.remove(old_brand);
+            cafeteria_to_tables.put(new_brand, tables);
+        } else {
+            ArrayList<Table> tables = new ArrayList<Table>();
+            cafeteria_to_tables.put(new_brand, tables);
+        }
     }
 }

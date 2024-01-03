@@ -2,7 +2,6 @@ package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
-import com.example.softcafeengineer.domain.Cafeteria;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,8 +75,13 @@ public class BaristaDAOMemory implements BaristaDAO
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {
-        ArrayList<Barista> baristas = cafeteria_to_baristas.get(old_brand);
-        cafeteria_to_baristas.remove(old_brand);
-        cafeteria_to_baristas.put(new_brand, baristas);
+        if(cafeteria_to_baristas.containsKey(old_brand)) {
+            ArrayList<Barista> baristas  = cafeteria_to_baristas.get(old_brand);
+            cafeteria_to_baristas.remove(old_brand);
+            cafeteria_to_baristas.put(new_brand, baristas);
+        } else {
+            ArrayList<Barista> baristas = new ArrayList<Barista>();
+            cafeteria_to_baristas.put(new_brand, baristas);
+        }
     }
 }
