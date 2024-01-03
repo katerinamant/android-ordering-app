@@ -8,13 +8,13 @@
       <entry key="InfoInputActivity">
         <State />
       </entry>
+      <entry key="ManageEmployeesActivity">
+        <State />
+      </entry>
       <entry key="ManageTablesActivity">
         <State />
       </entry>
       <entry key="ManagerActionsActivity">
-        <State />
-      </entry>
-      <entry key="ManagerRevenueActivity">
         <State />
       </entry>
       <entry key="app">

@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
-import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesPresenter;
 
 public class ManageEmployeesViewModel extends ViewModel {
     private ManageEmployeesPresenter presenter;

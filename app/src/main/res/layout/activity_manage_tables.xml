@@ -47,14 +47,13 @@
         app:layout_constraintTop_toBottomOf="@+id/recycler_view_tables" />
 
     <RelativeLayout
-        android:id="@+id/relative"
+        android:id="@+id/relative_manage_tables"
         android:layout_width="404dp"
         android:layout_height="6dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_manage_tables_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_tables_header">
-
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

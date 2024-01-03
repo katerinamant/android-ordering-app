@@ -72,7 +72,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         recyclerView.setAdapter(new TableRecyclerViewAdapter(tableList, this));
 
         Button addNewButton = findViewById(R.id.btn_manage_tables_add); // "Add new" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative); // activity_manage_tables.xml layout
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_tables); // activity_manage_tables.xml layout
         addNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

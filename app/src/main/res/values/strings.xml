@@ -55,9 +55,21 @@
     <string name="delete">Delete</string>
     <string name="add">Add new</string>
 
+    <!-- Manage Table Popups -->
+    <string name="cancel">Cancel</string>
+    <string name="addB">Add</string>
+    <string name="confirm">Confirm</string>
+    <string name="new_unique_table_id">Unique id</string>
+    <string name="new_table_number">Table Number</string>
+    <string name="confirm_table_delete">Are you sure you want to delete this table❓</string>
+
     <!-- Manage Employees -->
     <string name="employee_password">Password:</string>
     <string name="employee_username">Username:</string>
+
+    <!-- Manage Employee Popups -->
+    <string name="new_username">Username</string>
+    <string name="new_password">Password</string>
 
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>
@@ -67,12 +79,4 @@
     <string name="monthly_total">💵 Monthly total:</string>
     <string name="daily_total">💰 Daily total:</string>
     <string name="no_records">no records</string>
-
-    <!-- Popups -->
-    <string name="cancel">Cancel</string>
-    <string name="addB">Add</string>
-    <string name="confirm">Confirm</string>
-    <string name="newTableID">Unique id</string>
-    <string name="newTableNumber">Table Number</string>
-    <string name="confirm_table_delete">Are you sure you want to delete this table❓</string>
 </resources>
