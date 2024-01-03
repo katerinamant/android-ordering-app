@@ -42,4 +42,16 @@ public interface MonthlyRevenueDAO
      * changes brand
      */
     void updateCafeteria(String old_brand, String new_brand);
+
+    /**
+     * Increment cafeteria's
+     * total of the day
+     */
+    void addToDay(String brand, double amount);
+
+    /**
+     * Register cafeteria's
+     * total of the day
+     */
+    void closeDay(String brand, String key, int day);
 }

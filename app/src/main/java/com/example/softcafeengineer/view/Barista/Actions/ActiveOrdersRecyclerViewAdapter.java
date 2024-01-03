@@ -33,20 +33,15 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     @Override
     public void onBindViewHolder(@NonNull ActiveOrdersRecyclerViewAdapter.ViewHolder holder, int position) {
         final Order currentOrder = mValues.get(position);
-        // holder.tableNumber.setText(String.valueOf(currentOrder.getId()));
-        // holder.tableUniqueId.setText(String.valueOf(currentOrder.getQRCode()));
+        holder.tableNumber.setText(String.valueOf(currentOrder.getTable().getId()));
+        holder.totalCost.setText(String.format("%s 💶", String.valueOf(currentOrder.getTotalCost())));
 
-//        holder.editButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listener.editTable(currentOrder);
-//            }
-//        });
-//
-//        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) { listener.deleteTable(currentOrder); }
-//        });
+        holder.viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.viewOrder(currentOrder);
+            }
+        });
     }
 
     @Override
@@ -55,19 +50,22 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-//        public final TextView tableNumber, tableUniqueId;
-//        public final Button editButton, deleteButton;
+        public final TextView tableNumber, totalCost;
+        public final Button viewButton;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-//            tableNumber = view.findViewById(R.id.table_layout_table_number);
-//            tableUniqueId = view.findViewById(R.id.table_layout_table_id);
-//            editButton = view.findViewById(R.id.table_layout_btn_edit);
-//            deleteButton = view.findViewById(R.id.table_layout_btn_delete);
+            tableNumber = view.findViewById(R.id.active_order_layout_table_number);
+            totalCost = view.findViewById(R.id.active_order_layout_total_cost);
+            viewButton = view.findViewById(R.id.active_order_layout_btn_view);
         }
     }
 
     public interface ItemSelectionListener {
-
+        /**
+         * User clicked the "View"
+         * button for a specific order
+         */
+        void viewOrder(Order o);
     }
 }

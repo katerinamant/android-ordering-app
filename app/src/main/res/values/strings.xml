@@ -85,6 +85,7 @@
     <!-- Barista Actions -->
     <string name="hello">Hello!</string>
     <string name="close_day">Close day</string>
+    <string name="refresh">Refresh</string>
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>
 </resources>
