@@ -65,4 +65,11 @@ public class TableDAOMemory implements TableDAO
         table.setQRCode(new_unique_id);
         unique_id_to_table.put(new_unique_id, table);
     }
+
+    @Override
+    public void updateCafeteria(String old_brand, String new_brand) {
+        ArrayList<Table> tables = cafeteria_to_tables.get(old_brand);
+        cafeteria_to_tables.remove(old_brand);
+        cafeteria_to_tables.put(new_brand, tables);
+    }
 }

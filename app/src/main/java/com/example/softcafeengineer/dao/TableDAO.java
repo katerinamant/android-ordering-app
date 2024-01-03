@@ -39,4 +39,10 @@ public interface TableDAO
      * changes unique id
      */
     void updateTable(String old_unique_id, String new_unique_id);
+
+    /**
+     * Changes key when cafeteria
+     * changes brand
+     */
+    void updateCafeteria(String old_brand, String new_brand);
 }

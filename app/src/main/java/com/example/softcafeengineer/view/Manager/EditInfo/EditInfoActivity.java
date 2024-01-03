@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 public class EditInfoActivity extends AppCompatActivity implements EditInfoView
@@ -34,7 +36,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         Intent intent = getIntent();
         String prev_brand = intent.getStringExtra("cafe_brand");
 
-        final EditInfoPresenter presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory());
+        final EditInfoPresenter presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory(), new BaristaDAOMemory(), new TableDAOMemory());
         cafe = presenter.getCafe();
 
         String prev_address = cafe.getAddress();

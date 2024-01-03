@@ -2,6 +2,7 @@ package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
+import com.example.softcafeengineer.domain.Cafeteria;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +12,6 @@ public class BaristaDAOMemory implements BaristaDAO
 {
     protected static List<Barista> baristas = new ArrayList<Barista>();
     protected static HashMap<String, Barista> username_to_barista = new HashMap<String, Barista>();
-
     protected static HashMap<String, ArrayList<Barista>> cafeteria_to_baristas = new HashMap<String, ArrayList<Barista>>();
 
     @Override
@@ -72,5 +72,12 @@ public class BaristaDAOMemory implements BaristaDAO
         username_to_barista.remove(old_username);
         barista.setUsername(new_username);
         username_to_barista.put(new_username, barista);
+    }
+
+    @Override
+    public void updateCafeteria(String old_brand, String new_brand) {
+        ArrayList<Barista> baristas = cafeteria_to_baristas.get(old_brand);
+        cafeteria_to_baristas.remove(old_brand);
+        cafeteria_to_baristas.put(new_brand, baristas);
     }
 }

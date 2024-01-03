@@ -1,20 +1,27 @@
 package com.example.softcafeengineer.view.Manager.EditInfo;
 
+import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.google.android.material.tabs.TabLayout;
 
 public class EditInfoPresenter
 {
     private EditInfoView view;
     private CafeteriaDAO cafeteriaDAO;
     private MonthlyRevenueDAO revenueDAO;
+    private BaristaDAO baristaDAO;
+    private TableDAO tableDAO;
     private Cafeteria cafe;
 
-    public EditInfoPresenter(EditInfoView view, String brand, CafeteriaDAO cafeteriaDAO, MonthlyRevenueDAO revenueDAO) {
+    public EditInfoPresenter(EditInfoView view, String brand, CafeteriaDAO cafeteriaDAO, MonthlyRevenueDAO revenueDAO, BaristaDAO baristaDAO, TableDAO tableDAO) {
         this.view = view;
         this.cafeteriaDAO = cafeteriaDAO;
         this.revenueDAO = revenueDAO;
+        this.baristaDAO = baristaDAO;
+        this.tableDAO = tableDAO;
         this.cafe = this.cafeteriaDAO.find(brand);
     }
 
@@ -46,6 +53,8 @@ public class EditInfoPresenter
                 if(!brand.equals(prev_brand)) {
                     cafeteriaDAO.updateCafeteria(prev_brand, brand);
                     revenueDAO.updateCafeteria(prev_brand, brand);
+                    baristaDAO.updateCafeteria(prev_brand, brand);
+                    tableDAO.updateCafeteria(prev_brand, brand);
                 }
 
                 view.successfulFinish(this.cafe);

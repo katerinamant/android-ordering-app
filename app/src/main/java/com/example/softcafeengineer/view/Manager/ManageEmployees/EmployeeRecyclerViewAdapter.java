@@ -58,8 +58,8 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            employee_username = view.findViewById(R.id.empoyee_layout_password);
-            employee_password = view.findViewById(R.id.employee_layout_username);
+            employee_username = view.findViewById(R.id.employee_layout_username);
+            employee_password = view.findViewById(R.id.employee_layout_password);
             edit_button = view.findViewById(R.id.employee_layout_btn_edit);
             delete_button = view.findViewById(R.id.employee_layout_btn_delete);
         }
