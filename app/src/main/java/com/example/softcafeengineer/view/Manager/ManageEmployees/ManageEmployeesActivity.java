@@ -2,6 +2,8 @@ package com.example.softcafeengineer.view.Manager.ManageEmployees;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Barista;
+import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 
 import java.util.List;
 
@@ -32,6 +36,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     private EditText addUsernameField, addPasswordField;
     private Button addEmployeeButton;
     private boolean add_employee_enabled;
+    private String newUseranme, newPassword;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState){
@@ -70,11 +75,11 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
 
                 addUsernameField = pop_up.findViewById(R.id.edit_text_add_employee_username);
                 addPasswordField = pop_up.findViewById(R.id.edit_text_add_employee_password);
-                // addUsernameField.addTextChangedListener(newEmployeeWatcher);
-                // addPasswordField.addTextChangedListener(newEmployeeWatcher);
+                addUsernameField.addTextChangedListener(newEmployeeWatcher);
+                addPasswordField.addTextChangedListener(newEmployeeWatcher);
 
                 addEmployeeButton = pop_up.findViewById(R.id.btn_final_add_employee);
-                // addEmployeeButton.setOnClickListener(onAddEmployeeButton);
+                addEmployeeButton.setOnClickListener(onAddEmployeeButton);
                 // Add button is disabled
                 add_employee_enabled = false;
                 addEmployeeButton.setAlpha(.5f);
@@ -92,9 +97,57 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         });
     }
 
+    TextWatcher newEmployeeWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            // Fields modified in new employee popup
+            newUseranme = addUsernameField.getText().toString();
+            newPassword = addPasswordField.getText().toString();
+            if (!newUseranme.isEmpty() && !newPassword.isEmpty()) {
+                addEmployeeButton.setAlpha(1.0f);
+                addEmployeeButton.setAlpha(1.0f);
+                add_employee_enabled = true;
+            } else {
+                addEmployeeButton.setAlpha(.5f);
+                add_employee_enabled = false;
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
+    View.OnClickListener onAddEmployeeButton = new View.OnClickListener() {
+        // User clicked the add button
+        // inside the add new employee pop up
+        @Override
+        public void onClick(View v) {
+            viewModel.getPresenter().onAddNewEmployee(add_employee_enabled, newUseranme, newPassword);
+        }
+    };
+
     // -------
     // ManageTableView implementations
     // -------
+    @Override
+    public void successfulNewEmployee() {
+        // User successfully added a new employee
+        // Restart activity with new employees list
+        add_employee_popup.dismiss();
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
+    public void showToast(String msg) {
+        Toast.makeText(ManageEmployeesActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     // -------
     // ItemSelectionListener implementations
