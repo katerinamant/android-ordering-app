@@ -65,4 +65,12 @@ public class BaristaDAOMemory implements BaristaDAO
         cafeteria_to_baristas.get(barista.getCafe().getBrand()).remove(barista);
         baristas.remove(barista);
     }
+
+    @Override
+    public void updateBarista(String old_username, String new_username) {
+        Barista barista = username_to_barista.get(old_username);
+        username_to_barista.remove(old_username);
+        barista.setUsername(new_username);
+        username_to_barista.put(new_username, barista);
+    }
 }

@@ -5,6 +5,7 @@ import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.ManagerDAO;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.domain.Table;
 import com.example.softcafeengineer.domain.User;
 
 import java.util.ArrayList;
@@ -63,5 +64,37 @@ public class ManageEmployeesPresenter {
                 view.showToast("This username is already in use.");
             }
         }
+    }
+
+    public void onEditEmployee(Barista barista, boolean confirm_edit_enabled, boolean text_changed, String prev_username, String prev_password, String username, String password) {
+        if(!confirm_edit_enabled) {
+            // Fields not filled, showing toast
+            view.showToast("Please fill all the required fields.");
+        } else if(!text_changed) {
+            // Fields filled and no text changed
+            view.successfulEdit();
+        } else {
+            // Fields filled and text changed
+            if(!username.equals(prev_username) && baristaDAO.exists(username)) {
+                // New username is in use, showing error
+                view.showError("Username is taken.", "Please provide a different password.");
+            } else if(!password.equals(prev_password) && password.length() < 8) {
+                // New password is not long enough, showing toast
+                view.showToast("Your password must have a minimum length of 8 characters.");
+            } else {
+                // Update barista object
+                if(!password.equals(prev_password)) barista.setPassword(password);
+                if(!username.equals(prev_username)) {
+                    baristaDAO.updateBarista(prev_username, username);
+                }
+
+                view.successfulEdit();
+            }
+        }
+    }
+
+    public void onDeleteEmployee(Barista barista) {
+        baristaDAO.delete(barista);
+        view.successfulDelete();
     }
 }

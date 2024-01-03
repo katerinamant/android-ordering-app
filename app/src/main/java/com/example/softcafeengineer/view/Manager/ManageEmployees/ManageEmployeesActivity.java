@@ -1,5 +1,6 @@
 package com.example.softcafeengineer.view.Manager.ManageEmployees;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Barista;
-import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 
 import java.util.List;
 
@@ -36,7 +36,18 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     private EditText addUsernameField, addPasswordField;
     private Button addEmployeeButton;
     private boolean add_employee_enabled;
-    private String newUseranme, newPassword;
+
+    private Barista selected_barista;
+    // Edit employee pop up
+    private PopupWindow edit_employee_popup;
+    private String prev_username, prev_password;
+    private EditText editUsernameField, editPasswordField;
+    private Button confirmEditButton;
+    private boolean confirm_edit_enabled, text_changed;
+    private String newUsername, newPassword;
+
+    // Delete employee pop up
+    private PopupWindow delete_employee_popup;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState){
@@ -105,9 +116,9 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // Fields modified in new employee popup
-            newUseranme = addUsernameField.getText().toString();
+            newUsername = addUsernameField.getText().toString();
             newPassword = addPasswordField.getText().toString();
-            if (!newUseranme.isEmpty() && !newPassword.isEmpty()) {
+            if (!newUsername.isEmpty() && !newPassword.isEmpty()) {
                 addEmployeeButton.setAlpha(1.0f);
                 addEmployeeButton.setAlpha(1.0f);
                 add_employee_enabled = true;
@@ -128,7 +139,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         // inside the add new employee pop up
         @Override
         public void onClick(View v) {
-            viewModel.getPresenter().onAddNewEmployee(add_employee_enabled, newUseranme, newPassword);
+            viewModel.getPresenter().onAddNewEmployee(add_employee_enabled, newUsername, newPassword);
         }
     };
 
@@ -145,6 +156,29 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     }
 
     @Override
+    public void successfulEdit() {
+        // User successfully edited an employee
+        // Restart activity with an updated employees list
+        edit_employee_popup.dismiss();
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
+    public void successfulDelete() {
+        // User successfully deleted an employee
+        // Restart activity with an updated employees list
+        delete_employee_popup.dismiss();
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
+    public void showError(String title, String msg) {
+        new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(msg).setPositiveButton(R.string.ok, null).create().show();
+    }
+
+    @Override
     public void showToast(String msg) {
         Toast.makeText(ManageEmployeesActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
@@ -154,11 +188,110 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     // -------
     @Override
     public void editEmployee(Barista b) {
+        selected_barista = b;
+        prev_username = b.getUsername();
+        prev_password = b.getPassword();
+        // Inflate popup layout
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View pop_up = layoutInflater.inflate(R.layout.popup_edit_employee, null);
 
+        // Create and show edit table popup
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        edit_employee_popup = new PopupWindow(pop_up, width, height, true);
+        edit_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+
+        editUsernameField = pop_up.findViewById(R.id.edit_text_edit_employee_username);
+        editUsernameField.setText(prev_username);
+        editPasswordField = pop_up.findViewById(R.id.edit_text_edit_employee_password);
+        editPasswordField.setText(prev_password);
+        editUsernameField.addTextChangedListener(editEmployeeWatcher);
+        editPasswordField.addTextChangedListener(editEmployeeWatcher);
+
+        confirmEditButton = pop_up.findViewById(R.id.btn_final_edit_employee);
+        confirmEditButton.setOnClickListener(onConfirmEditButton);
+        // Confirm button is enabled
+        confirm_edit_enabled = true;
+        confirmEditButton.setAlpha(1.0f);
+
+        Button cancelButton = pop_up.findViewById(R.id.btn_cancel_edit_employee);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            // User clicked the cancel button
+            // inside the edit employee pop up
+            @Override
+            public void onClick(View v) {
+                edit_employee_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+            }
+        });
     }
+
+    TextWatcher editEmployeeWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            // Fields modified in edit employee popup
+            text_changed = true;
+            newUsername = editUsernameField.getText().toString();
+            newPassword = editPasswordField.getText().toString();
+            if(!newUsername.isEmpty() && !newPassword.isEmpty()) {
+                confirmEditButton.setAlpha(1.0f);
+                confirm_edit_enabled = true;
+            } else {
+                confirmEditButton.setAlpha(.5f);
+                confirm_edit_enabled = false;
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
+    View.OnClickListener onConfirmEditButton = new View.OnClickListener() {
+        // User clicked the confirm button
+        // inside the edit employee pop up
+        @Override
+        public void onClick(View v) {
+            viewModel.getPresenter().onEditEmployee(selected_barista, confirm_edit_enabled, text_changed, prev_username, prev_password, newUsername, newPassword);
+        }
+    };
 
     @Override
     public void deleteEmployee(Barista b) {
+        selected_barista = b;
+        // Inflate popup layout
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View pop_up = layoutInflater.inflate(R.layout.popup_delete_employee, null);
 
+        // Create and show delete employee popup
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        delete_employee_popup = new PopupWindow(pop_up, width, height, true);
+        delete_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+
+        Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_employee);
+        confirmDeleteButton.setOnClickListener(onConfirmDeleteButton);
+
+        Button cancelButton = pop_up.findViewById(R.id.btn_cancel_delete_employee);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            // User clicked the cancel button
+            // inside the delete employee pop up
+            @Override
+            public void onClick(View v) {
+                delete_employee_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+            }
+        });
     }
+
+    View.OnClickListener onConfirmDeleteButton = new View.OnClickListener() {
+        // User clicked the confirm button
+        // inside the delete employee pop up
+        @Override
+        public void onClick(View v) {
+            viewModel.getPresenter().onDeleteEmployee(selected_barista);
+        }
+    };
 }

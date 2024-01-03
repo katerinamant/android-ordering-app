@@ -49,7 +49,6 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
 
     // Delete table pop up
     private PopupWindow delete_table_popup;
-    private Button confirmDeleteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,14 +209,14 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
 
         confirmEditButton = pop_up.findViewById(R.id.btn_final_edit_table);
         confirmEditButton.setOnClickListener(onConfirmEditButton);
-        // Add button is disabled
+        // Confirm button is enabled
         confirm_edit_enabled = true;
         confirmEditButton.setAlpha(1.0f);
 
         Button cancelButton = pop_up.findViewById(R.id.btn_cancel_edit_table);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             // User clicked the cancel button
-            // inside the add new table pop up
+            // inside the edit table pop up
             @Override
             public void onClick(View v) {
                 edit_table_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
@@ -234,7 +233,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
             // Fields modified in edit table popup
             text_changed = true;
             newTableNumber = editTableNumberField.getText().toString();
-            newEditUniqueId = editUniqueIdField.getText().toString().trim();
+            newEditUniqueId = editUniqueIdField.getText().toString();
             if(!newTableNumber.isEmpty() && !newEditUniqueId.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
@@ -267,19 +266,19 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_delete_table, null);
 
-        // Create and show edit table popup
+        // Create and show delete table popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         delete_table_popup = new PopupWindow(pop_up, width, height, true);
         delete_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
 
-        confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_table);
+        Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_table);
         confirmDeleteButton.setOnClickListener(onConfirmDeleteButton);
 
         Button cancelButton = pop_up.findViewById(R.id.btn_cancel_delete_table);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             // User clicked the cancel button
-            // inside the add new table pop up
+            // inside the delete table pop up
             @Override
             public void onClick(View v) {
                 delete_table_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed

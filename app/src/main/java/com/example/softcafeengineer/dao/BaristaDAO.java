@@ -34,4 +34,10 @@ public interface BaristaDAO
      * Delete barista
      */
     void delete(Barista barista);
+
+    /**
+     * Changes key when barista
+     * changes username
+     */
+    void updateBarista(String old_username, String new_username);
 }
