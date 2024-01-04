@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_text_category_name"
+        android:id="@+id/edit_text_add_category_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -48,10 +48,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_category_name" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_category_name" />
 
         <EditText
-            android:id="@+id/edit_text_category_description"
+            android:id="@+id/edit_text_add_category_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
-            android:id="@+id/btn_cancel_category"
+            android:id="@+id/btn_cancel_add_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -75,13 +75,13 @@
             android:backgroundTint="@color/dark_button"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_add_new_category"
+            app:layout_constraintEnd_toStartOf="@+id/btn_final_add_category"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text_category_description" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_add_category_description" />
 
     <Button
-        android:id="@+id/btn_add_new_category"
+        android:id="@+id/btn_final_add_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
@@ -94,6 +94,6 @@
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_category_description" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_category_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

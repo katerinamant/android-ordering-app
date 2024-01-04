@@ -10,7 +10,8 @@ import com.example.softcafeengineer.dao.MenuDAO;
 public class EditMenuViewModel extends ViewModel
 {
     private EditMenuPresenter presenter;
-    public EditMenuViewModel(){
+
+    public EditMenuViewModel() {
         this.presenter = new EditMenuPresenter();
         MenuDAO menuDAO = new MenuDAOMemory();
         presenter.setMenuDAO(menuDAO);

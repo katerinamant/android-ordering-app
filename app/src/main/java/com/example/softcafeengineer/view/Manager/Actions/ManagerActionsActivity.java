@@ -71,7 +71,7 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void manage_employees(){
-        Intent intent = new Intent(ManagerActionsActivity.this, ManageEmployeesActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, ManageEmployeesActivity.class);
         intent.putExtra("cafe_brand", brand);
         startActivity(intent);
     }
@@ -85,7 +85,8 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
 
     @Override
     public void edit_menu(){
-        Intent intent = new Intent(ManagerActionsActivity.this, EditMenuActivity.class); // placeholder
+        Intent intent = new Intent(ManagerActionsActivity.this, EditMenuActivity.class);
+        intent.putExtra("cafe_brand", brand);
         startActivity(intent);
     }
 
