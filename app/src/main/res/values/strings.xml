@@ -88,4 +88,9 @@
     <string name="refresh">Refresh</string>
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>
+
+    <!-- Edit Menu -->
+    <string name="add_item">Add product</string>
+    <string name="add_category">Add category</string>
+    <string name="delete_category">Delete category</string>
 </resources>

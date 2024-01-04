@@ -29,7 +29,7 @@ public class ProductTest
 
     @Test
     public void constructor_with_args() {
-        ProductCategory cat = new ProductCategory("coffee", "coffee");
+        ProductCategory cat = new ProductCategory("coffee", "coffee",new Cafeteria());
         Cafeteria cafe = new Cafeteria();
         Product prod = new Product(10.0, "Kafes", true, cat, cafe);
 

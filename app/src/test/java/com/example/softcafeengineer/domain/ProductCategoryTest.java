@@ -18,7 +18,7 @@ public class ProductCategoryTest
 
     @Test
     public void constructor_with_args() {
-        ProductCategory category = new ProductCategory("Kafedes", "Zestoi kai kryoi kafedes");
+        ProductCategory category = new ProductCategory("Kafedes", "Zestoi kai kryoi kafedes", new Cafeteria());
 
         Assert.assertEquals("Kafedes", category.getName());
         Assert.assertEquals("Zestoi kai kryoi kafedes", category.getDescription());
