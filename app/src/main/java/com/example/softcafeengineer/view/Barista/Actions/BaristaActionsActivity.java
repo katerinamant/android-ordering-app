@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.view.Barista.ManageOrder.ManageOrderActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 import java.util.List;
@@ -81,7 +82,9 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
     // -------
     @Override
     public void viewOrder(Order o) {
-        Intent intent = new Intent(BaristaActionsActivity.this, WelcomeScreenActivity.class); // placeholder for ManageOrderActivity
+        Intent intent = new Intent(BaristaActionsActivity.this, ManageOrderActivity.class);
+        intent.putExtra("cafe_brand", brand);
+        intent.putExtra("table_number", o.getTable().getId());
         startActivity(intent);
     }
 }

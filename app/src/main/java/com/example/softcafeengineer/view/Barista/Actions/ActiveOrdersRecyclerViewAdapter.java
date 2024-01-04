@@ -27,7 +27,7 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     @NonNull
     @Override
     public ActiveOrdersRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.active_orders_list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.active_order_list_item, parent, false));
     }
 
     @Override

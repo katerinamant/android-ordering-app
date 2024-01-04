@@ -55,5 +55,20 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_barista_actions_header" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_barista_actions_header" >
+
+        <TextView
+            android:id="@+id/active_order_layout_table_number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/na"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/text"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/active_order_layout_table_number_title"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
