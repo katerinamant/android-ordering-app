@@ -11,7 +11,7 @@
         android:id="@+id/order_list_layout_btn_manage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="60dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/manage"

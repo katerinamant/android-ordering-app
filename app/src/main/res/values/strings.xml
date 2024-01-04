@@ -89,8 +89,18 @@
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>
 
+    <!-- Manage Order -->
+    <string name="order_status">Order status:</string>
+
     <!-- Order List -->
     <string name="quantity">Quantity:</string>
     <string name="manage">Manage</string>
     <string name="change_order_status">Change\norder status</string>
+
+    <!-- Change status Popup -->
+    <string name="change_to">Change status to:</string>
+    <string name="in_progress">IN PROGRESS</string>
+    <string name="canceled">CANCELED</string>
+    <string name="waiting">WAITING</string>
+    <string name="completed">COMPLETED</string>
 </resources>

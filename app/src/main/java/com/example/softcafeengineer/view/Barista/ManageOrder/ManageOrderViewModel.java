@@ -3,7 +3,9 @@ package com.example.softcafeengineer.view.Barista.ManageOrder;
 import androidx.lifecycle.ViewModel;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
+import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
+import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 
 public class ManageOrderViewModel extends ViewModel
 {
@@ -13,6 +15,8 @@ public class ManageOrderViewModel extends ViewModel
         this.presenter = new ManageOrderPresenter();
         ActiveOrdersDAO activeOrdersDAO = new ActiveOrdersDAOMemory();
         presenter.setActiveOrdersDAO(activeOrdersDAO);
+        BaristaDAO baristaDAO = new BaristaDAOMemory();
+        presenter.setBaristaDAO(baristaDAO);
     }
 
     public ManageOrderPresenter getPresenter() { return this.presenter; }

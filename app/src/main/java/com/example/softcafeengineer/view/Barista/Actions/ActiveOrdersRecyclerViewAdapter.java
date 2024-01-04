@@ -34,7 +34,7 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     public void onBindViewHolder(@NonNull ActiveOrdersRecyclerViewAdapter.ViewHolder holder, int position) {
         final Order currentOrder = mValues.get(position);
         holder.tableNumber.setText(String.valueOf(currentOrder.getTable().getId()));
-        holder.totalCost.setText(String.format("%s 💶", String.valueOf(currentOrder.getTotalCost())));
+        holder.totalCost.setText(String.format("%.2f 💶", currentOrder.getTotalCost()));
 
         holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
