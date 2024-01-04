@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.view.Barista.ManageOrder.ManageOrderActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 public class BaristaActionsActivity extends AppCompatActivity implements BaristaActionsView, ActiveOrdersRecyclerViewAdapter.ItemSelectionListener
 {
     private BaristaActionsViewModel viewModel;
-    private String username, brand;
+    private String username, password, brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
         if(savedInstanceState == null) {
             Intent intent = getIntent();
             username = intent.getStringExtra("username");
+            password = intent.getStringExtra("password");
             brand = intent.getStringExtra("cafe_brand");
         }
         TextView header = findViewById(R.id.txt_barista_actions_header);
@@ -81,7 +83,11 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
     // -------
     @Override
     public void viewOrder(Order o) {
-        Intent intent = new Intent(BaristaActionsActivity.this, WelcomeScreenActivity.class); // placeholder for ManageOrderActivity
+        Intent intent = new Intent(BaristaActionsActivity.this, ManageOrderActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
+        intent.putExtra("cafe_brand", brand);
+        intent.putExtra("table_number", o.getTable().getId());
         startActivity(intent);
     }
 }
