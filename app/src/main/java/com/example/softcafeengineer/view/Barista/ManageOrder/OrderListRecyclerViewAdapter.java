@@ -36,10 +36,10 @@ public class OrderListRecyclerViewAdapter extends RecyclerView.Adapter<OrderList
         holder.productName.setText(String.valueOf(currentOrderInfo.getProduct().getName()));
         holder.quantity.setText(String.valueOf(currentOrderInfo.getQuantity()));
         holder.description.setText(String.valueOf(currentOrderInfo.getDescription()));
-        holder.manageButton.setOnClickListener(new View.OnClickListener() {
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.manageOrderInfo(currentOrderInfo);
+                listener.editOrderInfo(currentOrderInfo);
             }
         });
     }
@@ -51,22 +51,22 @@ public class OrderListRecyclerViewAdapter extends RecyclerView.Adapter<OrderList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView productName, quantity, description;
-        public final Button manageButton;
+        public final Button editButton;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             productName = view.findViewById(R.id.order_list_layout_product_name);
             quantity = view.findViewById(R.id.order_list_layout_quantity);
             description = view.findViewById(R.id.order_list_layout_desc);
-            manageButton = view.findViewById(R.id.order_list_layout_btn_manage);
+            editButton = view.findViewById(R.id.order_list_layout_btn_edit);
         }
     }
 
     public interface ItemSelectionListener {
         /**
-         * User clicked the "Manage"
+         * User clicked the "Edit"
          * button for a specific order info
          */
-        void manageOrderInfo(OrderInfo o);
+        void editOrderInfo(OrderInfo o);
     }
 }

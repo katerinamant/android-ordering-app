@@ -20,5 +20,13 @@ public interface ManageOrderView
      */
     void successfulCancellation();
 
+    /**
+     * Barista successfully edited
+     * an order info from the order
+     */
+    void successfulEdit();
+
     void showError(String title, String msg);
+
+    void showToast(String msg);
 }

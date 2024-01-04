@@ -8,16 +8,17 @@
     android:background="@color/background">
 
     <Button
-        android:id="@+id/order_list_layout_btn_manage"
+        android:id="@+id/order_list_layout_btn_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
         android:backgroundTint="@color/dark_button"
-        android:text="@string/manage"
+        android:text="@string/edit"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/order_list_layout_desc" />
 
