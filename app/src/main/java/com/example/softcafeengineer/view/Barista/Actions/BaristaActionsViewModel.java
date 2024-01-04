@@ -7,6 +7,8 @@ import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
 
+import java.util.Calendar;
+
 public class BaristaActionsViewModel extends ViewModel {
     private BaristaActionsPresenter presenter;
 
@@ -16,10 +18,9 @@ public class BaristaActionsViewModel extends ViewModel {
         presenter.setActiveOrdersDAO(activeOrdersDAO);
         MonthlyRevenueDAO monthlyRevenueDAO = new MonthlyRevenueDAOMemory();
         presenter.setMonthlyRevenueDAO(monthlyRevenueDAO);
-        /*
-         TODO
-          presenter.setDate(1, 1, 1);
-        */
+        // Get current date
+        Calendar calendar = Calendar.getInstance();
+        presenter.setDate(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR));
     }
 
     public BaristaActionsPresenter getPresenter() { return this.presenter; }

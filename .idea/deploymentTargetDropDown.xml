@@ -8,10 +8,10 @@
       <entry key="EditInfoActivity">
         <State />
       </entry>
-      <entry key="InfoInputActivity">
+      <entry key="ManageEmployeesActivity">
         <State />
       </entry>
-      <entry key="ManageEmployeesActivity">
+      <entry key="ManageOrderActivity">
         <State />
       </entry>
       <entry key="ManageTablesActivity">

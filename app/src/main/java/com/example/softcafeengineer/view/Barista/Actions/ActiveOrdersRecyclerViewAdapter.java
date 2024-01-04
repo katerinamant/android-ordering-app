@@ -27,14 +27,14 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     @NonNull
     @Override
     public ActiveOrdersRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.active_orders_list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.active_order_list_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ActiveOrdersRecyclerViewAdapter.ViewHolder holder, int position) {
         final Order currentOrder = mValues.get(position);
         holder.tableNumber.setText(String.valueOf(currentOrder.getTable().getId()));
-        holder.totalCost.setText(String.format("%s 💶", String.valueOf(currentOrder.getTotalCost())));
+        holder.totalCost.setText(String.format("%.2f 💶", currentOrder.getTotalCost()));
 
         holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override

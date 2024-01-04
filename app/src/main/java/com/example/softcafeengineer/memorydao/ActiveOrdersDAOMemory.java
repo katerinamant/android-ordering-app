@@ -22,6 +22,20 @@ public class ActiveOrdersDAOMemory implements ActiveOrdersDAO
     }
 
     @Override
+    public Order findInCafeteria(String cafeteria_brand, int table_number) {
+        if(cafeteria_to_orders.containsKey(cafeteria_brand)) {
+            ArrayList<Order> current_active_orders = cafeteria_to_orders.get(cafeteria_brand);
+            for(Order order : current_active_orders) {
+                if(order.getTable().getId() == table_number) {
+                    return order;
+                }
+            }
+
+        }
+        return null;
+    }
+
+    @Override
     public List<Order> findAll(String cafeteria_brand) {
         if(cafeteria_to_orders.containsKey(cafeteria_brand)) {
             return cafeteria_to_orders.get(cafeteria_brand);
