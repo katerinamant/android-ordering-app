@@ -38,6 +38,14 @@ public interface MenuDAO
     public List<Product> findAllProducts(String cafeteria_brand);
 
     /**
+     * Find all products
+     * of a cafeteria
+     * belonging to a
+     * specific category
+     */
+    public List<Product> findAllProductsOfCategory(String cafeBrand, ProductCategory category);
+
+    /**
      * Check if a product category
      * name is used within a cafeteria
      */

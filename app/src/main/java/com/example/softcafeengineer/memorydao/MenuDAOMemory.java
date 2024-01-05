@@ -63,6 +63,20 @@ public class MenuDAOMemory implements MenuDAO
     }
 
     @Override
+    public List<Product> findAllProductsOfCategory(String cafe_brand, ProductCategory category) {
+        List<Product> all_products = this.findAllProducts(cafe_brand);
+        List<Product> result = new ArrayList<Product>();
+        if(all_products.size() != 0) {
+            for(Product p : all_products) {
+                if(p.getCategory() == category) {
+                    result.add(p);
+                }
+            }
+        }
+        return result;
+    }
+
+    @Override
     public boolean categoryExists(String cafe_brand, String category_name) {
         if(cafeteria_to_categories.containsKey(cafe_brand)) {
             ArrayList<ProductCategory> categories = cafeteria_to_categories.get(cafe_brand);
@@ -90,13 +104,22 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public void deleteCategory(ProductCategory category) {
         String cafe_brand = category.getCafe().getBrand();
-        ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
-        for(Product p : products) {
-            if(p.getCategory() == category) {
-                this.deleteProduct(p);
+        // Delete products of the category
+        if(cafeteria_to_products.containsKey(cafe_brand)) {
+            ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
+            ArrayList<Product> toRemove = new ArrayList<Product>();
+            for(Product p : products) {
+                if(p.getCategory() == category) {
+                    toRemove.add(p);
+                }
             }
+            products.removeAll(toRemove);
+            cafeteria_to_products.put(cafe_brand, products);
         }
-        cafeteria_to_categories.get(cafe_brand).remove(category);
+        // Delete category
+        if(cafeteria_to_categories.containsKey(cafe_brand)) {
+            cafeteria_to_categories.get(cafe_brand).remove(category);
+        }
     }
 
     @Override

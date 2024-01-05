@@ -42,12 +42,12 @@ public class EditCategoriesPresenter
         this.cafe_brand = cafe_brand;
         this.category = menuDAO.findCategory(cafe_brand, category_name);
         this.cafe = cafeteriaDAO.find(cafe_brand);
-        this.findAllProducts(this.cafe_brand);
+        this.findAllProducts();
     }
 
     public void setBrand(String brand) {
         this.cafe_brand = brand;
-        this.findAllProducts(this.cafe_brand);
+        this.findAllProducts();
     }
     public String getBrand()
     {
@@ -58,9 +58,9 @@ public class EditCategoriesPresenter
 
     public String getCategoryDesc() { return this.category.getDescription(); }
 
-    public void findAllProducts(String brand) {
+    public void findAllProducts() {
         this.productResults.clear();
-        this.productResults = menuDAO.findAllProducts(brand);
+        this.productResults = menuDAO.findAllProductsOfCategory(this.cafe_brand, this.category);
     }
     public List<Product> getProductResults() {
         return this.productResults;
