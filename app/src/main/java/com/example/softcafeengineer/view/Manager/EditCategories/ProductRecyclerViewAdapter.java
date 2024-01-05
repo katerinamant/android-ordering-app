@@ -34,7 +34,7 @@ public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRec
     public void onBindViewHolder(@NonNull ProductRecyclerViewAdapter.ViewHolder holder, int position) {
         final Product currentProduct = mValues.get(position);
         holder.name.setText(String.valueOf(currentProduct.getName()));
-        holder.price.setText(String.valueOf(currentProduct.getPrice()));
+        holder.price.setText(String.valueOf(currentProduct.getPrice())+"\uD83D\uDCB6");
         if(currentProduct.getAvailability()) {
             holder.availability.setText("available");
         } else{
