@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
+import com.example.softcafeengineer.view.Order.ViewMenu.ViewMenuActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ScanTableActivity extends AppCompatActivity implements ScanTableView
@@ -28,7 +30,7 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_table);
 
-        final ScanTablePresenter presenter = new ScanTablePresenter(this, new TableDAOMemory());
+        final ScanTablePresenter presenter = new ScanTablePresenter(this, new TableDAOMemory(), new ActiveOrdersDAOMemory());
 
         idField = findViewById(R.id.edit_txt_table_id);
         submitButton = findViewById(R.id.btn_submit_table_id);
@@ -68,8 +70,16 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
     };
 
     @Override
-    public void successfulSubmit() {
-        Intent intent = new Intent(ScanTableActivity.this, WelcomeScreenActivity.class); //placeholder for ClientOrderActivity
+    public void showOrderStatus() {
+        Intent intent = new Intent(ScanTableActivity.this, WelcomeScreenActivity.class); // placeholder
+        // intent.putExtra("unique_id", unique_id);
+        startActivity(intent);
+    }
+
+    @Override
+    public void successfulSubmit(String unique_id) {
+        Intent intent = new Intent(ScanTableActivity.this, ViewMenuActivity.class);
+        intent.putExtra("unique_id", unique_id);
         startActivity(intent);
     }
 

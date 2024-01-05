@@ -1,16 +1,20 @@
 package com.example.softcafeengineer.view.Order.ScanTable;
 
+import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.TableDAO;
+import com.example.softcafeengineer.domain.Order;
 import com.example.softcafeengineer.domain.Table;
 
 public class ScanTablePresenter
 {
     private ScanTableView  view;
     private TableDAO tables;
+    private ActiveOrdersDAO orders;
 
-    public ScanTablePresenter(ScanTableView view, TableDAO tables) {
+    public ScanTablePresenter(ScanTableView view, TableDAO tables, ActiveOrdersDAO orders) {
         this.view = view;
         this.tables = tables;
+        this.orders = orders;
     }
 
     void onSubmit(boolean submit_button_enabled, String id) {
@@ -24,7 +28,16 @@ public class ScanTablePresenter
 
             if(result != null) {
                 // Correct id, change Activity
-                view.successfulSubmit();
+                Order order = orders.find(id);
+                if(order != null) {
+                    // Table has an active order
+                    // show order status
+                    view.showOrderStatus();
+                } else {
+                    // Table has no active orders
+                    // can submit new order
+                    view.successfulSubmit(result.getQRCode());
+                }
             } else {
                 // Incorrect id, showing error
                 view.showError("Connection unsuccessful.", "The id provided was invalid. Try again.");

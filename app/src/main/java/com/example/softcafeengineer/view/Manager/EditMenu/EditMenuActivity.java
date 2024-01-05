@@ -29,7 +29,6 @@ import java.util.List;
 public class EditMenuActivity extends AppCompatActivity implements EditMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener
 {
     private EditMenuViewModel viewModel;
-    private CategoryRecyclerViewAdapter categoryRecyclerViewAdapter;
     private String brand;
     private RelativeLayout relativeLayout;
 
@@ -56,9 +55,9 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
         viewModel.getPresenter().setBrand(brand); // updates results
         List<ProductCategory> categoryList = viewModel.getPresenter().getCategoryResults();
         // Recycler view
-        RecyclerView recyclerView_categories = findViewById(R.id.recycler_view_categories);
+        RecyclerView recyclerView_categories = findViewById(R.id.recycler_view_categories_menu);
         recyclerView_categories.setLayoutManager(new LinearLayoutManager(this));
-        categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(categoryList, this);
+        CategoryRecyclerViewAdapter categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(categoryList, this);
         recyclerView_categories.setAdapter(categoryRecyclerViewAdapter);
 
         Button addNewCategory = findViewById(R.id.btn_add_category); // "Add category" button
@@ -135,7 +134,7 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
 
     @Override
     protected void onRestart() {
-        // If category named changed
+        // If a category was modified
         // the activity must be restarted
         // to show the new name
         super.onRestart();

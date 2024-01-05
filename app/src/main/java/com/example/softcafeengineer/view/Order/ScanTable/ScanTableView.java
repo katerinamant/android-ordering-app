@@ -4,10 +4,18 @@ public interface ScanTableView
 {
     /**
      * When the user clicks on the "Submit" button
-     * with correct id they are redirected
-     * to the ClientOrderActivity
+     * with correct id for an active order
+     * they are redirected
+     * to the ViewOrderStatusActivity
      */
-    void successfulSubmit();
+    void showOrderStatus();
+
+    /**
+     * When the user clicks on the "Submit" button
+     * with correct id they are redirected
+     * to the ViewMenuActivity
+     */
+    void successfulSubmit(String unique_id);
 
     void showError(String title, String msg);
 

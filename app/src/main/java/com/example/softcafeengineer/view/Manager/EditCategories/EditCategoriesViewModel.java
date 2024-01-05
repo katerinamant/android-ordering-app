@@ -6,7 +6,6 @@ import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
-import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuPresenter;
 
 public class EditCategoriesViewModel extends ViewModel
 {

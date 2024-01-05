@@ -15,6 +15,9 @@
     <string name="enter_table_id">* Enter table unique id:</string>
     <string name="submit">Submit</string>
 
+    <!-- ViewMenu -->
+    <string name="view_cart">View cart</string>
+
     <!-- Manager & Barista LogIn/SignUp -->
     <string name="please_enter_info_msg">Please enter the information provided by your management🤫</string>
     <string name="enter_username">* Enter username:</string>

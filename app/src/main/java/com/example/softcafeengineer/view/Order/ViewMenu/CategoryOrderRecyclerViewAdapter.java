@@ -1,5 +1,4 @@
-package com.example.softcafeengineer.view.Manager.EditMenu;
-
+package com.example.softcafeengineer.view.Order.ViewMenu;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,24 +14,25 @@ import com.example.softcafeengineer.domain.ProductCategory;
 
 import java.util.List;
 
-public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>
+
+public class CategoryOrderRecyclerViewAdapter extends RecyclerView.Adapter<CategoryOrderRecyclerViewAdapter.ViewHolder>
 {
     private final List<ProductCategory> mValues;
     private final ItemSelectionListener listener;
 
-    public CategoryRecyclerViewAdapter(List<ProductCategory> items, ItemSelectionListener listener) {
+    public CategoryOrderRecyclerViewAdapter(List<ProductCategory> items, CategoryOrderRecyclerViewAdapter.ItemSelectionListener listener) {
         this.mValues = items;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public CategoryRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder((LayoutInflater.from(parent.getContext()).inflate(R.layout.category_list_item, parent, false)));
+    public CategoryOrderRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new CategoryOrderRecyclerViewAdapter.ViewHolder((LayoutInflater.from(parent.getContext()).inflate(R.layout.category_list_item, parent, false)));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryOrderRecyclerViewAdapter.ViewHolder holder, int position) {
         final ProductCategory currentCategory = mValues.get(position);
         holder.name.setText(String.valueOf(currentCategory.getName()));
         holder.description.setText(String.valueOf(currentCategory.getDescription()));

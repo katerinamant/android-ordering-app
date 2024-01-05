@@ -15,7 +15,7 @@
         android:layout_marginEnd="1dp"
         android:background="@color/dark_button"
         android:backgroundTint="@color/dark_button"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view_categories"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_categories_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_edit_menu_head" />
@@ -46,8 +46,8 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_categories"
-        android:layout_width="410dp"
+        android:id="@+id/recycler_view_categories_menu"
+        android:layout_width="match_parent"
         android:layout_height="614dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_category"

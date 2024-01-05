@@ -22,4 +22,10 @@ public class EditMenuViewModel extends ViewModel
     public EditMenuPresenter getPresenter() {
         return this.presenter;
     }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        // release resources
+    }
 }
