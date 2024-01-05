@@ -73,6 +73,22 @@
     <string name="new_password">Password</string>
     <string name="confirm_employee_delete">Are you sure you want to delete this employee❓</string>
 
+    <!-- Edit Menu -->
+    <string name="add_item">Add product</string>
+    <string name="add_category">Add category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="edit_category">Edit category</string>
+    <string name="edit_product">Edit product</string>
+    <string name="delete_product">Delete product</string>
+
+    <!-- Edit Categories Popups-->
+    <string name="category_desc">Description</string>
+    <string name="category_product_name">Name</string>
+    <string name="confirm_category_delete">Are you sure you want to delete this category❓</string>
+    <string name="product_price">Price</string>
+    <string name="product_availability">Availability</string>
+    <string name="confirm_product_delete">Are you sure you want to delete this product❓</string>
+
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>
     <string name="choose_month">\n🗓️ Choose month:</string>
@@ -88,17 +104,6 @@
     <string name="refresh">Refresh</string>
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>
-
-    <!-- Edit Menu -->
-    <string name="add_item">Add product</string>
-    <string name="add_category">Add category</string>
-    <string name="delete_category">Delete category</string>
-    <string name="edit_category">Edit category</string>
-    <string name="edit_product">Edit product</string>
-    <string name="delete_product">Delete product</string>
-    <string name="product_name">Name</string>
-    <string name="product_price">Price</string>
-    <string name="product_availability">Availability</string>
 
     <!-- Manage Order -->
     <string name="order_status">Order status:</string>

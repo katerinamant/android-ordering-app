@@ -23,4 +23,10 @@ public class EditCategoriesViewModel extends ViewModel
     public EditCategoriesPresenter getPresenter() {
         return this.presenter;
     }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        // release resources
+    }
 }

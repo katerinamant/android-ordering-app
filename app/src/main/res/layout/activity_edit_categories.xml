@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/delete_category"
+        android:id="@+id/btn_delete_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/prod_cat_layout_description"
+        android:id="@+id/txt_category_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -74,11 +74,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_cat_layout_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_category_name"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/prod_cat_layout_name"
+        android:id="@+id/txt_category_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -101,6 +101,6 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_cat_layout_description" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_category_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,10 @@
             android:exported="false" />
         <activity
             android:name=".view.Manager.EditMenu.EditMenuActivity"
-            android:exported="true" />
+            android:exported="false" />
+        <activity
+            android:name=".view.Manager.EditCategories.EditCategoriesActivity"
+            android:exported="false" />
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
             android:exported="true"> <!-- Main Activity -->

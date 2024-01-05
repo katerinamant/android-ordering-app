@@ -22,13 +22,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.ProductCategory;
-import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
+import com.example.softcafeengineer.view.Manager.EditCategories.EditCategoriesActivity;
 
 import java.util.List;
 
 public class EditMenuActivity extends AppCompatActivity implements EditMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener
 {
     private EditMenuViewModel viewModel;
+    private CategoryRecyclerViewAdapter categoryRecyclerViewAdapter;
     private String brand;
     private RelativeLayout relativeLayout;
 
@@ -57,7 +58,8 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
         // Recycler view
         RecyclerView recyclerView_categories = findViewById(R.id.recycler_view_categories);
         recyclerView_categories.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView_categories.setAdapter(new CategoryRecyclerViewAdapter(categoryList, this));
+        categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(categoryList, this);
+        recyclerView_categories.setAdapter(categoryRecyclerViewAdapter);
 
         Button addNewCategory = findViewById(R.id.btn_add_category); // "Add category" button
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_menu); // activity_edit_menu.xml
@@ -131,6 +133,16 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
         }
     };
 
+    @Override
+    protected void onRestart() {
+        // If category named changed
+        // the activity must be restarted
+        // to show the new name
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     // -------
     // EditMenuView implementations
     // -------
@@ -158,7 +170,7 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
     // -------
     @Override
     public void viewCategory(ProductCategory c) {
-        Intent intent = new Intent(EditMenuActivity.this, ManagerActionsActivity.class); // placeholder for ViewCategoryActivity
+        Intent intent = new Intent(EditMenuActivity.this, EditCategoriesActivity.class);
         intent.putExtra("cafe_brand", brand);
         intent.putExtra("category_name", c.getName());
         startActivity(intent);

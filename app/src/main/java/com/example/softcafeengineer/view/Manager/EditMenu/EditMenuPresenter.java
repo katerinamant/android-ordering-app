@@ -56,7 +56,6 @@ public class EditMenuPresenter
         return this.categoryResults;
     }
 
-
     public void onAddCategory(boolean addCategoryEnabled, String name, String description) {
         if (!addCategoryEnabled){
             view.showToast("Please fill all the required fields.");

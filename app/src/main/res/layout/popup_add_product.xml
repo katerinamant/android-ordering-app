@@ -2,24 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/layout_bg">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_add_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
         android:layout_marginTop="25dp"
-        android:text="@string/product_name"
+        android:text="@string/category_product_name"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_add_product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -28,22 +28,22 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_layout_name" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_product_name" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txt_add_product_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="15dp"
         android:text="@string/product_availability"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_layout_price" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_product_price" />
 
     <EditText
-        android:id="@+id/prod_layout_name"
+        android:id="@+id/edit_text_add_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -52,43 +52,46 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_add_product_name" />
 
     <EditText
-        android:id="@+id/prod_layout_price"
+        android:id="@+id/edit_text_add_product_price"
         android:layout_width="92dp"
         android:layout_height="47dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_add_product_price" />
 
     <Switch
-        android:id="@+id/prod_layout_availability"
+        android:id="@+id/add_product_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/prod_layout_price" />
+        app:layout_constraintStart_toEndOf="@+id/txt_add_product_availability"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_add_product_price" />
 
     <Button
-        android:id="@+id/btn_add_new_product"
+        android:id="@+id/btn_final_add_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="76dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/addB"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_layout_availability" />
+        app:layout_constraintTop_toBottomOf="@+id/add_product_availability" />
 
     <Button
-        android:id="@+id/btn_cancel_product"
+        android:id="@+id/btn_cancel_add_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -98,9 +101,9 @@
         android:backgroundTint="@color/dark_button"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_add_new_product"
+        app:layout_constraintEnd_toStartOf="@+id/btn_final_add_product"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prod_layout_availability" />
+        app:layout_constraintTop_toBottomOf="@+id/add_product_availability" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

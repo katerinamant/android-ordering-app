@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,12 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Product;
-import com.example.softcafeengineer.domain.ProductCategory;
-import com.example.softcafeengineer.view.Manager.EditMenu.CategoryRecyclerViewAdapter;
 
 import java.util.List;
 
-public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>{
+public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>
+{
     private final List<Product> mValues;
     private final ProductRecyclerViewAdapter.ItemSelectionListener listener;
 
@@ -37,18 +35,20 @@ public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRec
         final Product currentProduct = mValues.get(position);
         holder.name.setText(String.valueOf(currentProduct.getName()));
         holder.price.setText(String.valueOf(currentProduct.getPrice()));
-        if (currentProduct.getAvailability()){
+        if(currentProduct.getAvailability()) {
             holder.availability.setText("available");
-        }else{
+        } else{
             holder.availability.setText("not available");
         }
+
         holder.edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { }
+            public void onClick(View v) { listener.editProduct(currentProduct); }
         });
+
         holder.delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { }
+            public void onClick(View v) { listener.deleteProduct(currentProduct); }
         });
     }
 
@@ -64,19 +64,25 @@ public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRec
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            name = view.findViewById(R.id.prod_layout_name);
-            price = view.findViewById(R.id.prod_layout_price);
-            availability = view.findViewById(R.id.prod_layout_availability);
+            name = view.findViewById(R.id.product_layout_name);
+            price = view.findViewById(R.id.product_layout_price);
+            availability = view.findViewById(R.id.product_layout_availability);
             edit_button = view.findViewById(R.id.product_layout_btn_edit);
-            delete_button = view.findViewById(R.id.product_layout_btn_delete)
+            delete_button = view.findViewById(R.id.product_layout_btn_delete);
         }
     }
 
     public interface  ItemSelectionListener {
         /**
-         * User clicked the "View"
+         * User clicked the "Edit"
          * button for a specific product
          */
-        void viewProduct(Product p);
+        void editProduct(Product p);
+
+        /**
+         * User clicked the "Delete"
+         * button for a specific product
+         */
+        void deleteProduct(Product p);
     }
 }

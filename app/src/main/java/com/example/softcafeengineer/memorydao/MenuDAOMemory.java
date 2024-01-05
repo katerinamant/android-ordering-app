@@ -89,7 +89,14 @@ public class MenuDAOMemory implements MenuDAO
 
     @Override
     public void deleteCategory(ProductCategory category) {
-        cafeteria_to_categories.get(category.getCafe().getBrand()).remove(category);
+        String cafe_brand = category.getCafe().getBrand();
+        ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
+        for(Product p : products) {
+            if(p.getCategory() == category) {
+                this.deleteProduct(p);
+            }
+        }
+        cafeteria_to_categories.get(cafe_brand).remove(category);
     }
 
     @Override
