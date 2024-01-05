@@ -16,7 +16,10 @@
     <string name="submit">Submit</string>
 
     <!-- ViewMenu -->
-    <string name="view_cart">View cart</string>
+    <string name="view_cart">🛒</string>
+
+    <!-- ViewCategories -->
+    <string name="add_to_cart">Add to cart</string>
 
     <!-- ViewCart -->
     <string name="submit_order">Submit order</string>
