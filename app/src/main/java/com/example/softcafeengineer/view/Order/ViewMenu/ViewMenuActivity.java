@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.ProductCategory;
 import com.example.softcafeengineer.view.Manager.EditMenu.CategoryRecyclerViewAdapter;
+import com.example.softcafeengineer.view.Order.ViewCart.ViewCartActivity;
 import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 import java.util.List;
@@ -39,6 +42,14 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
         recyclerView_categories.setLayoutManager(new LinearLayoutManager(this));
         CategoryRecyclerViewAdapter categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(categoryList, this);
         recyclerView_categories.setAdapter(categoryRecyclerViewAdapter);
+
+        Button viewCartButton = findViewById(R.id.btn_view_cart);
+        viewCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.getPresenter().onViewCart();
+            }
+        });
     }
 
     @Override
@@ -54,7 +65,12 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
     // -------
     // ViewMenuView implementations
     // -------
-
+    @Override
+    public void onViewingCart() {
+        Intent intent = new Intent(ViewMenuActivity.this, ViewCartActivity.class);
+        intent.putExtra("unique_id", unique_id);
+        startActivity(intent);
+    }
 
     // -------
     // ItemSelectionListener implementations

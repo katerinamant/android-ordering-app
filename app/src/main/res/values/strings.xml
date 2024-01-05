@@ -18,6 +18,9 @@
     <!-- ViewMenu -->
     <string name="view_cart">View cart</string>
 
+    <!-- ViewCart -->
+    <string name="submit_order">Submit order</string>
+
     <!-- Manager & Barista LogIn/SignUp -->
     <string name="please_enter_info_msg">Please enter the information provided by your management🤫</string>
     <string name="enter_username">* Enter username:</string>

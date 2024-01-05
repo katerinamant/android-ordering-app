@@ -59,4 +59,8 @@ public class ViewMenuPresenter
     public List<ProductCategory> getCategoryResults() {
         return this.categoryResults;
     }
+
+    public void onViewCart() {
+        view.onViewingCart();
+    }
 }
