@@ -87,6 +87,7 @@
     <string name="confirm_category_delete">Are you sure you want to delete this category❓</string>
     <string name="product_price">Price</string>
     <string name="product_availability">Availability</string>
+    <string name="change_availability">Change availability</string>
     <string name="confirm_product_delete">Are you sure you want to delete this product❓</string>
 
     <!-- Revenue -->

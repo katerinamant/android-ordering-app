@@ -29,7 +29,7 @@ import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
 
 import java.util.List;
 
-public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, ProductRecyclerViewAdapter.ItemSelectionListener{
+public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, MenuProductRecyclerViewAdapter.ItemSelectionListener{
     private EditCategoriesViewModel viewModel;
     private String brand, category;
     private RelativeLayout relativeLayout;
@@ -53,7 +53,6 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     private Button addProductButton;
     private boolean add_product_enabled;
     private String newProductName, newProductPrice;
-    private boolean newProductAvailability;
 
     private Product selected_product;
     // Edit product pop up
@@ -61,9 +60,6 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     private String prev_product_name;
     private double prev_product_price;
     private EditText editProductNameField, editProductPriceField;
-    private Switch editProductAvailabilitySwitch;
-    private boolean edit_product_switch_status;
-    private boolean prev_product_availability;
 
     // Delete product pop up
     private PopupWindow delete_product_popup;
@@ -94,7 +90,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         // Recycler view
         RecyclerView recyclerView_products = findViewById(R.id.recycler_view_products);
         recyclerView_products.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView_products.setAdapter(new ProductRecyclerViewAdapter(productList, this));
+        recyclerView_products.setAdapter(new MenuProductRecyclerViewAdapter(productList, this));
 
         Button editCategory = findViewById(R.id.btn_edit_category); // "Edit category" button
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_category); // activity_edit_categories.xml
@@ -358,7 +354,6 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         selected_product = p;
         prev_product_name = p.getName();
         prev_product_price = p.getPrice();
-        prev_product_availability = p.getAvailability();
         // Inflate popup layout
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_edit_product, null);
@@ -375,12 +370,14 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         editProductPriceField.setText(String.format("%.2f", prev_product_price));
         editProductNameField.addTextChangedListener(editProductWatcher);
         editProductPriceField.addTextChangedListener(editProductWatcher);
-        editProductAvailabilitySwitch = pop_up.findViewById(R.id.edit_product_availability);
-        editProductAvailabilitySwitch.setChecked(prev_product_availability);
-        edit_product_switch_status = prev_product_availability;
-        editProductAvailabilitySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                edit_product_switch_status = isChecked;
+
+        Button changeAvailabilityButton = pop_up.findViewById(R.id.btn_edit_availability);
+        changeAvailabilityButton.setOnClickListener(new View.OnClickListener() {
+            // User clicked on the change availability
+            // button inside the edit product pop up
+            @Override
+            public void onClick(View v) {
+                viewModel.getPresenter().onChangeAvailabilityOfProduct(selected_product);
             }
         });
 
@@ -394,7 +391,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
             // inside the edit product pop up
             @Override
             public void onClick(View v) {
-                viewModel.getPresenter().onEditProduct(selected_product, confirm_edit_enabled, text_changed, prev_product_name, prev_product_price, prev_product_availability, newProductName, newProductPrice, edit_product_switch_status);
+                viewModel.getPresenter().onEditProduct(selected_product, confirm_edit_enabled, text_changed, prev_product_name, prev_product_price, newProductName, newProductPrice);
             }
         });
 
@@ -419,7 +416,6 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
             text_changed = true;
             newProductName = editProductNameField.getText().toString().trim();
             newProductPrice = editProductPriceField.getText().toString();
-            newProductAvailability = editProductAvailabilitySwitch.isActivated();
             if(!newProductName.isEmpty() && !newProductPrice.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;

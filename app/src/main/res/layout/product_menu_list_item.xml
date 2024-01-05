@@ -10,17 +10,15 @@
         android:id="@+id/product_layout_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/na"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_layout_price" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/divider"
@@ -38,7 +36,7 @@
         android:id="@+id/product_layout_btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/dark_button"
@@ -48,14 +46,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_layout_availability"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/product_layout_price" />
 
     <Button
         android:id="@+id/product_layout_btn_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/edit"
@@ -63,14 +61,15 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_layout_price" />
 
     <TextView
         android:id="@+id/product_layout_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/na"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -87,7 +86,6 @@
         android:id="@+id/product_layout_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/na"
@@ -95,8 +93,8 @@
         android:textColor="@color/text"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/product_layout_availability"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

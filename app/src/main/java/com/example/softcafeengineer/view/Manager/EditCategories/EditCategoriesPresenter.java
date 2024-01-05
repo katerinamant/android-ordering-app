@@ -108,7 +108,12 @@ public class EditCategoriesPresenter
         }
     }
 
-    public void onEditProduct(Product product, boolean confirm_edit_enabled, boolean text_changed, String prev_name, double prev_price, boolean prev_availability, String name, String price_string, boolean availability) {
+    public void onChangeAvailabilityOfProduct(Product product) {
+        product.toggleAvailability();
+        view.successfulEditProduct();
+    }
+
+    public void onEditProduct(Product product, boolean confirm_edit_enabled, boolean text_changed, String prev_name, double prev_price, String name, String price_string) {
         if(!confirm_edit_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
@@ -125,7 +130,6 @@ public class EditCategoriesPresenter
                 double price = Double.parseDouble(price_string);
                 if(!name.equals(prev_name)) product.setName(name);
                 if(price != prev_price) product.setPrice(price);
-                if(prev_availability != availability) product.setAvailability(availability);
 
                 view.successfulEditProduct();
             }

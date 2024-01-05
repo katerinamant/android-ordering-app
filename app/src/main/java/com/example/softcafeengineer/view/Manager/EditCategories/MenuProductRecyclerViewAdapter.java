@@ -14,31 +14,31 @@ import com.example.softcafeengineer.domain.Product;
 
 import java.util.List;
 
-public class ProductRecyclerViewAdapter  extends RecyclerView.Adapter<ProductRecyclerViewAdapter.ViewHolder>
+public class MenuProductRecyclerViewAdapter extends RecyclerView.Adapter<MenuProductRecyclerViewAdapter.ViewHolder>
 {
     private final List<Product> mValues;
-    private final ProductRecyclerViewAdapter.ItemSelectionListener listener;
+    private final MenuProductRecyclerViewAdapter.ItemSelectionListener listener;
 
-    public ProductRecyclerViewAdapter(List<Product> items, ProductRecyclerViewAdapter.ItemSelectionListener listener) {
+    public MenuProductRecyclerViewAdapter(List<Product> items, MenuProductRecyclerViewAdapter.ItemSelectionListener listener) {
         this.mValues = items;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ProductRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder((LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list_item, parent, false)));
+    public MenuProductRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder((LayoutInflater.from(parent.getContext()).inflate(R.layout.product_menu_list_item, parent, false)));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MenuProductRecyclerViewAdapter.ViewHolder holder, int position) {
         final Product currentProduct = mValues.get(position);
         holder.name.setText(String.valueOf(currentProduct.getName()));
-        holder.price.setText(String.valueOf(currentProduct.getPrice())+"\uD83D\uDCB6");
+        holder.price.setText(String.format("%s 💶",String.valueOf(currentProduct.getPrice())));
         if(currentProduct.getAvailability()) {
-            holder.availability.setText("available");
+            holder.availability.setText("🟩");
         } else{
-            holder.availability.setText("not available");
+            holder.availability.setText("🟥");
         }
 
         holder.edit_button.setOnClickListener(new View.OnClickListener() {
