@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/dark_button"
+        android:backgroundTint="@color/dark_button"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_products"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_category_desc"
+        app:layout_constraintVertical_bias="0.18" />
+
     <RelativeLayout
         android:id="@+id/relative_edit_category"
         android:layout_width="404dp"
@@ -97,10 +113,11 @@
         android:layout_width="406dp"
         android:layout_height="530dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_category_desc" />
+        app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
