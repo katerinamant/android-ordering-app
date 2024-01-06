@@ -33,11 +33,6 @@ public class EditMenuPresenterTest {
         presenter.setMenuDAO(menuDAO);
         presenter.setBrand(cafe.getBrand());
     }
-//    @After
-//    public void tearDown() throws Exception {
-//        presenter=null;
-//        view=null;
-//    }
     @Test
     public void testDisabledAddButton(){
         presenter.onAddCategory(false, "category", "description");
