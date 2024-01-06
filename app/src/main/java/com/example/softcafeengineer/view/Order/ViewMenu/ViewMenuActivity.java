@@ -34,12 +34,15 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
         }
 
         viewModel = new ViewModelProvider(this).get(ViewMenuViewModel.class);
-        viewModel.getPresenter().setView(this, unique_id);
+        viewModel.getPresenter().setView(this, unique_id); // updates results
 
         List<ProductCategory> categoryList = viewModel.getPresenter().getCategoryResults();
         // Recycler view
         RecyclerView recyclerView_categories = findViewById(R.id.recycler_view_categories_order);
         recyclerView_categories.setLayoutManager(new LinearLayoutManager(this));
+        // We are using the same
+        // recycler view adapter
+        // with the EditMenuActivity
         CategoryRecyclerViewAdapter categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(categoryList, this);
         recyclerView_categories.setAdapter(categoryRecyclerViewAdapter);
 

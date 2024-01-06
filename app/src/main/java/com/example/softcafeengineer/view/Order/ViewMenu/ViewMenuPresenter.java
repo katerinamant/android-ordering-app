@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Order.ViewMenu;
 
 
-import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.ProductCategory;
@@ -14,7 +13,6 @@ public class ViewMenuPresenter
 {
     private ViewMenuView view;
     private MenuDAO menuDAO;
-    private CafeteriaDAO cafeteriaDAO;
     private TableDAO tableDAO;
     private Table table;
     private List<ProductCategory> categoryResults = new ArrayList<ProductCategory>();
@@ -26,15 +24,6 @@ public class ViewMenuPresenter
     public MenuDAO getMenuDAO()
     {
         return this.menuDAO;
-    }
-
-    public void setCafeteriaDAO(CafeteriaDAO cafeteriaDAO)
-    {
-        this.cafeteriaDAO = cafeteriaDAO;
-    }
-    public CafeteriaDAO getCafeteriaDAO()
-    {
-        return this.cafeteriaDAO;
     }
 
     public void setTableDAO(TableDAO tableDAO)
