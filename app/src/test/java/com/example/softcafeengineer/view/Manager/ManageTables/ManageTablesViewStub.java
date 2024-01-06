@@ -8,7 +8,7 @@ public class ManageTablesViewStub implements ManageTablesView
 
     private ManageTablesPresenter presenter;
     public ManageTablesViewStub(){
-        QRCode = tableID = "";
+        QRCode = tableID = errorMessage = errorTitle = toastMessage = "";
     }
     public String getQRCode(){
         return QRCode;
