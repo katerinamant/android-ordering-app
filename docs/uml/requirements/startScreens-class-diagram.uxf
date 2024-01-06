@@ -1,0 +1,32 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>380</x><y>160</y><w>210</w><h>190</h></coordinates><panel_attributes>Welcome Screen View 
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>440</y><w>210</w><h>190</h></coordinates><panel_attributes>Welcome Screen Presenter
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>730</x><y>160</y><w>210</w><h>190</h></coordinates><panel_attributes>Welcome screen Activity
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>230</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element></diagram>
