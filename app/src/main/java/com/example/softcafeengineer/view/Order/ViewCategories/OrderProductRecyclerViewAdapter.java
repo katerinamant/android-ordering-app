@@ -65,6 +65,6 @@ public class OrderProductRecyclerViewAdapter extends RecyclerView.Adapter<OrderP
          * User clicked the "Add to cart"
          * button for a specific product
          */
-        void addProductToCart(Product currentProduct);
+        void addProductToCart(Product p);
     }
 }

@@ -14,7 +14,7 @@ import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.ProductCategory;
 import com.example.softcafeengineer.view.Manager.EditMenu.CategoryRecyclerViewAdapter;
 import com.example.softcafeengineer.view.Order.ViewCart.ViewCartActivity;
-import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
+import com.example.softcafeengineer.view.Order.ViewCategories.ViewCategoriesActivity;
 
 import java.util.List;
 
@@ -80,9 +80,10 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
     // -------
     @Override
     public void viewCategory(ProductCategory c) {
-        Intent intent = new Intent(ViewMenuActivity.this, WelcomeScreenActivity.class); // placeholder for ViewCategoriesActivity
-//        intent.putExtra("cafe_brand", brand);
-//        intent.putExtra("category_name", c.getName());
+        Intent intent = new Intent(ViewMenuActivity.this, ViewCategoriesActivity.class);
+        intent.putExtra("cafe_brand", c.getCafe().getBrand());
+        intent.putExtra("category_name", c.getName());
+        intent.putExtra("unique_id", unique_id);
         startActivity(intent);
     }
 }

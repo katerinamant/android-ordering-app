@@ -11,9 +11,9 @@ import java.util.List;
 
 public class EditCategoriesPresenter
 {
+    private EditCategoriesView view;
     private MenuDAO menuDAO;
     private CafeteriaDAO cafeteriaDAO;
-    private EditCategoriesView view;
     private String cafe_brand;
     private ProductCategory category;
     private Cafeteria cafe;

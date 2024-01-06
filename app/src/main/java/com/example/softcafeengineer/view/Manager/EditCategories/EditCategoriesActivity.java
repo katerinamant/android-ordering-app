@@ -29,7 +29,8 @@ import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
 
 import java.util.List;
 
-public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, MenuProductRecyclerViewAdapter.ItemSelectionListener{
+public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, MenuProductRecyclerViewAdapter.ItemSelectionListener
+{
     private EditCategoriesViewModel viewModel;
     private String brand, category;
     private RelativeLayout relativeLayout;

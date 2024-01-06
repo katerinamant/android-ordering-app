@@ -21,6 +21,10 @@
     <!-- ViewCategories -->
     <string name="add_to_cart">Add to cart</string>
 
+    <!-- Add To Cart Popups -->
+    <string name="choose_quantity">Choose quantity:</string>
+    <string name="comments">Comments</string>
+
     <!-- ViewCart -->
     <string name="submit_order">Submit order</string>
 
