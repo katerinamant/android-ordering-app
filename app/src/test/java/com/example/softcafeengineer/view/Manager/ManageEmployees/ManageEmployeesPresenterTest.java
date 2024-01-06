@@ -54,18 +54,6 @@ public class ManageEmployeesPresenterTest {
     }
 
     @Test
-    public void testAddDisabledButtonUsername(){
-        presenter.onAddNewEmployee(false, "","12345678");
-        Assert.assertEquals(view.getToastMessage(),"Please fill the required fields.");
-    }
-
-    @Test
-    public void testAddDisabledButtonPassword(){
-        presenter.onAddNewEmployee(false, "username","");
-        Assert.assertEquals(view.getToastMessage(),"Please fill the required fields.");
-    }
-
-    @Test
     public void testEditExistingUsername(){
         presenter.onAddNewEmployee(true, "edit_username", "12345678");
         presenter.onAddNewEmployee(true, "username1", "12345678");

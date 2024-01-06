@@ -125,9 +125,11 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public ProductCategory findCategory(String cafe_brand, String category_name) {
         ArrayList<ProductCategory> categories = cafeteria_to_categories.get(cafe_brand);
-        for(ProductCategory p_c : categories) {
-            if(p_c.getName().equals(category_name)) {
-                return p_c;
+        if (categories!=null){
+            for (ProductCategory p_c : categories) {
+                if (p_c.getName().equals(category_name)) {
+                    return p_c;
+                }
             }
         }
         return null;
