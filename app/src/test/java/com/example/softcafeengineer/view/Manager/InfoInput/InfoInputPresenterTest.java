@@ -8,6 +8,7 @@ import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,11 @@ public class InfoInputPresenterTest {
 
         presenter = new InfoInputPresenter(view, managerDAO, cafeteriaDAO, monthlyRevenueDAO);
     }
-
+    @After
+    public void tearDown(){
+        presenter=null;
+        view=null;
+    }
     @Test
     public void testDisabledButton(){
         presenter.onFinish(false, "","","","","","");
@@ -40,22 +45,22 @@ public class InfoInputPresenterTest {
     }
     @Test
     public void testShortPhoneNumber(){
-        presenter.onFinish(true, "user", "password", "address", "0", "123456789", "cafe_brand2");
+        presenter.onFinish(true, "user", "password", "address", "0", "123456789", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid phone number. Must contain 10 characters.");
     }
     @Test
     public void testShortSSN(){
-        presenter.onFinish(true, "user", "password", "address", "0123456789", "1", "cafe_brand1");
+        presenter.onFinish(true, "user", "password", "address", "0123456789", "1", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
     }
     @Test
     public void testLongPhoneNumber(){
-        presenter.onFinish(true, "user", "password", "address", "01234567890", "123456789", "cafe_brand2");
+        presenter.onFinish(true, "user", "password", "address", "01234567890", "123456789", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid phone number. Must contain 10 characters.");
     }
     @Test
     public void testLongSSN(){
-        presenter.onFinish(true, "user", "password", "address", "0123456789", "0123456789", "cafe_brand1");
+        presenter.onFinish(true, "user", "password", "address", "0123456789", "0123456789", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
     }
     @Test
