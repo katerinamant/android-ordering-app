@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>280</x><y>180</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista LogIn Activity
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>279</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn Activity
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -8,7 +8,7 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>180</y><w>210</w><h>190</h></coordinates><panel_attributes>Active Orders Recycler View
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>270</y><w>189</w><h>171</h></coordinates><panel_attributes>Active Orders Recycler View
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -18,7 +18,7 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>180</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista Actions Activity
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>765</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions Activity
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -28,7 +28,7 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>490</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista LogIn View
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>279</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn View
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -38,7 +38,7 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>360</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista LogIn Presenter
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>630</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn Presenter
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -48,8 +48,8 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>360</y><w>70</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>490</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista Actions View
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>369</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>765</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions View
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -59,8 +59,8 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>360</y><w>70</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>340</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista Actions Presenter
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>855</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>963</x><y>369</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions Presenter
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
@@ -70,7 +70,38 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1060</x><y>140</y><w>210</w><h>190</h></coordinates><panel_attributes>Barista Actions ViewModel
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions ViewModel
+--
+-id: Long {composite}
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders Activity
+--
+-id: Long {composite}
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders View
+--
+-id: Long {composite}
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>630</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders Presenter
 --
 -id: Long {composite}
 _-ClassAttribute: Long_
