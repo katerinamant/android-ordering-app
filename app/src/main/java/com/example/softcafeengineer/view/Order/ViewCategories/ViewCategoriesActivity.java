@@ -35,7 +35,6 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
     // Add to cart pop up
     private PopupWindow add_to_cart_popup;
     private Product selected_product;
-    private String comments_title;
     private EditText chooseQuantityField, commentsField;
     private Button confirmAddToCartButton;
     private boolean confirm_enabled;
@@ -112,9 +111,9 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
 
         chooseQuantityField = pop_up.findViewById(R.id.edit_text_choose_quantity);
         commentsField = pop_up.findViewById(R.id.edit_text_comments);
-        comments_title = commentsField.getText().toString();
         chooseQuantityField.addTextChangedListener(addToCartWatcher);
         commentsField.addTextChangedListener(addToCartWatcher);
+        comments = "";
 
         confirmAddToCartButton = pop_up.findViewById(R.id.btn_final_add_to_cart);
         // Confirm button is disabled
@@ -149,11 +148,8 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
             // Fields modified in add to cart popup
             quantity = chooseQuantityField.getText().toString();
             comments = commentsField.getText().toString();
-            if(comments.equals(comments_title)) {
-                comments = "";
-            }
             if(!quantity.isEmpty()) {
-                // Comments are not necessary
+                // Comments are not required
                 confirmAddToCartButton.setAlpha(1.0f);
                 confirm_enabled = true;
             } else {
