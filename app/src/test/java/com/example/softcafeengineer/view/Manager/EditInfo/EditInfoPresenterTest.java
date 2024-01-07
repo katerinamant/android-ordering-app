@@ -29,6 +29,10 @@ public class EditInfoPresenterTest {
     private MenuDAO menuDAO;
     private BaristaDAO baristaDAO;
     private ActiveOrdersDAO activeOrdersDAO;
+    /**
+     *  initializing all the objects needed to run tests for the
+     *  EditInfoPresenter methods
+     */
     @Before
     public void setUp(){
         view = new EditInfoViewStub();
@@ -44,36 +48,65 @@ public class EditInfoPresenterTest {
 
         presenter = new EditInfoPresenter(view, cafeteria.getBrand(), activeOrdersDAO, baristaDAO, cafeteriaDAO, menuDAO, revenueDAO, tableDAO);
     }
-    @After
-    public void tearDown(){
-        presenter=null;
-        view=null;
-    }
+    /**
+     *  testing whether the method getCafe returns the correct
+     *  Cafeteria object
+     */
     @Test
-    public void testDisabledAddButton(){
+    public void testGetCafe(){
+        Assert.assertEquals(presenter.getCafe(), cafeteria);
+    }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the finish button is disabled, meaning some of the
+     *  required fields were left empty
+     */
+    @Test
+    public void testDisabledFinishButton(){
         presenter.onFinish(false, true, "cafe_brand", "1234567890", "123456789", "");
         Assert.assertEquals(view.getToastMessage(), "Please fill all the required fields.");
     }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the user tries to set a phone number shorter than 10 digits
+     */
     @Test
     public void testShortPhoneNumber(){
         presenter.onFinish(true, true, "cafe_brand", "0", "123456789", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid phone number. Must contain 10 characters.");
     }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the user tries to set a ssn shorter than 9 digits
+     */
     @Test
     public void testShortSSN(){
         presenter.onFinish(true, true, "cafe_brand", "1234567890", "0", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
     }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the user tries to set a phone number longer than 10 digits
+     */
     @Test
     public void testLongPhoneNumber(){
         presenter.onFinish(true, true, "cafe_brand", "01234567890", "123456789", "cafe_brand");
         Assert.assertEquals(view.getToastMessage(), "Invalid phone number. Must contain 10 characters.");
     }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the user tries to set a ssn longer than 9 digits
+     */
     @Test
     public void testLongSSN(){
         presenter.onFinish(true, true, "cafe_brand", "1234567890", "0123456789", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
     }
+    /**
+     *  testing whether the onFinish method shows the correct toast
+     *  message when the user tries to set the cafeteria brand to a brand that is
+     *  already taken by another cafeteria
+     */
     @Test
     public void testCafeExists(){
         presenter.onFinish(true, true, "cafe_brand1", "1234567890", "123456789", "cafe_brand");

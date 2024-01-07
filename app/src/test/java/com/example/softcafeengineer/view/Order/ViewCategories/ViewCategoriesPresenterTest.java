@@ -34,12 +34,12 @@ public class ViewCategoriesPresenterTest {
         view = new ViewCategoriesViewStub();
         menuDAO = new MenuDAOMemory();
         cafeteriaDAO = new CafeteriaDAOMemory();
-        activeCartsDAO = new ActiveCartsDAOMemory();
         cafe = new Cafeteria("address", "0123456789", "123456789", "cafe_brand");
         category = new ProductCategory("cat", "description", cafe);
         order = new Order(new Date(1,1,2024), new Table("QRCode", 15, cafe));
         cafeteriaDAO.save(cafe);
         menuDAO.saveCategory(category);
+        activeCartsDAO = new ActiveCartsDAOMemory();
 
         presenter = new ViewCategoriesPresenter();
         presenter.setCafeteriaDAO(cafeteriaDAO);
@@ -47,28 +47,69 @@ public class ViewCategoriesPresenterTest {
         presenter.setActiveCartsDAO(activeCartsDAO);
         presenter.setView(view, category.getName(), cafe.getBrand(), order.getTable().getQRCode());
     }
-    @After
-    public void tearDown(){
-        presenter = null;
-        view = null;
+    /**
+     *  testing whether the method getMenuDAO returns the correct
+     *  MenuDAO object
+     */
+    @Test
+    public void testGetMenuDAO(){
+        Assert.assertEquals(presenter.getMenuDAO(), menuDAO);
     }
+    /**
+     *  testing whether the method getCafeteriaDAO returns the correct
+     *  CafeteriaDAO object
+     */
+    @Test
+    public void testGetCafeteriaDAO(){
+        Assert.assertEquals(presenter.getCafeteriaDAO(), cafeteriaDAO);
+    }
+    /**
+     *  testing whether the method getActiveCartsDAO returns the correct
+     *  ActiveCartsDAO object
+     */
+    @Test
+    public void testGetActiveCartsDAO(){
+        Assert.assertEquals(presenter.getActiveCartsDAO(), activeCartsDAO);
+    }
+    /**
+     *  testing whether the method getCategoryName returns the correct
+     *  name of this category
+     */
     @Test
     public void testGetCategoryName(){
         Assert.assertEquals(presenter.getCategoryName(), category.getName());
     }
+    /**
+     *  testing whether the method getCategoryDesc returns the correct
+     *  description of this category
+     */
     @Test
-    public void testGetCategoryDescription(){
+    public void testGetCategoryDesc(){
         Assert.assertEquals(presenter.getCategoryDesc(), category.getDescription());
     }
+    /**
+     *  testing whether the method getProductResults returns all the products
+     *  belonging to this category
+     */
     @Test
     public void testGetProductResults(){
         Assert.assertEquals(presenter.getProductResults(), menuDAO.findAllProductsOfCategory(cafe.getBrand(), category));
     }
+    /**
+     *  testing whether the onConfirmAddToCart method shows the correct toast
+     *  message when the confirm button is disabled, meaning some of the
+     *  required fields were left empty
+     */
     @Test
     public void testDisabledConfirmButton(){
         presenter.onConfirmAddToCart(new Product(), false, "", "");
         Assert.assertEquals(view.getToastMessage(), "Please fill all the required fields.");
     }
+
+    /**
+     *  testing whether the onConfirmAddToCart method shows the correct error title and
+     *  error message when the quantity is set to an invalid value (zero)
+     */
     @Test
     public void testInvalidQuantity(){
         presenter.onConfirmAddToCart(new Product(), true, "0", "comments");

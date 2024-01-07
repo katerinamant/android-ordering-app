@@ -15,6 +15,11 @@ public class BaristaActionsPresenterTest {
     private ActiveOrdersDAO activeOrdersDAO;
     private RevenueDAO revenueDAO;
     private Cafeteria cafe;
+
+    /**
+     *  initializing all the objects needed to run tests for the
+     *  BaristaActionsPresenter methods
+     */
     @Before
     public void setUp(){
         view = new BaristaActionsViewStub();
@@ -29,18 +34,38 @@ public class BaristaActionsPresenterTest {
         presenter.setBrand(cafe.getBrand());
         presenter.setView(view);
     }
+
+    /**
+     *  testing whether the method getOrderResults returns correctly all
+     *  of the orders under this cafeteria brand
+     */
     @Test
     public void testGetOrderResults(){
         Assert.assertEquals(presenter.getOrderResults(), activeOrdersDAO.findAll(presenter.getBrand()));
     }
+
+    /**
+     *  testing whether the method getBrand returns correctly the cafeteria
+     *  brand this BaristaActionsPresenter belongs to
+     */
     @Test
     public void testGetBrand(){
         Assert.assertEquals(presenter.getBrand(), cafe.getBrand());
     }
+
+    /**
+     *  testing whether the method getRevenueDAO returns the correct
+     *  RevenueDAO object
+     */
     @Test
-    public void testGetMonthlyRevenueDAO(){
+    public void testGetRevenueDAO(){
         Assert.assertEquals(presenter.getRevenueDAO(), revenueDAO);
     }
+
+    /**
+     *  testing whether the method getActiveOrdersDAO returns the correct
+     *  ActiveOrdersDAO object
+     */
     @Test
     public void testGetActiveOrdersDAO(){
         Assert.assertEquals(presenter.getActiveOrdersDAO(), activeOrdersDAO);

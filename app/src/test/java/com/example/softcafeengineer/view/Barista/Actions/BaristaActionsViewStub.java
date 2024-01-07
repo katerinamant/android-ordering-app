@@ -2,7 +2,7 @@ package com.example.softcafeengineer.view.Barista.Actions;
 
 public class BaristaActionsViewStub implements BaristaActionsView{
     @Override
-    public void onLogOut() {
+    public void onClosedDay() {
 
     }
 

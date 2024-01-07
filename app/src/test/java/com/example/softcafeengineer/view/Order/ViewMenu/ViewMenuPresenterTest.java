@@ -18,6 +18,10 @@ public class ViewMenuPresenterTest {
     private ViewMenuViewStub view;
     private ViewMenuPresenter presenter;
     private Cafeteria cafeteria;
+    /**
+     *  initializing all the objects needed to run tests for the
+     *  ViewMenuPresenter methods
+     */
     @Before
     public void setUp(){
         menuDAO = new MenuDAOMemory();
@@ -33,15 +37,26 @@ public class ViewMenuPresenterTest {
         presenter.setTableDAO(tableDAO);
         presenter.setView(view, table.getQRCode());
     }
+    /**
+     *  testing whether the method getMenuDAO returns the correct
+     *  MenuDAO object
+     */
     @Test
     public void testGetMenuDAO(){
         Assert.assertEquals(presenter.getMenuDAO(), menuDAO);
     }
-
+    /**
+     *  testing whether the method getTableDAO returns the correct
+     *  TableDAO object
+     */
     @Test
     public void testGetTableDAO(){
         Assert.assertEquals(presenter.getTableDAO(), tableDAO);
     }
+    /**
+     *  testing whether the method getCategoryResults returns all the categories
+     *  belonging to this cafeteria
+     */
     @Test
     public void testGetCategoryResults(){
         Assert.assertEquals(presenter.getCategoryResults(), menuDAO.findAllCategories(cafeteria.getBrand()));
