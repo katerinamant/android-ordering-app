@@ -8,7 +8,7 @@ import com.example.softcafeengineer.domain.ProductCategory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputPresenter;
 import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputViewStub;
 

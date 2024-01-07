@@ -1,4 +1,5 @@
 package com.example.softcafeengineer.view.Order.ViewCategories;
+import com.example.softcafeengineer.dao.ActiveCartsDAO;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
@@ -9,6 +10,7 @@ import com.example.softcafeengineer.domain.Order;
 import com.example.softcafeengineer.domain.Product;
 import com.example.softcafeengineer.domain.ProductCategory;
 import com.example.softcafeengineer.domain.Table;
+import com.example.softcafeengineer.memorydao.ActiveCartsDAOMemory;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
@@ -22,7 +24,7 @@ public class ViewCategoriesPresenterTest {
     private ViewCategoriesViewStub view;
     private MenuDAO menuDAO;
     private CafeteriaDAO cafeteriaDAO;
-    private ActiveOrdersDAO activeOrdersDAO;
+    private ActiveCartsDAO activeCartsDAO;
     private ProductCategory category;
     private Cafeteria cafe;
     private Order order;
@@ -32,7 +34,7 @@ public class ViewCategoriesPresenterTest {
         view = new ViewCategoriesViewStub();
         menuDAO = new MenuDAOMemory();
         cafeteriaDAO = new CafeteriaDAOMemory();
-        activeOrdersDAO = new ActiveOrdersDAOMemory();
+        activeCartsDAO = new ActiveCartsDAOMemory();
         cafe = new Cafeteria("address", "0123456789", "123456789", "cafe_brand");
         category = new ProductCategory("cat", "description", cafe);
         order = new Order(new Date(1,1,2024), new Table("QRCode", 15, cafe));
@@ -42,7 +44,7 @@ public class ViewCategoriesPresenterTest {
         presenter = new ViewCategoriesPresenter();
         presenter.setCafeteriaDAO(cafeteriaDAO);
         presenter.setMenuDAO(menuDAO);
-        presenter.setActiveOrdersDAO(activeOrdersDAO);
+        presenter.setActiveCartsDAO(activeCartsDAO);
         presenter.setView(view, category.getName(), cafe.getBrand(), order.getTable().getQRCode());
     }
     @After

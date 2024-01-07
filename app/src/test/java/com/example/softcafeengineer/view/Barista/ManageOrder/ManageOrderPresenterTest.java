@@ -1,6 +1,7 @@
 package com.example.softcafeengineer.view.Barista.ManageOrder;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Date;
@@ -12,6 +13,7 @@ import com.example.softcafeengineer.domain.Status;
 import com.example.softcafeengineer.domain.Table;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -20,6 +22,7 @@ import org.junit.Test;
 public class ManageOrderPresenterTest {
     private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
+    private RevenueDAO revenueDAO;
     private ManageOrderViewStub view;
     private ManageOrderPresenter presenter;
     private Barista barista;
@@ -30,6 +33,7 @@ public class ManageOrderPresenterTest {
     public void setUp() throws InvalidDateException {
         activeOrdersDAO = new ActiveOrdersDAOMemory();
         baristaDAO = new BaristaDAOMemory();
+        revenueDAO = new RevenueDAOMemory();
         view = new ManageOrderViewStub();
         presenter = new ManageOrderPresenter();
         barista = new Barista("barista", "password");
@@ -39,9 +43,11 @@ public class ManageOrderPresenterTest {
         baristaDAO.save(barista);
         order = new Order(new Date(1,1,2024), table);
         activeOrdersDAO.save(order);
+        revenueDAO.addCafeteria("brand");
 
         presenter.setBaristaDAO(baristaDAO);
         presenter.setActiveOrdersDAO(activeOrdersDAO);
+        presenter.setRevenueDAO(revenueDAO);
         presenter.setView(view, barista.getUsername(), barista.getPassword(), cafeteria.getBrand(), table.getId());
     }
 

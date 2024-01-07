@@ -2,11 +2,11 @@ package com.example.softcafeengineer.view.Manager.InfoInput;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.ManagerDAO;
-import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -18,7 +18,7 @@ public class InfoInputPresenterTest {
     private InfoInputViewStub view;
     private CafeteriaDAO cafeteriaDAO;
     private ManagerDAO managerDAO;
-    private MonthlyRevenueDAO monthlyRevenueDAO;
+    private RevenueDAO revenueDAO;
     private Cafeteria cafeteria;
 
     @Before
@@ -26,12 +26,12 @@ public class InfoInputPresenterTest {
         view = new InfoInputViewStub();
         managerDAO = new ManagerDAOMemory();
         cafeteriaDAO = new CafeteriaDAOMemory();
-        monthlyRevenueDAO = new MonthlyRevenueDAOMemory();
+        revenueDAO = new RevenueDAOMemory();
         cafeteria = new Cafeteria();
         cafeteria.setBrand("cafe_brand");
         cafeteriaDAO.save(cafeteria);
 
-        presenter = new InfoInputPresenter(view, managerDAO, cafeteriaDAO, monthlyRevenueDAO);
+        presenter = new InfoInputPresenter(view, managerDAO, cafeteriaDAO, revenueDAO);
     }
     @After
     public void tearDown(){
@@ -51,7 +51,7 @@ public class InfoInputPresenterTest {
     @Test
     public void testShortSSN(){
         presenter.onFinish(true, "user", "password", "address", "0123456789", "1", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
     }
     @Test
     public void testLongPhoneNumber(){
@@ -61,7 +61,7 @@ public class InfoInputPresenterTest {
     @Test
     public void testLongSSN(){
         presenter.onFinish(true, "user", "password", "address", "0123456789", "0123456789", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
     }
     @Test
     public void testCafeExists(){

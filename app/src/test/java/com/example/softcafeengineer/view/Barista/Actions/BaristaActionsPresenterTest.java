@@ -1,9 +1,9 @@
 package com.example.softcafeengineer.view.Barista.Actions;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
-import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,19 +13,19 @@ public class BaristaActionsPresenterTest {
     private BaristaActionsPresenter presenter;
     private BaristaActionsViewStub view;
     private ActiveOrdersDAO activeOrdersDAO;
-    private MonthlyRevenueDAO monthlyRevenueDAO;
+    private RevenueDAO revenueDAO;
     private Cafeteria cafe;
     @Before
     public void setUp(){
         view = new BaristaActionsViewStub();
         activeOrdersDAO = new ActiveOrdersDAOMemory();
-        monthlyRevenueDAO = new MonthlyRevenueDAOMemory();
+        revenueDAO = new RevenueDAOMemory();
         cafe = new Cafeteria();
         cafe.setBrand("cafe_brand");
 
         presenter = new BaristaActionsPresenter();
         presenter.setActiveOrdersDAO(activeOrdersDAO);
-        presenter.setMonthlyRevenueDAO(monthlyRevenueDAO);
+        presenter.setRevenueDAO(revenueDAO);
         presenter.setBrand(cafe.getBrand());
         presenter.setView(view);
     }
@@ -39,7 +39,7 @@ public class BaristaActionsPresenterTest {
     }
     @Test
     public void testGetMonthlyRevenueDAO(){
-        Assert.assertEquals(presenter.getMonthlyRevenueDAO(), monthlyRevenueDAO);
+        Assert.assertEquals(presenter.getRevenueDAO(), revenueDAO);
     }
     @Test
     public void testGetActiveOrdersDAO(){
