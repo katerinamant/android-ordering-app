@@ -18,6 +18,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/text"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/active_order_layout_total_cost_title"
             app:layout_constraintTop_toBottomOf="@id/active_order_layout_table_number_title" />
 
@@ -27,13 +29,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="60dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/dark_button"
             android:text="@string/view"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/white"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/active_order_layout_total_cost" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/active_order_layout_total_cost"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/active_order_layout_total_cost_title"
@@ -60,6 +67,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/text"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/active_order_layout_table_number_title"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,11 +88,12 @@
 
         <View
             android:id="@+id/divider3"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
             android:background="@color/dark_button"
             android:backgroundTint="@color/dark_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/active_order_layout_btn_view"
             tools:layout_editor_absoluteX="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

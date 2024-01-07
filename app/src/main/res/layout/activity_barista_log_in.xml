@@ -25,7 +25,6 @@
         android:id="@+id/txt_view_4_2"
         android:layout_width="278dp"
         android:layout_height="45dp"
-        android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
@@ -33,6 +32,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_welcome_brst" />
 
@@ -40,11 +40,13 @@
         android:id="@+id/txt_brst_enter_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:text="@string/enter_username"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_view_4_2" />
 
@@ -52,12 +54,14 @@
         android:id="@+id/edit_txt_brst_username_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
         android:inputType="textFilter"
         android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_brst_enter_username" />
 
@@ -65,11 +69,13 @@
         android:id="@+id/txt_brst_enter_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:text="@string/enter_password"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_brst_username_login" />
 
@@ -77,13 +83,17 @@
         android:id="@+id/edit_txt_brst_password_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@color/text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_brst_enter_password" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_brst_enter_password"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_brst_login"
@@ -96,5 +106,7 @@
         android:textColor="@color/white"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_brst_password_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

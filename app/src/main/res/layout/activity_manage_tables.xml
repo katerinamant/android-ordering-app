@@ -7,6 +7,20 @@
     android:background="@color/background"
     tools:context=".view.Manager.ManageTables.ManageTablesActivity">
 
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/dark_button"
+        android:backgroundTint="@color/dark_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_tables_header" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_tables"
         android:layout_width="match_parent"
@@ -15,13 +29,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_manager_tables_header" />
+        app:layout_constraintTop_toBottomOf="@+id/divider12" />
 
     <TextView
         android:id="@+id/txt_manager_tables_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/manage_tables"
         android:textAlignment="center"
@@ -38,22 +52,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/add"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_tables" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relative_manage_tables"
         android:layout_width="404dp"
         android:layout_height="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_manage_tables_add"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_manager_tables_header">
+        app:layout_constraintTop_toBottomOf="parent">
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

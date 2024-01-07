@@ -102,7 +102,7 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         View pop_up = layoutInflater.inflate(R.layout.popup_order_status, null);
 
         // Create and show delete table popup
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         show_status_popup = new PopupWindow(pop_up, width, height, true);
         show_status_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
@@ -134,7 +134,7 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         View pop_up = layoutInflater.inflate(R.layout.popup_order_cancelled, null);
 
         // Create and show delete table popup
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         order_cancelled_popup = new PopupWindow(pop_up, width, height, true);
         order_cancelled_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);

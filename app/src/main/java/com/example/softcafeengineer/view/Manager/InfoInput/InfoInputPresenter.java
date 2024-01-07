@@ -20,7 +20,7 @@ public class InfoInputPresenter
         this.revenue = revenue;
     }
 
-    public void onFinish(Boolean finish_enabled,String username, String password, String address, String phoneNum, String ssn, String brand) {
+    public void onFinish(Boolean finish_enabled,String username, String password, String address, String phoneNum, String tin, String brand) {
         if(!finish_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
@@ -28,13 +28,13 @@ public class InfoInputPresenter
         else {
             if(phoneNum.length() != 10) {
                 view.showToast("Invalid phone number. Must contain 10 characters.");
-            } else if(ssn.length() != 9) {
-                view.showToast("Invalid SSN. Must contain 9 characters.");
+            } else if(tin.length() != 9) {
+                view.showToast("Invalid TIN. Must contain 9 characters.");
             } else if(cafes.exists(brand)) {
                 view.showToast("This brand is already in use.");
             } else {
                 // Create new Cafeteria object
-                Cafeteria cafe = new Cafeteria(address, phoneNum, ssn, brand);
+                Cafeteria cafe = new Cafeteria(address, phoneNum, tin, brand);
                 cafes.save(cafe);
                 revenue.addCafeteria(brand);
 

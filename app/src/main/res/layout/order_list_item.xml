@@ -64,6 +64,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/order_list_layout_product_name" />
 
@@ -78,6 +80,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
         android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/order_list_layout_quantity_title"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,6 +89,10 @@
         android:id="@+id/divider4"
         android:layout_width="409dp"
         android:layout_height="1dp"
+        android:layout_marginTop="20dp"
         android:background="@color/dark_button"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_list_layout_btn_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

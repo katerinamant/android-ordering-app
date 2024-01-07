@@ -9,19 +9,17 @@
 
     <View
         android:id="@+id/divider7"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
         android:background="@color/dark_button"
         android:backgroundTint="@color/dark_button"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view_products_order"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_order_category_desc"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_order_category_desc" />
 
     <TextView
         android:id="@+id/txt_order_category_desc"
@@ -61,11 +59,10 @@
         android:layout_width="match_parent"
         android:layout_height="602dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider7"
-        tools:layout_editor_absoluteX="-2dp">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7"></androidx.recyclerview.widget.RecyclerView>
 
     <RelativeLayout
         android:id="@+id/relative_view_category"

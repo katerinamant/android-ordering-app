@@ -31,12 +31,12 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_adress_info" />
 
     <TextView
-        android:id="@+id/txt_manager_info_enter_ssn"
+        android:id="@+id/txt_manager_info_enter_tin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:text="@string/enter_SSN"
+        android:text="@string/enter_TIN"
         android:textColor="@color/text"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:textColor="@color/text"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_ssn_info" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_tin_info" />
 
     <TextView
         android:id="@+id/txt_manager_info_header"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_phone" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_ssn_info"
+        android:id="@+id/edit_txt_mngr_tin_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -105,7 +105,7 @@
         android:inputType="number"
         android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_ssn" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_enter_tin" />
 
     <EditText
         android:id="@+id/edit_txt_mngr_brand_info"

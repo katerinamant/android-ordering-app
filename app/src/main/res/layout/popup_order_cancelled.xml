@@ -20,6 +20,8 @@
             android:text="@string/no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_cancelled_order_question" />
 
         <Button
@@ -39,7 +41,7 @@
 
         <TextView
             android:id="@+id/txt_cancelled_order_question"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/place_new_question"
@@ -52,7 +54,7 @@
 
         <TextView
             android:id="@+id/txt_cancelled_order_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/cancelled_order"

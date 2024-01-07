@@ -12,10 +12,10 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
         android:background="@color/dark_button"
         android:backgroundTint="@color/dark_button"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view_categories_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_edit_menu_head" />
@@ -31,6 +31,8 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -48,26 +50,26 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_categories_menu"
         android:layout_width="match_parent"
-        android:layout_height="614dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add_category"
+        android:layout_height="505dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_edit_menu_head" />
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
     <TextView
         android:id="@+id/txt_edit_menu_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="@string/edit_menu"
-        android:textSize="30sp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_menu"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -7,11 +7,25 @@
     android:background="@color/background"
     android:backgroundTint="@color/background">
 
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/dark_button"
+        android:backgroundTint="@color/dark_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_employees_header" />
+
     <TextView
-        android:id="@+id/txt_employees"
+        android:id="@+id/txt_employees_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/manage_employees"
         android:textAlignment="center"
@@ -22,25 +36,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_emloyees"
+        android:id="@+id/recycler_view_employees"
         android:layout_width="match_parent"
         android:layout_height="519dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_employees" />
+        app:layout_constraintTop_toBottomOf="@id/divider10" />
 
     <Button
         android:id="@+id/btn_manage_employees_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/dark_button"
         android:text="@string/add"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_emloyees" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relative_manage_employees"
@@ -49,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_manage_employees_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_employees">
+        app:layout_constraintTop_toBottomOf="@+id/txt_employees_header">
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

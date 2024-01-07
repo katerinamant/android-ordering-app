@@ -49,7 +49,7 @@
             android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
             android:ems="10"
             android:inputType="number"
-            android:textColor="@color/text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toEndOf="@+id/txt_edit_order_info_quantity"

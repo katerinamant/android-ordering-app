@@ -65,7 +65,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         viewModel.getPresenter().setBrand(brand); // updates employee results
         List<Barista> employeesList = viewModel.getPresenter().getEmployeeResults();
         // Recycler view
-        RecyclerView recyclerView = findViewById(R.id.recycler_view_emloyees);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_employees);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new EmployeeRecyclerViewAdapter(employeesList, this));
 

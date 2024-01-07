@@ -32,6 +32,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/text"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/table_layout_table_number_title"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,6 +62,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/text"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/table_layout_table_id_title"
             app:layout_constraintTop_toBottomOf="@+id/table_layout_table_number_title" />
 
@@ -89,6 +93,8 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/table_layout_btn_edit"
             app:layout_constraintTop_toBottomOf="@+id/table_layout_table_id_title" />
 
         <View
@@ -98,6 +104,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/dark_button"
             android:backgroundTint="@color/dark_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/table_layout_btn_edit"
             tools:layout_editor_absoluteX="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

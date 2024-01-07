@@ -33,7 +33,7 @@ public class EditInfoPresenter {
         return this.cafe;
     }
 
-    public void onFinish(boolean finish_enabled, boolean text_changed, String prev_brand, String phoneNum, String ssn, String brand) {
+    public void onFinish(boolean finish_enabled, boolean text_changed, String prev_brand, String phoneNum, String tin, String brand) {
         if (!finish_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
@@ -44,8 +44,8 @@ public class EditInfoPresenter {
             // Fields filled and text changed
             if (phoneNum.length() != 10) {
                 view.showToast("Invalid phone number. Must contain 10 characters.");
-            } else if (ssn.length() != 9) {
-                view.showToast("Invalid SSN. Must contain 9 characters.");
+            } else if (tin.length() != 9) {
+                view.showToast("Invalid TIN. Must contain 9 characters.");
             } else if (!brand.equals(prev_brand) && cafeteriaDAO.exists(brand)) {
                 // Brand changed and new one is taken
                 view.showToast("This brand is already in use.");
@@ -56,11 +56,11 @@ public class EditInfoPresenter {
         }
     }
 
-    public void onConfirmChanges(String prev_address, String prev_phone_number, String prev_ssn, String prev_brand, String address, String phoneNum, String ssn, String brand) {
+    public void onConfirmChanges(String prev_address, String prev_phone_number, String prev_tin, String prev_brand, String address, String phoneNum, String tin, String brand) {
         // Update Cafeteria object
         if (!address.equals(prev_address)) this.cafe.setAddress(address);
         if (!phoneNum.equals(prev_phone_number)) this.cafe.setPhoneNumber(phoneNum);
-        if (!ssn.equals(prev_ssn)) this.cafe.setSSN(ssn);
+        if (!tin.equals(prev_tin)) this.cafe.setSSN(tin);
         if (!brand.equals(prev_brand)) {
             activeOrdersDAO.updateCafeteria(prev_brand, brand);
             baristaDAO.updateCafeteria(prev_brand, brand);
