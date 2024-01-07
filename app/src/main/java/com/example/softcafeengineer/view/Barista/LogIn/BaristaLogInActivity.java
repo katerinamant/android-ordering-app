@@ -75,6 +75,7 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
     public void successfulLogIn(Barista barista) {
         Intent intent = new Intent(BaristaLogInActivity.this, BaristaActionsActivity.class);
         intent.putExtra("username", barista.getUsername());
+        intent.putExtra("password", barista.getPassword());
         intent.putExtra("cafe_brand", barista.getCafe().getBrand());
         startActivity(intent);
     }

@@ -20,6 +20,7 @@ import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
+import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
@@ -44,7 +45,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         Intent intent = getIntent();
         prev_brand = intent.getStringExtra("cafe_brand");
 
-        presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory(), new BaristaDAOMemory(), new TableDAOMemory());
+        presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory(), new BaristaDAOMemory(), new TableDAOMemory(), new MenuDAOMemory());
         Cafeteria cafe = presenter.getCafe();
 
         prev_address = cafe.getAddress();

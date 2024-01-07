@@ -1,7 +1,9 @@
 package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
+import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.domain.Table;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +24,34 @@ public class ActiveOrdersDAOMemory implements ActiveOrdersDAO
     }
 
     @Override
+    public Order findInCafeteria(String cafeteria_brand, int table_number) {
+        if(cafeteria_to_orders.containsKey(cafeteria_brand)) {
+            ArrayList<Order> current_active_orders = cafeteria_to_orders.get(cafeteria_brand);
+            for(Order order : current_active_orders) {
+                if(order.getTable().getId() == table_number) {
+                    return order;
+                }
+            }
+
+        }
+        return null;
+    }
+
+    @Override
     public List<Order> findAll(String cafeteria_brand) {
         if(cafeteria_to_orders.containsKey(cafeteria_brand)) {
             return cafeteria_to_orders.get(cafeteria_brand);
         }
         return new ArrayList<>();
+    }
+
+    @Override
+    public void save(Order order) {
+        Table table = order.getTable();
+        Cafeteria cafe = table.getCafe();
+        orders.add(order);
+        table_to_order.remove(table.getQRCode());
+        cafeteria_to_orders.get(cafe.getBrand()).remove(order);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Manager.EditInfo;
 
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
+import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
@@ -13,14 +14,16 @@ public class EditInfoPresenter {
     private MonthlyRevenueDAO revenueDAO;
     private BaristaDAO baristaDAO;
     private TableDAO tableDAO;
+    private MenuDAO menuDAO;
     private Cafeteria cafe;
 
-    public EditInfoPresenter(EditInfoView view, String brand, CafeteriaDAO cafeteriaDAO, MonthlyRevenueDAO revenueDAO, BaristaDAO baristaDAO, TableDAO tableDAO) {
+    public EditInfoPresenter(EditInfoView view, String brand, CafeteriaDAO cafeteriaDAO, MonthlyRevenueDAO revenueDAO, BaristaDAO baristaDAO, TableDAO tableDAO, MenuDAO menuDAO) {
         this.view = view;
         this.cafeteriaDAO = cafeteriaDAO;
         this.revenueDAO = revenueDAO;
         this.baristaDAO = baristaDAO;
         this.tableDAO = tableDAO;
+        this.menuDAO = menuDAO;
         this.cafe = this.cafeteriaDAO.find(brand);
     }
 
@@ -61,6 +64,7 @@ public class EditInfoPresenter {
             revenueDAO.updateCafeteria(prev_brand, brand);
             baristaDAO.updateCafeteria(prev_brand, brand);
             tableDAO.updateCafeteria(prev_brand, brand);
+            menuDAO.updateCafeteria(prev_brand, brand);
         }
         view.successfulFinish(this.cafe);
     }

@@ -13,8 +13,20 @@
         android:theme="@style/Theme.SoftcafeEngineer"
         tools:targetApi="31">
         <activity
-            android:name=".view.Barista.Actions.BaristaActionsActivity"
+            android:name=".view.Order.ViewCategories.ViewCategoriesActivity"
             android:exported="true" />
+        <activity
+            android:name=".view.Order.ViewCart.ViewCartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.Order.ViewMenu.ViewMenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.Barista.ManageOrder.ManageOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.Barista.Actions.BaristaActionsActivity"
+            android:exported="false" />
         <activity
             android:name=".view.Manager.EditInfo.EditInfoActivity"
             android:exported="false" />
@@ -47,6 +59,9 @@
             android:exported="false" />
         <activity
             android:name=".view.Manager.EditMenu.EditMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.Manager.EditCategories.EditCategoriesActivity"
             android:exported="false" />
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"

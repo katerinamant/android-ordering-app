@@ -5,16 +5,16 @@
       <entry key="BaristaActionsActivity">
         <State />
       </entry>
-      <entry key="EditInfoActivity">
-        <State />
-      </entry>
-      <entry key="InfoInputActivity">
+      <entry key="EditMenuActivity">
         <State />
       </entry>
       <entry key="ManageEmployeesActivity">
         <State />
       </entry>
-      <entry key="ManageTablesActivity">
+      <entry key="ManageOrderActivity">
+        <State />
+      </entry>
+      <entry key="ViewMenuActivity">
         <State />
       </entry>
       <entry key="app">

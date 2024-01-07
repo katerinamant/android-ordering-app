@@ -15,6 +15,26 @@
     <string name="enter_table_id">* Enter table unique id:</string>
     <string name="submit">Submit</string>
 
+    <!-- Status Popup -->
+    <string name="your_order_status">Your order\'s\ncurrent status is:</string>
+    <string name="cancelled_order">Your order was\ncancelled 😔</string>
+    <string name="place_new_question">Would you like to place\na new order ❓</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- ViewMenu -->
+    <string name="view_cart">🛒</string>
+
+    <!-- ViewCategories -->
+    <string name="add_to_cart">Add to cart</string>
+
+    <!-- Add To Cart Popups -->
+    <string name="choose_quantity">Choose quantity:</string>
+    <string name="comments">Comments</string>
+
+    <!-- ViewCart -->
+    <string name="submit_order">Submit order</string>
+
     <!-- Manager & Barista LogIn/SignUp -->
     <string name="please_enter_info_msg">Please enter the information provided by your management🤫</string>
     <string name="enter_username">* Enter username:</string>
@@ -73,6 +93,23 @@
     <string name="new_password">Password</string>
     <string name="confirm_employee_delete">Are you sure you want to delete this employee❓</string>
 
+    <!-- Edit Menu -->
+    <string name="add_item">Add product</string>
+    <string name="add_category">Add category</string>
+    <string name="delete_category">Delete category</string>
+    <string name="edit_category">Edit category</string>
+    <string name="edit_product">Edit product</string>
+    <string name="delete_product">Delete product</string>
+
+    <!-- Edit Categories Popups-->
+    <string name="category_desc">Description</string>
+    <string name="category_product_name">Name</string>
+    <string name="confirm_category_delete">Are you sure you want to delete this category❓</string>
+    <string name="product_price">Price</string>
+    <string name="product_availability">Availability</string>
+    <string name="change_availability">Change availability</string>
+    <string name="confirm_product_delete">Are you sure you want to delete this product❓</string>
+
     <!-- Revenue -->
     <string name="choose_year">\n🗓️ Choose year:</string>
     <string name="choose_month">\n🗓️ Choose month:</string>
@@ -88,4 +125,24 @@
     <string name="refresh">Refresh</string>
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>
+
+    <!-- Manage Order -->
+    <string name="order_status">Order status:</string>
+
+    <!-- Order List -->
+    <string name="quantity">Quantity:</string>
+    <string name="change_order_status">Change\norder status</string>
+
+    <!-- Change status Popup -->
+    <string name="change_to">Change status to:</string>
+    <string name="in_progress">IN PROGRESS</string>
+    <string name="canceled">CANCELED</string>
+    <string name="waiting">WAITING</string>
+    <string name="completed">COMPLETED</string>
+
+    <!-- Edit order info Popup -->
+    <string name="reduce_quantity">Reduce quantity to:</string>
+    <string name="or">or</string>
+    <string name="remove_product">Remove product</string>
+
 </resources>

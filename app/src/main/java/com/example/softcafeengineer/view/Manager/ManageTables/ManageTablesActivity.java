@@ -40,7 +40,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
     private Table selected_table;
     // Edit table pop up
     private PopupWindow edit_table_popup;
-    private Integer prev_table_number;
+    private int prev_table_number;
     private String prev_unique_id;
     private EditText editTableNumberField, editUniqueIdField;
     private Button confirmEditButton;
@@ -212,6 +212,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         // Confirm button is enabled
         confirm_edit_enabled = true;
         confirmEditButton.setAlpha(1.0f);
+        text_changed = false;
 
         Button cancelButton = pop_up.findViewById(R.id.btn_cancel_edit_table);
         cancelButton.setOnClickListener(new View.OnClickListener() {
