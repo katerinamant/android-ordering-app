@@ -1,0 +1,32 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes1
+</help_text><element><id>UMLClass</id><coordinates><x>410</x><y>340</y><w>240</w><h>140</h></coordinates><panel_attributes>WelcomeScreens Activity 
+--
+
+--
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ startOrdering()
++ managerLogIn()
++ employeeLogIn()
++ signUp()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>350</y><w>210</w><h>110</h></coordinates><panel_attributes>Interface 
+WelcomeScreens View
+--
++ startOrdering()
++ managerLogIn()
++ employeeLogIn()
++ signUp()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>350</y><w>330</w><h>130</h></coordinates><panel_attributes>WelcomeScreens Presenter
+--
+- view: WelcomeScreenView
+--
++ welcomeScreenPresenter( view:  WelcomeScreenView)
++ onOrder()
++ onManagerLogin() 
++ onEmployeeLogIn()
++ onSignUp()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>220</y><w>760</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in </panel_attributes><additional_attributes>730;130;730;20;10;20;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>380</y><w>140</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>380</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1 
+is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element></diagram>
