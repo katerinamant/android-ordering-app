@@ -3,6 +3,7 @@ package com.example.softcafeengineer.view.Order.ScanTable;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.domain.Status;
 import com.example.softcafeengineer.domain.Table;
 
 public class ScanTablePresenter
@@ -21,8 +22,7 @@ public class ScanTablePresenter
         if(!submit_button_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill the required field.");
-        }
-        else {
+        } else {
             // Look up table
             Table result = tables.find(id);
 
@@ -31,8 +31,13 @@ public class ScanTablePresenter
                 Order order = orders.find(id);
                 if(order != null) {
                     // Table has an active order
-                    // show order status
-                    view.showOrderStatus();
+                    if(order.getOrderStatus() != Status.CANCELED) {
+                        // Order is active
+                        // show order status
+                        view.showOrderStatus();
+                    } else {
+                        view.showCancelNotice();
+                    }
                 } else {
                     // Table has no active orders
                     // can submit new order

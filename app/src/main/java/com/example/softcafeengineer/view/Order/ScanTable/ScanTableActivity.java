@@ -7,9 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
@@ -20,6 +25,7 @@ import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ScanTableActivity extends AppCompatActivity implements ScanTableView
 {
+    private RelativeLayout relativeLayout;
     private EditText idField;
     private Button submitButton;
     private boolean submit_button_enabled;
@@ -31,6 +37,8 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         setContentView(R.layout.activity_scan_table);
 
         final ScanTablePresenter presenter = new ScanTablePresenter(this, new TableDAOMemory(), new ActiveOrdersDAOMemory());
+
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_scan_table); // activity_scan_table.xml layout
 
         idField = findViewById(R.id.edit_txt_table_id);
         submitButton = findViewById(R.id.btn_submit_table_id);
@@ -71,9 +79,59 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
 
     @Override
     public void showOrderStatus() {
-        Intent intent = new Intent(ScanTableActivity.this, WelcomeScreenActivity.class); // placeholder
-        // intent.putExtra("unique_id", unique_id);
-        startActivity(intent);
+        // Inflate popup layout
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View pop_up = layoutInflater.inflate(R.layout.popup_order_status, null);
+
+        // Create and show delete table popup
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        PopupWindow show_status_popup = new PopupWindow(pop_up, width, height, true);
+        show_status_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+
+        Button okButton = pop_up.findViewById(R.id.btn_ok_order_status);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            // User clicked the ok button
+            // inside the show status pop up
+            @Override
+            public void onClick(View v) {
+                show_status_popup.dismiss();
+                Intent intent = new Intent(ScanTableActivity.this, WelcomeScreenActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void showCancelNotice() {
+        // Inflate popup layout
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View pop_up = layoutInflater.inflate(R.layout.popup_order_cancelled, null);
+
+        // Create and show delete table popup
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        PopupWindow order_cancelled_popup = new PopupWindow(pop_up, width, height, true);
+        order_cancelled_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+
+        Button yesButton = pop_up.findViewById(R.id.btn_yes_new_order);
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                order_cancelled_popup.dismiss();
+                ScanTableActivity.this.successfulSubmit(id);
+            }
+        });
+
+        Button noButton = pop_up.findViewById(R.id.btn_no_new_order);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                order_cancelled_popup.dismiss();
+                Intent intent = new Intent(ScanTableActivity.this, WelcomeScreenActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

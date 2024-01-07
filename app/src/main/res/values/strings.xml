@@ -15,6 +15,13 @@
     <string name="enter_table_id">* Enter table unique id:</string>
     <string name="submit">Submit</string>
 
+    <!-- Status Popup -->
+    <string name="your_order_status">Your order\'s\ncurrent status is:</string>
+    <string name="cancelled_order">Your order was\ncancelled 😔</string>
+    <string name="place_new_question">Would you like to place\na new order ❓</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <!-- ViewMenu -->
     <string name="view_cart">🛒</string>
 

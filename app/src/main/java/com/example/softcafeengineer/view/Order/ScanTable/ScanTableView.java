@@ -5,10 +5,16 @@ public interface ScanTableView
     /**
      * When the user clicks on the "Submit" button
      * with correct id for an active order
-     * they are redirected
-     * to the ViewOrderStatusActivity
+     * they are shown its status
      */
     void showOrderStatus();
+
+    /**
+     * When the user clicks on the "Submit" button
+     * with correct id for a cancelled order
+     * they are shown a notice
+     */
+    void showCancelNotice();
 
     /**
      * When the user clicks on the "Submit" button
