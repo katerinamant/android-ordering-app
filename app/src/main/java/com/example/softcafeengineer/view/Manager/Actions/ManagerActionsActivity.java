@@ -13,6 +13,7 @@ import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
 import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesActivity;
 import com.example.softcafeengineer.view.Manager.ManageTables.ManageTablesActivity;
 import com.example.softcafeengineer.view.Manager.Revenue.ManagerRevenueActivity;
+import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 public class ManagerActionsActivity extends AppCompatActivity implements ManagerActionsView
 {
@@ -60,6 +61,10 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
                 presenter.onRevenueBreakdown();
             }
         });
+
+        findViewById(R.id.btn_manager_logout).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { presenter.onLogOutButton(); }
+        });
     }
 
     @Override
@@ -94,6 +99,12 @@ public class ManagerActionsActivity extends AppCompatActivity implements Manager
     public void revenue_breakdown(){
         Intent intent = new Intent(ManagerActionsActivity.this, ManagerRevenueActivity.class);
         intent.putExtra("cafe_brand", brand);
+        startActivity(intent);
+    }
+
+    @Override
+    public void log_out() {
+        Intent intent = new Intent(ManagerActionsActivity.this, WelcomeScreenActivity.class);
         startActivity(intent);
     }
 }

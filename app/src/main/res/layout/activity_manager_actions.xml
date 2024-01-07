@@ -8,6 +8,19 @@
     tools:context=".view.Manager.Actions.ManagerActionsActivity">
 
     <Button
+        android:id="@+id/btn_manager_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/dark_button"
+        android:text="@string/log_out"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/btn_edit_Cinfo"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -78,7 +91,7 @@
         android:id="@+id/txt_manager_activity_header"
         android:layout_width="287dp"
         android:layout_height="116dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="@string/welcome_back"

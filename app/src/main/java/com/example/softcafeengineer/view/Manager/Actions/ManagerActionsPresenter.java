@@ -25,4 +25,6 @@ public class ManagerActionsPresenter
     void onRevenueBreakdown(){
         view.revenue_breakdown();
     }
+
+    public void onLogOutButton() { view.log_out(); }
 }

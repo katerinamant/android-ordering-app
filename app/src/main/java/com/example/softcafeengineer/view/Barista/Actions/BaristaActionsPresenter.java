@@ -43,8 +43,8 @@ public class BaristaActionsPresenter
 
     public List<Order> getOrderResults() { return this.orderResults; }
 
-    public void onCloseDay() {
+    public void onLogOutButton() {
         this.orderResults.clear();
-        view.onClosedDay();
+        view.onLogOut();
     }
 }

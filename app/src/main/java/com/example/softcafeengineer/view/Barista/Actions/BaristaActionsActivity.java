@@ -47,11 +47,11 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ActiveOrdersRecyclerViewAdapter(orderList, this));
 
-        Button closeDayButton = findViewById(R.id.btn_barista_actions_close_day); // "Close day" button
-        closeDayButton.setOnClickListener(new View.OnClickListener() {
+        Button logOutButton = findViewById(R.id.btn_barista_actions_log_out); // "Log out" button
+        logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewModel.getPresenter().onCloseDay();
+                viewModel.getPresenter().onLogOutButton();
             }
         });
 
@@ -68,7 +68,7 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
     // BaristaActionsView implementations
     // -------
     @Override
-    public void onClosedDay() {
+    public void onLogOut() {
         Intent intent = new Intent(BaristaActionsActivity.this, WelcomeScreenActivity.class);
         startActivity(intent);
     }
