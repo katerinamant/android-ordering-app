@@ -4,10 +4,9 @@ import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
-import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
-import com.google.android.material.tabs.TabLayout;
 
 public class EditInfoPresenter {
     private EditInfoView view;
@@ -15,11 +14,11 @@ public class EditInfoPresenter {
     private BaristaDAO baristaDAO;
     private CafeteriaDAO cafeteriaDAO;
     private MenuDAO menuDAO;
-    private MonthlyRevenueDAO revenueDAO;
+    private RevenueDAO revenueDAO;
     private TableDAO tableDAO;
     private Cafeteria cafe;
 
-    public EditInfoPresenter(EditInfoView view, String brand, ActiveOrdersDAO activeOrdersDAO, BaristaDAO baristaDAO, CafeteriaDAO cafeteriaDAO, MenuDAO menuDAO, MonthlyRevenueDAO revenueDAO,  TableDAO tableDAO) {
+    public EditInfoPresenter(EditInfoView view, String brand, ActiveOrdersDAO activeOrdersDAO, BaristaDAO baristaDAO, CafeteriaDAO cafeteriaDAO, MenuDAO menuDAO, RevenueDAO revenueDAO, TableDAO tableDAO) {
         this.view = view;
         this.activeOrdersDAO = activeOrdersDAO;
         this.cafeteriaDAO = cafeteriaDAO;

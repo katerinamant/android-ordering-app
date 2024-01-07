@@ -2,8 +2,9 @@ package com.example.softcafeengineer.view.Barista.ManageOrder;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
-import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Barista;
+import com.example.softcafeengineer.domain.InvalidDateException;
 import com.example.softcafeengineer.domain.InvalidInputException;
 import com.example.softcafeengineer.domain.InvalidStatusException;
 import com.example.softcafeengineer.domain.Order;
@@ -15,7 +16,7 @@ public class ManageOrderPresenter
 {
     private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
-    private MonthlyRevenueDAO monthlyRevenueDAO;
+    private RevenueDAO revenueDAO;
     private ManageOrderView view;
     private Barista barista;
     private Order order;
@@ -26,8 +27,8 @@ public class ManageOrderPresenter
     public void setBaristaDAO(BaristaDAO baristaDAO) { this.baristaDAO = baristaDAO; }
     public BaristaDAO getBaristaDAO() { return this.baristaDAO; }
 
-    public void setMonthlyRevenueDAO(MonthlyRevenueDAO monthlyRevenueDAO) { this.monthlyRevenueDAO = monthlyRevenueDAO; }
-    public MonthlyRevenueDAO getMonthlyRevenueDAO() { return this.monthlyRevenueDAO; }
+    public void setRevenueDAO(RevenueDAO revenueDAO) { this.revenueDAO = revenueDAO; }
+    public RevenueDAO getRevenueDAO() { return this.revenueDAO; }
 
     public void setView(ManageOrderView view, String barista_username, String password, String cafe_brand, int table_number) {
         this.view = view;
@@ -63,7 +64,11 @@ public class ManageOrderPresenter
             // Add order total cost
             // to today's revenue
             String cafe_brand = this.barista.getCafe().getBrand();
-            monthlyRevenueDAO.addToDay(cafe_brand, this.order.getTotalCost());
+            int year = this.order.getDate().getYear();
+            int month = this.order.getDate().getMonth();
+            int day = this.order.getDate().getDay();
+            double totalCost = this.order.getTotalCost();
+            revenueDAO.addToDay(cafe_brand, year, month, day, totalCost);
 
             // Mark order as complete
             this.order.completeOrder();
@@ -74,6 +79,8 @@ public class ManageOrderPresenter
 
         } catch (InvalidStatusException e)  {
             view.showError("Invalid change.", "Please choose a different status.");
+        } catch (InvalidDateException e) {
+            view.showError("Invalid data input.", "Please provide a valid date");
         }
     }
 

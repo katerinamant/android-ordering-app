@@ -16,7 +16,7 @@ import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.User;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 
@@ -32,7 +32,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_info_input);
 
-        final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory(), new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory());
+        final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory(), new CafeteriaDAOMemory(), new RevenueDAOMemory());
 
         // Get user from ManagerSignUpActivity
         Intent intent = getIntent();

@@ -2,7 +2,7 @@ package com.example.softcafeengineer.view.Manager.InfoInput;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.ManagerDAO;
-import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.User;
 
@@ -11,9 +11,9 @@ public class InfoInputPresenter
     private InfoInputView view;
     private ManagerDAO users;
     private CafeteriaDAO cafes;
-    private MonthlyRevenueDAO revenue;
+    private RevenueDAO revenue;
 
-    public InfoInputPresenter(InfoInputView view, ManagerDAO users, CafeteriaDAO cafes, MonthlyRevenueDAO revenue) {
+    public InfoInputPresenter(InfoInputView view, ManagerDAO users, CafeteriaDAO cafes, RevenueDAO revenue) {
         this.view = view;
         this.users = users;
         this.cafes = cafes;

@@ -1,51 +1,61 @@
 package com.example.softcafeengineer.revenue;
 
+import com.example.softcafeengineer.domain.InvalidDateException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
 public class MonthlyRevenues
 {
-    private HashMap<String, ArrayList<Double>> revenue;  // "month-year" : [dailyRevenues]
-    private HashMap<String, Double> monthly_total; // "month-year" : total
+    private int month;
+    private HashMap<Integer, Double> revenues; // day : daily total
     private String brand;
 
-    public MonthlyRevenues(String brand) {
-        this.revenue = new HashMap<String, ArrayList<Double>>();
-        this.monthly_total = new HashMap<String, Double>();
+    public MonthlyRevenues(String brand, int month) {
+        this.revenues = new HashMap<Integer, Double>();
         this.brand = brand;
-    }
-
-    public boolean containsMonth(String key) {
-        return this.revenue.containsKey(key);
-    }
-
-    public void setDay(String key, int day, double amount) {
-        if(!this.revenue.containsKey(key)) {
-            // Today's month and year is not in the HashMap
-            ArrayList<Double> month = new ArrayList<Double>(Collections.nCopies(31, -1.0));
-            month.add(day - 1, amount);
-            this.revenue.put(key, month);
-            this.monthly_total.put(key, amount);
-        } else {
-            this.revenue.get(key).add(day - 1, amount);
-            double previous_total = this.monthly_total.get(key);
-            this.monthly_total.put(key, previous_total + amount);
-        }
-    }
-
-    public double getDay(String key, int day) {
-        // No need to check if it contains this key
-        // As long as we use containsMonth first.
-        return this.revenue.get(key).get(day - 1);
-    }
-
-    public double getMonthTotal(String key) {
-        // No need to check if it contains this key
-        // As long as we use containsMonth first.
-        return this.monthly_total.get(key);
+        this.month = month;
     }
 
     public void setCafeBrand(String brand) { this.brand = brand; }
     public String getCafeBrand() { return this.brand; }
+
+    public void setMonth(int month) { this.month = month; }
+    public int getMonth() { return this.month; }
+
+    public double getDay(int day) throws InvalidDateException {
+        // Handle invalid date input
+        if(day <= 0 || day >= 32) {
+            throw new InvalidDateException("Invalid day input");
+        }
+
+        if(!this.revenues.containsKey(day)) {
+            return -1.0;
+        }
+        return this.revenues.get(day);
+    }
+
+    public double getMonthTotal() {
+        double total = 0.0;
+        for(double amount : this.revenues.values()) {
+            total += amount;
+        }
+        return total;
+    }
+
+    public void addToDay(int day, double amount) throws InvalidDateException {
+        // Handle invalid date input
+        if(day <= 0 || day >= 32) {
+            throw new InvalidDateException("Invalid day input");
+        }
+
+        if(this.revenues.containsKey(day)) {
+            double prev_amount = this.revenues.get(day);
+            double new_amount = prev_amount + amount;
+            this.revenues.put(day, new_amount);
+        } else {
+            this.revenues.put(day, amount);
+        }
+    }
 }

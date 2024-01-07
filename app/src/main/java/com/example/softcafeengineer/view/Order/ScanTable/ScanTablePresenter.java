@@ -65,7 +65,10 @@ public class ScanTablePresenter
 
             // Get current date
             Calendar calendar = Calendar.getInstance();
-            Date date = new Date(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR));
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            int month = calendar.get(Calendar.MONTH) + 1;
+            int year = calendar.get(Calendar.YEAR);
+            Date date = new Date(day, month, year);
             order = new Order(date, table);
             carts.save(order);
 
