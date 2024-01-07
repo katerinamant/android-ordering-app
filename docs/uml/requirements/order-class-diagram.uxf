@@ -1,0 +1,258 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notesriD ge</help_text><element><id>UMLClass</id><coordinates><x>318</x><y>305</y><w>144</w><h>222</h></coordinates><panel_attributes>ScanTable Activity 
+--
+- presenter: ScanTablePresenter 
+- relativeLayout: RelativeLayout
+- idField: EditText 
+- submitButton: Button 
+- submit_button_enabled: boolean 
+- unique_id: boolean 
+- show_status_popup: PopupWindow
+- order_cancelled_popup: PopupWindow
+--
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View)
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ showOrderStatus(orderStatus: Status) 
++ exitStatusPopup()
++ showCancelNotice()
++ exitCancelPopupOnNo()
++ successfulSubmit(unique_id: String) 
++ showError(title: String, msg: String) 
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>227</y><w>144</w><h>240</h></coordinates><panel_attributes>ViewCategories Activity 
+--
+- viewModel: ViewCategoriesViewModel 
+- brand: String
+- category: String 
+- unique_id: String
+- relativeLayout: RelativeLayout
+- add_to_cart_popup: PopupWIndow
+- selected_product: Product 
+- chooseQuantityField: EditText
+- commentsField: EditText
+- confirmAddToCartButton: Button 
+- confirm_enabled: boolean 
+- quantity: String
+- comments: String 
+--
++ onCreate(savedInstanceState: Bundle) 
++ successfulAddToCart()
++ showError(titlle: String, msg: String) 
++ showToast(msg: String)
++ addProductToCart(p: Product)
++ onClick(v: View)
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>587</y><w>126</w><h>84</h></coordinates><panel_attributes>VIewMenuActivity
+--
+- view: VIewMenuViewModel
+- String: unique_id 
+--
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ onRestart()
++ onViewingCart()
++ viewCategory(c: ProductCategory) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>642</x><y>491</y><w>126</w><h>246</h></coordinates><panel_attributes>VIewCart Activity
+--
+- viewModel: ViewCartViewModel
+- unique_id: String 
+- relativeLayout: RelativeLayout
+- selected_order_info: OrderInfo
+- edit_cart_popup: PopupWindow
+- prev_comments: String
+- prev_quantity: int 
+- editQuantityField: EditText
+- editCommentsField: editText
+- confirm_edit_enabled: boolean 
+- text_changed: boolean 
+- newQuantity: String 
+- newComments: String 
+--
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ onSuccessfulSubmitOrder()
++ successfulEdit()
++ showError(title: String, msg: String) 
++ showToast(msg: String) 
++ editOrderInfo(orderInfo: OrderInfo)
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>132</x><y>287</y><w>126</w><h>132</h></coordinates><panel_attributes>ScanTable Presenter 
+--
+- view: ScanTableView
+- tables: TableDAO
+- orders: ActiveOrdersDAO
+- carts: ActiveCartsDAO 
+--
++ ScanTablePresenter(view: ScanTableView, 
+tables: TablesDAO, orders: ActiveOrders
+DAO,  carts: ActiveCartsDAO) 
++ onSubmit(submit_button_enabled: boolean,
+ unique_id: String) 
++ onOkStatus()
++ onYesOrder(unique_id: String) 
++ onNoOrder(unique_id: String) 
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>155</y><w>126</w><h>114</h></coordinates><panel_attributes>Interface
+ScanTable View 
+--
++ showOrderStatus(orderStatus: Status) 
++ exitStatusPopup()
++ showCancelNotice()
++ exitCancelPopupOnYes()
++ exitCancelPopupOnNo()
++ successfulSubmit(unique_id: String)
++ showError(title: String, msg: String) 
++ showToast(msg: String) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>138</x><y>587</y><w>126</w><h>42</h></coordinates><panel_attributes>Interface 
+ViewMenuView
+--
++ onViewingCart()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>108</x><y>683</y><w>144</w><h>156</h></coordinates><panel_attributes>VIewMenu Presenter
+--
+- view: ViewMenuView
+- menuDAO: MenuDAO 
+- tableDAO: TableDAO 
+- table: Table
+- categoryResults: List&lt;ProductCategory&gt;
+--
++ setMenuDAO(menuDAO: MenuDAO) 
++ getMenuDAO(): MenuDAO {query} 
++ setTableDAO(tableDAO: TableDAO) 
++ getTableDAO(): TableDAO {query} 
++ setView(view: ViewMenuView, 
+ unique_id: String) 
++ findAllCategories(brand: String) 
++ getCategoryResults(): List
+ &lt;ProductCategory&gt; {query} 
++ onViewCart()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>719</y><w>150</w><h>60</h></coordinates><panel_attributes>ViewMenuViewModel
+--
+- presenter: ViewMenuPresenter
+--
++ ViewMenuViewModel()
++ getPresenter(): ViewMenuPresenter {q}
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>731</y><w>96</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in 
+</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>665</y><w>48</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in 
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>258</x><y>599</y><w>90</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>378</x><y>263</y><w>60</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>329</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>389</y><w>72</w><h>234</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to </panel_attributes><additional_attributes>10;370;50;370;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>647</y><w>198</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to (through view cart)</panel_attributes><additional_attributes>310;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>533</y><w>126</w><h>66</h></coordinates><panel_attributes>Interface 
+ViewCart View 
+--
++ onSuccessfulSubmitOrder()
++ successfulEdit()
++ showError(title: String, msg: String)
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>816</x><y>695</y><w>174</w><h>186</h></coordinates><panel_attributes>ViewCart Presenter 
+--
+- view: ViewCartView
+- activeOrdersDAO: ActiveOrdersDAO
+- activeCartsDAO: ActiveCartsDAO
+- cart: Order
+--
++ setActiveOrdersDAO(activeOrdersDAO: 
+ActiveOrdersDAO) 
++ getActiveOrdersDAO(): ActiveCartsDAO {q}
++ setActiveCartsDAO(activeCartsDAO:
+ ActiveCartsDAO)
++ getActiveCartsDAO: ActiveCartsDAO {query}
++ setView(view: ViewCartView, unique_id: String) 
++ getTotalCost()
++ getOrderResults(): List&lt;OrderInfo&gt; {query} 
++ onSubmitOrder()
++ onEditOrderInfo(order_info: OrderInfo, 
+ confirm_edit_enabled: boolean, text_changed: 
+ boolean, prev_quantity: int, prev_comments: 
+String, quantity_string: String, comments: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>785</y><w>138</w><h>60</h></coordinates><panel_attributes>ViewCart ViewModel
+--
+- presenter: ViewCartPresenter
+--
++ ViewCartModel()
++ getPresenter(): ViewCartPresenter {q}
++ onCleaed()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>744</x><y>803</y><w>84</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in 
+</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>731</y><w>48</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in 
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>563</y><w>90</w><h>24</h></coordinates><panel_attributes>lt=.&gt;&gt;
+implements</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>462</x><y>389</y><w>186</w><h>258</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to (through view categories)</panel_attributes><additional_attributes>290;10;100;10;100;410;10;410</additional_attributes></element><element><id>UMLClass</id><coordinates><x>834</x><y>359</y><w>174</w><h>60</h></coordinates><panel_attributes>ViewCategories ViewModel
+--
+- presenter: ViewCategoriesPresenter
+--
++ ViewCategoriesViewModel()
++ getPresenter(): ViewCategoryPresenter {query}
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>894</x><y>35</y><w>156</w><h>264</h></coordinates><panel_attributes>ViewCategories Presenter
+--
+- view: ViewCategoriesView
+- menuDAO: MenuDAO
+- cafeteriaDAO: CafeteriaDAO
+- activeCartsDAO: ActiveCartsDAO
+- cafe_brand: String 
+- category: ProductCategory
+- cafe: Cafeteria 
+- order: Order
+- productResults: List&lt;Product&gt; 
+--
++ setMenuDAO(menuDAO: MenuDAO) 
++ getMenuDAO(): MenuDAO {query} 
++ setCafeteriaDAO(cafeteriaDAO: 
+ CafeteriaDAO)
++ getCafeteriaDAO(): CafeteriaDAO {q}
++ setActiveCartsDAO( activeCartsDAO: 
+ ActiveCartsDAO)
++ getActiveCartsDAO(): ActiveCartsDAO {q}
++ setView(view: ViewCategoriesView, 
+ category_name: String, cafe_brand: 
+ String, unique_id: String) 
++ getCategoryName(): String {query} 
++ getCategoryDesc(): String {query}  
++ findAllAvailableProducts()
++ getProductResults(): List&lt;Product&gt; {q} 
++ onConfirmAddToCart( product: Product, 
+ confirm_enabled: boolean, quantity_string: 
+String, comments: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>714</x><y>65</y><w>126</w><h>60</h></coordinates><panel_attributes>Interface 
+ViewCategories View 
+--
++ successfulAddToCart()
++ showError(title: String, msg: String) 
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>486</x><y>47</y><w>192</w><h>102</h></coordinates><panel_attributes>OrderProduct RecyclerView
+--
+- mValues: List&lt;Product&gt; 
+- listener: ItemSelectionListener
+--
++ OrderProductRecyclerViewAdapter(items: List&lt;
+Product&gt;,  listener: ItemSelectionListener) 
++ onCreateViewHolder(parent: VIewGroup, 
+ viewType: int): ViewHolder {query}
++ onBindViewHolder(holder: ViewHolder, position: int)
++ onClick(v: View) 
++ getItemCount(): int {query} 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>119</y><w>96</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>70;10;70;140;10;140;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>143</y><w>108</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements </panel_attributes><additional_attributes>10;10;10;100;160;100;160;140</additional_attributes></element><element><id>Relation</id><coordinates><x>912</x><y>293</y><w>84</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in </panel_attributes><additional_attributes>10;110;10;60;110;60;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>774</x><y>377</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1 
+m2=1
+is used in </panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element></diagram>
