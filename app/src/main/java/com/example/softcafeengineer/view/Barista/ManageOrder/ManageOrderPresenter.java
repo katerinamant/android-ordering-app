@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Barista.ManageOrder;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
+import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.InvalidInputException;
 import com.example.softcafeengineer.domain.InvalidStatusException;
@@ -14,6 +15,7 @@ public class ManageOrderPresenter
 {
     private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
+    private MonthlyRevenueDAO monthlyRevenueDAO;
     private ManageOrderView view;
     private Barista barista;
     private Order order;
@@ -24,6 +26,9 @@ public class ManageOrderPresenter
     public void setBaristaDAO(BaristaDAO baristaDAO) { this.baristaDAO = baristaDAO; }
     public BaristaDAO getBaristaDAO() { return this.baristaDAO; }
 
+    public void setMonthlyRevenueDAO(MonthlyRevenueDAO monthlyRevenueDAO) { this.monthlyRevenueDAO = monthlyRevenueDAO; }
+    public MonthlyRevenueDAO getMonthlyRevenueDAO() { return this.monthlyRevenueDAO; }
+
     public void setView(ManageOrderView view, String barista_username, String password, String cafe_brand, int table_number) {
         this.view = view;
         this.barista = baristaDAO.find(barista_username, password);
@@ -31,6 +36,7 @@ public class ManageOrderPresenter
     }
 
     public double getTotalCost() {
+        this.order.calculateCost();
         return this.order.getTotalCost();
     }
     public String getOrderStatus() {
@@ -54,10 +60,18 @@ public class ManageOrderPresenter
 
     public void onCompletedStatus() {
         try {
+            // Add order total cost
+            // to today's revenue
+            String cafe_brand = this.barista.getCafe().getBrand();
+            monthlyRevenueDAO.addToDay(cafe_brand, this.order.getTotalCost());
+
+            // Mark order as complete
             this.order.completeOrder();
-            // Order is permanently deleted
+
+            // Permanently delete order
             activeOrdersDAO.delete(this.order);
             view.successfulCompletion();
+
         } catch (InvalidStatusException e)  {
             view.showError("Invalid change.", "Please choose a different status.");
         }
