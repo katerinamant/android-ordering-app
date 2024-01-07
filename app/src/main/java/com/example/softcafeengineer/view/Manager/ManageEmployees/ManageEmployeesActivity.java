@@ -54,7 +54,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_employees);
 
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             brand = intent.getStringExtra("cafe_brand");
         }

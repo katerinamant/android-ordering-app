@@ -63,11 +63,6 @@ public class ActiveOrdersDAOMemory implements ActiveOrdersDAO
 
     @Override
     public void cancel(Order order) {
-        String table_unique_id = order.getTable().getQRCode();
-        table_to_order.remove(table_unique_id);
-        String cafe_brand = order.getTable().getCafe().getBrand();
-        cafeteria_to_orders.get(cafe_brand).remove(order);
-        orders.remove(order);
         temp_cancelled_orders.add(order);
     }
 
@@ -82,6 +77,7 @@ public class ActiveOrdersDAOMemory implements ActiveOrdersDAO
 
     @Override
     public void deleteCancelled(Order order) {
+        this.delete(order);
         temp_cancelled_orders.remove(order);
     }
 

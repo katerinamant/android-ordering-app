@@ -1,10 +1,15 @@
 package com.example.softcafeengineer.view.Order.ScanTable;
 
+import com.example.softcafeengineer.dao.ActiveCartsDAO;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.TableDAO;
+import com.example.softcafeengineer.domain.Date;
+import com.example.softcafeengineer.domain.InvalidDateException;
 import com.example.softcafeengineer.domain.Order;
 import com.example.softcafeengineer.domain.Status;
 import com.example.softcafeengineer.domain.Table;
+
+import java.util.Calendar;
 
 public class ScanTablePresenter
 {
@@ -12,13 +17,16 @@ public class ScanTablePresenter
     private TableDAO tables;
     private ActiveOrdersDAO orders;
 
-    public ScanTablePresenter(ScanTableView view, TableDAO tables, ActiveOrdersDAO orders) {
+    private ActiveCartsDAO carts;
+
+    public ScanTablePresenter(ScanTableView view, TableDAO tables, ActiveOrdersDAO orders, ActiveCartsDAO carts) {
         this.view = view;
         this.tables = tables;
         this.orders = orders;
+        this.carts = carts;
     }
 
-    void onSubmit(boolean submit_button_enabled, String unique_id) {
+    void onSubmit(boolean submit_button_enabled, String unique_id) throws InvalidDateException {
         if(!submit_button_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill the required field.");
@@ -26,30 +34,42 @@ public class ScanTablePresenter
         }
 
         // Look up table
-        Table result = tables.find(unique_id);
+        Table table = tables.find(unique_id);
 
-        if(result != null) {
-            // Table exists
-            Order order = orders.find(unique_id);
-            if (order != null) {
-                // Table has an active order
-                if (order.getOrderStatus() != Status.CANCELED) {
-                    // Order is active
-                    // show order status
-                    view.showOrderStatus(order.getOrderStatus());
-                } else {
-                    // Order has been cancelled
-                    // Notify the user
-                    view.showCancelNotice();
-                }
-            } else {
-                // Table has no active orders
-                // can submit new order
-                view.successfulSubmit(result.getQRCode());
-            }
-        } else {
+        if(table == null) {
             // Incorrect id, showing error
             view.showError("Connection unsuccessful.", "The id provided was invalid. Try again.");
+            return;
+        }
+
+        // Table exists
+
+        // Check if it has an active order
+        Order order = orders.find(unique_id);
+        if (order != null) {
+            // Table has an active order
+            if (order.getOrderStatus() != Status.CANCELED) {
+                // Order is active
+                // show order status
+                view.showOrderStatus(order.getOrderStatus());
+            } else {
+                // Order has been cancelled
+                // Notify the user
+                view.showCancelNotice();
+            }
+        } else {
+            // Table has no active orders
+            // and can submit new order
+            // Initialize new Order object
+            // and add to active carts
+
+            // Get current date
+            Calendar calendar = Calendar.getInstance();
+            Date date = new Date(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR));
+            order = new Order(date, table);
+            carts.save(order);
+
+            view.successfulSubmit(table.getQRCode());
         }
     }
 

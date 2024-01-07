@@ -39,6 +39,7 @@ public class BaristaActionsActivity extends AppCompatActivity implements Barista
 
         viewModel = new ViewModelProvider(this).get(BaristaActionsViewModel.class);
         viewModel.getPresenter().setView(this);
+        viewModel.getPresenter().setBrand(brand);
 
         List<Order> orderList = viewModel.getPresenter().getOrderResults();
         // Recycler view

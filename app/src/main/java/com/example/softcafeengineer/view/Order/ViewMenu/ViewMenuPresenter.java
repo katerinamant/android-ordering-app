@@ -1,6 +1,8 @@
 package com.example.softcafeengineer.view.Order.ViewMenu;
 
 
+import android.util.Log;
+
 import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.ProductCategory;
@@ -38,7 +40,12 @@ public class ViewMenuPresenter
     public void setView(ViewMenuView view, String unique_id) {
         this.view = view;
         this.table = this.tableDAO.find(unique_id);
-        this.findAllCategories(this.table.getCafe().getBrand());
+        if(this.table == null) {
+            Log.d("ViewMenuPresenter", "oxi trapezi");
+        } else {
+            Log.d("ViewMenuPresenter", table.getQRCode());
+            this.findAllCategories(this.table.getCafe().getBrand());
+        }
     }
 
     public void findAllCategories(String brand) {

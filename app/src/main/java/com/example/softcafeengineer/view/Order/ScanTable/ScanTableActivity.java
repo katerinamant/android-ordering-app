@@ -19,7 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
+import com.example.softcafeengineer.domain.InvalidDateException;
 import com.example.softcafeengineer.domain.Status;
+import com.example.softcafeengineer.memorydao.ActiveCartsDAOMemory;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import com.example.softcafeengineer.view.Order.ViewMenu.ViewMenuActivity;
@@ -45,7 +47,7 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_table);
 
-        presenter = new ScanTablePresenter(this, new TableDAOMemory(), new ActiveOrdersDAOMemory());
+        presenter = new ScanTablePresenter(this, new TableDAOMemory(), new ActiveOrdersDAOMemory(), new ActiveCartsDAOMemory());
 
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_scan_table); // activity_scan_table.xml layout
 
@@ -59,7 +61,14 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onSubmit(submit_button_enabled, unique_id); }
+            public void onClick(View v) {
+                try {
+                    presenter.onSubmit(submit_button_enabled, unique_id);
+                } catch (InvalidDateException e) {
+                    // Invalid date
+                    throw new RuntimeException(e);
+                }
+            }
         });
     }
 
@@ -127,7 +136,7 @@ public class ScanTableActivity extends AppCompatActivity implements ScanTableVie
         // Create and show delete table popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        PopupWindow order_cancelled_popup = new PopupWindow(pop_up, width, height, true);
+        order_cancelled_popup = new PopupWindow(pop_up, width, height, true);
         order_cancelled_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
 
         Button yesButton = pop_up.findViewById(R.id.btn_yes_new_order);

@@ -66,6 +66,8 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         // Recycler view
         RecyclerView recyclerView = findViewById(R.id.recycler_view_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // we will be using the order list recycler view adapter
+        // same as the ManageOrderActivity
         recyclerView.setAdapter(new OrderListRecyclerViewAdapter(orderList, this));
 
         Button submitOrderButton = findViewById(R.id.btn_submit_order);
@@ -88,6 +90,8 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
 
     @Override
     public void successfulEdit() {
+        // User successfully edited an order info
+        // Restart activity with an updated list
         edit_order_info_popup.dismiss();
         finish();
         startActivity(getIntent());
@@ -177,7 +181,7 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         // inside the edit order info pop up
         @Override
         public void onClick(View v) {
-            viewModel.getPresenter().onEditProductInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments,  newQuantity, newComments);
+            viewModel.getPresenter().onEditOrderInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments,  newQuantity, newComments);
         }
     };
 }
