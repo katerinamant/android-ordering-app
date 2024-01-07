@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.Test;
 public class ViewMenuPresenterTest {
     private MenuDAO menuDAO;
-    private CafeteriaDAO cafeteriaDAO;
     private TableDAO tableDAO;
     private Table table;
     private ViewMenuViewStub view;
@@ -22,7 +21,6 @@ public class ViewMenuPresenterTest {
     @Before
     public void setUp(){
         menuDAO = new MenuDAOMemory();
-        cafeteriaDAO = new CafeteriaDAOMemory();
         tableDAO = new TableDAOMemory();
         view = new ViewMenuViewStub();
         cafeteria = new Cafeteria("address", "0123456789", "123456789","cafe_brand");
@@ -32,7 +30,6 @@ public class ViewMenuPresenterTest {
 
         presenter = new ViewMenuPresenter();
         presenter.setMenuDAO(menuDAO);
-        presenter.setCafeteriaDAO(cafeteriaDAO);
         presenter.setTableDAO(tableDAO);
         presenter.setView(view, table.getQRCode());
     }
@@ -40,10 +37,7 @@ public class ViewMenuPresenterTest {
     public void testGetMenuDAO(){
         Assert.assertEquals(presenter.getMenuDAO(), menuDAO);
     }
-    @Test
-    public void testGetCafeteriaDAO(){
-        Assert.assertEquals(presenter.getCafeteriaDAO(), cafeteriaDAO);
-    }
+
     @Test
     public void testGetTableDAO(){
         Assert.assertEquals(presenter.getTableDAO(), tableDAO);

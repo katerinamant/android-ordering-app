@@ -17,6 +17,11 @@ public class ScanTableViewStub implements ScanTableView{
     }
 
     @Override
+    public void showCancelNotice() {
+
+    }
+
+    @Override
     public void successfulSubmit(String unique_id) {
 
     }
