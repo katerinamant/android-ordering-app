@@ -1,114 +1,198 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>279</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn Activity
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes S</help_text><element><id>UMLClass</id><coordinates><x>496</x><y>704</y><w>192</w><h>80</h></coordinates><panel_attributes>Manage Order ViewModel
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+- presenter ManagerOrderPresenter
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ ManagerOrderViewModel()
++ getPresenter(): ManageOrderPresenter
+ {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>232</y><w>168</w><h>136</h></coordinates><panel_attributes>Active Orders RecyclerView Adapter 
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>270</y><w>189</w><h>171</h></coordinates><panel_attributes>Active Orders Recycler View
+- mValues: List&lt;Order&gt;
+- listener: ItemSelectionListener
 --
--id: Long {composite}
-_-ClassAttribute: Long_
++ ActiveOrdersRecyclerViewAdapter
+ (items: List&lt;Orders&gt;, 
+ listener: ItemSelectionListener)
++ onCreateViewHolder
+ (parent: ViewGroup @NonNull.
+ viewType: int)
++ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>464</y><w>192</w><h>136</h></coordinates><panel_attributes>Barista Actions Activity
 --
-#Operation(i: int): int
-/+AbstractOperation()/
+- viewModel: BaristaActionsViewModel
+- username: String 
+- password: String 
+- brand: String 
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>765</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions Activity
++ onCtreate(savedInstanceState: Bundle)
++ onClick(v: View)
++ onClosedDay()
++ onRefresh()
++ viewOrder(o: Order)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>216</x><y>216</y><w>232</w><h>128</h></coordinates><panel_attributes>Manage Order RecyclerView Adapter
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+- mValues: Lost&lt;OrderInfo&gt; 
+- listener: ItemSelectionListener
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ OrderListRecyclerViewAdapter(items:
+ List&lt;OrderInfo&gt;,  listener: ItemSelectionListener
++ OnCreateViewHolder(parent: ViewGroup, vT: int)
+ : ViewHolder {query}
++ onBindViewHolder(holder: ViewHolder, pos: int)
++ getItemCount(): int {query}
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>496</x><y>240</y><w>192</w><h>376</h></coordinates><panel_attributes>Manage Order Activity
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>279</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn View
+- viewModel: ManageOrderViewModel
+- username: String 
+- password: String 
+- brand: String 
+- table_number: int 
+- relativeLayout: RelativeLayout
+- change_status_popup: PopupWindow
+- selected_order_info_popup: OrderInfo 
+- edit_order_info_popup: PopupWindow
+- prev_quantity: int 
+- editQuantityField: EditText 
+- confirmEditButton: Button 
+- confirm_edit_enabled: boolean 
+- text_changed: boolean 
+- newQuantity: String 
 --
--id: Long {composite}
-_-ClassAttribute: Long_
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ successfulExecution() 
++ successfulCompletion()
++ successfulCancellation() 
++ successfulEdit() 
++ showError(title: String, msg: String)
++ showToast(msg: String) 
++ editOrderInfo(orderInfo: OrderInfo) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>312</y><w>80</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1088</x><y>472</y><w>168</w><h>80</h></coordinates><panel_attributes>"interface"
+Barista Actions View
 --
-#Operation(i: int): int
-/+AbstractOperation()/
+
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>630</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista LogIn Presenter
++ onClosedDay()
++ onRefresh()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>976</x><y>496</y><w>128</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1072</x><y>576</y><w>216</w><h>256</h></coordinates><panel_attributes>Barista Actions Presenter
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+- activeOrdersDAO: ActiveOrdersDAO
+- monthlyRevenueDAO: MonthlyRevenueDAO
+- view: BaristaActionsView 
+- cafe_brand: String 
+- key: String 
+-  day: int 
+- orderResults: List&lt;Order&gt;
+-
++ setActiveOrdersDAO
+ (activeOrdersDAO, ActiveOrdersDAO)
++ getActiveOrdersDAO(): ActiveOrdersDAO {q}
++ setMonthlyRevenueDAO
+ (monthlyRevenue: MonthlyRevenueDAO)
++ setBrand(brand: String)
++ getBrand(): String {query}
++ setView(view: BaristaActionsView) 
++ setDate(day: int, month: int, year: int)
++ findAll(brand: String) 
++ getOrderResults(): List&lt;Order&gt; {query}
++ onCloseDay()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>704</y><w>200</w><h>88</h></coordinates><panel_attributes>Barista Actions ViewModel
 --
-#Operation(i: int): int
-/+AbstractOperation()/
+-presenter: BaristaActionsPresenter
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>369</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>765</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions View
++ BaristaActionsViewModel()
++ getPresenter(): 
+	BaristaActionsPresenter {query}
++ onCleared()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>16</y><w>192</w><h>208</h></coordinates><panel_attributes>Barista LogIn Activity
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+- usernameField: EditText
+- passwordField: EditText
+- loginButton: Button
+- login_button_enabled: boolean
+- username: String 
+- password: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ onCreate(savedInstanceState: Bundle)
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulLogin(barista: Barista) 
++ showError(title: String, msg: String)
++ showToast(msg: String)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>824</x><y>96</y><w>144</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>64</y><w>176</w><h>80</h></coordinates><panel_attributes>"Interface"
+Barista LogIn View
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>855</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>963</x><y>369</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions Presenter
++ successfulLogIn(barista: Barista)
++ showError(title: String, msg: String)
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>40</y><w>200</w><h>104</h></coordinates><panel_attributes>Barista LogIn Presenter
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+- view: BaristaLogInView
+- baristas: BaristaDAO
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ BaristaLogInPresenter(view: 
+ BaristaLogInView, baristas: BaristaDAO
++ onlogin(login_button_enabled: boolean,
+ username: String, password: String) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>360</y><w>80</w><h>120</h></coordinates><panel_attributes>lt=&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>592</y><w>64</w><h>128</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>984</x><y>736</y><w>104</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>88</y><w>144</w><h>48</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+
+is used in 
+</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>608</y><w>64</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+
+is used in 
+</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>512</y><w>216</w><h>320</h></coordinates><panel_attributes>Manage Order Presenter
 --
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Barista Actions ViewModel
+- activeOrdersDAO: ActiveOrdersDAO
+- baristaDAO: BaristaDAO
+- view: ManagerOrderView 
+- barista: Barista 
+- order: Order 
 --
--id: Long {composite}
-_-ClassAttribute: Long_
++ setActiveOrdersDAO 
+ (activeOrdersDAO: ActiveOrdersDAO)
++ getActiveOrdersDAO() : 
+ ActiveOrdersDAO {query}
++ setBaristaDAO(baristaDAO: BaristaDAO)
++ getBaristaDAO(): BaristaDAO {query}
++ setView(view: ManageOrderView, 
+ barista_username: String, password: String, 
+ cafe_brand: String, table_number: int)
++ getTotalCost(): double {query} 
++ getOrderStatus(): String {query} 
++ getOrderResults(): List&lt;Order&gt; {query}
++ onWaitingStatus()
++ onInProgressStatus()
++ onCompletedStatus()
++ onCanceledStatus()
++ onEditProductInfo(order_info: OrderInfo, 
+ confirm_edit_enabled: boolean, text_changed: 
+boolean,  prev_quantity: int, quantity: String)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>720</y><w>96</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>232</x><y>368</y><w>168</w><h>112</h></coordinates><panel_attributes>"interface"
+Manage Order View
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>162</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders Activity
---
--id: Long {composite}
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>324</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>441</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders View
---
--id: Long {composite}
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>630</y><w>189</w><h>171</h></coordinates><panel_attributes>Manage Orders Presenter
---
--id: Long {composite}
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
--- Resp2</panel_attributes><additional_attributes></additional_attributes></element></diagram>
++ successfulExecution()
++ successfulCompletion()
++ successfulCancellation()
++ successfulEdit()
++ showError()
++ showToast()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>408</y><w>120</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element></diagram>
