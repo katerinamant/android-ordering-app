@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram noteseld</help_text><element><id>UMLClass</id><coordinates><x>320</x><y>488</y><w>200</w><h>112</h></coordinates><panel_attributes>Manager Action Activity
+<diagram program="umletino" version="15.1"><zoom_level>4</zoom_level><help_text>Space for diagram noteseld:  &lt;TablFiTextField</help_text><element><id>UMLClass</id><coordinates><x>348</x><y>317</y><w>100</w><h>56</h></coordinates><panel_attributes>Manager Action Activity
 --
 - brand: String
 --
@@ -7,7 +7,7 @@
 + manageEmployees()
 + manage_tables()
 + edit_menu()
-+ revenue_breakdown()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>8</x><y>432</y><w>200</w><h>328</h></coordinates><panel_attributes>EditInfo Activity
++ revenue_breakdown()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>325</y><w>100</w><h>164</h></coordinates><panel_attributes>EditInfo Activity
 --
 - presenter: EditInfoPresenter
 - relativeLayout: RelativeLayout
@@ -38,180 +38,331 @@
 + validFinish()
 + successfulFinish(cafe: Cafeteria) 
 + showToast(msg: String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1104</x><y>608</y><w>168</w><h>104</h></coordinates><panel_attributes>ManageTables Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>752</x><y>309</y><w>84</w><h>212</h></coordinates><panel_attributes>ManageTables Activity
 --
--id: Long
-_-ClassAttribute: Long_
+- viewModel: ManageTablesViewModel
+- brand: String 
+- relativeLayout: RelativeLayout 
+- add_table_popup: PopupWindow
+- addTableNumberField: EditText 
+- addUniqueField: EditText 
+- addTableButton: Button 
+- add_table_enabled: boolean 
+- selected_table: Table
+- edit_table_popup: PopupWindow
+- prev_table_number: int 
+- prev_unique_id: String  
+- editTableNumberField: EditText 
+- editUniqueIdField: EditText 
+- confirmEditButton: Button
+- confirm_edit_enabled: boolean 
+- text_changed_ boolean 
+- newTableNumber: String 
+- newTableUniqueId: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulNewTable()
++ successfulEdit()
++ successfulDelete()
++ showError(title: String, msg: String) 
++ showToast(msg: String) 
++ editTable(t: Table) 
++ deleteTable(t: Table) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>381</y><w>92</w><h>152</h></coordinates><panel_attributes>EditMenu Activity
 --
-ViewModel 
-RecyclerViewAdapter </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1344</x><y>632</y><w>168</w><h>96</h></coordinates><panel_attributes>EditMenu Activity
+- viewModel: EditViewModel
+- brand: String 
+- relativeLayout: RelativeLayout
+- add_category_popup: PopupWIndow
+- addCategoryNameField: EditText 
+- addCategoryDescriptionField: EditText
+- addCategoryButton: Button 
+- add_category_enabled: boolean
+- newCategoryName: String 
+- newCategoryDescription: String 
 --
--id: Long
-_-ClassAttribute: Long_
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ onRestart() 
++ successfulNewCategory() 
++ showToast(msg: String) 
++ showError(title: String, msg: String)
++ viewCategory(c: ProductCategory)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1004</x><y>573</y><w>84</w><h>24</h></coordinates><panel_attributes>InfoInput View
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>976</x><y>1136</y><w>168</w><h>96</h></coordinates><panel_attributes>InfoInput View
++ successfulFinish(cafe: Cafeteria) 
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>356</x><y>513</y><w>84</w><h>104</h></coordinates><panel_attributes>Manager SignUp Activity 
 --
--id: Long
-_-ClassAttribute: Long_
+- usernameField: EditText
+- passwordField: EditText
+- continueButton: Button 
+- continue_button_enabled: boolean
+- username: String
+- password: String
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>704</x><y>896</y><w>168</w><h>96</h></coordinates><panel_attributes>Manager SignUp Activity 
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulContinue(newUser: User) 
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>592</x><y>637</y><w>104</w><h>212</h></coordinates><panel_attributes>ManageEmployees Activity
 --
--id: Long
-_-ClassAttribute: Long_
+- viewModel: ManageEmployeesViewModel
+- brand: String 
+- relativeLayout: RelativeLayout 
+- add_employee_popup: PopupWIndow
+- addUsernameField: EditText
+- addPasswordField: EditText
+- addEmployeeButton: Button 
+- addEmployeeEnabled: boolean 
+- selected_barista: Barista 
+- edit_employee_popup: PopupWindow
+- prev_username: String 
+- prev_password: String 
+- editUsernameField: EditText 
+- editPasswordField: EditText 
+- confirmEditButton: Button 
+- confirm_edit_enabled: boolean 
+- text_changed: boolean 
+- newUsername: String 
+- newPassword: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>1032</y><w>168</w><h>120</h></coordinates><panel_attributes>ManageEmployees Activity
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulNewEmployee() 
++ successfulEdit()
++ successfulDelete()
++ showError(title: String, msg: String) 
++ showToast(msg: String) 
++ editEmployee(b: Barista) 
++ deleteEmployee(b: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>344</x><y>633</y><w>84</w><h>112</h></coordinates><panel_attributes>Manager LogIn Activity
 --
--id: Long
-_-ClassAttribute: Long_
+- usernameField: EditText
+- passwordField: EditText
+- loginButton: Button 
+- login_button_enabled: boolean
+- username: String 
+- password: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulLogIn(cafe: Cafeteria) 
++ showError(title: String, msg: String) 
++ showToast(msg: String)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>872</x><y>633</y><w>84</w><h>148</h></coordinates><panel_attributes>Revenue Activity
 --
-Presenter 
-ViewModel 
-RecyclerViewAdapter</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>296</x><y>1000</y><w>168</w><h>96</h></coordinates><panel_attributes>Manager LogIn Activity
+- brand: String 
+- yearField: EditText 
+- monthField: EditText
+- dayField: EditText 
+- month_output: TextView
+- day_output: TextView
+- calculateButton: Button 
+- calculate_button_enabled: boolean
+- year: int 
+- month: int 
+- day: int 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1264</x><y>1048</y><w>168</w><h>96</h></coordinates><panel_attributes>Revenue Activity
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>328</x><y>656</y><w>176</w><h>56</h></coordinates><panel_attributes>Manager Action VIew
++ onCreate(savedInstanceState: Bundle) 
++ onClick(v: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ onCalculation(monthTotal: double,
+ dayTotal: double) 
++ showError(title: String, msg: String) 
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>356</x><y>229</y><w>88</w><h>28</h></coordinates><panel_attributes>Manager Action VIew
 --
 + successfulContinue(newUser: User)
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>296</x><y>1120</y><w>168</w><h>96</h></coordinates><panel_attributes>Manager LogIn View
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>641</y><w>100</w><h>48</h></coordinates><panel_attributes>Manager LogIn Presenter
 --
--id: Long
-_-ClassAttribute: Long_
+- view: ManagerLogInView
+- users: ManagerDAO
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>1176</y><w>168</w><h>88</h></coordinates><panel_attributes>ManageEmployees View
++ ManagerLogInPresenter(view: 
+ ManagerLogInView, users: ManagerDAO)
++ onLogin(loginButtonEnabled: boolean,
+ username: String, password: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>740</x><y>661</y><w>84</w><h>48</h></coordinates><panel_attributes>Interface
+ManageEmployees View
 --
--id: Long
-_-ClassAttribute: Long_
++ successfulNewEmployee()
++ successfulEdit()
++ successfulDelete()
++ showError(title: String, msg: String) 
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>196</x><y>505</y><w>80</w><h>48</h></coordinates><panel_attributes>Interface
+Manager SignUp View
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>928</x><y>904</y><w>168</w><h>96</h></coordinates><panel_attributes>Manager SignUp View
++ successfulContinue(newUser: User) 
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>996</x><y>625</y><w>96</w><h>140</h></coordinates><panel_attributes>InfoInput Activity
 --
--id: Long
-_-ClassAttribute: Long_
+- addressField: EditText
+- phoneNumberField: EditText 
+- ssnField: EditText 
+- brand: EditText
+- finishButton: Button 
+- finish_button_enabled: boolean
+- username: String 
+- password: String 
+- address: String 
+- phoneNumber: String 
+- ssn: String 
+- brand: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>976</x><y>1016</y><w>168</w><h>96</h></coordinates><panel_attributes>InfoInput Activity
++ onCreate(avedInstanceState: Bundle)
++ onClick(view: View) 
++ beforeTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ onTextChanged(s: CharSequence.
+ start: int, count: int, after: int)
++ afterTextChanged(s: Editable)
++ successfulFinish(cafe: Cafeteria)
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>868</x><y>561</y><w>84</w><h>44</h></coordinates><panel_attributes>Interface
+Revenue View
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1256</x><y>1168</y><w>168</w><h>96</h></coordinates><panel_attributes>Revenue View
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>24</x><y>792</y><w>168</w><h>64</h></coordinates><panel_attributes>EditInfo View
++ onCalculatation(monthTotal: 
+ double, DayTotal: double)
++ showError(title: String, msg: String) 
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>44</x><y>461</y><w>84</w><h>32</h></coordinates><panel_attributes>EditInfo View
 --
 validFinish()
 successfulFinish(cafe: Cafeteria) 
-showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1112</x><y>464</y><w>168</w><h>104</h></coordinates><panel_attributes>ManageTables View
+showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>764</x><y>201</y><w>88</w><h>52</h></coordinates><panel_attributes>Interface
+ManageTables View
 --
--id: Long
-_-ClassAttribute: Long_
++ successfulNewTable() 
++ successfulEdit()
++ successfulDeleet()
++ showError(title: String, msg: String)
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1116</x><y>513</y><w>84</w><h>32</h></coordinates><panel_attributes>EditMenu View
 --
-#Operation(i: int): int
-/+AbstractOperation()/
+successfulNewCategory()
+showToast(s: String)
+showError(s: String, s1: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>253</y><w>28</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>692</x><y>677</y><w>56</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>120;30;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>272</x><y>525</y><w>92</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>593</y><w>28</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>601</y><w>40</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>784</x><y>249</y><w>28</w><h>68</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1028</x><y>513</y><w>96</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>220;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>124</x><y>465</y><w>84</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>777</y><w>84</w><h>40</h></coordinates><panel_attributes>Interface
+ManagerLogin View
 --
-ViewModel 
-RecyclerViewAdapter </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1352</x><y>776</y><w>168</w><h>96</h></coordinates><panel_attributes>EditMenu View
++ successfulLogIn(cafe: Cafeteria)
++ showError(title: String, msg: String);
++ showToast(msg: String);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>456</x><y>741</y><w>112</w><h>148</h></coordinates><panel_attributes>ManageEmployees Presenter
 --
--id: Long
-_-ClassAttribute: Long_
+- baristaDAO: BaristaDAO 
+- cafeteriaDAO: CafeteriaDAO 
+- view: ManageemployeesView
+- cafe_brand: String 
+- employeeResults: List&lt;Barista&gt; 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>592</y><w>56</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>368</x><y>1088</y><w>56</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>1144</y><w>56</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>864</x><y>928</y><w>80</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>80;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>1104</y><w>56</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1328</x><y>1136</y><w>56</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1176</x><y>560</y><w>56</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>1424</x><y>720</y><w>56</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>96</x><y>752</y><w>56</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>296</x><y>1240</y><w>168</w><h>88</h></coordinates><panel_attributes>ManagerLogin Presenter
++ setBaristaDAO(baristaDAO: BaristaDAO)
++ getBaristaDAO(): BaristaDAO {query} 
++ setCafeteriaDAO(cafeteriaDAO: CafeteriaDAO)
++ getCafeteriaDAO(): CafeteriaDAO {query}
++ setBrand(brand: String) 
++ getBrand(): String {query} 
++ setView(view: ManageEmployeesView)
++ findAll(brand: String) 
++ getEmployeeResults(): List&lt;Barista&gt; {q} 
++ onAddNewEmployee(add_employee_enabled: 
+ boolean, newUsername: String, newPassword: 
+ String) 
++ onEditEmployee(barista: Barista, confirm_edit_
+enabled: boolean, text_changed: boolean, 
+prev_username: String, prev_password: String, 
+username: String, password: String)
++ onDeleteEmployees(barista: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>992</x><y>797</y><w>104</w><h>80</h></coordinates><panel_attributes>InfoInput Presenter
 --
--id: Long
-_-ClassAttribute: Long_
+- view: InfoInputView
+- users: ManagerDAO
+- cafes: CafeteriaDAO 
+- revenue: MonthlyRevenueDAO
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>1280</y><w>168</w><h>88</h></coordinates><panel_attributes>ManageEmployees Presenter
++ InfoInputPresenter(view: InfoInputView,
+ users: ManagerDAO, cafes: CafeteriaDAO,
+ revenue: MonthlyRevenueDAO) 
++ onFinish(finish_enabled: boolean, username: 
+ String, password: String, address: String, 
+ phoneNumber: String, ssn: String, brand: 
+ String) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>868</x><y>809</y><w>96</w><h>64</h></coordinates><panel_attributes>Revenue Presenter
 --
--id: Long
-_-ClassAttribute: Long_
+- view: ManagerRevenueVIew
+- revenue: MonthlyRevenueDAO
+- brand: String 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>976</x><y>1256</y><w>168</w><h>96</h></coordinates><panel_attributes>InfoInput Presenter
++ ManagerRevenuePresenter(view: 
+ManagerRevenueView, brand: String, 
+revenue:MonthlyRevenueDAO)
++ onCalculate(calculate_button_enabled:
+ boolean, year: int, month: int, day: int) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>944</x><y>313</y><w>96</w><h>40</h></coordinates><panel_attributes>EditMenu ViewModel
 --
--id: Long
-_-ClassAttribute: Long_
+- presenter: EditMenuPresenter
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++ EditMenuViewModel()
++ getPresenter(): EditMenuPresenter {q}
++ onCleared()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>449</y><w>84</w><h>140</h></coordinates><panel_attributes>ManageTables Presenter
 --
-Present</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1264</x><y>1280</y><w>168</w><h>96</h></coordinates><panel_attributes>Revenue Presenter
+- tableDAO: TableDAO 
+- cafeteriaDAO: CafeteriaDAO 
+- view: ManageTablesView
+- cafe_brand: String
+- tableResults: List&lt;Table&gt; 
 --
--id: Long
-_-ClassAttribute: Long_
++ setTableDAO(tableDAO: TableDAO) 
++ getTableDAO(): TableDAO {query} 
++ setCafeteriaDAO(cafe: CafeteriaDAO)
++ getCatefetriaDAO(): CAfeteriaDAO {q}
++ setBrand(brand: String) 
++ getBrand(): String {query} 
++ setView(view: ManageTablesView) 
++ findAll(brand: String) 
++ getTableResults(): List&lt;Table&gt; {q} 
++ onAddNewTable(add_table_enabled: 
+ boolean, tableNumber: String, uID: String) 
++ onEditTable(table: Table, confirm_edit_en: 
+boolean, text_changed: boolean, prevTN: 
+int, prev_unique_id: String, tableNumber_s: 
+String, uniqueID: string) 
++ onDeleteTable(table:Table) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>188</x><y>565</y><w>104</w><h>36</h></coordinates><panel_attributes>Manager SignUp Presenter
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1344</x><y>472</y><w>168</w><h>96</h></coordinates><panel_attributes>EditMenu Presenter
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>856</x><y>744</y><w>168</w><h>104</h></coordinates><panel_attributes>ManageTables Presenter
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-ViewModel 
-RecyclerViewAdapter </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>448</x><y>888</y><w>168</w><h>96</h></coordinates><panel_attributes>Manager SignUp Presenter
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>96</y><w>232</w><h>264</h></coordinates><panel_attributes>EditInfo Presenter
++ ManagerSignUpPresenter(view: 
+ ManagerSignUpView, users: ManagerDAO)
++ onContinue(button_enabled: boolean, 
+ username: String, password: String) 
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>305</y><w>116</w><h>132</h></coordinates><panel_attributes>EditInfo Presenter
 --
 - view: EditInfoView
 - cafeteriaDAO: CafeteriaDAO
@@ -233,7 +384,7 @@ _-ClassAttribute: Long_
 + onConfirmChanges(prev_address: String, 
  prev_phone_number: String, prev_ssn: String, 
 prev_brand: String, address: String, phone_num: 
- String, ssn: String, brand: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>304</y><w>160</w><h>128</h></coordinates><panel_attributes>Manager Action Presenter
+ String, ssn: String, brand: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>204</x><y>197</y><w>80</w><h>64</h></coordinates><panel_attributes>Manager Action Presenter
 --
 - view: ManagerActionsView
 --
@@ -244,45 +395,56 @@ prev_brand: String, address: String, phone_num:
 + onManageTables()
 + onEditMenu()
 + onRevenueBreakdown()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>1080</y><w>168</w><h>96</h></coordinates><panel_attributes>ManageEmployees 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>736</x><y>749</y><w>104</w><h>80</h></coordinates><panel_attributes>ManageEmployees 
 RecyclerViewAdapter
 --
--id: Long
-_-ClassAttribute: Long_
+- List&lt;Barista&gt; mValues
+- listener: ItemSelectionListener
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>1192</y><w>168</w><h>88</h></coordinates><panel_attributes>ManageEmployees ViewModel
++ EmployeeRecyclerViewAdapter(items: 
+List&lt;Barista&gt;, listener: ItemSelectionListener)
++ onCreateViewHolder(parent: VIewGroup, 
+viewType: int)
++ onBindVIewHolder(holder: ViewHolder, 
+ position: int) 
++ onClick(v: View) 
++ getItemCount(): int {query} 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>456</x><y>661</y><w>96</w><h>44</h></coordinates><panel_attributes>ManageEmployees ViewModel
 --
--id: Long
-_-ClassAttribute: Long_
+- presenter: ManageemployeesPresenter
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1104</x><y>744</y><w>168</w><h>88</h></coordinates><panel_attributes>ManageTables ViewModel
++ ManagerEmployeesViewModel()
++ getPresenter(): 
+ManageEmployeesPresenter {query}
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>608</x><y>373</y><w>100</w><h>40</h></coordinates><panel_attributes>ManageTables ViewModel
 --
--id: Long
-_-ClassAttribute: Long_
+- presenter: ManageTablesPresenters
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>848</x><y>616</y><w>168</w><h>88</h></coordinates><panel_attributes>ManageTables RecyclerViewAdapter 
++ manageTablesViewModel()
++ getPresenter(): ManageTablesPresenter
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>537</y><w>104</w><h>72</h></coordinates><panel_attributes>ManageTables RecyclerViewAdapter 
 --
--id: Long
-_-ClassAttribute: Long_
+- mValues: List&lt;Table&gt;
+- listener: ItemSelectionListener
 --
-#Operation(i: int): int
-/+AbstractOperation()/
--
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>424</y><w>64</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>928</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1176</x><y>704</y><w>64</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1432</x><y>560</y><w>64</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>648</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1016</x><y>776</y><w>104</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
++ TableRecyclerViewAdapter(items: 
+ List&lt;Table&gt;, listener: ItemSelectionListener
++ onCreateViewHolder(parent: ViewGroup, 
+ viewType: int) 
++ onBindViewHolder(holder: ViewHolder, 
+ position: int)
++ onClick(v: View) 
++ getItemCount(): int {query} </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>244</x><y>257</y><w>128</w><h>68</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>300;150;300;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>577</y><w>76</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>393</y><w>56</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>584</x><y>192</y><w>192</w><h>608</h></coordinates><panel_attributes>Edit Categories Activity
+is used in</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>984</x><y>349</y><w>36</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;80;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>784</x><y>517</y><w>44</w><h>28</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;50;30;10</additional_attributes></element><element><id>Relation</id><coordinates><x>656</x><y>409</y><w>32</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>488</x><y>165</y><w>96</w><h>304</h></coordinates><panel_attributes>Edit Categories Activity
 --
 - viewModel: EditCategoriesViewModel
 - brand: String 
@@ -333,8 +495,8 @@ CompoundButton, inChecked: boolean)
 + showToast(msg: String)
 + editProduct(p: Product)
 + deleteProduct(p: Product)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>488</y><w>104</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>856</x><y>440</y><w>168</w><h>120</h></coordinates><panel_attributes>Interface 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>301</y><w>56</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>628</x><y>277</y><w>84</w><h>60</h></coordinates><panel_attributes>Interface 
 EditCategories View 
 --
 + successfulEditCategory()
@@ -343,14 +505,14 @@ EditCategories View
 + successfulEditProduct()
 + void successfulDeleteProduct();
 + void showError(String title, String msg);
-+ void showToast(String msg);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>56</y><w>168</w><h>88</h></coordinates><panel_attributes>EditCategories ViewModel
++ void showToast(String msg);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>496</x><y>93</y><w>84</w><h>44</h></coordinates><panel_attributes>EditCategories ViewModel
 --
 - presenter: EditCategoriesPresenter
 --
 + EditCategoriesVIewModel()
 + getPresenter(): 
  EditCategoriesPresenter {query}
-+ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>0</y><w>248</w><h>400</h></coordinates><panel_attributes>EditCategories Presenter
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>616</x><y>37</y><w>124</w><h>200</h></coordinates><panel_attributes>EditCategories Presenter
 --
 - view: EditCategoriesVIew
 - menuDAO: MenuDAO
@@ -383,7 +545,7 @@ prev_desc: String, name: String, desc: String
 + onEditProduct(product:Product, confirm_edit_enabled:
  boolean, text_changed: boolean,  prev_name: String,
 prev_price: double, name: String, price_string: String)
-+ onDeleteProduct(product: Product) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>112</y><w>200</w><h>160</h></coordinates><panel_attributes>MenuProduct RecyclerView Adapter
++ onDeleteProduct(product: Product) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>117</y><w>100</w><h>80</h></coordinates><panel_attributes>MenuProduct RecyclerView Adapter
 --
 - mValues: List&lt;Product&gt;
 - listener: ItemSelectionListener
@@ -396,12 +558,61 @@ ItemSelectionListener
 + onBindViewHolder(position: int, holder: 
  ViewHolder) 
 + onClick(v: View) 
-+ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>136</y><w>64</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>104</y><w>96</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;
++ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>532</x><y>133</y><w>32</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>117</y><w>48</w><h>20</h></coordinates><panel_attributes>lt=-&gt;&gt;
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>208</y><w>120</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>96</x><y>352</y><w>64</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>100;21;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>173</y><w>64</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>112</x><y>365</y><w>96</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=2 
-is used in </panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element></diagram>
+is used in </panel_attributes><additional_attributes>220;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1096</x><y>417</y><w>132</w><h>64</h></coordinates><panel_attributes>Category RecyclerView Adapter
+--
+- mValues: List&lt;ProductCategory&gt;
+- listener: ItemSelectionListener 
+--
++ CategoryRecyclerViewVIewAdapter(items: 
+ List&lt;ProductCategory, listener: ItemSelectionListener)
++ onCreateviewHolder(parent: Viewgroup, viewType: int)
++ onBindViewHolder(holder: ViewHolder, position: int) 
++ onClick(v: View) 
++ getItemCount(): int {query}
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1088</x><y>285</y><w>116</w><h>116</h></coordinates><panel_attributes>EditMenu Presenter
+--
+- menuDAO: MenuDAO
+- cafeteriaDAO: CafeteriaDAO
+- view: EditMenuview
+- cafe_brand: String
+- categoryResults: List&lt;ProductCategory&gt;
+--
++ setMenuDAO(menuDAO: MenuDAO)
++ getMenuDAO(): MenuDAO {query} 
++ setCafeteriaDAO(cafeteriaDAO: 
+ CafeteriaDAO) 
++ getCafeteriaDAO(): CafeteriaDAO {query}
++ setBrand(brand: String) 
++ getBrand(): String {query} 
++ setView(view: EditMenuView) 
++ findAllCategories(brand: String) 
++ getProductCategory(): List&lt;ProductCategory&gt; 
++ onAddCategory(addCategoryEnabled: boolean,
+ name: String, description: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1028</x><y>437</y><w>76</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>170;20;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1036</x><y>333</y><w>60</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>10;30;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>761</y><w>32</w><h>44</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>384</x><y>741</y><w>28</w><h>44</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>304</x><y>653</y><w>48</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1 
+is used in</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>701</y><w>32</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>548</x><y>677</y><w>56</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>692</x><y>769</y><w>52</w><h>16</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>908</x><y>777</y><w>32</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=1 
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element></diagram>
