@@ -11,7 +11,8 @@ import com.example.softcafeengineer.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManageEmployeesPresenter {
+public class
+ManageEmployeesPresenter {
     private BaristaDAO baristaDAO;
     private CafeteriaDAO cafeteriaDAO;
     private ManageEmployeesView view;
