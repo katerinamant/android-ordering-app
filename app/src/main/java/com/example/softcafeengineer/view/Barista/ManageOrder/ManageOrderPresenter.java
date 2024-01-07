@@ -55,6 +55,7 @@ public class ManageOrderPresenter
     public void onCompletedStatus() {
         try {
             this.order.completeOrder();
+            // Order is permanently deleted
             activeOrdersDAO.delete(this.order);
             view.successfulCompletion();
         } catch (InvalidStatusException e)  {
@@ -65,7 +66,11 @@ public class ManageOrderPresenter
     public void onCanceledStatus() {
         try {
             this.order.cancelOrder();
-            activeOrdersDAO.delete(this.order);
+            // Order is temporarily moved
+            // to a list of cancelled orders
+            // until the user acknowledges
+            // the cancellation
+            activeOrdersDAO.cancel(this.order);
             view.successfulCancellation();
         } catch (InvalidStatusException e) {
             view.showError("Invalid change.", "Please choose a different status.");

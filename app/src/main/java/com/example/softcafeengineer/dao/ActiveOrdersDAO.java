@@ -42,7 +42,28 @@ public interface ActiveOrdersDAO
     void save(Order order);
 
     /**
+     * Move active order
+     * to temporary list
+     * of cancelled orders
+     * that have not been
+     * acknowledged yet
+     */
+    void cancel(Order order);
+
+    /**
      * Delete active order
      */
     void delete(Order order);
+
+    /**
+     * Permanently delete
+     * cancelled order
+     */
+    void deleteCancelled(Order order);
+
+    /**
+     * Changes key when cafeteria
+     * changes brand
+     */
+    void updateCafeteria(String prevBrand, String brand);
 }

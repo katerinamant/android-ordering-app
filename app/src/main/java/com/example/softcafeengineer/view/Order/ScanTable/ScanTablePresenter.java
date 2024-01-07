@@ -18,35 +18,52 @@ public class ScanTablePresenter
         this.orders = orders;
     }
 
-    void onSubmit(boolean submit_button_enabled, String id) {
+    void onSubmit(boolean submit_button_enabled, String unique_id) {
         if(!submit_button_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill the required field.");
-        } else {
-            // Look up table
-            Table result = tables.find(id);
+            return;
+        }
 
-            if(result != null) {
-                // Correct id, change Activity
-                Order order = orders.find(id);
-                if(order != null) {
-                    // Table has an active order
-                    if(order.getOrderStatus() != Status.CANCELED) {
-                        // Order is active
-                        // show order status
-                        view.showOrderStatus();
-                    } else {
-                        view.showCancelNotice();
-                    }
+        // Look up table
+        Table result = tables.find(unique_id);
+
+        if(result != null) {
+            // Table exists
+            Order order = orders.find(unique_id);
+            if (order != null) {
+                // Table has an active order
+                if (order.getOrderStatus() != Status.CANCELED) {
+                    // Order is active
+                    // show order status
+                    view.showOrderStatus(order.getOrderStatus());
                 } else {
-                    // Table has no active orders
-                    // can submit new order
-                    view.successfulSubmit(result.getQRCode());
+                    // Order has been cancelled
+                    // Notify the user
+                    view.showCancelNotice();
                 }
             } else {
-                // Incorrect id, showing error
-                view.showError("Connection unsuccessful.", "The id provided was invalid. Try again.");
+                // Table has no active orders
+                // can submit new order
+                view.successfulSubmit(result.getQRCode());
             }
+        } else {
+            // Incorrect id, showing error
+            view.showError("Connection unsuccessful.", "The id provided was invalid. Try again.");
         }
+    }
+
+    void onOkStatus() { view.exitStatusPopup(); }
+
+    public void onYesOrder(String unique_id) {
+        Order order = orders.find(unique_id);
+        orders.deleteCancelled(order);
+        view.exitCancelPopupOnYes();
+    }
+
+    public void onNoOrder(String unique_id) {
+        Order order = orders.find(unique_id);
+        orders.deleteCancelled(order);
+        view.exitCancelPopupOnNo();
     }
 }
