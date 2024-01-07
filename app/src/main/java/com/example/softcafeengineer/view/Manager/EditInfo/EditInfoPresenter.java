@@ -1,5 +1,6 @@
 package com.example.softcafeengineer.view.Manager.EditInfo;
 
+import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
@@ -10,15 +11,17 @@ import com.google.android.material.tabs.TabLayout;
 
 public class EditInfoPresenter {
     private EditInfoView view;
-    private CafeteriaDAO cafeteriaDAO;
-    private MonthlyRevenueDAO revenueDAO;
+    private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
-    private TableDAO tableDAO;
+    private CafeteriaDAO cafeteriaDAO;
     private MenuDAO menuDAO;
+    private MonthlyRevenueDAO revenueDAO;
+    private TableDAO tableDAO;
     private Cafeteria cafe;
 
-    public EditInfoPresenter(EditInfoView view, String brand, CafeteriaDAO cafeteriaDAO, MonthlyRevenueDAO revenueDAO, BaristaDAO baristaDAO, TableDAO tableDAO, MenuDAO menuDAO) {
+    public EditInfoPresenter(EditInfoView view, String brand, ActiveOrdersDAO activeOrdersDAO, BaristaDAO baristaDAO, CafeteriaDAO cafeteriaDAO, MenuDAO menuDAO, MonthlyRevenueDAO revenueDAO,  TableDAO tableDAO) {
         this.view = view;
+        this.activeOrdersDAO = activeOrdersDAO;
         this.cafeteriaDAO = cafeteriaDAO;
         this.revenueDAO = revenueDAO;
         this.baristaDAO = baristaDAO;
@@ -60,11 +63,12 @@ public class EditInfoPresenter {
         if (!phoneNum.equals(prev_phone_number)) this.cafe.setPhoneNumber(phoneNum);
         if (!ssn.equals(prev_ssn)) this.cafe.setSSN(ssn);
         if (!brand.equals(prev_brand)) {
-            cafeteriaDAO.updateCafeteria(prev_brand, brand);
-            revenueDAO.updateCafeteria(prev_brand, brand);
+            activeOrdersDAO.updateCafeteria(prev_brand, brand);
             baristaDAO.updateCafeteria(prev_brand, brand);
-            tableDAO.updateCafeteria(prev_brand, brand);
+            cafeteriaDAO.updateCafeteria(prev_brand, brand);
             menuDAO.updateCafeteria(prev_brand, brand);
+            revenueDAO.updateCafeteria(prev_brand, brand);
+            tableDAO.updateCafeteria(prev_brand, brand);
         }
         view.successfulFinish(this.cafe);
     }
