@@ -61,7 +61,7 @@ public class InfoInputPresenterTest {
     @Test
     public void testShortSSN(){
         presenter.onFinish(true, "user", "password", "address", "0123456789", "1", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
     }
     /**
      *  testing whether the onFinish method shows the correct toast
@@ -79,7 +79,7 @@ public class InfoInputPresenterTest {
     @Test
     public void testLongSSN(){
         presenter.onFinish(true, "user", "password", "address", "0123456789", "0123456789", "cafe_brand");
-        Assert.assertEquals(view.getToastMessage(), "Invalid SSN. Must contain 9 characters.");
+        Assert.assertEquals(view.getToastMessage(), "Invalid TIN. Must contain 9 characters.");
     }
     /**
      *  testing whether the onFinish method shows the correct toast
