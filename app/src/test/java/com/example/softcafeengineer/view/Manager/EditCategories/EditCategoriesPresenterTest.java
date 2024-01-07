@@ -41,6 +41,11 @@ public class EditCategoriesPresenterTest {
         presenter.setBrand(cafe.getBrand());
         presenter.setView(view, "category", "cafe_brand");
     }
+    @After
+    public void tearDown(){
+        presenter = null;
+        view = null;
+    }
     @Test
     public void testDisabledEditButtonCategory(){
         presenter.onEditCategory(false, true, "edit_category", "description", "","");

@@ -4,6 +4,8 @@ import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Date;
 import com.example.softcafeengineer.domain.InvalidDateException;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.domain.OrderInfo;
+import com.example.softcafeengineer.domain.Product;
 import com.example.softcafeengineer.domain.ProductCategory;
 import com.example.softcafeengineer.domain.Table;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
@@ -41,4 +43,31 @@ public class ViewCartPresenterTest {
     public void testGetOrderResults(){
         Assert.assertEquals(presenter.getOrderResults(), order.getOrderList());
     }
+    @Test
+    public void testOnSubmitOrder(){
+        presenter.onSubmitOrder();
+        Assert.assertEquals(presenter.getActiveOrdersDAO().find(order.getTable().getQRCode()), activeOrdersDAO.find(order.getTable().getQRCode()));
+    }
+    @Test
+    public void testGetActiveOrdersDAO(){
+        Assert.assertEquals(presenter.getActiveOrdersDAO(), activeOrdersDAO);
+    }
+    @Test
+    public void testDisabledConfirmButton(){
+        presenter.onEditProductInfo(new OrderInfo(1, new Product(10.0, "name", true, new ProductCategory("cat", "", cafe),  cafe), "") , false, true, 2, "", "", "");
+        Assert.assertEquals(view.getToastMessage(), "Please fill all the required fields.");
+    }
+    @Test
+    public void testZeroQuantity(){
+        presenter.onEditProductInfo(new OrderInfo(1, new Product(10.0, "name", true, new ProductCategory("cat", "", cafe),  cafe), "") , true, true, 2, "", "0", "");
+        Assert.assertEquals(presenter.getOrderResults(), order.getOrderList());
+    }
+    @Test
+    public void testInvalidInput(){
+        presenter.onEditProductInfo(new OrderInfo(1, new Product(10.0, "name", true, new ProductCategory("cat", "", cafe),  cafe), "") , true, true, 1, "", "-1", "");
+        Assert.assertEquals(view.getErrorTitle(), "Invalid input.");
+        Assert.assertEquals(view.getErrorMessage(), "Please provide a valid quantity.");
+    }
+
+
 }

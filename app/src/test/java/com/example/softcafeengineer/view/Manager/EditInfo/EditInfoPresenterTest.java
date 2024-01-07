@@ -1,11 +1,13 @@
 package com.example.softcafeengineer.view.Manager.EditInfo;
 
+import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.dao.MonthlyRevenueDAO;
 import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
@@ -26,9 +28,11 @@ public class EditInfoPresenterTest {
     private TableDAO tableDAO;
     private MenuDAO menuDAO;
     private BaristaDAO baristaDAO;
+    private ActiveOrdersDAO activeOrdersDAO;
     @Before
     public void setUp(){
         view = new EditInfoViewStub();
+        activeOrdersDAO = new ActiveOrdersDAOMemory();
         tableDAO = new TableDAOMemory();
         cafeteriaDAO = new CafeteriaDAOMemory();
         cafeteria = new Cafeteria();
@@ -38,7 +42,7 @@ public class EditInfoPresenterTest {
         menuDAO = new MenuDAOMemory();
         baristaDAO = new BaristaDAOMemory();
 
-        presenter = new EditInfoPresenter(view, cafeteria.getBrand(), cafeteriaDAO, monthlyRevenueDAO, baristaDAO, tableDAO, menuDAO);
+        presenter = new EditInfoPresenter(view, cafeteria.getBrand(), activeOrdersDAO, baristaDAO, cafeteriaDAO, menuDAO, monthlyRevenueDAO, tableDAO);
     }
     @After
     public void tearDown(){

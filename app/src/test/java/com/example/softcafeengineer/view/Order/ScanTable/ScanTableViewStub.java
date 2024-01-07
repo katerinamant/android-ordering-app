@@ -1,5 +1,7 @@
 package com.example.softcafeengineer.view.Order.ScanTable;
 
+import com.example.softcafeengineer.domain.Status;
+
 public class ScanTableViewStub implements ScanTableView{
     private String errorTitle, errorMessage, toastMessage;
     public String getToastMessage(){
@@ -11,13 +13,29 @@ public class ScanTableViewStub implements ScanTableView{
     public String getErrorMessage(){
         return errorMessage;
     }
+
     @Override
-    public void showOrderStatus() {
+    public void showOrderStatus(Status orderStatus) {
+
+    }
+
+    @Override
+    public void exitStatusPopup() {
 
     }
 
     @Override
     public void showCancelNotice() {
+
+    }
+
+    @Override
+    public void exitCancelPopupOnYes() {
+
+    }
+
+    @Override
+    public void exitCancelPopupOnNo() {
 
     }
 

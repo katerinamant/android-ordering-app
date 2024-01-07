@@ -26,6 +26,7 @@ public class ViewCategoriesPresenterTest {
     private ProductCategory category;
     private Cafeteria cafe;
     private Order order;
+    private Product product;
     @Before
     public void setUp() throws InvalidDateException {
         view = new ViewCategoriesViewStub();
@@ -33,7 +34,7 @@ public class ViewCategoriesPresenterTest {
         cafeteriaDAO = new CafeteriaDAOMemory();
         activeOrdersDAO = new ActiveOrdersDAOMemory();
         cafe = new Cafeteria("address", "0123456789", "123456789", "cafe_brand");
-        category = new ProductCategory("category", "description", cafe);
+        category = new ProductCategory("cat", "description", cafe);
         order = new Order(new Date(1,1,2024), new Table("QRCode", 15, cafe));
         cafeteriaDAO.save(cafe);
         menuDAO.saveCategory(category);
@@ -48,12 +49,6 @@ public class ViewCategoriesPresenterTest {
     public void tearDown(){
         presenter = null;
         view = null;
-        order = null;
-        menuDAO = null;
-        cafeteriaDAO = null;
-        activeOrdersDAO= null;
-        cafe= null;
-        category= null;
     }
     @Test
     public void testGetCategoryName(){
