@@ -16,23 +16,23 @@ import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.User;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 
 public class InfoInputActivity extends AppCompatActivity implements InfoInputView
 {
-    private EditText addressField, phoneNumberField, ssnField, brandField;
+    private EditText addressField, phoneNumberField, tinField, brandField;
     private Button finishButton;
     private boolean finish_button_enabled;
-    private String username, password, address, phoneNumber, ssn, brand;
+    private String username, password, address, phoneNumber, tin, brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_info_input);
 
-        final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory(), new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory());
+        final InfoInputPresenter presenter = new InfoInputPresenter(this, new ManagerDAOMemory(), new CafeteriaDAOMemory(), new RevenueDAOMemory());
 
         // Get user from ManagerSignUpActivity
         Intent intent = getIntent();
@@ -42,7 +42,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         addressField = findViewById(R.id.edit_txt_mngr_adress_info);
         phoneNumberField = findViewById(R.id.edit_txt_mngr_phone_info);
-        ssnField = findViewById(R.id.edit_txt_mngr_ssn_info);
+        tinField = findViewById(R.id.edit_txt_mngr_tin_info);
         brandField = findViewById(R.id.edit_txt_mngr_brand_info);
         finishButton = findViewById(R.id.btn_mngr_finish_infoinput);
 
@@ -51,12 +51,12 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
         finishButton.setAlpha(0.5f); // set opacity to seem disabled
         addressField.addTextChangedListener(infoWatcher);
         phoneNumberField.addTextChangedListener(infoWatcher);
-        ssnField.addTextChangedListener(infoWatcher);
+        tinField.addTextChangedListener(infoWatcher);
         brandField.addTextChangedListener(infoWatcher);
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onFinish(finish_button_enabled, username, password, address, phoneNumber, ssn, brand); };
+            public void onClick(View view) { presenter.onFinish(finish_button_enabled, username, password, address, phoneNumber, tin, brand); };
         });
     }
 
@@ -68,9 +68,9 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             address = addressField.getText().toString().trim();
             phoneNumber = phoneNumberField.getText().toString();
-            ssn = ssnField.getText().toString();
+            tin = tinField.getText().toString();
             brand = brandField.getText().toString().trim();
-            if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !brand.isEmpty()) {
+            if(!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;
             } else {

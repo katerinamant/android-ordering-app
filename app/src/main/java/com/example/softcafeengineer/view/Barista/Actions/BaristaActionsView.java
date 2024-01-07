@@ -3,10 +3,10 @@ package com.example.softcafeengineer.view.Barista.Actions;
 public interface BaristaActionsView
 {
     /**
-     * Log user out when
-     * day is over
+     * Log user out and redirect them
+     * to the WelcomeScreenActivity
      */
-    void onClosedDay();
+    void onLogOut();
 
     /**
      * Start activity again

@@ -1,8 +1,6 @@
 package com.example.softcafeengineer.view.Order.ViewCategories;
 
-import android.util.Log;
-
-import com.example.softcafeengineer.dao.ActiveOrdersDAO;
+import com.example.softcafeengineer.dao.ActiveCartsDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
@@ -19,7 +17,7 @@ public class ViewCategoriesPresenter
     private ViewCategoriesView view;
     private MenuDAO menuDAO;
     private CafeteriaDAO cafeteriaDAO;
-    private ActiveOrdersDAO activeOrdersDAO;
+    private ActiveCartsDAO activeCartsDAO;
     private String cafe_brand;
     private ProductCategory category;
     private Cafeteria cafe;
@@ -44,17 +42,17 @@ public class ViewCategoriesPresenter
         return this.cafeteriaDAO;
     }
 
-    public void setActiveOrdersDAO(ActiveOrdersDAO activeOrdersDAO) { this.activeOrdersDAO = activeOrdersDAO; }
-    public ActiveOrdersDAO getActiveOrdersDAO()
+    public void setActiveCartsDAO(ActiveCartsDAO activeCartsDAO) { this.activeCartsDAO = activeCartsDAO; }
+    public ActiveCartsDAO getActiveCartsDAO()
     {
-        return this.activeOrdersDAO;
+        return this.activeCartsDAO;
     }
 
     public void setView(ViewCategoriesView view, String category_name, String cafe_brand, String unique_id) {
         this.view = view;
         this.cafe_brand = cafe_brand;
         this.category = menuDAO.findCategory(cafe_brand, category_name);
-        this.order = activeOrdersDAO.find(unique_id);
+        this.order = activeCartsDAO.find(unique_id);
         this.findAllAvailableProducts();
     }
 
@@ -86,7 +84,6 @@ public class ViewCategoriesPresenter
                 view.showError("Invalid input.", "Please provide a valid quantity.");
             } else {
                 // Update order object
-                Log.d("ViewCategoriesPresenter", comments);
                 OrderInfo orderInfo = new OrderInfo(quantity, product, comments);
                 order.addToOrder(orderInfo);
                 view.successfulAddToCart();

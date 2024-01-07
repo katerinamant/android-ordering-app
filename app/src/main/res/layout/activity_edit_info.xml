@@ -31,6 +31,8 @@
         android:text="@string/edit_address"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_edit_info_header" />
 
@@ -43,6 +45,8 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_edit_address" />
 
@@ -55,6 +59,8 @@
         android:text="@string/edit_phone_number"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_address" />
 
@@ -68,23 +74,27 @@
         android:ems="10"
         android:inputType="number"
         android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_edit_phone" />
 
     <TextView
-        android:id="@+id/txt_manager_info_edit_ssn"
+        android:id="@+id/txt_manager_info_edit_tin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:text="@string/edit_SSN"
+        android:text="@string/edit_TIN"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_phone" />
 
     <EditText
-        android:id="@+id/edit_txt_mngr_edit_ssn"
+        android:id="@+id/edit_txt_mngr_edit_tin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -93,8 +103,10 @@
         android:ems="10"
         android:inputType="number"
         android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_edit_ssn" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_edit_tin" />
 
     <TextView
         android:id="@+id/txt_manager_info_edit_brand"
@@ -105,8 +117,10 @@
         android:text="@string/edit_brand"
         android:textColor="@color/text"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_ssn" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_tin" />
 
     <EditText
         android:id="@+id/edit_txt_mngr_edit_brand"
@@ -117,6 +131,8 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_manager_info_edit_brand" />
 
@@ -130,8 +146,12 @@
         android:text="@string/finish"
         android:textColor="@color/white"
         android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_brand" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_mngr_edit_brand"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RelativeLayout
         android:id="@+id/relative_edit_info"

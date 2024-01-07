@@ -6,33 +6,35 @@
         android:layout_height="wrap_content"
         android:background="@color/background">
 
-        <View
-            android:id="@+id/divider8"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:background="@color/dark_button"
-            android:backgroundTint="@color/dark_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/dark_button"
+        android:backgroundTint="@color/dark_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_layout_order_btn_add_to_cart" />
 
-        <Button
-            android:id="@+id/product_layout_order_btn_add_to_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/dark_button"
-            android:text="@string/add_to_cart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_layout_order_price" />
+    <Button
+        android:id="@+id/product_layout_order_btn_add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/dark_button"
+        android:text="@string/add_to_cart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_layout_order_price" />
 
         <TextView
             android:id="@+id/product_layout_order_price"

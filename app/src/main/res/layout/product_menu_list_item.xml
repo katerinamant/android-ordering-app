@@ -16,7 +16,7 @@
         android:text="@string/na"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/text"
-        android:textSize="20sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,12 +25,14 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
         android:background="@color/dark_button"
         android:backgroundTint="@color/dark_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_layout_btn_edit" />
 
     <Button
         android:id="@+id/product_layout_btn_delete"

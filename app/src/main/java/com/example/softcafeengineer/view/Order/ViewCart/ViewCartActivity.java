@@ -34,9 +34,9 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
     private String unique_id;
     private RelativeLayout relativeLayout;
 
-    // Edit order info pop up
+    // Edit cart pop up
     private OrderInfo selected_order_info;
-    private PopupWindow edit_order_info_popup;
+    private PopupWindow edit_cart_popup;
     private String prev_comments;
     private int prev_quantity;
     private EditText editQuantityField, editCommentsField;
@@ -66,6 +66,8 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         // Recycler view
         RecyclerView recyclerView = findViewById(R.id.recycler_view_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // we will be using the order list recycler view adapter
+        // same as the ManageOrderActivity
         recyclerView.setAdapter(new OrderListRecyclerViewAdapter(orderList, this));
 
         Button submitOrderButton = findViewById(R.id.btn_submit_order);
@@ -88,7 +90,9 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
 
     @Override
     public void successfulEdit() {
-        edit_order_info_popup.dismiss();
+        // User successfully edited an order info
+        // Restart activity with an updated list
+        edit_cart_popup.dismiss();
         finish();
         startActivity(getIntent());
     }
@@ -118,8 +122,8 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         // Create and show edit order info popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        edit_order_info_popup = new PopupWindow(pop_up, width, height, true);
-        edit_order_info_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_cart_popup = new PopupWindow(pop_up, width, height, true);
+        edit_cart_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
 
         editQuantityField = pop_up.findViewById(R.id.edit_text_choose_quantity);
         editQuantityField.setText(String.format("%d", prev_quantity));
@@ -138,10 +142,10 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         Button cancelButton = pop_up.findViewById(R.id.btn_cancel_add_to_cart);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             // User clicked the cancel button
-            // inside the edit order info pop up
+            // inside the edit cart pop up
             @Override
             public void onClick(View v) {
-                edit_order_info_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                edit_cart_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
             }
         });
     }
@@ -174,10 +178,10 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
 
     View.OnClickListener onConfirmEditButton = new View.OnClickListener() {
         // User clicked the confirm button
-        // inside the edit order info pop up
+        // inside the edit cart pop up
         @Override
         public void onClick(View v) {
-            viewModel.getPresenter().onEditProductInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments,  newQuantity, newComments);
+            viewModel.getPresenter().onEditOrderInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments,  newQuantity, newComments);
         }
     };
 }

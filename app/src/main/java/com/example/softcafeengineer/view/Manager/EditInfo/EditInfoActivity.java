@@ -18,10 +18,11 @@ import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
+import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
@@ -30,11 +31,11 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
     private EditInfoPresenter presenter;
     private RelativeLayout relativeLayout;
     private PopupWindow confirm_changes_popup;
-    private EditText addressField, phoneNumberField, ssnField, brandField;
+    private EditText addressField, phoneNumberField, tinField, brandField;
     private Button finishButton;
     private boolean finish_button_enabled, text_changed;
-    private String prev_address, prev_phone_number, prev_ssn, prev_brand;
-    private String address, phoneNumber, ssn, brand;
+    private String prev_address, prev_phone_number, prev_tin, prev_brand;
+    private String address, phoneNumber, tin, brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         Intent intent = getIntent();
         prev_brand = intent.getStringExtra("cafe_brand");
 
-        presenter = new EditInfoPresenter(this, prev_brand, new CafeteriaDAOMemory(), new MonthlyRevenueDAOMemory(), new BaristaDAOMemory(), new TableDAOMemory(), new MenuDAOMemory());
+        presenter = new EditInfoPresenter(this, prev_brand, new ActiveOrdersDAOMemory(), new BaristaDAOMemory(), new CafeteriaDAOMemory(), new MenuDAOMemory(), new RevenueDAOMemory(), new TableDAOMemory());
         Cafeteria cafe = presenter.getCafe();
 
         prev_address = cafe.getAddress();
@@ -54,9 +55,9 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         prev_phone_number = cafe.getPhoneNumber();
         phoneNumberField = findViewById(R.id.edit_txt_mngr_edit_phone);
         phoneNumberField.setText(prev_phone_number);
-        prev_ssn = cafe.getSSN();
-        ssnField = findViewById(R.id.edit_txt_mngr_edit_ssn);
-        ssnField.setText(prev_ssn);
+        prev_tin = cafe.getSSN();
+        tinField = findViewById(R.id.edit_txt_mngr_edit_tin);
+        tinField.setText(prev_tin);
         brandField = findViewById(R.id.edit_txt_mngr_edit_brand);
         brandField.setText(prev_brand);
 
@@ -68,13 +69,13 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         finishButton.setAlpha(1.0f);
         addressField.addTextChangedListener(infoWatcher);
         phoneNumberField.addTextChangedListener(infoWatcher);
-        ssnField.addTextChangedListener(infoWatcher);
+        tinField.addTextChangedListener(infoWatcher);
         brandField.addTextChangedListener(infoWatcher);
 
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_info); // activity_edit_info.xml layout
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, prev_brand, phoneNumber, ssn, brand); }
+            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, prev_brand, phoneNumber, tin, brand); }
         });
     }
 
@@ -86,13 +87,13 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             address = addressField.getText().toString().trim();
             phoneNumber = phoneNumberField.getText().toString();
-            ssn = ssnField.getText().toString();
+            tin = tinField.getText().toString();
             brand = brandField.getText().toString().trim();
-            if(!address.isEmpty() && !phoneNumber.isEmpty() && !ssn.isEmpty() && !brand.isEmpty()) {
+            if(!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;
                 // Text changed when at least one field has changed
-                text_changed = (!address.equals(prev_address)) || (!phoneNumber.equals(prev_phone_number) || !ssn.equals(prev_ssn) || !brand.equals(prev_brand));
+                text_changed = (!address.equals(prev_address)) || (!phoneNumber.equals(prev_phone_number) || !tin.equals(prev_tin) || !brand.equals(prev_brand));
             } else {
                 finishButton.setAlpha(.5f);
                 finish_button_enabled = false;
@@ -136,7 +137,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         // inside the confirm changes table pop up
         @Override
         public void onClick(View v) {
-            presenter.onConfirmChanges(prev_address, prev_phone_number, prev_ssn, prev_brand, address, phoneNumber, ssn, brand);
+            presenter.onConfirmChanges(prev_address, prev_phone_number, prev_tin, prev_brand, address, phoneNumber, tin, brand);
         }
     };
 

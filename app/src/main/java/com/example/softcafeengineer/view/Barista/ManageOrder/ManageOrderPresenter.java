@@ -2,7 +2,9 @@ package com.example.softcafeengineer.view.Barista.ManageOrder;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.BaristaDAO;
+import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Barista;
+import com.example.softcafeengineer.domain.InvalidDateException;
 import com.example.softcafeengineer.domain.InvalidInputException;
 import com.example.softcafeengineer.domain.InvalidStatusException;
 import com.example.softcafeengineer.domain.Order;
@@ -14,6 +16,7 @@ public class ManageOrderPresenter
 {
     private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
+    private RevenueDAO revenueDAO;
     private ManageOrderView view;
     private Barista barista;
     private Order order;
@@ -24,6 +27,9 @@ public class ManageOrderPresenter
     public void setBaristaDAO(BaristaDAO baristaDAO) { this.baristaDAO = baristaDAO; }
     public BaristaDAO getBaristaDAO() { return this.baristaDAO; }
 
+    public void setRevenueDAO(RevenueDAO revenueDAO) { this.revenueDAO = revenueDAO; }
+    public RevenueDAO getRevenueDAO() { return this.revenueDAO; }
+
     public void setView(ManageOrderView view, String barista_username, String password, String cafe_brand, int table_number) {
         this.view = view;
         this.barista = baristaDAO.find(barista_username, password);
@@ -31,6 +37,7 @@ public class ManageOrderPresenter
     }
 
     public double getTotalCost() {
+        this.order.calculateCost();
         return this.order.getTotalCost();
     }
     public String getOrderStatus() {
@@ -54,18 +61,37 @@ public class ManageOrderPresenter
 
     public void onCompletedStatus() {
         try {
+            // Add order total cost
+            // to today's revenue
+            String cafe_brand = this.barista.getCafe().getBrand();
+            int year = this.order.getDate().getYear();
+            int month = this.order.getDate().getMonth();
+            int day = this.order.getDate().getDay();
+            double totalCost = this.order.getTotalCost();
+            revenueDAO.addToDay(cafe_brand, year, month, day, totalCost);
+
+            // Mark order as complete
             this.order.completeOrder();
+
+            // Permanently delete order
             activeOrdersDAO.delete(this.order);
             view.successfulCompletion();
+
         } catch (InvalidStatusException e)  {
             view.showError("Invalid change.", "Please choose a different status.");
+        } catch (InvalidDateException e) {
+            view.showError("Invalid data input.", "Please provide a valid date");
         }
     }
 
     public void onCanceledStatus() {
         try {
             this.order.cancelOrder();
-            activeOrdersDAO.delete(this.order);
+            // Order is temporarily moved
+            // to a list of cancelled orders
+            // until the user acknowledges
+            // the cancellation
+            activeOrdersDAO.cancel(this.order);
             view.successfulCancellation();
         } catch (InvalidStatusException e) {
             view.showError("Invalid change.", "Please choose a different status.");

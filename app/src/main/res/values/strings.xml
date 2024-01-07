@@ -57,14 +57,14 @@
     <string name="enter_info">Please enter your information 🙏</string>
     <string name="enter_address">* Enter address</string>
     <string name="enter_phone_number">* Enter phone number</string>
-    <string name="enter_SSN">* Enter SSN</string>
+    <string name="enter_TIN">* Enter TIN</string>
     <string name="enter_brand">* Enter brand name</string>
     <string name="finish">Finish</string>
 
     <!-- Edit cafeteria info -->
     <string name="edit_address">* Address</string>
     <string name="edit_phone_number">* Phone number</string>
-    <string name="edit_SSN">* Social Security Number</string>
+    <string name="edit_TIN">* Tax Identification Number</string>
     <string name="edit_brand">* Brand name</string>
     <string name="confirm_changes">Are you sure you want to confirm these changes❓</string>
 
@@ -121,7 +121,7 @@
 
     <!-- Barista Actions -->
     <string name="hello">Hello!</string>
-    <string name="close_day">Close day</string>
+    <string name="log_out">Log out</string>
     <string name="refresh">Refresh</string>
     <string name="total_cost">Total cost:</string>
     <string name="view">View</string>

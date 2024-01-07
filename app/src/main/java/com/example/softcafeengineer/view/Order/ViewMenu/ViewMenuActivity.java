@@ -24,7 +24,7 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
     private String unique_id;
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_menu);
 

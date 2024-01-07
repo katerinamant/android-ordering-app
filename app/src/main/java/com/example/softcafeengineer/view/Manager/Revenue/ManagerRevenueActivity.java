@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.softcafeengineer.R;
-import com.example.softcafeengineer.memorydao.MonthlyRevenueDAOMemory;
+import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
 public class ManagerRevenueActivity extends AppCompatActivity implements ManagerRevenueView
 {
@@ -34,7 +34,7 @@ public class ManagerRevenueActivity extends AppCompatActivity implements Manager
         Intent intent = getIntent();
         brand = intent.getStringExtra("cafe_brand");
 
-        final ManagerRevenuePresenter presenter = new ManagerRevenuePresenter(this, "kafeteria", new MonthlyRevenueDAOMemory());
+        final ManagerRevenuePresenter presenter = new ManagerRevenuePresenter(this, brand, new RevenueDAOMemory());
 
         yearField = findViewById(R.id.edit_txt_mngr_revenue_year);
         monthField = findViewById(R.id.edit_txt_mngr_revenue_month);
@@ -94,9 +94,14 @@ public class ManagerRevenueActivity extends AppCompatActivity implements Manager
         if(monthTotal == -1.0) {
             // There are no records for this month
             this.month_output.setText("no records");
-            this.day_output.setText("no records");
         } else {
             this.month_output.setText(String.format("%.2f 💶", monthTotal));
+        }
+
+        if(dayTotal == -1.0) {
+            // There are no records for this day
+            this.day_output.setText("no records");
+        } else {
             this.day_output.setText(String.format("%.2f 💶", dayTotal));
         }
     }

@@ -2,10 +2,10 @@ package com.example.softcafeengineer.view.Order.ViewCategories;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.softcafeengineer.dao.ActiveOrdersDAO;
+import com.example.softcafeengineer.dao.ActiveCartsDAO;
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.MenuDAO;
-import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
+import com.example.softcafeengineer.memorydao.ActiveCartsDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 
@@ -19,8 +19,8 @@ public class ViewCategoriesViewModel extends ViewModel
         presenter.setMenuDAO(menuDAO);
         CafeteriaDAO cafeteriaDAO = new CafeteriaDAOMemory();
         presenter.setCafeteriaDAO(cafeteriaDAO);
-        ActiveOrdersDAO activeOrdersDAO = new ActiveOrdersDAOMemory();
-        presenter.setActiveOrdersDAO(activeOrdersDAO);
+        ActiveCartsDAO activeCartsDAO = new ActiveCartsDAOMemory();
+        presenter.setActiveCartsDAO(activeCartsDAO);
     }
 
     public ViewCategoriesPresenter getPresenter() { return this.presenter; }

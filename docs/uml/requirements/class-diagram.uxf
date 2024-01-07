@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>308</x><y>1091</y><w>242</w><h>187</h></coordinates><panel_attributes>User
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>189</x><y>756</y><w>154</w><h>119</h></coordinates><panel_attributes>User
 --
 - username : String
 - password : String
@@ -8,7 +8,7 @@
 + setPassword(pass : String)
 + getPassword(): String {query}
 + setCafe(cafe : Cafeteria)
-+ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>112</y><w>528</w><h>275</h></coordinates><panel_attributes>Cafeteria
++ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>133</x><y>133</y><w>336</w><h>175</h></coordinates><panel_attributes>Cafeteria
 --
 - address : String
 - phoneNumber : String
@@ -22,7 +22,7 @@
 + setSSN(SSN : String)
 + getSSN(): String {query}
 + setBrand(brand: String)
-+ getBrand(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>264</x><y>486</y><w>319</w><h>308</h></coordinates><panel_attributes>Product
++ getBrand(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>161</x><y>371</y><w>203</w><h>196</h></coordinates><panel_attributes>Product
 --
 - price : double
 - name : String
@@ -38,7 +38,7 @@
 + setCategory(category : ProductCategory)
 + getCategory() : ProductCategory {query}
 + setCafe(cafe : Cafeteria)
-+ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>726</x><y>585</y><w>297</w><h>209</h></coordinates><panel_attributes>OrderInfo
++ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>455</x><y>434</y><w>189</w><h>133</h></coordinates><panel_attributes>OrderInfo
 --
 - quantity : int
 - description : String
@@ -49,7 +49,7 @@
 + getProduct(): Product {query}
 + setDescription(description : String)
 + getDescription(): String {query}
-+ calculateCost(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1144</x><y>453</y><w>330</w><h>396</h></coordinates><panel_attributes>Order
++ calculateCost(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>721</x><y>350</y><w>210</w><h>252</h></coordinates><panel_attributes>Order
 --
 - status : Status
 - date : Date
@@ -71,13 +71,13 @@
 + getCafe(): Cafeteria {query}
 + executeOrder()
 + completeOrder()
-+ cancelOrder()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1078</x><y>915</y><w>176</w><h>121</h></coordinates><panel_attributes>"Enumeration"
++ cancelOrder()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>679</x><y>644</y><w>112</w><h>77</h></coordinates><panel_attributes>"Enumeration"
 Status
 --
 IN_PROGRESS
 CANCELED
 WAITING
-COMPLETED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>275</x><y>893</y><w>330</w><h>143</h></coordinates><panel_attributes>ProductCategory
+COMPLETED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>630</y><w>210</w><h>91</h></coordinates><panel_attributes>ProductCategory
 --
 - name : String
 - description : String
@@ -85,13 +85,13 @@ COMPLETED</panel_attributes><additional_attributes></additional_attributes></ele
 + setName(name : String)
 + getName(): String {query}
 + setDescription(desc : String)
-+ getDescription(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1606</x><y>629</y><w>264</w><h>110</h></coordinates><panel_attributes>Barista
++ getDescription(): String {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1015</x><y>462</y><w>168</w><h>70</h></coordinates><panel_attributes>Barista
 --
 
 --
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1155</x><y>178</y><w>275</w><h>187</h></coordinates><panel_attributes>Table
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>175</y><w>175</w><h>119</h></coordinates><panel_attributes>Table
 --
 QRCode : int
 id : int
@@ -101,35 +101,35 @@ id : int
 + setID(id : int)
 + getID(): int {query}
 + setCafe(cafe : Cafeteria)
-+ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>418</x><y>376</y><w>66</w><h>132</h></coordinates><panel_attributes>lt=-
++ getCafe(): Cafeteria {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>259</x><y>301</y><w>42</w><h>84</h></coordinates><panel_attributes>lt=-
 offers
 m1=*
-m2=1</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>737</x><y>288</y><w>440</w><h>44</h></coordinates><panel_attributes>lt=-
+m2=1</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>462</x><y>245</y><w>280</w><h>28</h></coordinates><panel_attributes>lt=-
 m1=*
-m2=1</panel_attributes><additional_attributes>380;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>572</x><y>662</y><w>165</w><h>55</h></coordinates><panel_attributes>lt=-
-m1=*
-m2=1
-is included in </panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1012</x><y>662</y><w>143</w><h>55</h></coordinates><panel_attributes>lt=-
+m2=1</panel_attributes><additional_attributes>380;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>357</x><y>483</y><w>105</w><h>35</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-is included in </panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>429</x><y>794</y><w>99</w><h>121</h></coordinates><panel_attributes>lt=-
+is included in </panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>637</x><y>483</y><w>91</w><h>35</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-belongs in </panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1463</x><y>651</y><w>165</w><h>55</h></coordinates><panel_attributes>lt=-
+is included in </panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>266</x><y>567</y><w>63</w><h>77</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+belongs in </panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>476</y><w>105</w><h>35</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
 is processed
- by </panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>77</x><y>222</y><w>242</w><h>990</h></coordinates><panel_attributes>lt=-
+ by </panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>42</x><y>203</y><w>154</w><h>630</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=1
 managed by
-</panel_attributes><additional_attributes>130;10;10;10;20;870;200;870</additional_attributes></element><element><id>Relation</id><coordinates><x>539</x><y>728</y><w>1210</w><h>473</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;410;1080;410;1080;10</additional_attributes></element><element><id>Relation</id><coordinates><x>429</x><y>13</y><w>1331</w><h>627</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>130;10;10;10;20;870;200;870</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>525</y><w>770</w><h>301</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;410;1080;410;1080;10</additional_attributes></element><element><id>Relation</id><coordinates><x>266</x><y>70</y><w>847</w><h>399</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-employs </panel_attributes><additional_attributes>1180;550;1180;20;10;20;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1276</x><y>354</y><w>88</w><h>110</h></coordinates><panel_attributes>lt=-
+employs </panel_attributes><additional_attributes>1180;550;1180;20;10;20;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>805</x><y>287</y><w>56</w><h>70</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-registers </panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1298</x><y>860</y><w>242</w><h>231</h></coordinates><panel_attributes>Date
+registers </panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>609</y><w>154</w><h>147</h></coordinates><panel_attributes>Date
 --
 - day : int
 - month : int
@@ -142,4 +142,4 @@ registers </panel_attributes><additional_attributes>10;10;10;80</additional_attr
 + setYear(year : int)
 + getYear(): int {query}
 + equals(obj : Object): boolean
-+ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1716</x><y>497</y><w>33</w><h>154</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1276</x><y>365</y><w>33</w><h>110</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>572</x><y>673</y><w>176</w><h>33</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1012</x><y>673</y><w>154</w><h>33</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>429</x><y>783</y><w>33</w><h>121</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>913</x><y>288</y><w>264</w><h>33</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>220;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1463</x><y>662</y><w>165</w><h>33</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>418</x><y>453</y><w>33</w><h>55</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>143</x><y>1168</y><w>187</w><h>33</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element></diagram>
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1085</x><y>378</y><w>21</w><h>98</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>805</x><y>294</y><w>21</w><h>70</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>357</x><y>490</y><w>112</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>637</x><y>490</y><w>98</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>266</x><y>560</y><w>21</w><h>77</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>574</x><y>245</y><w>168</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>220;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>483</y><w>105</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>259</x><y>350</y><w>21</w><h>35</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>84</x><y>805</y><w>119</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element></diagram>

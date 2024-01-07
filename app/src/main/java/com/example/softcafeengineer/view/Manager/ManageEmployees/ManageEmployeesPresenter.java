@@ -78,7 +78,7 @@ ManageEmployeesPresenter {
             // Fields filled and text changed
             if(!username.equals(prev_username) && baristaDAO.exists(username)) {
                 // New username is in use, showing error
-                view.showError("Username is taken.", "Please provide a different password.");
+                view.showError("Username is taken.", "Please provide a different username.");
             } else if(!password.equals(prev_password) && password.length() < 8) {
                 // New password is not long enough, showing toast
                 view.showToast("Your password must have a minimum length of 8 characters.");
