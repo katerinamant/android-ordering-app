@@ -78,7 +78,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
                 LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 View pop_up = layoutInflater.inflate(R.layout.popup_add_employee, null);
 
-                // Create and show add table popup
+                // Create and show add employee popup
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 add_employee_popup = new PopupWindow(pop_up, width, height, true);
@@ -144,7 +144,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     };
 
     // -------
-    // ManageTableView implementations
+    // ManageEmployeeView implementations
     // -------
     @Override
     public void successfulNewEmployee() {
@@ -195,7 +195,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_edit_employee, null);
 
-        // Create and show edit table popup
+        // Create and show edit employee popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_employee_popup = new PopupWindow(pop_up, width, height, true);

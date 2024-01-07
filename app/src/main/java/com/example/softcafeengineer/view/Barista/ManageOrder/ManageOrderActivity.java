@@ -64,10 +64,18 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
 
         List<OrderInfo> orderList = viewModel.getPresenter().getOrderResults();
 
-        TextView total_cost = findViewById(R.id.manage_order_total_cost);
-        total_cost.setText(String.format("%.2f 💶", viewModel.getPresenter().getTotalCost()));
-        TextView order_status = findViewById(R.id.manage_order_status);
-        order_status.setText(String.format("%s", viewModel.getPresenter().getOrderStatus()));
+        // Fill info shown
+        TextView table_number_text = findViewById(R.id.manage_order_table_number);
+        String table_number_string = String.format("%d", table_number);
+        table_number_text.setText(table_number_string);
+
+        TextView total_cost_text = findViewById(R.id.manage_order_total_cost);
+        String total_cost_string = String.format("%.2f 💶", viewModel.getPresenter().getTotalCost());
+        total_cost_text.setText(total_cost_string);
+
+        TextView order_status_text = findViewById(R.id.manage_order_status);
+        String order_status_string = viewModel.getPresenter().getOrderStatus().toString();
+        order_status_text.setText(order_status_string);
 
         // Recycler view
         RecyclerView recyclerView = findViewById(R.id.recycler_view_order_list);
@@ -156,6 +164,8 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
 
     @Override
     public void successfulEdit() {
+        // Activity is reloaded
+        // to update items
         edit_order_info_popup.dismiss();
         finish();
         startActivity(getIntent());
