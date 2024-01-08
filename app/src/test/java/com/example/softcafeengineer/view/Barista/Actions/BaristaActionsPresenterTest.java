@@ -41,6 +41,7 @@ public class BaristaActionsPresenterTest {
      */
     @Test
     public void testGetOrderResults(){
+        // TODO: Update according to changes
         Assert.assertEquals(presenter.getOrderResults(), activeOrdersDAO.findAll(presenter.getBrand()));
     }
 
@@ -52,6 +53,8 @@ public class BaristaActionsPresenterTest {
     public void testGetBrand(){
         Assert.assertEquals(presenter.getBrand(), cafe.getBrand());
     }
+
+    // TODO: add test for get username
 
     /**
      *  testing whether the method getRevenueDAO returns the correct

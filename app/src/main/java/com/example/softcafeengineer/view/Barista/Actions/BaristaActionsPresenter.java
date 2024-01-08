@@ -2,7 +2,9 @@ package com.example.softcafeengineer.view.Barista.Actions;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.RevenueDAO;
+import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Order;
+import com.example.softcafeengineer.domain.Status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ public class BaristaActionsPresenter
     private RevenueDAO revenueDAO;
     private BaristaActionsView view;
     private String cafe_brand;
+    private String barista_username;
     private int day;
     private List<Order> orderResults = new ArrayList<>();
 
@@ -24,11 +27,14 @@ public class BaristaActionsPresenter
 
     public void setBrand(String brand) {
         // Set cafe brand
-        // and update tableResults
+        // and update orderResults
         this.cafe_brand = brand;
         this.findAll(this.cafe_brand);
     }
     public String getBrand() { return this.cafe_brand; }
+
+    public void setBaristaUsername(String username) { this.barista_username = username; }
+    public String getBaristaUsername() { return this.barista_username; }
 
     public void setView(BaristaActionsView view) { this.view = view; }
 
@@ -38,13 +44,35 @@ public class BaristaActionsPresenter
 
     public void findAll(String brand) {
         this.orderResults.clear();
-        this.orderResults = activeOrdersDAO.findAll(brand);
+
+        List<Order> all_orders = activeOrdersDAO.findAll(brand);
+        for (Order order : all_orders) {
+            // The barista has access
+            // only to orders with status WAITING
+            // or with status IN_PROGRESS that
+            // he has been assigned to
+            Status status = order.getOrderStatus();
+            Barista barista = order.getBarista();
+
+            if(status == Status.CANCELED) continue;
+
+            if(status == Status.WAITING) {
+                this.orderResults.add(order);
+                continue;
+            }
+
+            // Barista is only null
+            // when the order has not been assigned
+            String barista_username = barista.getUsername();
+            if(status == Status.IN_PROGRESS && barista_username.equals((this.barista_username))) {
+                this.orderResults.add(order);
+            }
+        }
     }
 
     public List<Order> getOrderResults() { return this.orderResults; }
 
     public void onLogOutButton() {
-        this.orderResults.clear();
         view.onLogOut();
     }
 }
