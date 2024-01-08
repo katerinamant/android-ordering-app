@@ -63,7 +63,7 @@ public class BaristaActionsPresenterTest {
      * of this barista
      */
     @Test
-    public void testGetUsername(){
+    public void testGetUsername() {
         Assert.assertEquals(presenter.getBaristaUsername(), barista.getUsername());
     }
 

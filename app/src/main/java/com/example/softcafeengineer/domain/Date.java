@@ -54,10 +54,6 @@ public class Date {
         return this.year;
     }
 
-    public String getKey() {
-        return String.format("%d - %d", this.month, this.year);
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

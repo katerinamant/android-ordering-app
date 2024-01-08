@@ -143,6 +143,7 @@ public class ManageEmployeesPresenterTest {
     public void testGetEmployeeResults() {
         Assert.assertEquals(presenter.getEmployeeResults(), baristaDAO.findAll(cafe.getBrand()));
     }
+
     /**
      * testing whether the method onDelete successfully deletes this barista
      */
@@ -152,6 +153,6 @@ public class ManageEmployeesPresenterTest {
         barista.setCafe(cafe);
         presenter.onAddNewEmployee(true, "barista", "12345678");
         presenter.onDeleteEmployee(barista);
-        Assert.assertEquals(presenter.getBaristaDAO().exists(barista.getUsername()), false);
+        Assert.assertFalse(presenter.getBaristaDAO().exists(barista.getUsername()));
     }
 }

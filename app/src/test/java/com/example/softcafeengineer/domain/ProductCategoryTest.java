@@ -13,6 +13,10 @@ public class ProductCategoryTest {
 
         category.setDescription("Zestoi kai kryoi kafedes");
         Assert.assertEquals("Zestoi kai kryoi kafedes", category.getDescription());
+
+        Cafeteria cafe = new Cafeteria();
+        category.setCafe(cafe);
+        Assert.assertSame(cafe, category.getCafe());
     }
 
     @Test
