@@ -1,10 +1,10 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes S</help_text><element><id>UMLClass</id><coordinates><x>459</x><y>927</y><w>216</w><h>90</h></coordinates><panel_attributes>Manage Order ViewModel
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes S</help_text><element><id>UMLClass</id><coordinates><x>945</x><y>900</y><w>216</w><h>90</h></coordinates><panel_attributes>Manage Order ViewModel
 --
 - presenter ManagerOrderPresenter
 --
 + ManagerOrderViewModel()
 + getPresenter(): ManageOrderPresenter
- {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1224</x><y>468</y><w>189</w><h>153</h></coordinates><panel_attributes>Active Orders RecyclerView Adapter 
+ {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1710</x><y>441</y><w>189</w><h>153</h></coordinates><panel_attributes>Active Orders RecyclerView Adapter 
 --
 - mValues: List&lt;Order&gt;
 - listener: ItemSelectionListener
@@ -15,7 +15,7 @@
 + onCreateViewHolder
  (parent: ViewGroup @NonNull.
  viewType: int)
-+ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>882</x><y>657</y><w>216</w><h>153</h></coordinates><panel_attributes>Barista Actions Activity
++ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1368</x><y>630</y><w>216</w><h>153</h></coordinates><panel_attributes>Barista Actions Activity
 --
 - viewModel: BaristaActionsViewModel
 - username: String 
@@ -26,7 +26,7 @@
 + onClick(v: View)
 + onClosedDay()
 + onRefresh()
-+ viewOrder(o: Order)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>378</y><w>261</w><h>144</h></coordinates><panel_attributes>Manage Order RecyclerView Adapter
++ viewOrder(o: Order)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>351</y><w>261</w><h>144</h></coordinates><panel_attributes>Manage Order RecyclerView Adapter
 --
 - mValues: Lost&lt;OrderInfo&gt; 
 - listener: ItemSelectionListener
@@ -37,7 +37,7 @@
  : ViewHolder {query}
 + onBindViewHolder(holder: ViewHolder, pos: int)
 + getItemCount(): int {query}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>459</x><y>405</y><w>216</w><h>423</h></coordinates><panel_attributes>Manage Order Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>945</x><y>378</y><w>216</w><h>423</h></coordinates><panel_attributes>Manage Order Activity
 --
 - viewModel: ManageOrderViewModel
 - username: String 
@@ -68,16 +68,16 @@
  start: int, count: int, after: int)
 + onTextChanged(s: CharSequence.
  start: int, count: int, after: int)
-+ afterTextChanged(s: Editable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>486</y><w>135</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1224</x><y>747</y><w>189</w><h>90</h></coordinates><panel_attributes>"interface"
++ afterTextChanged(s: Editable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>459</y><w>162</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1710</x><y>720</y><w>189</w><h>90</h></coordinates><panel_attributes>"interface"
 Barista Actions View
 --
 
 --
 + onClosedDay()
 + onRefresh()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1089</x><y>693</y><w>252</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>260;60;260;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1197</x><y>873</y><w>243</w><h>288</h></coordinates><panel_attributes>Barista Actions Presenter
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1575</x><y>666</y><w>252</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>260;60;260;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1683</x><y>846</y><w>243</w><h>288</h></coordinates><panel_attributes>Barista Actions Presenter
 --
 - activeOrdersDAO: ActiveOrdersDAO
 - monthlyRevenueDAO: MonthlyRevenueDAO
@@ -98,7 +98,7 @@ extends</panel_attributes><additional_attributes>260;60;260;20;10;20</additional
 + setDate(day: int, month: int, year: int)
 + findAll(brand: String) 
 + getOrderResults(): List&lt;Order&gt; {query}
-+ onCloseDay()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>882</x><y>927</y><w>225</w><h>99</h></coordinates><panel_attributes>Barista Actions ViewModel
++ onCloseDay()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1368</x><y>900</y><w>225</w><h>99</h></coordinates><panel_attributes>Barista Actions ViewModel
 --
 -presenter: BaristaActionsPresenter
 --
@@ -106,7 +106,7 @@ extends</panel_attributes><additional_attributes>260;60;260;20;10;20</additional
 + getPresenter(): 
 	BaristaActionsPresenter {query}
 + onCleared()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>126</y><w>216</w><h>234</h></coordinates><panel_attributes>Barista LogIn Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1197</x><y>99</y><w>216</w><h>234</h></coordinates><panel_attributes>Barista LogIn Activity
 --
 - usernameField: EditText
 - passwordField: EditText
@@ -124,13 +124,13 @@ extends</panel_attributes><additional_attributes>260;60;260;20;10;20</additional
 + successfulLogin(barista: Barista) 
 + showError(title: String, msg: String)
 + showToast(msg: String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>918</x><y>144</y><w>180</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>180;10;180;100;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>990</x><y>63</y><w>198</w><h>90</h></coordinates><panel_attributes>"Interface"
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1404</x><y>117</y><w>180</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>180;10;180;100;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1476</x><y>36</y><w>198</w><h>90</h></coordinates><panel_attributes>"Interface"
 Barista LogIn View
 --
 + successfulLogIn(barista: Barista)
 + showError(title: String, msg: String)
-+ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>333</x><y>27</y><w>225</w><h>117</h></coordinates><panel_attributes>Barista LogIn Presenter
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>0</y><w>225</w><h>117</h></coordinates><panel_attributes>Barista LogIn Presenter
 --
 - view: BaristaLogInView
 - baristas: BaristaDAO
@@ -139,24 +139,24 @@ Barista LogIn View
  BaristaLogInView, baristas: BaristaDAO
 + onlogin(login_button_enabled: boolean,
  username: String, password: String) 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1089</x><y>612</y><w>252</w><h>90</h></coordinates><panel_attributes>lt=&lt;.
-implements</panel_attributes><additional_attributes>260;10;260;80;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>801</y><w>72</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1575</x><y>585</y><w>252</w><h>90</h></coordinates><panel_attributes>lt=&lt;.
+implements</panel_attributes><additional_attributes>260;10;260;80;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1467</x><y>774</y><w>72</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>1098</x><y>963</y><w>117</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+is used in</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>1584</x><y>936</y><w>117</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>135</y><w>279</w><h>126</h></coordinates><panel_attributes>lt=&lt;-
-m1=1
-m2=1
-
-is used in 
-</panel_attributes><additional_attributes>290;100;10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>819</y><w>72</w><h>126</h></coordinates><panel_attributes>lt=&lt;-
+is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>108</y><w>279</w><h>126</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1
 
 is used in 
-</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>135</x><y>711</y><w>243</w><h>360</h></coordinates><panel_attributes>Manage Order Presenter
+</panel_attributes><additional_attributes>290;100;10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1035</x><y>792</y><w>72</w><h>126</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+
+is used in 
+</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>621</x><y>684</y><w>243</w><h>360</h></coordinates><panel_attributes>Manage Order Presenter
 --
 - activeOrdersDAO: ActiveOrdersDAO
 - baristaDAO: BaristaDAO
@@ -183,10 +183,10 @@ is used in
 + onEditProductInfo(order_info: OrderInfo, 
  confirm_edit_enabled: boolean, text_changed: 
 boolean,  prev_quantity: int, quantity: String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>369</x><y>945</y><w>108</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>855</x><y>918</y><w>108</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>549</y><w>189</w><h>126</h></coordinates><panel_attributes>"interface"
+is used in</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>522</y><w>189</w><h>126</h></coordinates><panel_attributes>"interface"
 Manage Order View
 --
 + successfulExecution()
@@ -194,16 +194,107 @@ Manage Order View
 + successfulCancellation()
 + successfulEdit()
 + showError()
-+ showToast()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>594</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>873</x><y>351</y><w>252</w><h>324</h></coordinates><panel_attributes>lt=&lt;&lt;-
-when finished, leads to</panel_attributes><additional_attributes>210;340;210;80;10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>468</y><w>279</w><h>207</h></coordinates><panel_attributes>lt=&lt;&lt;-
-leads to </panel_attributes><additional_attributes>10;20;290;20;290;210</additional_attributes></element><element><id>Relation</id><coordinates><x>99</x><y>648</y><w>99</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;.
++ showToast()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>846</x><y>567</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>324</y><w>252</w><h>324</h></coordinates><panel_attributes>lt=&lt;&lt;-
+when finished, leads to</panel_attributes><additional_attributes>210;340;210;80;10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1152</x><y>441</y><w>279</w><h>207</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to </panel_attributes><additional_attributes>10;20;290;20;290;210</additional_attributes></element><element><id>Relation</id><coordinates><x>585</x><y>621</y><w>99</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;.
 m1=1 
 m2=1 
-is used in </panel_attributes><additional_attributes>40;100;10;100;10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1404</x><y>819</y><w>126</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in </panel_attributes><additional_attributes>40;100;10;100;10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1890</x><y>792</y><w>126</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.
 m1=1 
 m2=1 
-is used in </panel_attributes><additional_attributes>40;110;70;110;70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>27</y><w>486</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in </panel_attributes><additional_attributes>40;110;70;110;70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1035</x><y>0</y><w>486</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;.
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>10;20;510;20;510;40</additional_attributes></element></diagram>
+is used in</panel_attributes><additional_attributes>10;20;510;20;510;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>486</x><y>63</y><w>243</w><h>162</h></coordinates><panel_attributes>Interface
+BaristaDAO
+--
++ find(username: String, password: String)
++ findAll(cafeteria_brand): List&lt;Barista&gt; {q}
++ exists(username: String): boolean {query}
++ save(barista: Barista) 
++ delete(barista: Barista) 
++ updateBarista(old_username: String,
+ new_username: String) 
++ updatecafeteria(old_brand: String, 
+ new_brand: String) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>306</w><h>225</h></coordinates><panel_attributes>BaristaDAOMemory
+{Some Properties}
+--
+- baristas: List&lt;barista&gt; 
+-username_to_barista: HashMap&lt;String, Barista&gt; 
+_ cafeteria_to_barista: HashMap&lt;String, ArrayList&lt;Barista&gt;
+--
++ find(username: String, password: String)
++ findAll(cafeteria_brand): List&lt;Barista&gt; {q}
++ exists(username: String): boolean {query}
++ save(barista: Barista) 
++ delete(barista: Barista) 
++ updateBarista(old_username: String,
+ new_username: String) 
++ updatecafeteria(old_brand: String, 
+ new_brand: String) 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>126</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>108</y><w>171</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>170;10;170;70;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>495</x><y>216</y><w>144</w><h>594</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>140;640;10;640;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>1224</y><w>306</w><h>225</h></coordinates><panel_attributes>ActiveOrdersDAOMemory
+--
+- orders: List&lt;Order&gt; 
+- table_to_order: HashMap&lt;String, Order&gt;
+- cafeteria_to_orders: HashMap&lt;String, ArrayList&lt;Order&gt;&gt;
+- temp_cancelled_orders: List&lt;Order&gt; 
+--
++ find(unique_id: String) 
++ findInCafeteria(cafeteria_brand: String,
+ table_number: int) 
++ findAll(cafeteria_brand): List&lt;Order&gt; {query}
++ save(order: Order) 
++ cancel(order: Order) 
++ delete(order: Order) 
++ deleteCancelled(order: Order) 
++ updateCafeteria(old_brand: String, 
+ new_brand: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1179</x><y>1188</y><w>243</w><h>180</h></coordinates><panel_attributes>Interface 
+ActiveOrdersDAO
+--
++ find(unique_id: String) 
++ findInCafeteria(cafeteria_brand: String,
+ table_number: int) 
++ findAll(cafeteria_brand): List&lt;Order&gt; {query}
++ save(order: Order) 
++ cancel(order: Order) 
++ delete(order: Order) 
++ deleteCancelled(order: Order) 
++ updateCafeteria(old_brand: String, 
+ new_brand: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1089</x><y>1296</y><w>108</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>819</x><y>1035</y><w>423</w><h>171</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;10;10;60;450;60;450;170</additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>1089</y><w>333</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>350;20;10;20;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2106</x><y>1242</y><w>243</w><h>216</h></coordinates><panel_attributes>RevenueDAOMemory
+--
+- revenues: HashMap&lt;Sring, Revenues&gt;
+--
++ addCafeteria(brand: String)
++ containsCafeteria(brand: String) : 
+ boolean {query}
++ updateCafeteria(old_brand: String, 
+ new_brand: String)
++ getDay(brand: String, yean: int, month: 
+int, day: int): double {query}
++ getMonthTotal(brand: TSirng, year: int, 
+ month: int): double {query}
++ addToDay(brand: String, year: int, month: i
+ int, day: int, amount: double)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1692</x><y>1260</y><w>279</w><h>198</h></coordinates><panel_attributes>Interface 
+RevenueDAO
+--
++ addCafeteria(brand: String)
++ containsCafeteria(brand: String) : 
+ boolean {query}
++ updateCafeteria(old_brand: String, 
+ new_brand: String)
++ getDay(brand: String, yean: int, month: 
+int, day: int): double {query}
++ getMonthTotal(brand: TSirng, year: int, 
+ month: int): double {query}
++ addToDay(brand: String, year: int, month: i
+ int, day: int, amount: double)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1962</x><y>1305</y><w>162</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1836</x><y>1125</y><w>72</w><h>153</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>
