@@ -1,0 +1,171 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram </help_text><element><id>UMLActor</id><coordinates><x>648</x><y>64</y><w>64</w><h>88</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>144</y><w>24</w><h>1424</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1760</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>808</x><y>120</y><w>80</w><h>32</h></coordinates><panel_attributes>:Edit Categories
+Activity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>840</x><y>144</y><w>24</w><h>1432</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1770</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>992</x><y>120</y><w>104</w><h>32</h></coordinates><panel_attributes>Edit Categories
+Presenter</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1032</x><y>144</y><w>24</w><h>1440</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1780</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>240</y><w>16</w><h>288</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>256</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Add Product</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>656</x><y>288</y><w>608</w><h>136</h></coordinates><panel_attributes>loop
+--
+[while name is taken]
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>392</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+New product name</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>440</y><w>16</w><h>88</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1152</x><y>440</y><w>64</w><h>32</h></coordinates><panel_attributes>product: 
+Product</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>448</y><w>128</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+new Product(price, name, 
+avail, categ, cafe</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>480</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+saveProduct(product)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1184</x><y>120</y><w>104</w><h>24</h></coordinates><panel_attributes>:MenuDAO</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>136</y><w>24</w><h>1432</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1770</additional_attributes></element><element><id>Relation</id><coordinates><x>1232</x><y>496</y><w>112</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+saveProduct
+(product)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>488</y><w>16</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>560</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Delete product</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>584</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onDeleteProduct(product)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>560</y><w>16</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>592</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+deleteProduct(product)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1232</x><y>608</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+deleteProduct
+(product)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>592</y><w>16</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>600</y><w>16</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>688</y><w>16</w><h>248</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>1120</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Edit Category</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>760</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditProduct(product, toggle, txt,
+prevN, prevP, name, price</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>776</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+productsExists(brand, name)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>776</y><w>16</w><h>64</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>768</y><w>16</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>624</x><y>192</y><w>760</w><h>864</h></coordinates><panel_attributes>Alt
+--
+New Product 
+-.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Delete Product
+-.
+
+
+
+
+
+
+
+
+Edit Product
+-.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Change Availability 
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>328</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+onAddProduct(toggle, 
+name, price, availability)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>336</y><w>16</w><h>72</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>344</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+exists(name)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>344</y><w>16</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>368</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>376</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+showError()
+Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>440</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onAddProduct(toggle, 
+name, price, availability)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>496</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulNewProduct()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>608</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulDeleteProduct()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>664</x><y>720</y><w>688</w><h>136</h></coordinates><panel_attributes>loop
+--
+[while name is taken]
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>800</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>808</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+showError()
+Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>824</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+New product name</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>864</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditProduct(product, toggle, txt,
+prevN, prevP, name, price</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>872</y><w>16</w><h>56</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>896</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulEditProduct()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>976</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Change Availability of Product</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>984</y><w>16</w><h>56</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>984</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+OnChangeAvailabilutyOfProduct</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>992</y><w>16</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1008</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulEditProduct()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>624</x><y>1080</y><w>760</w><h>408</h></coordinates><panel_attributes>Alt
+--
+Edit Category
+-.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Delete Category
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>1792</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Edit Product</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>1936</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+New product name</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>968</x><y>1872</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditProduct(product, toggle, txt,
+prevN, prevP, name, price</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>968</x><y>1920</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+showError()
+Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>1888</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+productsExists(brand, name)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>1912</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1152</x><y>1880</y><w>16</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1344</x><y>1888</y><w>16</w><h>64</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>960</x><y>1800</y><w>16</w><h>248</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>968</x><y>1976</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditProduct(product, toggle, txt,
+prevN, prevP, name, price</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>968</x><y>2008</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulEditProduct()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>784</x><y>1832</y><w>688</w><h>136</h></coordinates><panel_attributes>loop
+--
+[while user is taken]
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>680</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Edit Product</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>664</x><y>1152</y><w>688</w><h>136</h></coordinates><panel_attributes>loop
+--
+[while name is taken]
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>1128</y><w>16</w><h>224</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1288</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditCategory(product, toggle, txt,
+prevN, prevD, name, desc)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>1192</y><w>16</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>1208</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+categoryExists(brand, name)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>1232</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.
+exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>1208</y><w>16</w><h>64</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1240</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+showError()
+Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>1256</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+New category name</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1320</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulEditCategory()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>1296</y><w>16</w><h>56</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>856</x><y>1200</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onEditCategory(product, toggle, txt,
+prevN, prevD, name, desc)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>1384</y><w>184</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Delete category</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>840</x><y>1392</y><w>16</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1408</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+onDeleteCategory()</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>1440</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulDeleteCategory()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1032</x><y>1416</y><w>16</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>1424</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;-
+deleteCategory(categoryt)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1224</x><y>1432</y><w>16</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1232</x><y>1440</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+deleteCategory
+(category)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element></diagram>
