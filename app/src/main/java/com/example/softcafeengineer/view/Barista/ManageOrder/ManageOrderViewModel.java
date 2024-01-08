@@ -9,9 +9,8 @@ import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
-public class ManageOrderViewModel extends ViewModel
-{
-    private ManageOrderPresenter presenter;
+public class ManageOrderViewModel extends ViewModel {
+    private final ManageOrderPresenter presenter;
 
     public ManageOrderViewModel() {
         this.presenter = new ManageOrderPresenter();
@@ -23,7 +22,9 @@ public class ManageOrderViewModel extends ViewModel
         presenter.setRevenueDAO(revenueDAO);
     }
 
-    public ManageOrderPresenter getPresenter() { return this.presenter; }
+    public ManageOrderPresenter getPresenter() {
+        return this.presenter;
+    }
 
     @Override
     protected void onCleared() {

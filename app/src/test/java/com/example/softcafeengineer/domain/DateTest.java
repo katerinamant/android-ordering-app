@@ -3,12 +3,9 @@ package com.example.softcafeengineer.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
-
-public class DateTest
-{
+public class DateTest {
     @Test
-    public void set_values() throws InvalidDateException{
+    public void set_values() throws InvalidDateException {
         Date date = new Date();
 
         date.setDay(1);
@@ -32,7 +29,7 @@ public class DateTest
 
     @Test(expected = InvalidDateException.class)
     public void day_exception() throws Exception {
-        Date date = new Date(0,1, 1);
+        Date date = new Date(0, 1, 1);
     }
 
     @Test(expected = InvalidDateException.class)
@@ -43,7 +40,7 @@ public class DateTest
 
     @Test(expected = InvalidDateException.class)
     public void month_exception() throws Exception {
-        Date date = new Date(1,0, 1);
+        Date date = new Date(1, 0, 1);
     }
 
     @Test(expected = InvalidDateException.class)
@@ -59,12 +56,12 @@ public class DateTest
         Date date3 = new Date(1, 1, 1);
         Object obj = new Object();
 
-        Assert.assertTrue(date1 == date1);
-        Assert.assertFalse(date1 == null);
-        Assert.assertFalse(date1 == obj);
+        Assert.assertSame(date1, date1);
+        Assert.assertNotNull(date1);
+        Assert.assertNotSame(date1, obj);
 
-        Assert.assertFalse(date1 == date2);
-        Assert.assertTrue(date1.equals(date3));
+        Assert.assertNotSame(date1, date2);
+        Assert.assertEquals(date1, date3);
     }
 
     @Test

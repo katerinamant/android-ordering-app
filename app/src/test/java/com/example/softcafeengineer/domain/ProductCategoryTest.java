@@ -3,8 +3,7 @@ package com.example.softcafeengineer.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ProductCategoryTest
-{
+public class ProductCategoryTest {
     @Test
     public void set_values() {
         ProductCategory category = new ProductCategory();

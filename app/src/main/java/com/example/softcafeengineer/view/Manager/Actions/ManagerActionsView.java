@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Manager.Actions;
 
-public interface ManagerActionsView
-{
+public interface ManagerActionsView {
 
     /**
      * when the user clicks on the "Edit cafeteria's info" button
@@ -10,9 +9,9 @@ public interface ManagerActionsView
     void edit_Cinfo();
 
     /**
-    * when the user clicks on the "Manage employees" button
-    * they are redirected to the ManagerMEmployeesActivity
-    */
+     * when the user clicks on the "Manage employees" button
+     * they are redirected to the ManagerMEmployeesActivity
+     */
     void manage_employees();
 
     /**

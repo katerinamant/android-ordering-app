@@ -7,10 +7,8 @@ import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
-import java.util.Calendar;
-
 public class BaristaActionsViewModel extends ViewModel {
-    private BaristaActionsPresenter presenter;
+    private final BaristaActionsPresenter presenter;
 
     public BaristaActionsViewModel() {
         this.presenter = new BaristaActionsPresenter();
@@ -20,7 +18,9 @@ public class BaristaActionsViewModel extends ViewModel {
         presenter.setRevenueDAO(revenueDAO);
     }
 
-    public BaristaActionsPresenter getPresenter() { return this.presenter; }
+    public BaristaActionsPresenter getPresenter() {
+        return this.presenter;
+    }
 
     @Override
     protected void onCleared() {

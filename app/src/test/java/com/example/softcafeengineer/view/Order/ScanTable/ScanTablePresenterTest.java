@@ -1,4 +1,5 @@
 package com.example.softcafeengineer.view.Order.ScanTable;
+
 import com.example.softcafeengineer.dao.ActiveCartsDAO;
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.TableDAO;
@@ -12,6 +13,7 @@ import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 public class ScanTablePresenterTest {
     private TableDAO tables;
     private ActiveOrdersDAO orders;
@@ -19,24 +21,27 @@ public class ScanTablePresenterTest {
     private ScanTablePresenter presenter;
     private Table table;
     private ActiveCartsDAO carts;
+
     /**
-     *  initializing all the objects needed to run tests for the
-     *  ScanTablePresenter methods
+     * initializing all the objects needed to run tests for the
+     * ScanTablePresenter methods
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         view = new ScanTableViewStub();
         tables = new TableDAOMemory();
         orders = new ActiveOrdersDAOMemory();
         table = new Table("QR", 1, new Cafeteria());
         carts = new ActiveCartsDAOMemory();
-        presenter = new ScanTablePresenter(view, tables , orders, carts);
+        presenter = new ScanTablePresenter(view, tables, orders, carts);
     }
+
     /**
-     *  testing whether the onSubmit method shows the correct toast
-     *  message when the submit button is disabled, meaning some of the
-     *  required fields were left empty
-     *  @throws InvalidDateException
+     * testing whether the onSubmit method shows the correct toast
+     * message when the submit button is disabled, meaning some of the
+     * required fields were left empty
+     *
+     * @throws InvalidDateException
      */
     @Test
     public void testDisabledSubmitButton() throws InvalidDateException {
@@ -45,9 +50,10 @@ public class ScanTablePresenterTest {
     }
 
     /**
-     *  testing whether the onSubmit method shows the correct error title and error
-     *  message when the QR code (id) provided does not exist
-     *  @throws InvalidDateException
+     * testing whether the onSubmit method shows the correct error title and error
+     * message when the QR code (id) provided does not exist
+     *
+     * @throws InvalidDateException
      */
     @Test
     public void testUnsuccesfulConnection() throws InvalidDateException {

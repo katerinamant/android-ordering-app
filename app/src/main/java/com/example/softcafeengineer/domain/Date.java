@@ -1,13 +1,13 @@
 package com.example.softcafeengineer.domain;
 
-public class Date
-{
+public class Date {
     private int day;
     private int month;
     private int year;
 
     // Default constructor
-    public Date() { }
+    public Date() {
+    }
 
     public Date(int day, int month, int year) throws InvalidDateException {
         try {
@@ -23,31 +23,36 @@ public class Date
     }
 
     public void setDay(int day) throws InvalidDateException {
-        if (day < 1 || day > 31)
-        {
-            throw new InvalidDateException(String.format("Invalid day input."));
-        }
-        else
-        {
+        if (day < 1 || day > 31) {
+            throw new InvalidDateException("Invalid day input.");
+        } else {
             this.day = day;
         }
     }
-    public int getDay() { return this.day; }
+
+    public int getDay() {
+        return this.day;
+    }
 
     public void setMonth(int month) throws InvalidDateException {
-        if (month < 1 || month > 12)
-        {
-            throw new InvalidDateException(String.format("Invalid month input."));
-        }
-        else
-        {
+        if (month < 1 || month > 12) {
+            throw new InvalidDateException("Invalid month input.");
+        } else {
             this.month = month;
         }
     }
-    public int getMonth() { return this.month; }
 
-    public void setYear(int year) { this.year = year; }
-    public int getYear() { return this.year; }
+    public int getMonth() {
+        return this.month;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getYear() {
+        return this.year;
+    }
 
     public String getKey() {
         return String.format("%d - %d", this.month, this.year);

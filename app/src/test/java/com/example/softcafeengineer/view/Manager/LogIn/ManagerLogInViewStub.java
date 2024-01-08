@@ -1,44 +1,51 @@
 package com.example.softcafeengineer.view.Manager.LogIn;
 
 import com.example.softcafeengineer.domain.Cafeteria;
-import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesPresenter;
-import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesViewStub;
 
-public class ManagerLogInViewStub implements ManagerLogInView
-{
+public class ManagerLogInViewStub implements ManagerLogInView {
     private String username, password, errorTitle, errorMessage, toastMessage;
     private ManagerLogInPresenter presenter;
 
-    public ManagerLogInViewStub(){
+    public ManagerLogInViewStub() {
         username = password = errorTitle = errorMessage = toastMessage = "";
     }
-    public String getUsername(){
+
+    public String getUsername() {
         return username;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public ManagerLogInPresenter getPresenter(){
+
+    public ManagerLogInPresenter getPresenter() {
         return presenter;
     }
-    public void setUsername(String username){
+
+    public void setUsername(String username) {
         this.username = username;
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    public void setPresenter(ManagerLogInPresenter presenter){
+
+    public void setPresenter(ManagerLogInPresenter presenter) {
         this.presenter = presenter;
     }
+
     @Override
     public void successfulLogIn(Cafeteria cafe) {
 

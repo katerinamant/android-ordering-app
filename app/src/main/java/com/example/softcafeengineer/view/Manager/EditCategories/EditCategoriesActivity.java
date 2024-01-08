@@ -29,8 +29,7 @@ import com.example.softcafeengineer.view.Manager.EditMenu.EditMenuActivity;
 
 import java.util.List;
 
-public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, MenuProductRecyclerViewAdapter.ItemSelectionListener
-{
+public class EditCategoriesActivity extends AppCompatActivity implements EditCategoriesView, MenuProductRecyclerViewAdapter.ItemSelectionListener {
     private EditCategoriesViewModel viewModel;
     private String brand, category;
     private RelativeLayout relativeLayout;
@@ -66,11 +65,12 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     private PopupWindow delete_product_popup;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_categories);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_category); // activity_edit_categories.xml
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             brand = intent.getStringExtra("cafe_brand");
             category = intent.getStringExtra("category_name");
@@ -80,11 +80,11 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         viewModel.getPresenter().setView(this, category, brand); // updates results
 
         // Fill info shown
-        prev_category_name = viewModel.getPresenter().getCategoryName();
-        prev_category_desc = viewModel.getPresenter().getCategoryDesc();
         TextView categoryName = findViewById(R.id.txt_category_name);
+        prev_category_name = viewModel.getPresenter().getCategoryName();
         categoryName.setText(prev_category_name);
         TextView categoryDesc = findViewById(R.id.txt_category_desc);
+        prev_category_desc = viewModel.getPresenter().getCategoryDesc();
         categoryDesc.setText(prev_category_desc);
 
         List<Product> productList = viewModel.getPresenter().getProductResults();
@@ -94,7 +94,6 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         recyclerView_products.setAdapter(new MenuProductRecyclerViewAdapter(productList, this));
 
         Button editCategory = findViewById(R.id.btn_edit_category); // "Edit category" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_category); // activity_edit_categories.xml
         editCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +105,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 edit_category_popup = new PopupWindow(pop_up, width, height, true);
-                edit_category_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                edit_category_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 editCategoryNameField = pop_up.findViewById(R.id.edit_text_edit_category_name);
                 editCategoryNameField.setText(prev_category_name);
@@ -135,7 +134,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                     // inside the edit category pop up
                     @Override
                     public void onClick(View v) {
-                        edit_category_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                        edit_category_popup.dismiss();
                     }
                 });
             }
@@ -153,7 +152,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 delete_category_popup = new PopupWindow(pop_up, width, height, true);
-                delete_category_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                delete_category_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_category);
                 confirmDeleteButton.setOnClickListener(new View.OnClickListener() {
@@ -171,7 +170,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                     // inside the delete category pop up
                     @Override
                     public void onClick(View v) {
-                        delete_category_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                        delete_category_popup.dismiss();
                     }
                 });
             }
@@ -188,7 +187,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                 // Create and show add product popup
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                add_product_popup = new PopupWindow(pop_up, width,height, true);
+                add_product_popup = new PopupWindow(pop_up, width, height, true);
                 add_product_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 addProductNameField = pop_up.findViewById(R.id.edit_text_add_product_name);
@@ -204,17 +203,17 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
                 });
 
                 addProductButton = pop_up.findViewById(R.id.btn_final_add_product);
+                // Add button is disabled
+                add_product_enabled = false;
+                addProductButton.setAlpha(.5f);
                 addProductButton.setOnClickListener(new View.OnClickListener() {
                     // User clicked the add button
                     // inside the add new product pop up
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         viewModel.getPresenter().onAddProduct(add_product_enabled, newProductName, newProductPrice, add_product_switch_status);
                     }
                 });
-                // Add button is disabled
-                add_product_enabled = false;
-                addProductButton.setAlpha(.5f);
 
                 Button cancelButton = pop_up.findViewById(R.id.btn_cancel_add_product);
                 cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -233,15 +232,16 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     // -------------
     TextWatcher editCategoryWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // Fields modified in edit category popup
             text_changed = true;
             newCategoryName = editCategoryNameField.getText().toString().trim();
-            newCategoryDesc = editCategoryDescField.getText().toString();
-            if(!newCategoryName.isEmpty() && !newCategoryDesc.isEmpty()) {
+            newCategoryDesc = editCategoryDescField.getText().toString().trim();
+            if (!newCategoryName.isEmpty() && !newCategoryDesc.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
             } else {
@@ -260,14 +260,15 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     // ---------------
     TextWatcher newProductWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            // Fields modified in new category popup
+            // Fields modified in new product popup
             newProductName = addProductNameField.getText().toString().trim();
             newProductPrice = addProductPriceField.getText().toString();
-            if(!newProductName.isEmpty() && !newProductPrice.isEmpty()) {
+            if (!newProductName.isEmpty() && !newProductPrice.isEmpty()) {
                 addProductButton.setAlpha(1.0f);
                 add_product_enabled = true;
             } else {
@@ -359,11 +360,11 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_edit_product, null);
 
-        // Create and show edit table popup
+        // Create and show edit product popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_product_popup = new PopupWindow(pop_up, width, height, true);
-        edit_product_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_product_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         editProductNameField = pop_up.findViewById(R.id.edit_text_edit_product_name);
         editProductNameField.setText(prev_product_name);
@@ -402,14 +403,15 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
             // inside the edit product pop up
             @Override
             public void onClick(View v) {
-                edit_product_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                edit_product_popup.dismiss();
             }
         });
     }
 
     TextWatcher editProductWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -417,7 +419,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
             text_changed = true;
             newProductName = editProductNameField.getText().toString().trim();
             newProductPrice = editProductPriceField.getText().toString();
-            if(!newProductName.isEmpty() && !newProductPrice.isEmpty()) {
+            if (!newProductName.isEmpty() && !newProductPrice.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
             } else {
@@ -445,7 +447,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         delete_product_popup = new PopupWindow(pop_up, width, height, true);
-        delete_product_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        delete_product_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_product);
         confirmDeleteButton.setOnClickListener(new View.OnClickListener() {
@@ -463,7 +465,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
             // inside the delete product pop up
             @Override
             public void onClick(View v) {
-                delete_product_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                delete_product_popup.dismiss();
             }
         });
     }

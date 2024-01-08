@@ -14,8 +14,7 @@ import com.example.softcafeengineer.domain.Product;
 
 import java.util.List;
 
-public class MenuProductRecyclerViewAdapter extends RecyclerView.Adapter<MenuProductRecyclerViewAdapter.ViewHolder>
-{
+public class MenuProductRecyclerViewAdapter extends RecyclerView.Adapter<MenuProductRecyclerViewAdapter.ViewHolder> {
     private final List<Product> mValues;
     private final MenuProductRecyclerViewAdapter.ItemSelectionListener listener;
 
@@ -33,22 +32,28 @@ public class MenuProductRecyclerViewAdapter extends RecyclerView.Adapter<MenuPro
     @Override
     public void onBindViewHolder(@NonNull MenuProductRecyclerViewAdapter.ViewHolder holder, int position) {
         final Product currentProduct = mValues.get(position);
-        holder.name.setText(String.valueOf(currentProduct.getName()));
-        holder.price.setText(String.format("%s 💶",String.valueOf(currentProduct.getPrice())));
-        if(currentProduct.getAvailability()) {
+        String name = currentProduct.getName();
+        holder.name.setText(name);
+        double price = currentProduct.getPrice();
+        holder.price.setText(String.format("%s 💶", price));
+        if (currentProduct.getAvailability()) {
             holder.availability.setText("🟩");
-        } else{
+        } else {
             holder.availability.setText("🟥");
         }
 
         holder.edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { listener.editProduct(currentProduct); }
+            public void onClick(View v) {
+                listener.editProduct(currentProduct);
+            }
         });
 
         holder.delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { listener.deleteProduct(currentProduct); }
+            public void onClick(View v) {
+                listener.deleteProduct(currentProduct);
+            }
         });
     }
 
@@ -72,7 +77,7 @@ public class MenuProductRecyclerViewAdapter extends RecyclerView.Adapter<MenuPro
         }
     }
 
-    public interface  ItemSelectionListener {
+    public interface ItemSelectionListener {
         /**
          * User clicked the "Edit"
          * button for a specific product

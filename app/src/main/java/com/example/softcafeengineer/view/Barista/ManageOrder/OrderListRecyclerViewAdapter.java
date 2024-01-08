@@ -14,8 +14,7 @@ import com.example.softcafeengineer.domain.OrderInfo;
 
 import java.util.List;
 
-public class OrderListRecyclerViewAdapter extends RecyclerView.Adapter<OrderListRecyclerViewAdapter.ViewHolder>
-{
+public class OrderListRecyclerViewAdapter extends RecyclerView.Adapter<OrderListRecyclerViewAdapter.ViewHolder> {
     private final List<OrderInfo> mValues;
     private final OrderListRecyclerViewAdapter.ItemSelectionListener listener;
 
@@ -33,9 +32,12 @@ public class OrderListRecyclerViewAdapter extends RecyclerView.Adapter<OrderList
     @Override
     public void onBindViewHolder(@NonNull OrderListRecyclerViewAdapter.ViewHolder holder, int position) {
         final OrderInfo currentOrderInfo = mValues.get(position);
-        holder.productName.setText(String.valueOf(currentOrderInfo.getProduct().getName()));
-        holder.quantity.setText(String.valueOf(currentOrderInfo.getQuantity()));
-        holder.description.setText(String.valueOf(currentOrderInfo.getDescription()));
+        String product_name = currentOrderInfo.getProduct().getName();
+        holder.productName.setText(product_name);
+        int quantity = currentOrderInfo.getQuantity();
+        holder.quantity.setText(String.valueOf(quantity));
+        String desc = currentOrderInfo.getDescription();
+        holder.description.setText(desc);
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,18 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ManagerDAOMemory implements ManagerDAO
-{
+public class ManagerDAOMemory implements ManagerDAO {
     protected static List<User> users = new ArrayList<User>();
     protected static HashMap<String, User> username_to_manager = new HashMap<String, User>();
 
     @Override
     public User find(String username, String password) {
-        if(username_to_manager.containsKey(username)) {
-            User u = username_to_manager.get(username);
-            if(u.getPassword().equals(password)) {
+        if (username_to_manager.containsKey(username)) {
+            User user = username_to_manager.get(username);
+            if (user.getPassword().equals(password)) {
                 // Valid username, valid password
-                return u;
+                return user;
             } else {
                 // Valid username, invalid password
                 return null;
@@ -29,7 +28,7 @@ public class ManagerDAOMemory implements ManagerDAO
     }
 
     public boolean exists(String username) {
-      return username_to_manager.containsKey(username);
+        return username_to_manager.containsKey(username);
     }
 
     @Override

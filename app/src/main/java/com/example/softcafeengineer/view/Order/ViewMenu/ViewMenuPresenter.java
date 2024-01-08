@@ -8,29 +8,26 @@ import com.example.softcafeengineer.domain.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewMenuPresenter
-{
+public class ViewMenuPresenter {
     private ViewMenuView view;
     private MenuDAO menuDAO;
     private TableDAO tableDAO;
     private Table table;
     private List<ProductCategory> categoryResults = new ArrayList<ProductCategory>();
 
-    public void setMenuDAO(MenuDAO menuDAO)
-    {
+    public void setMenuDAO(MenuDAO menuDAO) {
         this.menuDAO = menuDAO;
     }
-    public MenuDAO getMenuDAO()
-    {
+
+    public MenuDAO getMenuDAO() {
         return this.menuDAO;
     }
 
-    public void setTableDAO(TableDAO tableDAO)
-    {
+    public void setTableDAO(TableDAO tableDAO) {
         this.tableDAO = tableDAO;
     }
-    public TableDAO getTableDAO()
-    {
+
+    public TableDAO getTableDAO() {
         return this.tableDAO;
     }
 
@@ -44,6 +41,7 @@ public class ViewMenuPresenter
         this.categoryResults.clear();
         this.categoryResults = menuDAO.findAllCategories(brand);
     }
+
     public List<ProductCategory> getCategoryResults() {
         return this.categoryResults;
     }

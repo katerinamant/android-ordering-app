@@ -7,17 +7,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class BaristaDAOMemory implements BaristaDAO
-{
+public class BaristaDAOMemory implements BaristaDAO {
     protected static List<Barista> baristas = new ArrayList<Barista>();
     protected static HashMap<String, Barista> username_to_barista = new HashMap<String, Barista>();
     protected static HashMap<String, ArrayList<Barista>> cafeteria_to_baristas = new HashMap<String, ArrayList<Barista>>();
 
     @Override
     public Barista find(String username, String password) {
-        if(username_to_barista.containsKey(username)) {
+        if (username_to_barista.containsKey(username)) {
             Barista b = username_to_barista.get(username);
-            if(b.getPassword().equals(password)) {
+            if (b.getPassword().equals(password)) {
                 // Valid username, valid password
                 return b;
             } else {
@@ -31,7 +30,7 @@ public class BaristaDAOMemory implements BaristaDAO
 
     @Override
     public List<Barista> findAll(String cafeteria_brand) {
-        if(cafeteria_to_baristas.containsKey(cafeteria_brand)) {
+        if (cafeteria_to_baristas.containsKey(cafeteria_brand)) {
             return cafeteria_to_baristas.get(cafeteria_brand);
         }
         return new ArrayList<>();
@@ -49,7 +48,7 @@ public class BaristaDAOMemory implements BaristaDAO
         username_to_barista.put(barista.getUsername(), barista);
 
         String brand_key = barista.getCafe().getBrand();
-        if(cafeteria_to_baristas.containsKey(brand_key)) {
+        if (cafeteria_to_baristas.containsKey(brand_key)) {
             cafeteria_to_baristas.get(brand_key).add(barista);
         } else {
             ArrayList<Barista> baristas = new ArrayList<Barista>();
@@ -75,8 +74,8 @@ public class BaristaDAOMemory implements BaristaDAO
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {
-        if(cafeteria_to_baristas.containsKey(old_brand)) {
-            ArrayList<Barista> baristas  = cafeteria_to_baristas.get(old_brand);
+        if (cafeteria_to_baristas.containsKey(old_brand)) {
+            ArrayList<Barista> baristas = cafeteria_to_baristas.get(old_brand);
             cafeteria_to_baristas.remove(old_brand);
             cafeteria_to_baristas.put(new_brand, baristas);
         } else {

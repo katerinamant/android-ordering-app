@@ -1,30 +1,33 @@
 package com.example.softcafeengineer.view.Manager.Actions;
 
-public class ManagerActionsPresenter
-{
-    private ManagerActionsView view;
+public class ManagerActionsPresenter {
+    private final ManagerActionsView view;
 
-    public ManagerActionsPresenter(ManagerActionsView view) { this.view = view; }
+    public ManagerActionsPresenter(ManagerActionsView view) {
+        this.view = view;
+    }
 
-    void onEditCInfo(){
+    void onEditCInfo() {
         view.edit_Cinfo();
     }
 
-    void onManageEmployees(){
+    void onManageEmployees() {
         view.manage_employees();
     }
 
-    void onManageTables(){
+    void onManageTables() {
         view.manage_tables();
     }
 
-    void onEditMenu(){
+    void onEditMenu() {
         view.edit_menu();
     }
 
-    void onRevenueBreakdown(){
+    void onRevenueBreakdown() {
         view.revenue_breakdown();
     }
 
-    public void onLogOutButton() { view.log_out(); }
+    public void onLogOutButton() {
+        view.log_out();
+    }
 }

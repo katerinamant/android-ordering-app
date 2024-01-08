@@ -25,8 +25,7 @@ import com.example.softcafeengineer.domain.Barista;
 
 import java.util.List;
 
-public class ManageEmployeesActivity extends AppCompatActivity implements ManageEmployeesView, EmployeeRecyclerViewAdapter.ItemSelectionListener
-{
+public class ManageEmployeesActivity extends AppCompatActivity implements ManageEmployeesView, EmployeeRecyclerViewAdapter.ItemSelectionListener {
     private ManageEmployeesViewModel viewModel;
     private String brand;
     private RelativeLayout relativeLayout;
@@ -50,9 +49,10 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
     private PopupWindow delete_employee_popup;
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_employees);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_employees); // activity_manage_employees.xml layout
 
         if (savedInstanceState == null) {
             Intent intent = getIntent();
@@ -70,7 +70,6 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         recyclerView.setAdapter(new EmployeeRecyclerViewAdapter(employeesList, this));
 
         Button addNewButton = findViewById(R.id.btn_manage_employees_add); // "Add new" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_employees); // activity_manage_employees.xml layout
         addNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +81,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 add_employee_popup = new PopupWindow(pop_up, width, height, true);
-                add_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                add_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 addUsernameField = pop_up.findViewById(R.id.edit_text_add_employee_username);
                 addPasswordField = pop_up.findViewById(R.id.edit_text_add_employee_password);
@@ -101,7 +100,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
                     // inside the add new employee pop up
                     @Override
                     public void onClick(View v) {
-                        add_employee_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                        add_employee_popup.dismiss();
                     }
                 });
             }
@@ -199,7 +198,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_employee_popup = new PopupWindow(pop_up, width, height, true);
-        edit_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         editUsernameField = pop_up.findViewById(R.id.edit_text_edit_employee_username);
         editUsernameField.setText(prev_username);
@@ -220,14 +219,15 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
             // inside the edit employee pop up
             @Override
             public void onClick(View v) {
-                edit_employee_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                edit_employee_popup.dismiss();
             }
         });
     }
 
     TextWatcher editEmployeeWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -235,7 +235,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
             text_changed = true;
             newUsername = editUsernameField.getText().toString();
             newPassword = editPasswordField.getText().toString();
-            if(!newUsername.isEmpty() && !newPassword.isEmpty()) {
+            if (!newUsername.isEmpty() && !newPassword.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
             } else {
@@ -270,7 +270,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         delete_employee_popup = new PopupWindow(pop_up, width, height, true);
-        delete_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        delete_employee_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_employee);
         confirmDeleteButton.setOnClickListener(onConfirmDeleteButton);
@@ -281,7 +281,7 @@ public class ManageEmployeesActivity extends AppCompatActivity implements Manage
             // inside the delete employee pop up
             @Override
             public void onClick(View v) {
-                delete_employee_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                delete_employee_popup.dismiss();
             }
         });
     }

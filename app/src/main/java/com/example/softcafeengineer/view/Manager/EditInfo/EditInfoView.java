@@ -2,8 +2,7 @@ package com.example.softcafeengineer.view.Manager.EditInfo;
 
 import com.example.softcafeengineer.domain.Cafeteria;
 
-public interface EditInfoView
-{
+public interface EditInfoView {
     /**
      * When the user clicks on the "Finish" button
      * with valid information

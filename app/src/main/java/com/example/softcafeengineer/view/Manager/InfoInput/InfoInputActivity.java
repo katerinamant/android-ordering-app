@@ -1,15 +1,15 @@
 package com.example.softcafeengineer.view.Manager.InfoInput;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Toast;
-import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
@@ -20,8 +20,7 @@ import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 
-public class InfoInputActivity extends AppCompatActivity implements InfoInputView
-{
+public class InfoInputActivity extends AppCompatActivity implements InfoInputView {
     private EditText addressField, phoneNumberField, tinField, brandField;
     private Button finishButton;
     private boolean finish_button_enabled;
@@ -36,9 +35,8 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         // Get user from ManagerSignUpActivity
         Intent intent = getIntent();
-        User user = (User) intent.getParcelableExtra("user");
-        username = user.getUsername();
-        password = user.getPassword();
+        username = intent.getStringExtra("username");
+        password = intent.getStringExtra("password");
 
         addressField = findViewById(R.id.edit_txt_mngr_adress_info);
         phoneNumberField = findViewById(R.id.edit_txt_mngr_phone_info);
@@ -56,13 +54,16 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
 
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onFinish(finish_button_enabled, username, password, address, phoneNumber, tin, brand); };
+            public void onClick(View view) {
+                presenter.onFinish(finish_button_enabled, username, password, address, phoneNumber, tin, brand);
+            }
         });
     }
 
     TextWatcher infoWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -70,7 +71,7 @@ public class InfoInputActivity extends AppCompatActivity implements InfoInputVie
             phoneNumber = phoneNumberField.getText().toString();
             tin = tinField.getText().toString();
             brand = brandField.getText().toString().trim();
-            if(!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
+            if (!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;
             } else {

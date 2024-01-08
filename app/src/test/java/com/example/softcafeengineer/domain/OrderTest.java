@@ -3,8 +3,7 @@ package com.example.softcafeengineer.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class OrderTest
-{
+public class OrderTest {
     @Test
     public void enum_status() {
         Assert.assertEquals("IN_PROGRESS", Status.IN_PROGRESS.name());
@@ -14,7 +13,7 @@ public class OrderTest
     }
 
     @Test
-    public void default_constructor(){
+    public void default_constructor() {
         Order order = new Order();
 
         Assert.assertEquals(Status.WAITING, order.getOrderStatus());

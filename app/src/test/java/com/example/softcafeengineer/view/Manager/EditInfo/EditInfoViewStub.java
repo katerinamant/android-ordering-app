@@ -2,9 +2,10 @@ package com.example.softcafeengineer.view.Manager.EditInfo;
 
 import com.example.softcafeengineer.domain.Cafeteria;
 
-public class EditInfoViewStub implements  EditInfoView{
+public class EditInfoViewStub implements EditInfoView {
     private String toastMessage;
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
 

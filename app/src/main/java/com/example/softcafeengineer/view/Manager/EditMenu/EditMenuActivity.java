@@ -26,8 +26,7 @@ import com.example.softcafeengineer.view.Manager.EditCategories.EditCategoriesAc
 
 import java.util.List;
 
-public class EditMenuActivity extends AppCompatActivity implements EditMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener
-{
+public class EditMenuActivity extends AppCompatActivity implements EditMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener {
     private EditMenuViewModel viewModel;
     private String brand;
     private RelativeLayout relativeLayout;
@@ -40,11 +39,12 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
     private String newCategoryName, newCategoryDescription;
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_menu);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_menu); // activity_edit_menu.xml
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             brand = intent.getStringExtra("cafe_brand");
         }
@@ -61,7 +61,6 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
         recyclerView_categories.setAdapter(categoryRecyclerViewAdapter);
 
         Button addNewCategory = findViewById(R.id.btn_add_category); // "Add category" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_menu); // activity_edit_menu.xml
         addNewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +71,7 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
                 // Create and show add category popup
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                add_category_popup = new PopupWindow(pop_up, width,height, true);
+                add_category_popup = new PopupWindow(pop_up, width, height, true);
                 add_category_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 addCategoryNameField = pop_up.findViewById(R.id.edit_text_add_category_name);
@@ -101,14 +100,15 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
 
     TextWatcher newCategoryWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            // Fields modified in new category popup
+            // Fields modified in add new category popup
             newCategoryName = addCategoryNameField.getText().toString().trim();
-            newCategoryDescription = addCategoryDescriptionField.getText().toString();
-            if(!newCategoryName.isEmpty() && !newCategoryDescription.isEmpty()) {
+            newCategoryDescription = addCategoryDescriptionField.getText().toString().trim();
+            if (!newCategoryName.isEmpty() && !newCategoryDescription.isEmpty()) {
                 addCategoryButton.setAlpha(1.0f);
                 add_category_enabled = true;
             } else {
@@ -127,7 +127,7 @@ public class EditMenuActivity extends AppCompatActivity implements EditMenuView,
         // User clicked the add button
         // inside the add new category pop up
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             viewModel.getPresenter().onAddCategory(add_category_enabled, newCategoryName, newCategoryDescription);
         }
     };

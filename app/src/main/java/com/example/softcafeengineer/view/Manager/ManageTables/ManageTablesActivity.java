@@ -1,10 +1,5 @@
 package com.example.softcafeengineer.view.Manager.ManageTables;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,17 +11,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Table;
 
 import java.util.List;
 
-public class ManageTablesActivity extends AppCompatActivity implements ManageTablesView, TableRecyclerViewAdapter.ItemSelectionListener
-{
+public class ManageTablesActivity extends AppCompatActivity implements ManageTablesView, TableRecyclerViewAdapter.ItemSelectionListener {
     private ManageTablesViewModel viewModel;
     private String brand;
     private RelativeLayout relativeLayout;
@@ -54,8 +53,9 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_tables);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_tables); // activity_manage_tables.xml layout
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             brand = intent.getStringExtra("cafe_brand");
         }
@@ -71,7 +71,6 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         recyclerView.setAdapter(new TableRecyclerViewAdapter(tableList, this));
 
         Button addNewButton = findViewById(R.id.btn_manage_tables_add); // "Add new" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_tables); // activity_manage_tables.xml layout
         addNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +82,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 add_table_popup = new PopupWindow(pop_up, width, height, true);
-                add_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                add_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 addTableNumberField = pop_up.findViewById(R.id.edit_text_add_table_number);
                 addUniqueIdField = pop_up.findViewById(R.id.edit_text_add_table_id);
@@ -111,14 +110,15 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
 
     TextWatcher newTableWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // Fields modified in new table popup
             newTableNumber = addTableNumberField.getText().toString();
             newEditUniqueId = addUniqueIdField.getText().toString();
-            if(!newTableNumber.isEmpty() && !newEditUniqueId.isEmpty()) {
+            if (!newTableNumber.isEmpty() && !newEditUniqueId.isEmpty()) {
                 addTableButton.setAlpha(1.0f);
                 add_table_enabled = true;
             } else {
@@ -198,7 +198,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_table_popup = new PopupWindow(pop_up, width, height, true);
-        edit_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         editTableNumberField = pop_up.findViewById(R.id.edit_text_edit_table_number);
         editTableNumberField.setText(String.format("%d", prev_table_number));
@@ -220,14 +220,15 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
             // inside the edit table pop up
             @Override
             public void onClick(View v) {
-                edit_table_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                edit_table_popup.dismiss();
             }
         });
     }
 
     TextWatcher editTableWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -235,7 +236,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
             text_changed = true;
             newTableNumber = editTableNumberField.getText().toString();
             newEditUniqueId = editUniqueIdField.getText().toString();
-            if(!newTableNumber.isEmpty() && !newEditUniqueId.isEmpty()) {
+            if (!newTableNumber.isEmpty() && !newEditUniqueId.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
             } else {
@@ -271,7 +272,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         delete_table_popup = new PopupWindow(pop_up, width, height, true);
-        delete_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        delete_table_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         Button confirmDeleteButton = pop_up.findViewById(R.id.btn_final_delete_table);
         confirmDeleteButton.setOnClickListener(onConfirmDeleteButton);
@@ -282,7 +283,7 @@ public class ManageTablesActivity extends AppCompatActivity implements ManageTab
             // inside the delete table pop up
             @Override
             public void onClick(View v) {
-                delete_table_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                delete_table_popup.dismiss();
             }
         });
     }

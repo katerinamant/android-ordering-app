@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.ActiveCartsDAO;
-import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.domain.Order;
 import com.example.softcafeengineer.domain.Table;
 
@@ -9,15 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ActiveCartsDAOMemory implements ActiveCartsDAO
-{
+public class ActiveCartsDAOMemory implements ActiveCartsDAO {
     protected static List<Order> carts = new ArrayList<Order>();
     protected static HashMap<String, Order> table_to_cart = new HashMap<String, Order>();
 
 
     @Override
     public Order find(String unique_id) {
-        if(table_to_cart.containsKey(unique_id)) {
+        if (table_to_cart.containsKey(unique_id)) {
             return table_to_cart.get(unique_id);
         }
         return null;
@@ -25,10 +23,10 @@ public class ActiveCartsDAOMemory implements ActiveCartsDAO
 
     @Override
     public Order findInCafeteria(String cafeteria_brand, int table_number) {
-        for(Order cart : carts) {
+        for (Order cart : carts) {
             String brand = cart.getTable().getCafe().getBrand();
             int number = cart.getTable().getId();
-            if(brand.equals(cafeteria_brand) && number == table_number) {
+            if (brand.equals(cafeteria_brand) && number == table_number) {
                 return cart;
             }
         }

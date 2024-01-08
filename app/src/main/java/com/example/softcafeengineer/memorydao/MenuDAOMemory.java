@@ -8,17 +8,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MenuDAOMemory implements MenuDAO
-{
+public class MenuDAOMemory implements MenuDAO {
     protected static HashMap<String, ArrayList<Product>> cafeteria_to_products = new HashMap<String, ArrayList<Product>>();
     protected static HashMap<String, ArrayList<ProductCategory>> cafeteria_to_categories = new HashMap<String, ArrayList<ProductCategory>>();
 
     @Override
     public boolean productExists(String cafe_brand, String product_name) {
-        if(cafeteria_to_products.containsKey(cafe_brand)) {
+        if (cafeteria_to_products.containsKey(cafe_brand)) {
             ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
-            for (Product p : products) {
-                if (p.getName().equals(product_name)) {
+            for (Product product : products) {
+                if (product.getName().equals(product_name)) {
                     return true;
                 }
             }
@@ -29,7 +28,7 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public void saveProduct(Product product) {
         String brand_key = product.getCafe().getBrand();
-        if(cafeteria_to_products.containsKey(brand_key)){
+        if (cafeteria_to_products.containsKey(brand_key)) {
             cafeteria_to_products.get(brand_key).add(product);
         } else {
             ArrayList<Product> products = new ArrayList<Product>();
@@ -46,9 +45,9 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public Product findProduct(String cafe_brand, String product_name) {
         ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
-        for(Product p : products) {
-            if(p.getName().equals(product_name)) {
-                return p;
+        for (Product product : products) {
+            if (product.getName().equals(product_name)) {
+                return product;
             }
         }
         return null;
@@ -56,7 +55,7 @@ public class MenuDAOMemory implements MenuDAO
 
     @Override
     public List<Product> findAllProducts(String cafeteria_brand) {
-        if(cafeteria_to_products.containsKey(cafeteria_brand)){
+        if (cafeteria_to_products.containsKey(cafeteria_brand)) {
             return cafeteria_to_products.get(cafeteria_brand);
         }
         return new ArrayList<>();
@@ -66,10 +65,10 @@ public class MenuDAOMemory implements MenuDAO
     public List<Product> findAllProductsOfCategory(String cafe_brand, ProductCategory category) {
         List<Product> all_products = this.findAllProducts(cafe_brand);
         List<Product> result = new ArrayList<Product>();
-        if(all_products.size() != 0) {
-            for(Product p : all_products) {
-                if(p.getCategory() == category) {
-                    result.add(p);
+        if (all_products.size() != 0) {
+            for (Product product : all_products) {
+                if (product.getCategory() == category) {
+                    result.add(product);
                 }
             }
         }
@@ -78,10 +77,10 @@ public class MenuDAOMemory implements MenuDAO
 
     @Override
     public boolean categoryExists(String cafe_brand, String category_name) {
-        if(cafeteria_to_categories.containsKey(cafe_brand)) {
+        if (cafeteria_to_categories.containsKey(cafe_brand)) {
             ArrayList<ProductCategory> categories = cafeteria_to_categories.get(cafe_brand);
-            for(ProductCategory p_c : categories) {
-                if(p_c.getName().equals(category_name)) {
+            for (ProductCategory category : categories) {
+                if (category.getName().equals(category_name)) {
                     return true;
                 }
             }
@@ -92,7 +91,7 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public void saveCategory(ProductCategory category) {
         String brand_key = category.getCafe().getBrand();
-        if(cafeteria_to_categories.containsKey(brand_key)){
+        if (cafeteria_to_categories.containsKey(brand_key)) {
             cafeteria_to_categories.get(brand_key).add(category);
         } else {
             ArrayList<ProductCategory> categories = new ArrayList<ProductCategory>();
@@ -105,19 +104,19 @@ public class MenuDAOMemory implements MenuDAO
     public void deleteCategory(ProductCategory category) {
         String cafe_brand = category.getCafe().getBrand();
         // Delete products of the category
-        if(cafeteria_to_products.containsKey(cafe_brand)) {
+        if (cafeteria_to_products.containsKey(cafe_brand)) {
             ArrayList<Product> products = cafeteria_to_products.get(cafe_brand);
             ArrayList<Product> toRemove = new ArrayList<Product>();
-            for(Product p : products) {
-                if(p.getCategory() == category) {
-                    toRemove.add(p);
+            for (Product product : products) {
+                if (product.getCategory() == category) {
+                    toRemove.add(product);
                 }
             }
             products.removeAll(toRemove);
             cafeteria_to_products.put(cafe_brand, products);
         }
         // Delete category
-        if(cafeteria_to_categories.containsKey(cafe_brand)) {
+        if (cafeteria_to_categories.containsKey(cafe_brand)) {
             cafeteria_to_categories.get(cafe_brand).remove(category);
         }
     }
@@ -125,10 +124,10 @@ public class MenuDAOMemory implements MenuDAO
     @Override
     public ProductCategory findCategory(String cafe_brand, String category_name) {
         ArrayList<ProductCategory> categories = cafeteria_to_categories.get(cafe_brand);
-        if (categories!=null){
-            for (ProductCategory p_c : categories) {
-                if (p_c.getName().equals(category_name)) {
-                    return p_c;
+        if (categories != null) {
+            for (ProductCategory category : categories) {
+                if (category.getName().equals(category_name)) {
+                    return category;
                 }
             }
         }
@@ -137,7 +136,7 @@ public class MenuDAOMemory implements MenuDAO
 
     @Override
     public List<ProductCategory> findAllCategories(String cafeteria_brand) {
-        if(cafeteria_to_categories.containsKey(cafeteria_brand)) {
+        if (cafeteria_to_categories.containsKey(cafeteria_brand)) {
             return cafeteria_to_categories.get(cafeteria_brand);
         }
         return new ArrayList<>();
@@ -145,16 +144,16 @@ public class MenuDAOMemory implements MenuDAO
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {
-        if(cafeteria_to_products.containsKey(old_brand)) {
-            ArrayList<Product> products  = cafeteria_to_products.get(old_brand);
+        if (cafeteria_to_products.containsKey(old_brand)) {
+            ArrayList<Product> products = cafeteria_to_products.get(old_brand);
             cafeteria_to_products.remove(old_brand);
             cafeteria_to_products.put(new_brand, products);
         } else {
             ArrayList<Product> products = new ArrayList<Product>();
             cafeteria_to_products.put(new_brand, products);
         }
-        if(cafeteria_to_categories.containsKey(old_brand)) {
-            ArrayList<ProductCategory> categories  = cafeteria_to_categories.get(old_brand);
+        if (cafeteria_to_categories.containsKey(old_brand)) {
+            ArrayList<ProductCategory> categories = cafeteria_to_categories.get(old_brand);
             cafeteria_to_categories.remove(old_brand);
             cafeteria_to_categories.put(new_brand, categories);
         } else {

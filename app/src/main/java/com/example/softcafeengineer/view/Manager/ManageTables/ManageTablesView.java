@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Manager.ManageTables;
 
-public interface ManageTablesView
-{
+public interface ManageTablesView {
     /**
      * Dismiss popup window
      * when table is added successfully

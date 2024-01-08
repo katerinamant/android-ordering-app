@@ -1,10 +1,5 @@
 package com.example.softcafeengineer.view.Order.ViewCategories;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,13 +16,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Product;
 
 import java.util.List;
 
-public class ViewCategoriesActivity extends AppCompatActivity implements ViewCategoriesView, OrderProductRecyclerViewAdapter.ItemSelectionListener
-{
+public class ViewCategoriesActivity extends AppCompatActivity implements ViewCategoriesView, OrderProductRecyclerViewAdapter.ItemSelectionListener {
     private ViewCategoriesViewModel viewModel;
     private String brand, category, unique_id;
     private RelativeLayout relativeLayout;
@@ -44,8 +43,9 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_categories);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_view_category); // activity_view_categories.xml
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             brand = intent.getStringExtra("cafe_brand");
             category = intent.getStringExtra("category_name");
@@ -66,8 +66,6 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
         RecyclerView recyclerView_products = findViewById(R.id.recycler_view_products_order);
         recyclerView_products.setLayoutManager(new LinearLayoutManager(this));
         recyclerView_products.setAdapter(new OrderProductRecyclerViewAdapter(productList, this));
-
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_view_category); // activity_view_categories.xml
     }
 
     // -------
@@ -107,7 +105,7 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         add_to_cart_popup = new PopupWindow(pop_up, width, height, true);
-        add_to_cart_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        add_to_cart_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         chooseQuantityField = pop_up.findViewById(R.id.edit_text_choose_quantity);
         commentsField = pop_up.findViewById(R.id.edit_text_comments);
@@ -141,14 +139,15 @@ public class ViewCategoriesActivity extends AppCompatActivity implements ViewCat
 
     TextWatcher addToCartWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // Fields modified in add to cart popup
             quantity = chooseQuantityField.getText().toString();
             comments = commentsField.getText().toString();
-            if(!quantity.isEmpty()) {
+            if (!quantity.isEmpty()) {
                 // Comments are not required
                 confirmAddToCartButton.setAlpha(1.0f);
                 confirm_enabled = true;

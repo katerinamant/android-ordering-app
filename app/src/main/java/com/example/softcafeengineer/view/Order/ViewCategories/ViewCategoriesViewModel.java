@@ -9,9 +9,8 @@ import com.example.softcafeengineer.memorydao.ActiveCartsDAOMemory;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 
-public class ViewCategoriesViewModel extends ViewModel
-{
-    private ViewCategoriesPresenter presenter;
+public class ViewCategoriesViewModel extends ViewModel {
+    private final ViewCategoriesPresenter presenter;
 
     public ViewCategoriesViewModel() {
         this.presenter = new ViewCategoriesPresenter();
@@ -23,11 +22,13 @@ public class ViewCategoriesViewModel extends ViewModel
         presenter.setActiveCartsDAO(activeCartsDAO);
     }
 
-    public ViewCategoriesPresenter getPresenter() { return this.presenter; }
+    public ViewCategoriesPresenter getPresenter() {
+        return this.presenter;
+    }
 
     @Override
     protected void onCleared() {
-        super.onCleared();;
+        super.onCleared();
         // release rescources
     }
 }

@@ -1,10 +1,5 @@
 package com.example.softcafeengineer.view.Order.ViewCart;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +16,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.OrderInfo;
 import com.example.softcafeengineer.view.Barista.ManageOrder.OrderListRecyclerViewAdapter;
@@ -28,8 +28,7 @@ import com.example.softcafeengineer.view.StartScreens.WelcomeScreenActivity;
 
 import java.util.List;
 
-public class ViewCartActivity extends AppCompatActivity implements ViewCartView, OrderListRecyclerViewAdapter.ItemSelectionListener
-{
+public class ViewCartActivity extends AppCompatActivity implements ViewCartView, OrderListRecyclerViewAdapter.ItemSelectionListener {
     private ViewCartViewModel viewModel;
     private String unique_id;
     private RelativeLayout relativeLayout;
@@ -50,7 +49,7 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         setContentView(R.layout.activity_view_cart);
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_view_cart); // activity_view_cart.xml layout
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             unique_id = intent.getStringExtra("unique_id");
         }
@@ -60,8 +59,9 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
 
         List<OrderInfo> orderList = viewModel.getPresenter().getOrderResults();
 
-        TextView total_cost = findViewById(R.id.cart_total_cost);
-        total_cost.setText(String.format("%.2f 💶", viewModel.getPresenter().getTotalCost()));
+        TextView totalCostText = findViewById(R.id.cart_total_cost);
+        double total_cost = viewModel.getPresenter().getTotalCost();
+        totalCostText.setText(String.format("%.2f 💶", total_cost));
 
         // Recycler view
         RecyclerView recyclerView = findViewById(R.id.recycler_view_cart);
@@ -123,7 +123,7 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_cart_popup = new PopupWindow(pop_up, width, height, true);
-        edit_cart_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_cart_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         editQuantityField = pop_up.findViewById(R.id.edit_text_choose_quantity);
         editQuantityField.setText(String.format("%d", prev_quantity));
@@ -145,14 +145,15 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
             // inside the edit cart pop up
             @Override
             public void onClick(View v) {
-                edit_cart_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                edit_cart_popup.dismiss();
             }
         });
     }
 
     TextWatcher editOrderInfoWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -160,7 +161,7 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
             text_changed = true;
             newQuantity = editQuantityField.getText().toString();
             newComments = editCommentsField.getText().toString();
-            if(!newQuantity.isEmpty()) {
+            if (!newQuantity.isEmpty()) {
                 // Comments are not required
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
@@ -181,7 +182,7 @@ public class ViewCartActivity extends AppCompatActivity implements ViewCartView,
         // inside the edit cart pop up
         @Override
         public void onClick(View v) {
-            viewModel.getPresenter().onEditOrderInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments,  newQuantity, newComments);
+            viewModel.getPresenter().onEditOrderInfo(selected_order_info, confirm_edit_enabled, text_changed, prev_quantity, prev_comments, newQuantity, newComments);
         }
     };
 }

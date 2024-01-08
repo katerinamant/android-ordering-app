@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Order.ViewCart;
 
-public interface ViewCartView
-{
+public interface ViewCartView {
     /**
      * User successfully
      * submitted their order

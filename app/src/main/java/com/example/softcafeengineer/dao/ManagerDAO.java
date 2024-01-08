@@ -2,8 +2,7 @@ package com.example.softcafeengineer.dao;
 
 import com.example.softcafeengineer.domain.User;
 
-public interface ManagerDAO
-{
+public interface ManagerDAO {
     /**
      * Look up user by
      * username and password

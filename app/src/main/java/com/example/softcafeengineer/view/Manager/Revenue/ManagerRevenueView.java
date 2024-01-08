@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Manager.Revenue;
 
-public interface ManagerRevenueView
-{
+public interface ManagerRevenueView {
     /**
      * Updates monthly and daily total
      * shown based on year, month and day selected

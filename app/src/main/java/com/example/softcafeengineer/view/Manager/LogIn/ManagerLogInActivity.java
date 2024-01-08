@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.LogIn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
 
-public class ManagerLogInActivity extends AppCompatActivity implements ManagerLogInView
-{
+public class ManagerLogInActivity extends AppCompatActivity implements ManagerLogInView {
     private EditText usernameField, passwordField;
     private Button loginButton;
     private boolean login_button_enabled;
@@ -44,19 +43,22 @@ public class ManagerLogInActivity extends AppCompatActivity implements ManagerLo
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onLogin(login_button_enabled, username, password); }
+            public void onClick(View view) {
+                presenter.onLogin(login_button_enabled, username, password);
+            }
         });
     }
 
     TextWatcher loginWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             username = usernameField.getText().toString();
             password = passwordField.getText().toString();
-            if(!username.isEmpty() && !password.isEmpty()) {
+            if (!username.isEmpty() && !password.isEmpty()) {
                 loginButton.setAlpha(1.0f);
                 login_button_enabled = true;
             } else {

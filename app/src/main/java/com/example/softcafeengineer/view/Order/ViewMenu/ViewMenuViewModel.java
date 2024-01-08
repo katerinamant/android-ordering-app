@@ -8,9 +8,8 @@ import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 
 
-public class ViewMenuViewModel extends ViewModel
-{
-    private ViewMenuPresenter presenter;
+public class ViewMenuViewModel extends ViewModel {
+    private final ViewMenuPresenter presenter;
 
     public ViewMenuViewModel() {
         this.presenter = new ViewMenuPresenter();

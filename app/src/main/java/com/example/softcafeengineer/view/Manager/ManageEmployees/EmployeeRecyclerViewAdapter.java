@@ -18,10 +18,11 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
     private final List<Barista> mValues;
     private final ItemSelectionListener listener;
 
-    public EmployeeRecyclerViewAdapter(List<Barista> items, ItemSelectionListener listener){
+    public EmployeeRecyclerViewAdapter(List<Barista> items, ItemSelectionListener listener) {
         this.mValues = items;
         this.listener = listener;
     }
+
     @NonNull
     @Override
     public EmployeeRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,10 +32,12 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
     @Override
     public void onBindViewHolder(@NonNull EmployeeRecyclerViewAdapter.ViewHolder holder, int position) {
         final Barista currentEmployee = mValues.get(position);
-        holder.employee_username.setText(String.valueOf(currentEmployee.getUsername()));
-        holder.employee_password.setText(String.valueOf(currentEmployee.getPassword()));
+        String username = currentEmployee.getUsername();
+        holder.employee_username.setText(username);
+        String password = currentEmployee.getPassword();
+        holder.employee_password.setText(password);
 
-        holder.edit_button.setOnClickListener(new View.OnClickListener(){
+        holder.edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.editEmployee(currentEmployee);
@@ -52,6 +55,7 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
     public int getItemCount() {
         return mValues.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView employee_password, employee_username;
         public final Button edit_button, delete_button;
@@ -64,7 +68,8 @@ public class EmployeeRecyclerViewAdapter extends RecyclerView.Adapter<EmployeeRe
             delete_button = view.findViewById(R.id.employee_layout_btn_delete);
         }
     }
-    public interface ItemSelectionListener{
+
+    public interface ItemSelectionListener {
         /**
          * User clicked the "Edit"
          * button for a specific employee

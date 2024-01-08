@@ -9,8 +9,7 @@ import com.example.softcafeengineer.domain.ProductCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditCategoriesPresenter
-{
+public class EditCategoriesPresenter {
     private EditCategoriesView view;
     private MenuDAO menuDAO;
     private CafeteriaDAO cafeteriaDAO;
@@ -19,21 +18,19 @@ public class EditCategoriesPresenter
     private Cafeteria cafe;
     private List<Product> productResults = new ArrayList<Product>();
 
-    public void setMenuDAO(MenuDAO menuDAO)
-    {
+    public void setMenuDAO(MenuDAO menuDAO) {
         this.menuDAO = menuDAO;
     }
-    public MenuDAO getMenuDAO()
-    {
+
+    public MenuDAO getMenuDAO() {
         return this.menuDAO;
     }
 
-    public void setCafeteriaDAO(CafeteriaDAO cafeteriaDAO)
-    {
+    public void setCafeteriaDAO(CafeteriaDAO cafeteriaDAO) {
         this.cafeteriaDAO = cafeteriaDAO;
     }
-    public CafeteriaDAO getCafeteriaDAO()
-    {
+
+    public CafeteriaDAO getCafeteriaDAO() {
         return this.cafeteriaDAO;
     }
 
@@ -49,42 +46,50 @@ public class EditCategoriesPresenter
         this.cafe_brand = brand;
         this.findAllProducts();
     }
-    public String getBrand()
-    {
+
+    public String getBrand() {
         return this.cafe_brand;
     }
 
-    public String getCategoryName() { return this.category.getName(); }
+    public String getCategoryName() {
+        return this.category.getName();
+    }
 
-    public String getCategoryDesc() { return this.category.getDescription(); }
+    public String getCategoryDesc() {
+        return this.category.getDescription();
+    }
 
     public void findAllProducts() {
         this.productResults.clear();
         this.productResults = menuDAO.findAllProductsOfCategory(this.cafe_brand, this.category);
     }
+
     public List<Product> getProductResults() {
         return this.productResults;
     }
 
     public void onEditCategory(boolean confirm_edit_enabled, boolean text_changed, String prev_name, String prev_desc, String name, String desc) {
-        if(!confirm_edit_enabled) {
+        if (!confirm_edit_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
-        } else if(!text_changed) {
+            return;
+        }
+        if (!text_changed) {
             // Fields filled and no text changed
             view.successfulEditCategory();
-        } else {
-            // Fields filled and text changed
-            if(!name.equals(prev_name) && menuDAO.categoryExists(this.cafe_brand, name)) {
-                // Name is in use, showing error
-                view.showError("Name is taken.", "Please provide a different category name.");
-            } else {
-                // Update product category object
-                if(!name.equals(prev_name)) this.category.setName(name);
-                if(!desc.equals(prev_desc)) this.category.setDescription(desc);
+            return;
+        }
 
-                view.successfulEditCategory();
-            }
+        // Fields filled and text changed
+        if (!name.equals(prev_name) && menuDAO.categoryExists(this.cafe_brand, name)) {
+            // Name is in use, showing error
+            view.showError("Name is taken.", "Please provide a different category name.");
+        } else {
+            // Update product category object
+            if (!name.equals(prev_name)) this.category.setName(name);
+            if (!desc.equals(prev_desc)) this.category.setDescription(desc);
+
+            view.successfulEditCategory();
         }
     }
 
@@ -94,17 +99,18 @@ public class EditCategoriesPresenter
     }
 
     public void onAddProduct(boolean addProductEnabled, String name, String price_string, boolean availability) {
-        if (!addProductEnabled){
+        if (!addProductEnabled) {
             view.showToast("Please fill all the required fields.");
+            return;
+        }
+
+        if (this.menuDAO.productExists(this.cafe_brand, name)) {
+            view.showError("Name is taken.", "Please provide a different product name.");
         } else {
-            if (this.menuDAO.productExists(this.cafe_brand, name)) {
-                view.showError("Name is taken.", "Please provide a different product name.");
-            } else {
-                double price = Double.parseDouble(price_string);
-                Product product = new Product(price, name, availability, this.category, this.cafe);
-                menuDAO.saveProduct(product);
-                view.successfulNewProduct();
-            }
+            double price = Double.parseDouble(price_string);
+            Product product = new Product(price, name, availability, this.category, this.cafe);
+            menuDAO.saveProduct(product);
+            view.successfulNewProduct();
         }
     }
 
@@ -114,25 +120,28 @@ public class EditCategoriesPresenter
     }
 
     public void onEditProduct(Product product, boolean confirm_edit_enabled, boolean text_changed, String prev_name, double prev_price, String name, String price_string) {
-        if(!confirm_edit_enabled) {
+        if (!confirm_edit_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
-        } else if(!text_changed) {
+            return;
+        }
+        if (!text_changed) {
             // Fields filled and no text changed
             view.successfulEditProduct();
-        } else {
-            // Fields filled and text changed
-            if(!name.equals(prev_name) && menuDAO.productExists(this.cafe_brand, name)) {
-                // Name is in use, showing error
-                view.showError("Name is taken.", "Please provide a different product name.");
-            } else {
-                // Update product object
-                double price = Double.parseDouble(price_string);
-                if(!name.equals(prev_name)) product.setName(name);
-                if(price != prev_price) product.setPrice(price);
+            return;
+        }
 
-                view.successfulEditProduct();
-            }
+        // Fields filled and text changed
+        if (!name.equals(prev_name) && menuDAO.productExists(this.cafe_brand, name)) {
+            // Name is in use, showing error
+            view.showError("Name is taken.", "Please provide a different product name.");
+        } else {
+            // Update product object
+            double price = Double.parseDouble(price_string);
+            if (!name.equals(prev_name)) product.setName(name);
+            if (price != prev_price) product.setPrice(price);
+
+            view.successfulEditProduct();
         }
     }
 

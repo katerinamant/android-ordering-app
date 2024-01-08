@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Barista.ManageOrder;
 
-public interface ManageOrderView
-{
+public interface ManageOrderView {
     /**
      * Barista successfully changed
      * the order's status to IN_PROGRESS

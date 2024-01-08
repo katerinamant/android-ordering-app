@@ -1,40 +1,47 @@
 package com.example.softcafeengineer.view.Manager.ManageTables;
 
-import com.example.softcafeengineer.view.Manager.ManageEmployees.ManageEmployeesPresenter;
-
-public class ManageTablesViewStub implements ManageTablesView
-{
+public class ManageTablesViewStub implements ManageTablesView {
     private String QRCode, tableID, errorTitle, errorMessage, toastMessage;
 
     private ManageTablesPresenter presenter;
-    public ManageTablesViewStub(){
+
+    public ManageTablesViewStub() {
         QRCode = tableID = errorMessage = errorTitle = toastMessage = "";
     }
-    public String getQRCode(){
+
+    public String getQRCode() {
         return QRCode;
     }
-    public String getTableID(){
+
+    public String getTableID() {
         return tableID;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public ManageTablesPresenter getPresenter(){
+
+    public ManageTablesPresenter getPresenter() {
         return presenter;
     }
-    public void setQRCode(String QRCode){
+
+    public void setQRCode(String QRCode) {
         this.QRCode = QRCode;
     }
-    public void setTableID(String tableID){
+
+    public void setTableID(String tableID) {
         this.tableID = tableID;
     }
-    public void setPresenter(ManageTablesPresenter presenter){
+
+    public void setPresenter(ManageTablesPresenter presenter) {
         this.presenter = presenter;
     }
 

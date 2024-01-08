@@ -2,8 +2,7 @@ package com.example.softcafeengineer.dao;
 
 import com.example.softcafeengineer.domain.InvalidDateException;
 
-public interface RevenueDAO
-{
+public interface RevenueDAO {
     /**
      * Add new Cafeteria to HashMap
      */

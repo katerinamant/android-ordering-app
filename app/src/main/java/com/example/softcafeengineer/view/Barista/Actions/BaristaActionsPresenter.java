@@ -9,21 +9,30 @@ import com.example.softcafeengineer.domain.Status;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaristaActionsPresenter
-{
+public class BaristaActionsPresenter {
     private ActiveOrdersDAO activeOrdersDAO;
     private RevenueDAO revenueDAO;
     private BaristaActionsView view;
     private String cafe_brand;
     private String barista_username;
     private int day;
-    private List<Order> orderResults = new ArrayList<>();
+    private final List<Order> orderResults = new ArrayList<>();
 
-    public void setActiveOrdersDAO(ActiveOrdersDAO activeOrdersDAO) { this.activeOrdersDAO = activeOrdersDAO; }
-    public ActiveOrdersDAO getActiveOrdersDAO() { return this.activeOrdersDAO; }
+    public void setActiveOrdersDAO(ActiveOrdersDAO activeOrdersDAO) {
+        this.activeOrdersDAO = activeOrdersDAO;
+    }
 
-    public void setRevenueDAO(RevenueDAO revenueDAO) { this.revenueDAO = revenueDAO; }
-    public RevenueDAO getRevenueDAO() { return this.revenueDAO; }
+    public ActiveOrdersDAO getActiveOrdersDAO() {
+        return this.activeOrdersDAO;
+    }
+
+    public void setRevenueDAO(RevenueDAO revenueDAO) {
+        this.revenueDAO = revenueDAO;
+    }
+
+    public RevenueDAO getRevenueDAO() {
+        return this.revenueDAO;
+    }
 
     public void setBrand(String brand) {
         // Set cafe brand
@@ -31,15 +40,21 @@ public class BaristaActionsPresenter
         this.cafe_brand = brand;
         this.findAll(this.cafe_brand);
     }
-    public String getBrand() { return this.cafe_brand; }
 
-    public void setBaristaUsername(String username) { this.barista_username = username; }
-    public String getBaristaUsername() { return this.barista_username; }
+    public String getBrand() {
+        return this.cafe_brand;
+    }
 
-    public void setView(BaristaActionsView view) { this.view = view; }
+    public void setBaristaUsername(String username) {
+        this.barista_username = username;
+    }
 
-    public void setDate(int day, int month, int year) {
-        this.day = day;
+    public String getBaristaUsername() {
+        return this.barista_username;
+    }
+
+    public void setView(BaristaActionsView view) {
+        this.view = view;
     }
 
     public void findAll(String brand) {
@@ -54,9 +69,9 @@ public class BaristaActionsPresenter
             Status status = order.getOrderStatus();
             Barista barista = order.getBarista();
 
-            if(status == Status.CANCELED) continue;
+            if (status == Status.CANCELED) continue;
 
-            if(status == Status.WAITING) {
+            if (status == Status.WAITING) {
                 this.orderResults.add(order);
                 continue;
             }
@@ -64,13 +79,15 @@ public class BaristaActionsPresenter
             // Barista is only null
             // when the order has not been assigned
             String barista_username = barista.getUsername();
-            if(status == Status.IN_PROGRESS && barista_username.equals((this.barista_username))) {
+            if (status == Status.IN_PROGRESS && barista_username.equals((this.barista_username))) {
                 this.orderResults.add(order);
             }
         }
     }
 
-    public List<Order> getOrderResults() { return this.orderResults; }
+    public List<Order> getOrderResults() {
+        return this.orderResults;
+    }
 
     public void onLogOutButton() {
         view.onLogOut();

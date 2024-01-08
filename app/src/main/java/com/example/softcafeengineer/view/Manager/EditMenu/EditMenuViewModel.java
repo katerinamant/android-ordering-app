@@ -3,13 +3,12 @@ package com.example.softcafeengineer.view.Manager.EditMenu;
 import androidx.lifecycle.ViewModel;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
+import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
-import com.example.softcafeengineer.dao.MenuDAO;
 
-public class EditMenuViewModel extends ViewModel
-{
-    private EditMenuPresenter presenter;
+public class EditMenuViewModel extends ViewModel {
+    private final EditMenuPresenter presenter;
 
     public EditMenuViewModel() {
         this.presenter = new EditMenuPresenter();

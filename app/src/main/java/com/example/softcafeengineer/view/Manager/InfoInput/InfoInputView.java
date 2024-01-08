@@ -2,8 +2,7 @@ package com.example.softcafeengineer.view.Manager.InfoInput;
 
 import com.example.softcafeengineer.domain.Cafeteria;
 
-public interface InfoInputView
-{
+public interface InfoInputView {
     /**
      * When the user clicks on the "Finish" button
      * with valid credentials

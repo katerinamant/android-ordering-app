@@ -1,40 +1,49 @@
 package com.example.softcafeengineer.view.Manager.ManageEmployees;
 
-public class ManageEmployeesViewStub implements ManageEmployeesView
-{
+public class ManageEmployeesViewStub implements ManageEmployeesView {
     private String username, password, errorTitle, errorMessage, toastMessage;
     private ManageEmployeesPresenter presenter;
 
-    public ManageEmployeesViewStub(){
+    public ManageEmployeesViewStub() {
         username = password = errorTitle = errorMessage = toastMessage = "";
     }
-    public String getUsername(){
+
+    public String getUsername() {
         return username;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public ManageEmployeesPresenter getPresenter(){
+
+    public ManageEmployeesPresenter getPresenter() {
         return presenter;
     }
-    public void setUsername(String username){
+
+    public void setUsername(String username) {
         this.username = username;
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    public void setPresenter(ManageEmployeesPresenter presenter){
+
+    public void setPresenter(ManageEmployeesPresenter presenter) {
         this.presenter = presenter;
     }
+
     @Override
     public void successfulNewEmployee() {
 

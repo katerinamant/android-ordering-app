@@ -4,21 +4,26 @@ public class EditCategoriesViewStub implements EditCategoriesView {
     private String errorTitle, errorMessage, toastMessage;
     private EditCategoriesPresenter presenter;
 
-    public EditCategoriesPresenter getPresenter(){
+    public EditCategoriesPresenter getPresenter() {
         return presenter;
     }
-    public void setPresenter(EditCategoriesPresenter presenter){
+
+    public void setPresenter(EditCategoriesPresenter presenter) {
         this.presenter = presenter;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
+
     @Override
     public void successfulEditCategory() {
 

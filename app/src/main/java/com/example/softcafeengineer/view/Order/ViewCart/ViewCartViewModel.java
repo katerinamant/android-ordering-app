@@ -7,9 +7,8 @@ import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.memorydao.ActiveCartsDAOMemory;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 
-public class ViewCartViewModel extends ViewModel
-{
-    private ViewCartPresenter presenter;
+public class ViewCartViewModel extends ViewModel {
+    private final ViewCartPresenter presenter;
 
     public ViewCartViewModel() {
         this.presenter = new ViewCartPresenter();
@@ -19,7 +18,9 @@ public class ViewCartViewModel extends ViewModel
         presenter.setActiveCartsDAO(activeCartsDAO);
     }
 
-    public ViewCartPresenter getPresenter() { return this.presenter; }
+    public ViewCartPresenter getPresenter() {
+        return this.presenter;
+    }
 
     @Override
     protected void onCleared() {

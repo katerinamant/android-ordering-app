@@ -14,8 +14,7 @@ import com.example.softcafeengineer.domain.Order;
 
 import java.util.List;
 
-public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<ActiveOrdersRecyclerViewAdapter.ViewHolder>
-{
+public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<ActiveOrdersRecyclerViewAdapter.ViewHolder> {
     private final List<Order> mValues;
     private final ItemSelectionListener listener;
 
@@ -33,8 +32,10 @@ public class ActiveOrdersRecyclerViewAdapter extends RecyclerView.Adapter<Active
     @Override
     public void onBindViewHolder(@NonNull ActiveOrdersRecyclerViewAdapter.ViewHolder holder, int position) {
         final Order currentOrder = mValues.get(position);
-        holder.tableNumber.setText(String.valueOf(currentOrder.getTable().getId()));
-        holder.totalCost.setText(String.format("%.2f 💶", currentOrder.getTotalCost()));
+        int table_number = currentOrder.getTable().getId();
+        holder.tableNumber.setText(String.valueOf(table_number));
+        double total_cost = currentOrder.getTotalCost();
+        holder.totalCost.setText(String.format("%.2f 💶", total_cost));
 
         holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override

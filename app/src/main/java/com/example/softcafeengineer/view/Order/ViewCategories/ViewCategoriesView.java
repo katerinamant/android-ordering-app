@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Order.ViewCategories;
 
-public interface ViewCategoriesView
-{
+public interface ViewCategoriesView {
     /**
      * User successfully
      * added new product

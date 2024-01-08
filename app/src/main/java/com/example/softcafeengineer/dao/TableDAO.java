@@ -4,8 +4,7 @@ import com.example.softcafeengineer.domain.Table;
 
 import java.util.List;
 
-public interface TableDAO
-{
+public interface TableDAO {
     /**
      * Look up table by
      * unique id
@@ -19,10 +18,10 @@ public interface TableDAO
     List<Table> findAll(String cafeteria_brand);
 
     /**
-     * Check to see if id
+     * Check to see if unique id
      * is already in use.
      */
-    boolean exists(String id);
+    boolean exists(String unique_id);
 
     /**
      * Save new table

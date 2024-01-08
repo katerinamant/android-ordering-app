@@ -14,8 +14,7 @@ import com.example.softcafeengineer.domain.Product;
 
 import java.util.List;
 
-public class OrderProductRecyclerViewAdapter extends RecyclerView.Adapter<OrderProductRecyclerViewAdapter.ViewHolder>
-{
+public class OrderProductRecyclerViewAdapter extends RecyclerView.Adapter<OrderProductRecyclerViewAdapter.ViewHolder> {
     private final List<Product> mValues;
     private final OrderProductRecyclerViewAdapter.ItemSelectionListener listener;
 
@@ -33,12 +32,16 @@ public class OrderProductRecyclerViewAdapter extends RecyclerView.Adapter<OrderP
     @Override
     public void onBindViewHolder(@NonNull OrderProductRecyclerViewAdapter.ViewHolder holder, int position) {
         final Product currentProduct = mValues.get(position);
-        holder.name.setText(String.valueOf(currentProduct.getName()));
-        holder.price.setText(String.format("%s 💶",String.valueOf(currentProduct.getPrice())));
+        String name = currentProduct.getName();
+        holder.name.setText(name);
+        double price = currentProduct.getPrice();
+        holder.price.setText(String.format("%s 💶",price));
 
         holder.add_to_cart_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { listener.addProductToCart(currentProduct); }
+            public void onClick(View v) {
+                listener.addProductToCart(currentProduct);
+            }
         });
     }
 
@@ -60,7 +63,7 @@ public class OrderProductRecyclerViewAdapter extends RecyclerView.Adapter<OrderP
         }
     }
 
-    public interface  ItemSelectionListener {
+    public interface ItemSelectionListener {
         /**
          * User clicked the "Add to cart"
          * button for a specific product

@@ -1,4 +1,5 @@
 package com.example.softcafeengineer.view.Barista.Actions;
+
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.RevenueDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
@@ -17,11 +18,11 @@ public class BaristaActionsPresenterTest {
     private Cafeteria cafe;
 
     /**
-     *  initializing all the objects needed to run tests for the
-     *  BaristaActionsPresenter methods
+     * initializing all the objects needed to run tests for the
+     * BaristaActionsPresenter methods
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         view = new BaristaActionsViewStub();
         activeOrdersDAO = new ActiveOrdersDAOMemory();
         revenueDAO = new RevenueDAOMemory();
@@ -36,41 +37,41 @@ public class BaristaActionsPresenterTest {
     }
 
     /**
-     *  testing whether the method getOrderResults returns correctly all
-     *  of the orders under this cafeteria brand
+     * testing whether the method getOrderResults returns correctly all
+     * of the orders under this cafeteria brand
      */
     @Test
-    public void testGetOrderResults(){
+    public void testGetOrderResults() {
         // TODO: Update according to changes
         Assert.assertEquals(presenter.getOrderResults(), activeOrdersDAO.findAll(presenter.getBrand()));
     }
 
     /**
-     *  testing whether the method getBrand returns correctly the cafeteria
-     *  brand this BaristaActionsPresenter belongs to
+     * testing whether the method getBrand returns correctly the cafeteria
+     * brand this BaristaActionsPresenter belongs to
      */
     @Test
-    public void testGetBrand(){
+    public void testGetBrand() {
         Assert.assertEquals(presenter.getBrand(), cafe.getBrand());
     }
 
     // TODO: add test for get username
 
     /**
-     *  testing whether the method getRevenueDAO returns the correct
-     *  RevenueDAO object
+     * testing whether the method getRevenueDAO returns the correct
+     * RevenueDAO object
      */
     @Test
-    public void testGetRevenueDAO(){
+    public void testGetRevenueDAO() {
         Assert.assertEquals(presenter.getRevenueDAO(), revenueDAO);
     }
 
     /**
-     *  testing whether the method getActiveOrdersDAO returns the correct
-     *  ActiveOrdersDAO object
+     * testing whether the method getActiveOrdersDAO returns the correct
+     * ActiveOrdersDAO object
      */
     @Test
-    public void testGetActiveOrdersDAO(){
+    public void testGetActiveOrdersDAO() {
         Assert.assertEquals(presenter.getActiveOrdersDAO(), activeOrdersDAO);
     }
 }

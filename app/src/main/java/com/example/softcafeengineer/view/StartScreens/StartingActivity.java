@@ -1,9 +1,9 @@
 package com.example.softcafeengineer.view.StartScreens;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.dao.BaristaDAO;
@@ -24,10 +24,8 @@ import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
-import com.example.softcafeengineer.view.Manager.SignUp.ManagerSignUpActivity;
 
-public class StartingActivity extends AppCompatActivity
-{
+public class StartingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

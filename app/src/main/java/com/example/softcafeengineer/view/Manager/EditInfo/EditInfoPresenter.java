@@ -9,14 +9,14 @@ import com.example.softcafeengineer.dao.TableDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
 
 public class EditInfoPresenter {
-    private EditInfoView view;
-    private ActiveOrdersDAO activeOrdersDAO;
-    private BaristaDAO baristaDAO;
-    private CafeteriaDAO cafeteriaDAO;
-    private MenuDAO menuDAO;
-    private RevenueDAO revenueDAO;
-    private TableDAO tableDAO;
-    private Cafeteria cafe;
+    private final EditInfoView view;
+    private final ActiveOrdersDAO activeOrdersDAO;
+    private final BaristaDAO baristaDAO;
+    private final CafeteriaDAO cafeteriaDAO;
+    private final MenuDAO menuDAO;
+    private final RevenueDAO revenueDAO;
+    private final TableDAO tableDAO;
+    private final Cafeteria cafe;
 
     public EditInfoPresenter(EditInfoView view, String brand, ActiveOrdersDAO activeOrdersDAO, BaristaDAO baristaDAO, CafeteriaDAO cafeteriaDAO, MenuDAO menuDAO, RevenueDAO revenueDAO, TableDAO tableDAO) {
         this.view = view;
@@ -37,22 +37,25 @@ public class EditInfoPresenter {
         if (!finish_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill all the required fields.");
-        } else if (!text_changed) {
+            return;
+        }
+        if (!text_changed) {
             // Fields filled and no text changed
             view.successfulFinish(this.cafe);
+            return;
+        }
+
+        // Fields filled and text changed
+        if (phoneNum.length() != 10) {
+            view.showToast("Invalid phone number. Must contain 10 characters.");
+        } else if (tin.length() != 9) {
+            view.showToast("Invalid TIN. Must contain 9 characters.");
+        } else if (!brand.equals(prev_brand) && cafeteriaDAO.exists(brand)) {
+            // Brand changed and new one is taken
+            view.showToast("This brand is already in use.");
         } else {
-            // Fields filled and text changed
-            if (phoneNum.length() != 10) {
-                view.showToast("Invalid phone number. Must contain 10 characters.");
-            } else if (tin.length() != 9) {
-                view.showToast("Invalid TIN. Must contain 9 characters.");
-            } else if (!brand.equals(prev_brand) && cafeteriaDAO.exists(brand)) {
-                // Brand changed and new one is taken
-                view.showToast("This brand is already in use.");
-            } else {
-                // The user is shown a confirm changes popup
-                view.validFinish();
-            }
+            // The user is shown a confirm changes popup
+            view.validFinish();
         }
     }
 

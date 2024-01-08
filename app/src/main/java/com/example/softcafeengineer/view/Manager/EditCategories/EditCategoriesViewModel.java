@@ -7,9 +7,8 @@ import com.example.softcafeengineer.dao.MenuDAO;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.MenuDAOMemory;
 
-public class EditCategoriesViewModel extends ViewModel
-{
-    private EditCategoriesPresenter presenter;
+public class EditCategoriesViewModel extends ViewModel {
+    private final EditCategoriesPresenter presenter;
 
     public EditCategoriesViewModel() {
         this.presenter = new EditCategoriesPresenter();

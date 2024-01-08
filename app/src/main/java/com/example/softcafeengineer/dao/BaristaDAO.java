@@ -4,8 +4,7 @@ import com.example.softcafeengineer.domain.Barista;
 
 import java.util.List;
 
-public interface BaristaDAO
-{
+public interface BaristaDAO {
     /**
      * Look up barista by
      * username and password

@@ -1,24 +1,23 @@
 package com.example.softcafeengineer.view.Manager.SignUp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Toast;
-import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.User;
-import com.example.softcafeengineer.memorydao.ManagerDAOMemory ;
+import com.example.softcafeengineer.memorydao.ManagerDAOMemory;
 import com.example.softcafeengineer.view.Manager.InfoInput.InfoInputActivity;
 
-public class ManagerSignUpActivity extends AppCompatActivity implements ManagerSignUpView
-{
+public class ManagerSignUpActivity extends AppCompatActivity implements ManagerSignUpView {
     private EditText usernameField, passwordField;
     private Button continueButton;
     private boolean continue_button_enabled;
@@ -43,19 +42,22 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onContinue(continue_button_enabled, username, password); }
+            public void onClick(View view) {
+                presenter.onContinue(continue_button_enabled, username, password);
+            }
         });
     }
 
     TextWatcher signUpWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             username = usernameField.getText().toString();
             password = passwordField.getText().toString();
-            if(!username.isEmpty() && !password.isEmpty()) {
+            if (!username.isEmpty() && !password.isEmpty()) {
                 continueButton.setAlpha(1.0f);
                 continue_button_enabled = true;
             } else {
@@ -72,13 +74,13 @@ public class ManagerSignUpActivity extends AppCompatActivity implements ManagerS
     @Override
     public void successfulContinue(User newUser) {
         Intent intent = new Intent(ManagerSignUpActivity.this, InfoInputActivity.class);
-        intent.putExtra("user", (Parcelable) newUser);
+        intent.putExtra("username", newUser.getUsername());
+        intent.putExtra("password", newUser.getPassword());
         startActivity(intent);
     }
 
     @Override
-    public void showToast(String msg)
-    {
+    public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,10 +1,5 @@
 package com.example.softcafeengineer.view.Barista.ManageOrder;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,14 +16,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.OrderInfo;
 import com.example.softcafeengineer.view.Barista.Actions.BaristaActionsActivity;
 
 import java.util.List;
 
-public class ManageOrderActivity extends AppCompatActivity implements ManageOrderView, OrderListRecyclerViewAdapter.ItemSelectionListener
-{
+public class ManageOrderActivity extends AppCompatActivity implements ManageOrderView, OrderListRecyclerViewAdapter.ItemSelectionListener {
     private ManageOrderViewModel viewModel;
     private String username, password, brand;
     private int table_number;
@@ -50,8 +49,9 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_order);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_order); // activity_manage_order.xml layout
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             username = intent.getStringExtra("username");
             password = intent.getStringExtra("password");
@@ -70,11 +70,11 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
         table_number_text.setText(table_number_string);
 
         TextView total_cost_text = findViewById(R.id.manage_order_total_cost);
-        String total_cost_string = String.format("%.2f 💶", viewModel.getPresenter().getTotalCost());
-        total_cost_text.setText(total_cost_string);
+        double total_cost = viewModel.getPresenter().getTotalCost();
+        total_cost_text.setText(String.format("%.2f 💶", total_cost));
 
         TextView order_status_text = findViewById(R.id.manage_order_status);
-        String order_status_string = viewModel.getPresenter().getOrderStatus().toString();
+        String order_status_string = viewModel.getPresenter().getOrderStatus();
         order_status_text.setText(order_status_string);
 
         // Recycler view
@@ -83,7 +83,6 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
         recyclerView.setAdapter(new OrderListRecyclerViewAdapter(orderList, this));
 
         Button changeStatusButton = findViewById(R.id.btn_manage_order_status); // "Change status" button
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_manage_order); // activity_manage_order.xml layout
         changeStatusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,11 +90,11 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
                 LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 View pop_up = layoutInflater.inflate(R.layout.popup_change_order_status, null);
 
-                // Create and show add table popup
+                // Create and show change order status popup
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 change_status_popup = new PopupWindow(pop_up, width, height, true);
-                change_status_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+                change_status_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
                 Button waitingButton = pop_up.findViewById(R.id.btn_change_status_to_waiting);
                 waitingButton.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +103,7 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
                         viewModel.getPresenter().onWaitingStatus();
                     }
                 });
+
                 Button inProgressButton = pop_up.findViewById(R.id.btn_change_status_to_in_progress);
                 inProgressButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -111,6 +111,7 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
                         viewModel.getPresenter().onInProgressStatus();
                     }
                 });
+
                 Button completedButton = pop_up.findViewById(R.id.btn_change_status_to_completed);
                 completedButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -118,6 +119,7 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
                         viewModel.getPresenter().onCompletedStatus();
                     }
                 });
+
                 Button canceledButton = pop_up.findViewById(R.id.btn_change_status_to_canceled);
                 canceledButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -192,11 +194,11 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_edit_order_info, null);
 
-        // Create and show edit table popup
+        // Create and show edit order info popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         edit_order_info_popup = new PopupWindow(pop_up, width, height, true);
-        edit_order_info_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        edit_order_info_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         editQuantityField = pop_up.findViewById(R.id.edit_text_order_info_quantity);
         editQuantityField.setText(String.format("%d", prev_quantity));
@@ -222,14 +224,15 @@ public class ManageOrderActivity extends AppCompatActivity implements ManageOrde
 
     TextWatcher editOrderInfoWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // Field modified in edit order info popup
             text_changed = true;
             newQuantity = editQuantityField.getText().toString();
-            if(!newQuantity.isEmpty()) {
+            if (!newQuantity.isEmpty()) {
                 confirmEditButton.setAlpha(1.0f);
                 confirm_edit_enabled = true;
             } else {

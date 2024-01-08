@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Barista.LogIn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,13 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.memorydao.BaristaDAOMemory;
 import com.example.softcafeengineer.view.Barista.Actions.BaristaActionsActivity;
 
-public class BaristaLogInActivity extends AppCompatActivity implements BaristaLogInView
-{
+public class BaristaLogInActivity extends AppCompatActivity implements BaristaLogInView {
     private EditText usernameField, passwordField;
     private Button loginButton;
     private boolean login_button_enabled;
@@ -44,7 +43,9 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.onLogin(login_button_enabled, username, password); }
+            public void onClick(View view) {
+                presenter.onLogin(login_button_enabled, username, password);
+            }
         });
     }
 
@@ -57,7 +58,7 @@ public class BaristaLogInActivity extends AppCompatActivity implements BaristaLo
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             username = usernameField.getText().toString();
             password = passwordField.getText().toString();
-            if(!username.isEmpty() && !password.isEmpty()) {
+            if (!username.isEmpty() && !password.isEmpty()) {
                 loginButton.setAlpha(1.0f);
                 login_button_enabled = true;
             } else {

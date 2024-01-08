@@ -2,20 +2,18 @@ package com.example.softcafeengineer.memorydao;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.domain.Cafeteria;
-import com.example.softcafeengineer.revenue.MonthlyRevenues;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class CafeteriaDAOMemory implements CafeteriaDAO
-{
+public class CafeteriaDAOMemory implements CafeteriaDAO {
     protected static List<Cafeteria> cafes = new ArrayList<Cafeteria>();
     protected static HashMap<String, Cafeteria> brand_to_cafe = new HashMap<String, Cafeteria>();
 
     @Override
     public Cafeteria find(String brand) {
-        if(brand_to_cafe.containsKey(brand)) {
+        if (brand_to_cafe.containsKey(brand)) {
             return brand_to_cafe.get(brand);
         }
         // Cafeteria not found

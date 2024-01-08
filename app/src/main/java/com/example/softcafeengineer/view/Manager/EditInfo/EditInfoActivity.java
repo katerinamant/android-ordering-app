@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.EditInfo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +14,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
@@ -26,8 +26,7 @@ import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 import com.example.softcafeengineer.view.Manager.Actions.ManagerActionsActivity;
 
-public class EditInfoActivity extends AppCompatActivity implements EditInfoView
-{
+public class EditInfoActivity extends AppCompatActivity implements EditInfoView {
     private EditInfoPresenter presenter;
     private RelativeLayout relativeLayout;
     private PopupWindow confirm_changes_popup;
@@ -49,14 +48,14 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         presenter = new EditInfoPresenter(this, prev_brand, new ActiveOrdersDAOMemory(), new BaristaDAOMemory(), new CafeteriaDAOMemory(), new MenuDAOMemory(), new RevenueDAOMemory(), new TableDAOMemory());
         Cafeteria cafe = presenter.getCafe();
 
-        prev_address = cafe.getAddress();
         addressField = findViewById(R.id.edit_txt_mngr_edit_address);
+        prev_address = cafe.getAddress();
         addressField.setText(prev_address);
-        prev_phone_number = cafe.getPhoneNumber();
         phoneNumberField = findViewById(R.id.edit_txt_mngr_edit_phone);
+        prev_phone_number = cafe.getPhoneNumber();
         phoneNumberField.setText(prev_phone_number);
-        prev_tin = cafe.getTIN();
         tinField = findViewById(R.id.edit_txt_mngr_edit_tin);
+        prev_tin = cafe.getTIN();
         tinField.setText(prev_tin);
         brandField = findViewById(R.id.edit_txt_mngr_edit_brand);
         brandField.setText(prev_brand);
@@ -75,13 +74,16 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_info); // activity_edit_info.xml layout
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onFinish(finish_button_enabled, text_changed, prev_brand, phoneNumber, tin, brand); }
+            public void onClick(View v) {
+                presenter.onFinish(finish_button_enabled, text_changed, prev_brand, phoneNumber, tin, brand);
+            }
         });
     }
 
     TextWatcher infoWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -89,7 +91,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
             phoneNumber = phoneNumberField.getText().toString();
             tin = tinField.getText().toString();
             brand = brandField.getText().toString().trim();
-            if(!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
+            if (!address.isEmpty() && !phoneNumber.isEmpty() && !tin.isEmpty() && !brand.isEmpty()) {
                 finishButton.setAlpha(1.0f);
                 finish_button_enabled = true;
                 // Text changed when at least one field has changed
@@ -112,11 +114,11 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View pop_up = layoutInflater.inflate(R.layout.popup_confirm_changes, null);
 
-        // Create and show delete table popup
+        // Create and show confirm changes popup
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         confirm_changes_popup = new PopupWindow(pop_up, width, height, true);
-        confirm_changes_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0,0);
+        confirm_changes_popup.showAtLocation(relativeLayout, Gravity.CENTER, 0, 0);
 
         Button confirmChangesButton = pop_up.findViewById(R.id.btn_final_changes);
         confirmChangesButton.setOnClickListener(onConfirmChangesButton);
@@ -127,7 +129,8 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
             // inside the confirm changes pop up
             @Override
             public void onClick(View v) {
-                confirm_changes_popup.dismiss(); // this OnClickListener is declared here so the popup window can be dismissed
+                confirm_changes_popup.dismiss();
+                confirm_changes_popup = null;
             }
         });
     }
@@ -143,7 +146,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
 
     @Override
     public void successfulFinish(Cafeteria cafe) {
-        if(confirm_changes_popup != null) {
+        if (confirm_changes_popup != null) {
             confirm_changes_popup.dismiss();
         }
         Intent intent = new Intent(EditInfoActivity.this, ManagerActionsActivity.class);

@@ -14,8 +14,7 @@ import com.example.softcafeengineer.domain.Table;
 
 import java.util.List;
 
-public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecyclerViewAdapter.ViewHolder>
-{
+public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecyclerViewAdapter.ViewHolder> {
     private final List<Table> mValues;
     private final ItemSelectionListener listener;
 
@@ -33,8 +32,10 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
     @Override
     public void onBindViewHolder(@NonNull TableRecyclerViewAdapter.ViewHolder holder, int position) {
         final Table currentTable = mValues.get(position);
-        holder.tableNumber.setText(String.valueOf(currentTable.getId()));
-        holder.tableUniqueId.setText(String.valueOf(currentTable.getQRCode()));
+        int table_number = currentTable.getId();
+        holder.tableNumber.setText(String.valueOf(table_number));
+        String unique_id = currentTable.getQRCode();
+        holder.tableUniqueId.setText(unique_id);
 
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +46,9 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { listener.deleteTable(currentTable); }
+            public void onClick(View v) {
+                listener.deleteTable(currentTable);
+            }
         });
     }
 

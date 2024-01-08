@@ -1,21 +1,25 @@
 package com.example.softcafeengineer.view.Manager.EditMenu;
 
-public class EditMenuViewStub implements EditMenuView{
+public class EditMenuViewStub implements EditMenuView {
     private String errorTitle, errorMessage, toastMessage;
 
     @Override
     public void successfulNewCategory() {
 
     }
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
+
     @Override
     public void showToast(String s) {
         toastMessage = s;

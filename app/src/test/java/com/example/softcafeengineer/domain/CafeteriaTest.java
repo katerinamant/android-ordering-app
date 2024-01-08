@@ -3,8 +3,7 @@ package com.example.softcafeengineer.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CafeteriaTest
-{
+public class CafeteriaTest {
     @Test
     public void set_values() {
         Cafeteria cafe = new Cafeteria();

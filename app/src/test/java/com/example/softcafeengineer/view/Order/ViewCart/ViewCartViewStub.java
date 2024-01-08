@@ -1,17 +1,21 @@
 package com.example.softcafeengineer.view.Order.ViewCart;
 
 
-public class ViewCartViewStub implements ViewCartView{
+public class ViewCartViewStub implements ViewCartView {
     private String errorTitle, errorMessage, toastMessage;
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
+
     @Override
     public void onSuccessfulSubmitOrder() {
 

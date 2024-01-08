@@ -1,7 +1,5 @@
 package com.example.softcafeengineer.view.Manager.Revenue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
 
-public class ManagerRevenueActivity extends AppCompatActivity implements ManagerRevenueView
-{
+public class ManagerRevenueActivity extends AppCompatActivity implements ManagerRevenueView {
     private String brand;
     private EditText yearField, monthField, dayField;
     private TextView month_output, day_output;
@@ -53,24 +52,27 @@ public class ManagerRevenueActivity extends AppCompatActivity implements Manager
 
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { presenter.onCalculate(calculate_button_enabled, year, month, day); }
+            public void onClick(View v) {
+                presenter.onCalculate(calculate_button_enabled, year, month, day);
+            }
         });
     }
 
     TextWatcher calculateWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String year_string = yearField.getText().toString();
             String month_string = monthField.getText().toString();
             String day_string = dayField.getText().toString();
-            if(!year_string.isEmpty() && !month_string.isEmpty() && !day_string.isEmpty()) {
+            if (!year_string.isEmpty() && !month_string.isEmpty() && !day_string.isEmpty()) {
                 year = Integer.parseInt(year_string);
                 month = Integer.parseInt(month_string);
                 day = Integer.parseInt(day_string);
-                if(month <= 0 || month >= 13 || day <= 0 || day >= 32) {
+                if (month <= 0 || month >= 13 || day <= 0 || day >= 32) {
                     calculateButton.setAlpha(.5f);
                     calculate_button_enabled = false;
                 } else {
@@ -91,14 +93,14 @@ public class ManagerRevenueActivity extends AppCompatActivity implements Manager
 
     @Override
     public void onCalculation(double monthTotal, double dayTotal) {
-        if(monthTotal == -1.0) {
+        if (monthTotal == -1.0) {
             // There are no records for this month
             this.month_output.setText("no records");
         } else {
             this.month_output.setText(String.format("%.2f 💶", monthTotal));
         }
 
-        if(dayTotal == -1.0) {
+        if (dayTotal == -1.0) {
             // There are no records for this day
             this.day_output.setText("no records");
         } else {

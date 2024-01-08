@@ -15,8 +15,7 @@ import com.example.softcafeengineer.domain.ProductCategory;
 
 import java.util.List;
 
-public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>
-{
+public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder> {
     private final List<ProductCategory> mValues;
     private final ItemSelectionListener listener;
 
@@ -34,12 +33,16 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     @Override
     public void onBindViewHolder(@NonNull CategoryRecyclerViewAdapter.ViewHolder holder, int position) {
         final ProductCategory currentCategory = mValues.get(position);
-        holder.name.setText(String.valueOf(currentCategory.getName()));
-        holder.description.setText(String.valueOf(currentCategory.getDescription()));
+        String name = currentCategory.getName();
+        holder.name.setText(name);
+        String desc = currentCategory.getDescription();
+        holder.description.setText(desc);
 
         holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { listener.viewCategory(currentCategory);}
+            public void onClick(View v) {
+                listener.viewCategory(currentCategory);
+            }
         });
     }
 

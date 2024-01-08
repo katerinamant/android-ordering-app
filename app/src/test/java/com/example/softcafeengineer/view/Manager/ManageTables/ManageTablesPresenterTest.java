@@ -17,12 +17,13 @@ public class ManageTablesPresenterTest {
     private TableDAO tableDAO;
     private CafeteriaDAO cafeteriaDAO;
     private Cafeteria cafe;
+
     /**
-     *  initializing all the objects needed to run tests for the
-     *  ManageTablesPresenter methods
+     * initializing all the objects needed to run tests for the
+     * ManageTablesPresenter methods
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         view = new ManageTablesViewStub();
         tableDAO = new TableDAOMemory();
         cafeteriaDAO = new CafeteriaDAOMemory();
@@ -38,78 +39,85 @@ public class ManageTablesPresenterTest {
     }
 
     /**
-     *  testing whether the onAddNewTable method shoes the correct error title and error
-     *  message when the manager tries to add a QR code that is already assigned to another table
+     * testing whether the onAddNewTable method shoes the correct error title and error
+     * message when the manager tries to add a QR code that is already assigned to another table
      */
     @Test
-    public void testAddExistingQRCode(){
+    public void testAddExistingQRCode() {
         presenter.onAddNewTable(true, "1", "existingQR");
         presenter.onAddNewTable(true, "12", "existingQR");
         Assert.assertEquals(view.getErrorTitle(), "Unique id is taken.");
-        Assert.assertEquals(view.getErrorMessage(),"Please provide a different unique id.");
+        Assert.assertEquals(view.getErrorMessage(), "Please provide a different unique id.");
     }
+
     /**
-     *  testing whether the onAddNewTable method shows the correct toast
-     *  message when the add button is disabled, meaning some of the
-     *  required fields were left empty
+     * testing whether the onAddNewTable method shows the correct toast
+     * message when the add button is disabled, meaning some of the
+     * required fields were left empty
      */
     @Test
-    public void testDisabledAddButton(){
-        presenter.onAddNewTable(false, "","");
+    public void testDisabledAddButton() {
+        presenter.onAddNewTable(false, "", "");
         Assert.assertEquals(view.getToastMessage(), "Please fill all the required fields.");
     }
+
     /**
-     *  testing whether the onEditTable method shoes the correct error title and error
-     *  message when the manager tries to change a QR code to one that is already assigned to another table
+     * testing whether the onEditTable method shoes the correct error title and error
+     * message when the manager tries to change a QR code to one that is already assigned to another table
      */
     @Test
-    public void testEditExistingQRCode(){
-        presenter.onAddNewTable(true, "1","edit_QR");
+    public void testEditExistingQRCode() {
+        presenter.onAddNewTable(true, "1", "edit_QR");
         presenter.onAddNewTable(true, "2", "prev_QR");
-        presenter.onEditTable(new Table(), true, true, Integer.parseInt("2"),"prev_QR", "2","edit_QR");
+        presenter.onEditTable(new Table(), true, true, Integer.parseInt("2"), "prev_QR", "2", "edit_QR");
         Assert.assertEquals(view.getErrorTitle(), "Unique id is taken.");
         Assert.assertEquals(view.getErrorMessage(), "Please provide a different unique id.");
     }
+
     /**
-     *  testing whether the onEditTable method shows the correct toast
-     *  message when the confirm button is disabled, meaning some of the
-     *  required fields were left empty
+     * testing whether the onEditTable method shows the correct toast
+     * message when the confirm button is disabled, meaning some of the
+     * required fields were left empty
      */
     @Test
-    public void testDisabledEditButton(){
-        presenter.onEditTable(new Table(), false, true, 5,"","","");
-        Assert.assertEquals(view.getToastMessage(),"Please fill all the required fields.");
+    public void testDisabledEditButton() {
+        presenter.onEditTable(new Table(), false, true, 5, "", "", "");
+        Assert.assertEquals(view.getToastMessage(), "Please fill all the required fields.");
     }
+
     /**
-     *  testing whether the method getTableDAO returns the correct
-     *  TableDAO object
+     * testing whether the method getTableDAO returns the correct
+     * TableDAO object
      */
     @Test
-    public void testGetTableDAO(){
+    public void testGetTableDAO() {
         Assert.assertEquals(presenter.getTableDAO(), tableDAO);
     }
+
     /**
-     *  testing whether the method getCafeteriaDAO returns the correct
-     *  CafeteriaDAO object
+     * testing whether the method getCafeteriaDAO returns the correct
+     * CafeteriaDAO object
      */
     @Test
-    public void testGetCafeteriaDAO(){
-        Assert.assertEquals(presenter.getCafeteriaDAO(),cafeteriaDAO);
+    public void testGetCafeteriaDAO() {
+        Assert.assertEquals(presenter.getCafeteriaDAO(), cafeteriaDAO);
     }
+
     /**
-     *  testing whether the method getBrand returns the correct
-     *  brand of this cafeteria
+     * testing whether the method getBrand returns the correct
+     * brand of this cafeteria
      */
     @Test
-    public void testGetBrand(){
+    public void testGetBrand() {
         Assert.assertEquals(presenter.getBrand(), cafe.getBrand());
     }
+
     /**
-     *  testing whether the method getTableResults returns all the tables
-     *  this cafeteria has
+     * testing whether the method getTableResults returns all the tables
+     * this cafeteria has
      */
     @Test
-    public void testGetTableResults(){
+    public void testGetTableResults() {
         Assert.assertEquals(presenter.getTableResults(), tableDAO.findAll(cafe.getBrand()));
     }
 }

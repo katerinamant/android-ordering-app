@@ -6,8 +6,7 @@ import com.example.softcafeengineer.revenue.Revenues;
 
 import java.util.HashMap;
 
-public class RevenueDAOMemory implements RevenueDAO
-{
+public class RevenueDAOMemory implements RevenueDAO {
     protected static HashMap<String, Revenues> revenues = new HashMap<String, Revenues>(); // "cafeteria brand" : Revenues obj
 
     @Override
@@ -16,7 +15,9 @@ public class RevenueDAOMemory implements RevenueDAO
     }
 
     @Override
-    public boolean containsCafeteria(String brand) { return revenues.containsKey(brand); }
+    public boolean containsCafeteria(String brand) {
+        return revenues.containsKey(brand);
+    }
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {

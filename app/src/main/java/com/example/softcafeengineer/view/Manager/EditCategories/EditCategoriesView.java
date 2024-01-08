@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.Manager.EditCategories;
 
-public interface EditCategoriesView
-{
+public interface EditCategoriesView {
     /**
      * Dismiss popup window
      * when category is edited successfully

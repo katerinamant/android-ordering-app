@@ -2,15 +2,18 @@ package com.example.softcafeengineer.view.Order.ScanTable;
 
 import com.example.softcafeengineer.domain.Status;
 
-public class ScanTableViewStub implements ScanTableView{
+public class ScanTableViewStub implements ScanTableView {
     private String errorTitle, errorMessage, toastMessage;
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
 

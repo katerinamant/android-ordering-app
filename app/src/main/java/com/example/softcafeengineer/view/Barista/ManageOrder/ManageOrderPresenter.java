@@ -12,8 +12,7 @@ import com.example.softcafeengineer.domain.OrderInfo;
 
 import java.util.List;
 
-public class ManageOrderPresenter
-{
+public class ManageOrderPresenter {
     private ActiveOrdersDAO activeOrdersDAO;
     private BaristaDAO baristaDAO;
     private RevenueDAO revenueDAO;
@@ -21,14 +20,29 @@ public class ManageOrderPresenter
     private Barista barista;
     private Order order;
 
-    public void setActiveOrdersDAO(ActiveOrdersDAO activeOrdersDAO) { this.activeOrdersDAO = activeOrdersDAO; }
-    public ActiveOrdersDAO getActiveOrdersDAO() { return this.activeOrdersDAO; }
+    public void setActiveOrdersDAO(ActiveOrdersDAO activeOrdersDAO) {
+        this.activeOrdersDAO = activeOrdersDAO;
+    }
 
-    public void setBaristaDAO(BaristaDAO baristaDAO) { this.baristaDAO = baristaDAO; }
-    public BaristaDAO getBaristaDAO() { return this.baristaDAO; }
+    public ActiveOrdersDAO getActiveOrdersDAO() {
+        return this.activeOrdersDAO;
+    }
 
-    public void setRevenueDAO(RevenueDAO revenueDAO) { this.revenueDAO = revenueDAO; }
-    public RevenueDAO getRevenueDAO() { return this.revenueDAO; }
+    public void setBaristaDAO(BaristaDAO baristaDAO) {
+        this.baristaDAO = baristaDAO;
+    }
+
+    public BaristaDAO getBaristaDAO() {
+        return this.baristaDAO;
+    }
+
+    public void setRevenueDAO(RevenueDAO revenueDAO) {
+        this.revenueDAO = revenueDAO;
+    }
+
+    public RevenueDAO getRevenueDAO() {
+        return this.revenueDAO;
+    }
 
     public void setView(ManageOrderView view, String barista_username, String password, String cafe_brand, int table_number) {
         this.view = view;
@@ -40,11 +54,14 @@ public class ManageOrderPresenter
         this.order.calculateCost();
         return this.order.getTotalCost();
     }
+
     public String getOrderStatus() {
         return this.order.getOrderStatus().toString();
     }
 
-    public List<OrderInfo> getOrderResults() { return order.getOrderList(); }
+    public List<OrderInfo> getOrderResults() {
+        return order.getOrderList();
+    }
 
     public void onWaitingStatus() {
         view.showError("Invalid change.", "Please choose a different status.");
@@ -54,7 +71,7 @@ public class ManageOrderPresenter
         try {
             this.order.executeOrder(barista);
             view.successfulExecution();
-        } catch (InvalidStatusException e)  {
+        } catch (InvalidStatusException e) {
             view.showError("Invalid change.", "Please choose a different status.");
         }
     }
@@ -77,7 +94,7 @@ public class ManageOrderPresenter
             activeOrdersDAO.delete(this.order);
             view.successfulCompletion();
 
-        } catch (InvalidStatusException e)  {
+        } catch (InvalidStatusException e) {
             view.showError("Invalid change.", "Please choose a different status.");
         } catch (InvalidDateException e) {
             view.showError("Invalid data input.", "Please provide a valid date");
@@ -99,28 +116,34 @@ public class ManageOrderPresenter
     }
 
     public void onEditProductInfo(OrderInfo order_info, boolean confirm_edit_enabled, boolean text_changed, int prev_quantity, String quantity) {
-        if(!confirm_edit_enabled) {
+        if (!confirm_edit_enabled) {
             // Field not filled, showing toast
             view.showToast("Please fill all the required fields.");
-        } else if (!text_changed) {
+            return;
+        }
+        if (!text_changed) {
             // Field filled and no text changed
             view.successfulEdit();
-        } else {
-            int new_quantity = Integer.parseInt(quantity);
-            if(new_quantity == 0) {
-                // Remove product from order
-                this.order.removeFromOrder(order_info);
+            return;
+        }
+
+        int new_quantity = Integer.parseInt(quantity);
+        if (new_quantity == 0) {
+            // Remove product from order
+            this.order.removeFromOrder(order_info);
+            view.successfulEdit();
+        } else if (prev_quantity >= new_quantity) {
+            try {
+                order_info.setQuantity(new_quantity);
                 view.successfulEdit();
-            } else if(prev_quantity >= new_quantity) {
-                try {
-                    order_info.setQuantity(new_quantity);
-                    view.successfulEdit();
-                } catch (InvalidInputException e) {
-                    view.showError("Invalid input.", "Please provide a valid quantity.");
-                }
-            } else {
-                view.showError("Invalid input.", String.format("Please provide a number smaller than or equal to the previous quantity (%d).", prev_quantity));
+            } catch (InvalidInputException e) {
+                // Not possible because of constraints
+                // in EditText but the exception must
+                // be handled
+                view.showError("Invalid input.", "Please provide a valid quantity.");
             }
+        } else {
+            view.showError("Invalid input.", String.format("Please provide a number smaller than or equal to the previous quantity (%d).", prev_quantity));
         }
     }
 }

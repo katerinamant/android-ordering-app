@@ -2,8 +2,6 @@ package com.example.softcafeengineer.dao;
 
 import com.example.softcafeengineer.domain.Order;
 
-import java.util.List;
-
 public interface ActiveCartsDAO {
     /**
      * Current cart of orders that have

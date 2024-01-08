@@ -3,8 +3,7 @@ package com.example.softcafeengineer.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TableTest
-{
+public class TableTest {
     @Test
     public void set_values() {
         Table table = new Table();

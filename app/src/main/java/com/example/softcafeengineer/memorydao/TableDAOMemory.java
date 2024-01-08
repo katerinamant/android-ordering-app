@@ -7,15 +7,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class TableDAOMemory implements TableDAO
-{
+public class TableDAOMemory implements TableDAO {
     protected static List<Table> tables = new ArrayList<Table>();
     protected static HashMap<String, Table> unique_id_to_table = new HashMap<String, Table>();
     protected static HashMap<String, ArrayList<Table>> cafeteria_to_tables = new HashMap<String, ArrayList<Table>>();
 
     @Override
     public Table find(String unique_id) {
-        if(unique_id_to_table.containsKey(unique_id)) {
+        if (unique_id_to_table.containsKey(unique_id)) {
             return unique_id_to_table.get(unique_id);
         }
         return null;
@@ -23,7 +22,7 @@ public class TableDAOMemory implements TableDAO
 
     @Override
     public List<Table> findAll(String cafeteria_brand) {
-        if(cafeteria_to_tables.containsKey(cafeteria_brand)) {
+        if (cafeteria_to_tables.containsKey(cafeteria_brand)) {
             return cafeteria_to_tables.get(cafeteria_brand);
         }
         return new ArrayList<>();
@@ -42,7 +41,7 @@ public class TableDAOMemory implements TableDAO
         unique_id_to_table.put(table.getQRCode(), table);
 
         String brand_key = table.getCafe().getBrand();
-        if(cafeteria_to_tables.containsKey(brand_key)) {
+        if (cafeteria_to_tables.containsKey(brand_key)) {
             cafeteria_to_tables.get(brand_key).add(table);
         } else {
             ArrayList<Table> tables = new ArrayList<Table>();
@@ -68,8 +67,8 @@ public class TableDAOMemory implements TableDAO
 
     @Override
     public void updateCafeteria(String old_brand, String new_brand) {
-        if(cafeteria_to_tables.containsKey(old_brand)) {
-            ArrayList<Table> tables  = cafeteria_to_tables.get(old_brand);
+        if (cafeteria_to_tables.containsKey(old_brand)) {
+            ArrayList<Table> tables = cafeteria_to_tables.get(old_brand);
             cafeteria_to_tables.remove(old_brand);
             cafeteria_to_tables.put(new_brand, tables);
         } else {

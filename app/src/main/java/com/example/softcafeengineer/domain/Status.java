@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.domain;
 
-public enum Status
-{
+public enum Status {
     IN_PROGRESS,
     CANCELED,
     WAITING,

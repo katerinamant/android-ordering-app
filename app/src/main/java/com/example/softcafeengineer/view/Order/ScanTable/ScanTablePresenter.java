@@ -11,13 +11,12 @@ import com.example.softcafeengineer.domain.Table;
 
 import java.util.Calendar;
 
-public class ScanTablePresenter
-{
-    private ScanTableView  view;
-    private TableDAO tables;
-    private ActiveOrdersDAO orders;
+public class ScanTablePresenter {
+    private final ScanTableView view;
+    private final TableDAO tables;
+    private final ActiveOrdersDAO orders;
 
-    private ActiveCartsDAO carts;
+    private final ActiveCartsDAO carts;
 
     public ScanTablePresenter(ScanTableView view, TableDAO tables, ActiveOrdersDAO orders, ActiveCartsDAO carts) {
         this.view = view;
@@ -27,7 +26,7 @@ public class ScanTablePresenter
     }
 
     void onSubmit(boolean submit_button_enabled, String unique_id) throws InvalidDateException {
-        if(!submit_button_enabled) {
+        if (!submit_button_enabled) {
             // Fields not filled, showing toast
             view.showToast("Please fill the required field.");
             return;
@@ -36,7 +35,7 @@ public class ScanTablePresenter
         // Look up table
         Table table = tables.find(unique_id);
 
-        if(table == null) {
+        if (table == null) {
             // Incorrect id, showing error
             view.showError("Connection unsuccessful.", "The id provided was invalid. Try again.");
             return;
@@ -76,7 +75,9 @@ public class ScanTablePresenter
         }
     }
 
-    void onOkStatus() { view.exitStatusPopup(); }
+    void onOkStatus() {
+        view.exitStatusPopup();
+    }
 
     public void onYesOrder(String unique_id) {
         Order order = orders.find(unique_id);

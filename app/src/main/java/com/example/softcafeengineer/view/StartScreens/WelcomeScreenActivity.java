@@ -1,10 +1,10 @@
 package com.example.softcafeengineer.view.StartScreens;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.view.Barista.LogIn.BaristaLogInActivity;
@@ -12,8 +12,7 @@ import com.example.softcafeengineer.view.Manager.LogIn.ManagerLogInActivity;
 import com.example.softcafeengineer.view.Manager.SignUp.ManagerSignUpActivity;
 import com.example.softcafeengineer.view.Order.ScanTable.ScanTableActivity;
 
-public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView
-{
+public class WelcomeScreenActivity extends AppCompatActivity implements WelcomeScreenView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

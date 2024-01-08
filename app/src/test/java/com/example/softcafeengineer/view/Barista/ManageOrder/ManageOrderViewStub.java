@@ -1,16 +1,20 @@
 package com.example.softcafeengineer.view.Barista.ManageOrder;
 
-public class ManageOrderViewStub implements ManageOrderView{
+public class ManageOrderViewStub implements ManageOrderView {
     private String errorTitle, errorMessage, toastMessage;
-    public String getToastMessage(){
+
+    public String getToastMessage() {
         return toastMessage;
     }
-    public String getErrorTitle(){
+
+    public String getErrorTitle() {
         return errorTitle;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return errorMessage;
     }
+
     @Override
     public void successfulExecution() {
 

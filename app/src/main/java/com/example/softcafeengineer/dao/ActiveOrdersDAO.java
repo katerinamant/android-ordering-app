@@ -4,8 +4,7 @@ import com.example.softcafeengineer.domain.Order;
 
 import java.util.List;
 
-public interface ActiveOrdersDAO
-{
+public interface ActiveOrdersDAO {
     /**
      * Orders can be determined
      * either by the unique id

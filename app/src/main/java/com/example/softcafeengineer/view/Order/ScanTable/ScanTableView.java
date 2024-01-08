@@ -2,8 +2,7 @@ package com.example.softcafeengineer.view.Order.ScanTable;
 
 import com.example.softcafeengineer.domain.Status;
 
-public interface ScanTableView
-{
+public interface ScanTableView {
     /**
      * When the user clicks on the "Submit" button
      * with correct id for an active order

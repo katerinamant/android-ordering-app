@@ -1,7 +1,6 @@
 package com.example.softcafeengineer.view.StartScreens;
 
-public interface WelcomeScreenView
-{
+public interface WelcomeScreenView {
     /**
      * When the user clicks on "Order" button
      * they are redirected to the

@@ -1,14 +1,14 @@
 package com.example.softcafeengineer.view.Order.ViewMenu;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softcafeengineer.R;
 import com.example.softcafeengineer.domain.ProductCategory;
@@ -18,8 +18,7 @@ import com.example.softcafeengineer.view.Order.ViewCategories.ViewCategoriesActi
 
 import java.util.List;
 
-public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener
-{
+public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView, CategoryRecyclerViewAdapter.ItemSelectionListener {
     private ViewMenuViewModel viewModel;
     private String unique_id;
 
@@ -28,7 +27,7 @@ public class ViewMenuActivity extends AppCompatActivity implements ViewMenuView,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_menu);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             Intent intent = getIntent();
             unique_id = intent.getStringExtra("unique_id");
         }

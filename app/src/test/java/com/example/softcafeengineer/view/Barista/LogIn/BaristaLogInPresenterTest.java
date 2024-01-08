@@ -1,4 +1,5 @@
 package com.example.softcafeengineer.view.Barista.LogIn;
+
 import com.example.softcafeengineer.dao.BaristaDAO;
 import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
@@ -14,33 +15,33 @@ public class BaristaLogInPresenterTest {
     private BaristaDAO baristaDAO;
 
     /**
-     *  initializing all the objects needed to run tests for the
-     *  BaristaLogInPresenter methods
+     * initializing all the objects needed to run tests for the
+     * BaristaLogInPresenter methods
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         view = new BaristaLogInViewStub();
         baristaDAO = new BaristaDAOMemory();
         presenter = new BaristaLogInPresenter(view, baristaDAO);
     }
 
     /**
-     *  testing whether the onLogin method shows the correct toast
-     *  message when the login button is disabled, meaning some of the
-     *  required fields were left empty
+     * testing whether the onLogin method shows the correct toast
+     * message when the login button is disabled, meaning some of the
+     * required fields were left empty
      */
     @Test
-    public void testDisabledLogInButton(){
+    public void testDisabledLogInButton() {
         presenter.onLogin(false, "barista", "password");
         Assert.assertEquals(view.getToastMessage(), "Please fill the required fields.");
     }
 
     /**
-     *  testing whether the method onLogin shows the correct error tittle and
-     *  error message when the user provides a wrong username
+     * testing whether the method onLogin shows the correct error tittle and
+     * error message when the user provides a wrong username
      */
     @Test
-    public void testWrongUsername(){
+    public void testWrongUsername() {
         Barista b = new Barista("barista", "password");
         b.setCafe(new Cafeteria());
         baristaDAO.save(b);
@@ -48,12 +49,13 @@ public class BaristaLogInPresenterTest {
         Assert.assertEquals(view.getErrorTitle(), "Log In unsuccessful.");
         Assert.assertEquals(view.getErrorMessage(), "The credentials provided were invalid. Try again.");
     }
+
     /**
-     *  testing whether the method onLogin shows the correct error tittle and
-     *  message when the user provides a wrong password
+     * testing whether the method onLogin shows the correct error tittle and
+     * message when the user provides a wrong password
      */
     @Test
-    public void testWrongPassoword(){
+    public void testWrongPassoword() {
         Barista b = new Barista("barista", "password");
         b.setCafe(new Cafeteria());
         baristaDAO.save(b);

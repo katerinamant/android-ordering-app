@@ -8,7 +8,7 @@ import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
 import com.example.softcafeengineer.memorydao.TableDAOMemory;
 
 public class ManageTablesViewModel extends ViewModel {
-    private ManageTablesPresenter presenter;
+    private final ManageTablesPresenter presenter;
 
     public ManageTablesViewModel() {
         this.presenter = new ManageTablesPresenter();
@@ -18,7 +18,9 @@ public class ManageTablesViewModel extends ViewModel {
         presenter.setCafeteriaDAO(cafeteriaDAO);
     }
 
-    public ManageTablesPresenter getPresenter() { return this.presenter; }
+    public ManageTablesPresenter getPresenter() {
+        return this.presenter;
+    }
 
     @Override
     protected void onCleared() {
