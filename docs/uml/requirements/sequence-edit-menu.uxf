@@ -1,76 +1,26 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram </help_text><element><id>UMLActor</id><coordinates><x>387</x><y>99</y><w>72</w><h>99</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>189</y><w>27</w><h>792</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;860</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>549</x><y>126</y><w>117</w><h>36</h></coordinates><panel_attributes>:EditMeny Activity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>189</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Edit Menu</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>153</y><w>27</w><h>828</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;900</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>603</x><y>180</y><w>18</w><h>117</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>774</x><y>126</y><w>117</w><h>36</h></coordinates><panel_attributes>:ManageEmployees
-Presenter</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>819</x><y>153</y><w>27</w><h>828</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;900</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>216</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-getCategoryResults()</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>819</x><y>198</y><w>18</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>243</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram </help_text><element><id>UMLActor</id><coordinates><x>306</x><y>72</y><w>72</w><h>99</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>162</y><w>27</w><h>612</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;660</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>468</x><y>108</y><w>117</w><h>27</h></coordinates><panel_attributes>:EditMenu Activity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>162</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Edit Menu</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>126</y><w>27</w><h>657</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;710</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>522</x><y>153</y><w>18</w><h>117</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>693</x><y>108</y><w>117</w><h>27</h></coordinates><panel_attributes>:EditMenu Presenter</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>126</y><w>27</w><h>666</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;720</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>189</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+getCategoryResults()</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>738</x><y>171</y><w>18</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>216</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
 CategoryResults: 
-List&lt;ProductCategory</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>603</x><y>360</y><w>18</w><h>324</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>378</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Add Category</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>396</x><y>414</y><w>774</w><h>153</h></coordinates><panel_attributes>loop
+List&lt;ProductCategory</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>522</x><y>333</y><w>18</w><h>405</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>351</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Add Category</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>315</x><y>387</y><w>675</w><h>153</h></coordinates><panel_attributes>loop
 --
-[while user is taken]
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>531</y><w>207</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Συμπλήρωση
-νέου username</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>819</x><y>585</y><w>18</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>954</x><y>594</y><w>90</w><h>27</h></coordinates><panel_attributes>barista: Barista</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>594</y><w>144</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
-new Barista(usename, 
-password)</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>630</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-save(barista)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>990</x><y>135</y><w>117</w><h>27</h></coordinates><panel_attributes>:BaristaDAO</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1035</x><y>153</y><w>27</w><h>828</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;900</additional_attributes></element><element><id>Relation</id><coordinates><x>1044</x><y>648</y><w>171</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-baristas.add(barista)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1035</x><y>639</y><w>18</w><h>45</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>711</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Delete barista</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>747</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-onDeleteEmployee(barista)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>603</x><y>702</y><w>18</w><h>108</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>756</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-delete(barista)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1044</x><y>774</y><w>180</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-barista.remove(barista)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>819</x><y>756</y><w>18</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1035</x><y>765</y><w>18</w><h>45</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>603</x><y>846</y><w>18</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>855</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Edit Employee</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>882</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-onEditEmployee(barista, toggle, txt,
-prevU, prevP, un, ps)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>891</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-updateBarista(prev_username, 
-username)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1035</x><y>900</y><w>18</w><h>45</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1044</x><y>909</y><w>207</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
-setUsername(newUsername)</panel_attributes><additional_attributes>10;30;50;30;50;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>819</x><y>891</y><w>18</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>360</x><y>306</y><w>891</w><h>675</h></coordinates><panel_attributes>Alt
---
-New Category
--.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Delete Employee
--.
-
-
-
-
-
-
-
-
-
-Edit Employee
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>459</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
-onAddNewEmployee(toggle, 
-newUsername, newPassword)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>819</x><y>468</y><w>18</w><h>81</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>477</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
-exists(newUsername)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1035</x><y>477</y><w>18</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>504</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>513</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
+[while name is taken]
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>504</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+New Category Name</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>738</x><y>558</y><w>18</w><h>180</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>873</x><y>567</y><w>81</w><h>27</h></coordinates><panel_attributes>cafe: Cafeteria</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>567</y><w>144</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
+new Cafeteria(
+brand, name)</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>603</y><w>450</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+find(brand)</panel_attributes><additional_attributes>480;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>909</x><y>108</y><w>117</w><h>27</h></coordinates><panel_attributes>:MenuDAO</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>954</x><y>126</y><w>27</w><h>666</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;720</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>432</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+onAddCategory(toggle, name,
+description)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>738</x><y>441</y><w>18</w><h>81</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>450</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+categoryExists(brand, name)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>954</x><y>450</y><w>18</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>477</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
+exists: bool</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>486</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
 showError()
-Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>585</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
-onAddNewEmployee(toggle, 
-newUsername, newPassword)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>648</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
-successfulNewEmployee()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element></diagram>
+Already In use</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>702</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+successfulNewCategory()</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>549</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+onAddCategory(toggle, name,
+description)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1125</x><y>126</y><w>117</w><h>27</h></coordinates><panel_attributes>:MenuDAO</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1179</x><y>144</y><w>27</w><h>648</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;700</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1179</x><y>603</y><w>18</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>639</y><w>144</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
+new ProductCateg
+ory(name, desc, cafe)</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>873</x><y>639</y><w>90</w><h>36</h></coordinates><panel_attributes>category: 
+ProductCategory</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>954</x><y>693</y><w>18</w><h>18</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>684</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+saveCategory(category)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element></diagram>
