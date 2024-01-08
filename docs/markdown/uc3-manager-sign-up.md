@@ -44,3 +44,5 @@
 
 ### Sequence Diagram 
 ![ΠΧ3 - Εγγραφή Μαγαζιού](uml/requirements/sequence-manager-sign-up.png)
+
+![ΠΧ3 - Ολοκλήρωση εγγραφης](uml/requirements/sequence-manager-infoInput.png)
