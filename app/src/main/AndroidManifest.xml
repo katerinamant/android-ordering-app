@@ -65,6 +65,9 @@
             android:exported="false" />
         <activity
             android:name=".view.StartScreens.WelcomeScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartScreens.StartingActivity"
             android:exported="true"> <!-- Main Activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
