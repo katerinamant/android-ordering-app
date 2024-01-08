@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram noteseld:  &lt;TablFiTextField</help_text><element><id>UMLClass</id><coordinates><x>585</x><y>1109</y><w>225</w><h>126</h></coordinates><panel_attributes>Manager Action Activity
+<diagram program="umletino" version="15.1"><zoom_level>3</zoom_level><help_text>Space for diagram noteseld:  &lt;TablFiTextField</help_text><element><id>UMLClass</id><coordinates><x>300</x><y>390</y><w>75</w><h>42</h></coordinates><panel_attributes>Manager Action Activity
 --
 - brand: String
 --
@@ -7,7 +7,7 @@
 + manageEmployees()
 + manage_tables()
 + edit_menu()
-+ revenue_breakdown()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>855</x><y>650</y><w>225</w><h>378</h></coordinates><panel_attributes>EditInfo Activity
++ revenue_breakdown()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>237</y><w>75</w><h>126</h></coordinates><panel_attributes>EditInfo Activity
 --
 - presenter: EditInfoPresenter
 - relativeLayout: RelativeLayout
@@ -38,7 +38,7 @@
 + validFinish()
 + successfulFinish(cafe: Cafeteria) 
 + showToast(msg: String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1764</x><y>821</y><w>189</w><h>477</h></coordinates><panel_attributes>ManageTables Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>693</x><y>294</y><w>63</w><h>159</h></coordinates><panel_attributes>ManageTables Activity
 --
 - viewModel: ManageTablesViewModel
 - brand: String 
@@ -74,7 +74,7 @@
 + showToast(msg: String) 
 + editTable(t: Table) 
 + deleteTable(t: Table) 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2349</x><y>1055</y><w>225</w><h>342</h></coordinates><panel_attributes>EditMenu Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>888</x><y>372</y><w>75</w><h>114</h></coordinates><panel_attributes>EditMenu Activity
 --
 - viewModel: EditViewModel
 - brand: String 
@@ -98,10 +98,10 @@
 + successfulNewCategory() 
 + showToast(msg: String) 
 + showError(title: String, msg: String)
-+ viewCategory(c: ProductCategory)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2700</x><y>1523</y><w>189</w><h>54</h></coordinates><panel_attributes>InfoInput View
++ viewCategory(c: ProductCategory)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1005</x><y>528</y><w>63</w><h>18</h></coordinates><panel_attributes>InfoInput View
 --
 + successfulFinish(cafe: Cafeteria) 
-+ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2061</x><y>1568</y><w>189</w><h>234</h></coordinates><panel_attributes>Manager SignUp Activity 
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>543</y><w>63</w><h>78</h></coordinates><panel_attributes>Manager SignUp Activity 
 --
 - usernameField: EditText
 - passwordField: EditText
@@ -118,7 +118,7 @@
  start: int, count: int, after: int)
 + afterTextChanged(s: Editable)
 + successfulContinue(newUser: User) 
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1404</x><y>1559</y><w>234</w><h>477</h></coordinates><panel_attributes>ManageEmployees Activity
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>573</x><y>540</y><w>78</w><h>159</h></coordinates><panel_attributes>ManageEmployees Activity
 --
 - viewModel: ManageEmployeesViewModel
 - brand: String 
@@ -153,7 +153,7 @@
 + showError(title: String, msg: String) 
 + showToast(msg: String) 
 + editEmployee(b: Barista) 
-+ deleteEmployee(b: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>1595</y><w>216</w><h>252</h></coordinates><panel_attributes>Manager LogIn Activity
++ deleteEmployee(b: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>552</y><w>72</w><h>84</h></coordinates><panel_attributes>Manager LogIn Activity
 --
 - usernameField: EditText
 - passwordField: EditText
@@ -172,7 +172,7 @@
 + successfulLogIn(cafe: Cafeteria) 
 + showError(title: String, msg: String) 
 + showToast(msg: String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>405</x><y>1298</y><w>207</w><h>333</h></coordinates><panel_attributes>Revenue Activity
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>453</y><w>69</w><h>111</h></coordinates><panel_attributes>Revenue Activity
 --
 - brand: String 
 - yearField: EditText 
@@ -196,10 +196,10 @@
 + onCalculation(monthTotal: double,
  dayTotal: double) 
 + showError(title: String, msg: String) 
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>297</x><y>1019</y><w>198</w><h>63</h></coordinates><panel_attributes>Manager Action VIew
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>204</x><y>360</y><w>66</w><h>21</h></coordinates><panel_attributes>Manager Action VIew
 --
 + successfulContinue(newUser: User)
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>495</x><y>1739</y><w>225</w><h>108</h></coordinates><panel_attributes>Manager LogIn Presenter
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>600</y><w>75</w><h>36</h></coordinates><panel_attributes>Manager LogIn Presenter
 --
 - view: ManagerLogInView
 - users: ManagerDAO
@@ -207,18 +207,18 @@
 + ManagerLogInPresenter(view: 
  ManagerLogInView, users: ManagerDAO)
 + onLogin(loginButtonEnabled: boolean,
- username: String, password: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1728</x><y>1604</y><w>189</w><h>108</h></coordinates><panel_attributes>Interface
+ username: String, password: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>633</y><w>63</w><h>36</h></coordinates><panel_attributes>Interface
 ManageEmployees View
 --
 + successfulNewEmployee()
 + successfulEdit()
 + successfulDelete()
 + showError(title: String, msg: String) 
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1998</x><y>2036</y><w>180</w><h>108</h></coordinates><panel_attributes>Interface
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>771</x><y>699</y><w>66</w><h>36</h></coordinates><panel_attributes>Interface
 Manager SignUp View
 --
 + successfulContinue(newUser: User) 
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2349</x><y>1496</y><w>216</w><h>315</h></coordinates><panel_attributes>InfoInput Activity
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>888</x><y>519</y><w>72</w><h>105</h></coordinates><panel_attributes>InfoInput Activity
 --
 - addressField: EditText
 - phoneNumberField: EditText 
@@ -241,41 +241,41 @@ Manager SignUp View
  start: int, count: int, after: int)
 + afterTextChanged(s: Editable)
 + successfulFinish(cafe: Cafeteria)
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>135</x><y>1343</y><w>189</w><h>99</h></coordinates><panel_attributes>Interface
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>150</x><y>468</y><w>63</w><h>33</h></coordinates><panel_attributes>Interface
 Revenue View
 --
 + onCalculatation(monthTotal: 
  double, DayTotal: double)
 + showError(title: String, msg: String) 
-+ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>812</y><w>189</w><h>72</h></coordinates><panel_attributes>EditInfo View
++ showToast(msg: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>252</x><y>291</y><w>63</w><h>24</h></coordinates><panel_attributes>EditInfo View
 --
 validFinish()
 successfulFinish(cafe: Cafeteria) 
-showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1791</x><y>578</y><w>198</w><h>117</h></coordinates><panel_attributes>Interface
+showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>213</y><w>66</w><h>39</h></coordinates><panel_attributes>Interface
 ManageTables View
 --
 + successfulNewTable() 
 + successfulEdit()
 + successfulDeleet()
 + showError(title: String, msg: String)
-+ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2736</x><y>1334</y><w>189</w><h>72</h></coordinates><panel_attributes>EditMenu View
++ showToast(msg: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1017</x><y>465</y><w>63</w><h>24</h></coordinates><panel_attributes>EditMenu View
 --
 successfulNewCategory()
 showToast(s: String)
-showError(s: String, s1: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>1073</y><w>171</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;10;10;70;170;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1629</x><y>1649</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2106</x><y>1793</y><w>63</w><h>261</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2556</x><y>1541</y><w>162</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>1388</y><w>108</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1836</x><y>686</y><w>63</w><h>153</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>2565</x><y>1343</y><w>189</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>621</x><y>821</y><w>252</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-extends</panel_attributes><additional_attributes>10;20;260;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>1982</y><w>189</w><h>90</h></coordinates><panel_attributes>Interface
+showError(s: String, s1: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>249</x><y>378</y><w>57</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;10;10;70;170;70</additional_attributes></element><element><id>Relation</id><coordinates><x>648</x><y>648</y><w>42</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>807</x><y>618</y><w>21</w><h>87</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>957</x><y>534</y><w>54</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>483</y><w>36</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>717</x><y>249</y><w>21</w><h>51</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>960</x><y>468</y><w>63</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>294</y><w>84</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;20;260;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>375</x><y>681</y><w>63</w><h>30</h></coordinates><panel_attributes>Interface
 ManagerLogin View
 --
 + successfulLogIn(cafe: Cafeteria)
 + showError(title: String, msg: String);
-+ showToast(msg: String);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1098</x><y>1973</y><w>252</w><h>333</h></coordinates><panel_attributes>ManageEmployees Presenter
++ showToast(msg: String);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>471</x><y>678</y><w>84</w><h>111</h></coordinates><panel_attributes>ManageEmployees Presenter
 --
 - baristaDAO: BaristaDAO 
 - cafeteriaDAO: CafeteriaDAO 
@@ -299,7 +299,7 @@ ManagerLogin View
 enabled: boolean, text_changed: boolean, 
 prev_username: String, prev_password: String, 
 username: String, password: String)
-+ onDeleteEmployees(barista: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2691</x><y>1622</y><w>234</w><h>180</h></coordinates><panel_attributes>InfoInput Presenter
++ onDeleteEmployees(barista: Barista) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1002</x><y>561</y><w>78</w><h>60</h></coordinates><panel_attributes>InfoInput Presenter
 --
 - view: InfoInputView
 - users: ManagerDAO
@@ -313,7 +313,7 @@ username: String, password: String)
  String, password: String, address: String, 
  phoneNumber: String, ssn: String, brand: 
  String) 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>1496</y><w>216</w><h>144</h></coordinates><panel_attributes>Revenue Presenter
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>105</x><y>519</y><w>72</w><h>48</h></coordinates><panel_attributes>Revenue Presenter
 --
 - view: ManagerRevenueVIew
 - revenue: MonthlyRevenueDAO
@@ -324,14 +324,14 @@ ManagerRevenueView, brand: String,
 revenue:MonthlyRevenueDAO)
 + onCalculate(calculate_button_enabled:
  boolean, year: int, month: int, day: int) 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2349</x><y>875</y><w>216</w><h>90</h></coordinates><panel_attributes>EditMenu ViewModel
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>888</x><y>312</y><w>72</w><h>30</h></coordinates><panel_attributes>EditMenu ViewModel
 --
 - presenter: EditMenuPresenter
 --
 + EditMenuViewModel()
 + getPresenter(): EditMenuPresenter {q}
 + onCleared()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2412</x><y>488</y><w>189</w><h>315</h></coordinates><panel_attributes>ManageTables Presenter
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>909</x><y>183</y><w>63</w><h>105</h></coordinates><panel_attributes>ManageTables Presenter
 --
 - tableDAO: TableDAO 
 - cafeteriaDAO: CafeteriaDAO 
@@ -354,7 +354,7 @@ revenue:MonthlyRevenueDAO)
 boolean, text_changed: boolean, prevTN: 
 int, prev_unique_id: String, tableNumber_s: 
 String, uniqueID: string) 
-+ onDeleteTable(table:Table) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2304</x><y>1937</y><w>234</w><h>81</h></coordinates><panel_attributes>Manager SignUp Presenter
++ onDeleteTable(table:Table) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>873</x><y>666</y><w>78</w><h>27</h></coordinates><panel_attributes>Manager SignUp Presenter
 --
 + ManagerSignUpPresenter(view: 
  ManagerSignUpView, users: ManagerDAO)
@@ -362,7 +362,7 @@ String, uniqueID: string)
  username: String, password: String) 
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>342</x><y>380</y><w>261</w><h>297</h></coordinates><panel_attributes>EditInfo Presenter
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>219</x><y>147</y><w>87</w><h>99</h></coordinates><panel_attributes>EditInfo Presenter
 --
 - view: EditInfoView
 - cafeteriaDAO: CafeteriaDAO
@@ -384,7 +384,7 @@ String, uniqueID: string)
 + onConfirmChanges(prev_address: String, 
  prev_phone_number: String, prev_ssn: String, 
 prev_brand: String, address: String, phone_num: 
- String, ssn: String, brand: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>189</x><y>1136</y><w>180</w><h>144</h></coordinates><panel_attributes>Manager Action Presenter
+ String, ssn: String, brand: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>399</y><w>60</w><h>48</h></coordinates><panel_attributes>Manager Action Presenter
 --
 - view: ManagerActionsView
 --
@@ -395,7 +395,7 @@ prev_brand: String, address: String, phone_num:
 + onManageTables()
 + onEditMenu()
 + onRevenueBreakdown()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1728</x><y>1811</y><w>234</w><h>180</h></coordinates><panel_attributes>ManageEmployees 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>549</y><w>78</w><h>60</h></coordinates><panel_attributes>ManageEmployees 
 RecyclerViewAdapter
 --
 - List&lt;Barista&gt; mValues
@@ -409,20 +409,20 @@ viewType: int)
  position: int) 
 + onClick(v: View) 
 + getItemCount(): int {query} 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1098</x><y>1748</y><w>216</w><h>99</h></coordinates><panel_attributes>ManageEmployees ViewModel
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>471</x><y>603</y><w>72</w><h>33</h></coordinates><panel_attributes>ManageEmployees ViewModel
 --
 - presenter: ManageemployeesPresenter
 --
 + ManagerEmployeesViewModel()
 + getPresenter(): 
 ManageEmployeesPresenter {query}
-+ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2043</x><y>884</y><w>243</w><h>90</h></coordinates><panel_attributes>ManageTables ViewModel
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>786</x><y>315</y><w>81</w><h>30</h></coordinates><panel_attributes>ManageTables ViewModel
 --
 - presenter: ManageTablesPresenters
 --
 + manageTablesViewModel()
 + getPresenter(): ManageTablesPresenter
-+ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2079</x><y>506</y><w>234</w><h>162</h></coordinates><panel_attributes>ManageTables RecyclerViewAdapter 
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>798</x><y>189</y><w>78</w><h>54</h></coordinates><panel_attributes>ManageTables RecyclerViewAdapter 
 --
 - mValues: List&lt;Table&gt;
 - listener: ItemSelectionListener
@@ -434,17 +434,17 @@ ManageEmployeesPresenter {query}
 + onBindViewHolder(holder: ViewHolder, 
  position: int)
 + onClick(v: View) 
-+ getItemCount(): int {query} </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>1190</y><w>243</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-is used in</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2214</x><y>1793</y><w>108</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;.
-is used in</panel_attributes><additional_attributes>10;10;10;200;100;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1944</x><y>929</y><w>117</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
++ getItemCount(): int {query} </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>417</y><w>81</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>843</x><y>618</y><w>36</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in</panel_attributes><additional_attributes>10;10;10;200;100;200</additional_attributes></element><element><id>Relation</id><coordinates><x>753</x><y>330</y><w>39</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2448</x><y>956</y><w>72</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-
-is used in</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1944</x><y>596</y><w>162</w><h>261</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>150;10;90;10;90;270;10;270</additional_attributes></element><element><id>Relation</id><coordinates><x>2214</x><y>713</y><w>216</w><h>189</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>921</x><y>339</y><w>24</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>753</x><y>219</y><w>54</w><h>87</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>150;10;90;10;90;270;10;270</additional_attributes></element><element><id>Relation</id><coordinates><x>843</x><y>258</y><w>72</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>10;190;10;20;220;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>497</y><w>216</w><h>684</h></coordinates><panel_attributes>Edit Categories Activity
+is used in</panel_attributes><additional_attributes>10;190;10;20;220;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>495</x><y>186</y><w>72</w><h>228</h></coordinates><panel_attributes>Edit Categories Activity
 --
 - viewModel: EditCategoriesViewModel
 - brand: String 
@@ -495,8 +495,8 @@ CompoundButton, inChecked: boolean)
 + showToast(msg: String)
 + editProduct(p: Product)
 + deleteProduct(p: Product)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>803</y><w>126</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1485</x><y>749</y><w>189</w><h>135</h></coordinates><panel_attributes>Interface 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>564</x><y>288</y><w>42</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>270</y><w>63</w><h>45</h></coordinates><panel_attributes>Interface 
 EditCategories View 
 --
 + successfulEditCategory()
@@ -505,14 +505,14 @@ EditCategories View
 + successfulEditProduct()
 + void successfulDeleteProduct();
 + void showError(String title, String msg);
-+ void showToast(String msg);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1188</x><y>335</y><w>189</w><h>99</h></coordinates><panel_attributes>EditCategories ViewModel
++ void showToast(String msg);</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>501</x><y>132</y><w>63</w><h>33</h></coordinates><panel_attributes>EditCategories ViewModel
 --
 - presenter: EditCategoriesPresenter
 --
 + EditCategoriesVIewModel()
 + getPresenter(): 
  EditCategoriesPresenter {query}
-+ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1458</x><y>209</y><w>279</w><h>450</h></coordinates><panel_attributes>EditCategories Presenter
++ onCleared()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>591</x><y>90</y><w>93</w><h>150</h></coordinates><panel_attributes>EditCategories Presenter
 --
 - view: EditCategoriesVIew
 - menuDAO: MenuDAO
@@ -545,7 +545,7 @@ prev_desc: String, name: String, desc: String
 + onEditProduct(product:Product, confirm_edit_enabled:
  boolean, text_changed: boolean,  prev_name: String,
 prev_price: double, name: String, price_string: String)
-+ onDeleteProduct(product: Product) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>389</y><w>225</w><h>180</h></coordinates><panel_attributes>MenuProduct RecyclerView Adapter
++ onDeleteProduct(product: Product) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>381</x><y>150</y><w>75</w><h>60</h></coordinates><panel_attributes>MenuProduct RecyclerView Adapter
 --
 - mValues: List&lt;Product&gt;
 - listener: ItemSelectionListener
@@ -558,15 +558,15 @@ ItemSelectionListener
 + onBindViewHolder(position: int, holder: 
  ViewHolder) 
 + onClick(v: View) 
-+ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1269</x><y>425</y><w>72</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.
-is used in</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1368</x><y>389</y><w>108</w><h>45</h></coordinates><panel_attributes>lt=-&gt;&gt;
++ getItemCount(): int {query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>162</y><w>24</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>561</x><y>150</y><w>36</w><h>15</h></coordinates><panel_attributes>lt=-&gt;&gt;
 m1=1
 m2=1
-is used in</panel_attributes><additional_attributes>100;21;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1044</x><y>515</y><w>144</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>594</x><y>524</y><w>279</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in</panel_attributes><additional_attributes>100;21;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>453</x><y>192</y><w>48</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>303</x><y>195</y><w>93</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
 m1=1 
 m2=2 
-is used in </panel_attributes><additional_attributes>290;190;120;190;120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2727</x><y>1127</y><w>297</w><h>144</h></coordinates><panel_attributes>Category RecyclerView Adapter
+is used in </panel_attributes><additional_attributes>290;190;120;190;120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1014</x><y>396</y><w>99</w><h>48</h></coordinates><panel_attributes>Category RecyclerView Adapter
 --
 - mValues: List&lt;ProductCategory&gt;
 - listener: ItemSelectionListener 
@@ -577,7 +577,7 @@ is used in </panel_attributes><additional_attributes>290;190;120;190;120;10;10;1
 + onBindViewHolder(holder: ViewHolder, position: int) 
 + onClick(v: View) 
 + getItemCount(): int {query}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2745</x><y>821</y><w>261</w><h>261</h></coordinates><panel_attributes>EditMenu Presenter
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1020</x><y>294</y><w>87</w><h>87</h></coordinates><panel_attributes>EditMenu Presenter
 --
 - menuDAO: MenuDAO
 - cafeteriaDAO: CafeteriaDAO
@@ -596,35 +596,35 @@ is used in </panel_attributes><additional_attributes>290;190;120;190;120;10;10;1
 + findAllCategories(brand: String) 
 + getProductCategory(): List&lt;ProductCategory&gt; 
 + onAddCategory(addCategoryEnabled: boolean,
- name: String, description: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2565</x><y>1190</y><w>180</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2556</x><y>929</y><w>207</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
+ name: String, description: String) </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>960</x><y>417</y><w>60</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>957</x><y>330</y><w>69</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2556</x><y>1703</y><w>153</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>957</x><y>588</y><w>51</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>909</x><y>1838</y><w>63</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;-
-extends</panel_attributes><additional_attributes>10;160;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>711</x><y>1766</y><w>126</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>633</y><w>21</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-
+extends</panel_attributes><additional_attributes>10;160;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>609</y><w>42</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1 
-is used in</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1197</x><y>1838</y><w>72</w><h>153</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>633</y><w>24</w><h>51</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1305</x><y>1784</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-is used in</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1629</x><y>1856</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;.
-implements</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>207</x><y>1532</y><w>216</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>615</y><w>39</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+is used in</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>648</x><y>564</y><w>42</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>174</x><y>531</y><w>72</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
 m1=1 
 m2=1
-is used in</panel_attributes><additional_attributes>220;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2142</x><y>1496</y><w>225</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-
-leads to </panel_attributes><additional_attributes>230;20;10;20;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>1226</y><w>171</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-
+is used in</panel_attributes><additional_attributes>220;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>819</x><y>519</y><w>75</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to </panel_attributes><additional_attributes>230;20;10;20;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>261</x><y>429</y><w>57</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-
 leads to (through 
-RevenueBreakDown)</panel_attributes><additional_attributes>10;80;10;50;170;50;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>639</x><y>956</y><w>234</w><h>171</h></coordinates><panel_attributes>lt=&lt;&lt;-
-leads to (through edit indo)</panel_attributes><additional_attributes>240;20;80;20;80;170</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>1127</y><w>981</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
-leads to (through ManageTables)</panel_attributes><additional_attributes>1070;10;710;10;710;100;330;100;330;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>1172</y><w>1566</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-
-leads to (through EditMenu) </panel_attributes><additional_attributes>1720;180;280;180;280;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>1217</y><w>1674</w><h>297</h></coordinates><panel_attributes>lt=&lt;&lt;-
-results in </panel_attributes><additional_attributes>10;10;220;10;220;250;1840;250;1840;310</additional_attributes></element><element><id>Relation</id><coordinates><x>774</x><y>1226</y><w>648</w><h>468</h></coordinates><panel_attributes>lt=&lt;&lt;-
+RevenueBreakDown)</panel_attributes><additional_attributes>10;80;10;50;170;50;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>339</y><w>78</w><h>57</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to (through edit indo)</panel_attributes><additional_attributes>240;20;80;20;80;170</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>396</y><w>327</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to (through ManageTables)</panel_attributes><additional_attributes>1070;10;710;10;710;100;330;100;330;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>411</y><w>522</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+leads to (through EditMenu) </panel_attributes><additional_attributes>1720;180;280;180;280;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>426</y><w>558</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;-
+results in </panel_attributes><additional_attributes>10;10;220;10;220;250;1840;250;1840;310</additional_attributes></element><element><id>Relation</id><coordinates><x>363</x><y>429</y><w>216</w><h>156</h></coordinates><panel_attributes>lt=&lt;&lt;-
 leads to (through 
-ManageEmployees)</panel_attributes><additional_attributes>700;500;630;500;630;290;190;290;190;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>1109</y><w>252</w><h>504</h></coordinates><panel_attributes>lt=&lt;&lt;-
+ManageEmployees)</panel_attributes><additional_attributes>700;500;630;500;630;290;190;290;190;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>390</y><w>84</w><h>168</h></coordinates><panel_attributes>lt=&lt;&lt;-
 
 
 
@@ -655,4 +655,31 @@ ManageEmployees)</panel_attributes><additional_attributes>700;500;630;500;630;29
 
 
 
-leads to</panel_attributes><additional_attributes>10;140;10;230;220;230;220;540</additional_attributes></element></diagram>
+leads to</panel_attributes><additional_attributes>10;140;10;230;220;230;220;540</additional_attributes></element><element><id>Relation</id><coordinates><x>627</x><y>237</y><w>24</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1077</x><y>348</y><w>66</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>100;10;150;10;150;420;10;420</additional_attributes></element><element><id>Relation</id><coordinates><x>1065</x><y>534</y><w>48</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;90;10;90;120;50;120</additional_attributes></element><element><id>Relation</id><coordinates><x>834</x><y>690</y><w>87</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>260;10;260;100;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>666</y><w>171</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>540;10;540;170;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>111</x><y>486</y><w>45</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>20;110;20;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>306</x><y>636</y><w>78</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;190;240;190</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>366</y><w>30</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;110;10;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>243</y><w>24</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.
+m1=1
+m2=1
+is used in</panel_attributes><additional_attributes>10;10;10;170;40;170</additional_attributes></element></diagram>
