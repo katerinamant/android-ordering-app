@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Barista.Actions;
 
 import com.example.softcafeengineer.dao.ActiveOrdersDAO;
 import com.example.softcafeengineer.dao.RevenueDAO;
+import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.memorydao.ActiveOrdersDAOMemory;
 import com.example.softcafeengineer.memorydao.RevenueDAOMemory;
@@ -16,6 +17,7 @@ public class BaristaActionsPresenterTest {
     private ActiveOrdersDAO activeOrdersDAO;
     private RevenueDAO revenueDAO;
     private Cafeteria cafe;
+    private Barista barista;
 
     /**
      * initializing all the objects needed to run tests for the
@@ -23,6 +25,7 @@ public class BaristaActionsPresenterTest {
      */
     @Before
     public void setUp() {
+        barista = new Barista("username", "password");
         view = new BaristaActionsViewStub();
         activeOrdersDAO = new ActiveOrdersDAOMemory();
         revenueDAO = new RevenueDAOMemory();
@@ -30,6 +33,7 @@ public class BaristaActionsPresenterTest {
         cafe.setBrand("cafe_brand");
 
         presenter = new BaristaActionsPresenter();
+        presenter.setBaristaUsername(barista.getUsername());
         presenter.setActiveOrdersDAO(activeOrdersDAO);
         presenter.setRevenueDAO(revenueDAO);
         presenter.setBrand(cafe.getBrand());
@@ -42,7 +46,6 @@ public class BaristaActionsPresenterTest {
      */
     @Test
     public void testGetOrderResults() {
-        // TODO: Update according to changes
         Assert.assertEquals(presenter.getOrderResults(), activeOrdersDAO.findAll(presenter.getBrand()));
     }
 
@@ -55,7 +58,14 @@ public class BaristaActionsPresenterTest {
         Assert.assertEquals(presenter.getBrand(), cafe.getBrand());
     }
 
-    // TODO: add test for get username
+    /**
+     * testing whether the method getUsername returns correctly the username
+     * of this barista
+     */
+    @Test
+    public void testGetUsername(){
+        Assert.assertEquals(presenter.getBaristaUsername(), barista.getUsername());
+    }
 
     /**
      * testing whether the method getRevenueDAO returns the correct

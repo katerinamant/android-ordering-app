@@ -2,6 +2,7 @@ package com.example.softcafeengineer.view.Manager.ManageTables;
 
 import com.example.softcafeengineer.dao.CafeteriaDAO;
 import com.example.softcafeengineer.dao.TableDAO;
+import com.example.softcafeengineer.domain.Barista;
 import com.example.softcafeengineer.domain.Cafeteria;
 import com.example.softcafeengineer.domain.Table;
 import com.example.softcafeengineer.memorydao.CafeteriaDAOMemory;
@@ -119,5 +120,15 @@ public class ManageTablesPresenterTest {
     @Test
     public void testGetTableResults() {
         Assert.assertEquals(presenter.getTableResults(), tableDAO.findAll(cafe.getBrand()));
+    }
+    /**
+     * testing whether the method onDelete successfully deletes this table
+     */
+    @Test
+    public void testOnDeleteTable() {
+        Table table = new Table("QRCode", 12, cafe);
+        presenter.onAddNewTable(true, "12", "QRCode");
+        presenter.onDeleteTable(table);
+        Assert.assertEquals(presenter.getTableDAO().exists(table.getQRCode()), false);
     }
 }

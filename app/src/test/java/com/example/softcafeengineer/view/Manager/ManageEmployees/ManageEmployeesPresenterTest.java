@@ -56,7 +56,8 @@ public class ManageEmployeesPresenterTest {
     public void testAddExistingUsername() {
         presenter.onAddNewEmployee(true, "existing_username", "12345678");
         presenter.onAddNewEmployee(true, "existing_username", "12345678");
-        Assert.assertEquals(view.getToastMessage(), "This username is already in use.");
+        Assert.assertEquals(view.getErrorTitle(), "Username is taken.");
+        Assert.assertEquals(view.getErrorMessage(), "Please provide a different username.");
     }
 
     /**
@@ -141,5 +142,16 @@ public class ManageEmployeesPresenterTest {
     @Test
     public void testGetEmployeeResults() {
         Assert.assertEquals(presenter.getEmployeeResults(), baristaDAO.findAll(cafe.getBrand()));
+    }
+    /**
+     * testing whether the method onDelete successfully deletes this barista
+     */
+    @Test
+    public void testOnDeleteEmployee() {
+        Barista barista = new Barista("barista", "12345678");
+        barista.setCafe(cafe);
+        presenter.onAddNewEmployee(true, "barista", "12345678");
+        presenter.onDeleteEmployee(barista);
+        Assert.assertEquals(presenter.getBaristaDAO().exists(barista.getUsername()), false);
     }
 }

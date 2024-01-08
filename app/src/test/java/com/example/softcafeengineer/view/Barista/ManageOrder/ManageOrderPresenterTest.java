@@ -56,6 +56,14 @@ public class ManageOrderPresenterTest {
         presenter.setActiveOrdersDAO(activeOrdersDAO);
         presenter.setView(view, barista.getUsername(), barista.getPassword(), cafeteria.getBrand(), table.getId());
     }
+    /**
+     * testing whether the method getRevenueDAO returns the correct
+     * RevenueDAO object
+     */
+    @Test
+    public void testGetRevenueDAO() {
+        Assert.assertEquals(presenter.getRevenueDAO(), revenueDAO);
+    }
 
     /**
      * testing whether the method getActiveOrdersDAO returns the correct
