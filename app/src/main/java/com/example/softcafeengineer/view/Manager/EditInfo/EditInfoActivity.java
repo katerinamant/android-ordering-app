@@ -55,7 +55,7 @@ public class EditInfoActivity extends AppCompatActivity implements EditInfoView
         prev_phone_number = cafe.getPhoneNumber();
         phoneNumberField = findViewById(R.id.edit_txt_mngr_edit_phone);
         phoneNumberField.setText(prev_phone_number);
-        prev_tin = cafe.getSSN();
+        prev_tin = cafe.getTIN();
         tinField = findViewById(R.id.edit_txt_mngr_edit_tin);
         tinField.setText(prev_tin);
         brandField = findViewById(R.id.edit_txt_mngr_edit_brand);

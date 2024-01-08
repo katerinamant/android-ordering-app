@@ -2,7 +2,6 @@ package com.example.softcafeengineer.domain;
 
 import org.junit.Assert;
 import org.junit.Test;
-import java.util.List;
 
 public class CafeteriaTest
 {
@@ -16,8 +15,8 @@ public class CafeteriaTest
         cafe.setPhoneNumber("2108203314");
         Assert.assertEquals("2108203314", cafe.getPhoneNumber());
 
-        cafe.setSSN("123456789");
-        Assert.assertEquals("123456789", cafe.getSSN());
+        cafe.setTIN("123456789");
+        Assert.assertEquals("123456789", cafe.getTIN());
 
         cafe.setBrand("OPA");
         Assert.assertEquals("OPA", cafe.getBrand());
@@ -29,7 +28,7 @@ public class CafeteriaTest
 
         Assert.assertEquals("28is Oktovriou 76", cafe.getAddress());
         Assert.assertEquals("2108203314", cafe.getPhoneNumber());
-        Assert.assertEquals("123456789", cafe.getSSN());
+        Assert.assertEquals("123456789", cafe.getTIN());
         Assert.assertEquals("OPA", cafe.getBrand());
     }
 }

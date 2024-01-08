@@ -60,7 +60,7 @@ public class EditInfoPresenter {
         // Update Cafeteria object
         if (!address.equals(prev_address)) this.cafe.setAddress(address);
         if (!phoneNum.equals(prev_phone_number)) this.cafe.setPhoneNumber(phoneNum);
-        if (!tin.equals(prev_tin)) this.cafe.setSSN(tin);
+        if (!tin.equals(prev_tin)) this.cafe.setTIN(tin);
         if (!brand.equals(prev_brand)) {
             activeOrdersDAO.updateCafeteria(prev_brand, brand);
             baristaDAO.updateCafeteria(prev_brand, brand);
