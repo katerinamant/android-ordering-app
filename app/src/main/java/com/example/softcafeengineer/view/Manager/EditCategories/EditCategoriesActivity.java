@@ -68,7 +68,7 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_categories);
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_edit_category); // activity_edit_categories.xml
+        relativeLayout = findViewById(R.id.relative_edit_category); // activity_edit_categories.xml
 
         if (savedInstanceState == null) {
             Intent intent = getIntent();
@@ -109,8 +109,10 @@ public class EditCategoriesActivity extends AppCompatActivity implements EditCat
 
                 editCategoryNameField = pop_up.findViewById(R.id.edit_text_edit_category_name);
                 editCategoryNameField.setText(prev_category_name);
+                newCategoryName = prev_category_name;
                 editCategoryDescField = pop_up.findViewById(R.id.edit_text_edit_category_desc);
                 editCategoryDescField.setText(prev_category_desc);
+                newCategoryDesc = prev_category_desc;
                 editCategoryNameField.addTextChangedListener(editCategoryWatcher);
                 editCategoryDescField.addTextChangedListener(editCategoryWatcher);
 
