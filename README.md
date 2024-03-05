@@ -1,43 +1,74 @@
-# Εφαρμογή παραγγελιοληψίας σε καφετέρια
+# Android ordering application for a cafeteria
 
-Εφαρμογή όπου δίνεται η δυνατότητα στον χρήστη να παραγγείλει σε μία καφετέρια χωρίς επικοινωνία με κάποιο μέλος του προσωπικού.
+_Created by: [Katerina Mantaraki](https://github.com/katerinamant), [Rea Sklika](https://github.com/reasklika), [Sofia Sotiriou](https://github.com/sofiasotiriou)_
 
-Αρχικά, δίνεται η δυνατότητα στη διεύθυνση του καταστήματος να επεξεργαστεί το μενού που προσφέρει και να θέσει τις τιμές των προϊόντων.
-Ύστερα ο πελάτης με τη χρήση του QR Code που υπάρχει στο τραπέζι του, μπορεί να ξεκινήσει τη πραγματοποίηση μιας παραγγελίας.
-Μπορεί να διαλέξει και να τροποποιήσει είδη από το μενού και να τα προσθέσει στο καλάθι του. Στο τέλος, κατοχυρώνει την παραγγελία και η κατάσταση της τίθεται "Σε αναμονή".
-Ο μπαρίστα του καταστήματος μπορεί να προβάλει τις εκκρεμείς παραγγελίες και να αλλάξει την κατάστασή τους σε "Σε εξέλιξη", "Ακυρωμένη" και "Ολοκληρωμένη".
-Ο πελάτης μπορεί να παρακολουθεί την εξέλιξη της παραγγελίας του με τη χρήση του QR Code.
-Τέλος, η διεύθυνση μπορεί να έχει πρόσβαση στα ημερήσια και μηνιαία έσοδα του καταστήματος.
+## Screenshots
 
-## Απαιτήσεις Συστήματος
-Η εφαρμογή αυτή προσφέρει στους **πελάτες** τις παρακάτω υπηρεσίες:
+- [Description](#description)
+- [System Requirements](#system-requirements)
+- [Use Case Diagram](#use-case-diagram)
+- [Domain Model](#domain-model)
+- [Class Diagram](#class-diagram)
+- [Installation](#installation)
 
-* ΠΧ1. [Να καταχωρήσουν την παραγγελία τους (προϊόντα, ποσότητες και σχόλια), μέσω του μοναδικού κωδικού (QR Code) του τραπεζιού τους](./docs/markdown/uc1-client-order.md)
-* ΠΧ2. [Να παρακολουθούν την εξέλιξη της παραγγελίας τους (στάδιο προετοιμασίας της)](./docs/markdown/uc2-client-order-state.md)
+## Description
 
-Η **διεύθυνση** του καταστήματος μπορεί:
+Application for ordering in a cafeteria without interacting with any staff member.
 
-* ΠΧ3. [Να εισάγει τα στοιχεία της επιχείρησης (Όνομα, τηλέφωνο, διεύθυνση κλπ.) και να δημιουργήσει λογαριασμούς για τη σύνδεση των υπαλλήλων](./docs/markdown/uc3-manager-sign-up.md)
-* ΠΧ4. [Να καταχωρήσει μοναδικό κωδικό (QR Code) για κάθε τραπέζι και να τα διαχειρίζεται](./docs/markdown/uc4-manager-tables-management.md)
-* ΠΧ5. [Να εισάγει το μενού με τις τιμές του](./docs/markdown/uc5-manager-menu-management.md)
-* ΠΧ6. [Να πληροφορείται για τα συνολικά ημερήσια και μηνιαία έσοδα](./docs/markdown/uc6-manager-records.md)
+Initially, the store's manager is given the ability to edit the menu it offers and set the prices of the products.
+Then the customer, using the QR Code on their table, can start placing an order.
+They can choose and modify items from the menu and add them to their cart. In the end, they confirm the order and its status is set to 'Pending'.
+A barista of the cafeteria can view pending orders and change their status to 'In progress', 'Cancelled', or 'Completed'.
+The customer can track the progress of their order using the QR Code.
+Finally, the manager can access the store's daily and monthly income.
 
-Ο **barista** έχει τη δυνατότητα:
+## System requirements
 
-* ΠΧ7. [Να συνδέεται στο σύστημα με τον λογαριασμό που δημιούργησε η διεύθυνση](./docs/markdown/uc7-barista-login.md)
-* ΠΧ8. [Να εκτελεί την επόμενη παραγγελία](./docs/markdown/uc8-process-order.md)
+This application provides the following services to the **customers**:
 
-Συγκεκριμένα, ο barista ξεκινάει να ετοιμάζει τις παραγγελίες με τη σειρά που τις λαμβάνει. Για κάθε προϊόν της παραγγελίας ελέγχει αν έχει τη δυνατότητα να το ετοιμάσει (αν έχει όλα τα απαραίτητα υλικά). Αν μπορεί, το φτιάχνει και το σημειώνει ως έτοιμο. Αλλιώς ενημερώνει τον πελάτη μέσω της εφαρμογής πως δεν είναι διαθέσιμο.
+- UC1. [To place their order (products, quantities, and comments) using the unique QR Code of their table](./docs/markdown/uc1-client-order.md)
+- UC2. [To track the progress of their order](./docs/markdown/uc2-client-order-state.md)
 
-Το σύστημα πρέπει να κρατάει στη μνήμη τις ενεργές παραγγελίες για να τις διαχειρίζονται οι υπάλληλοι, καθώς και τα συνολικά ημερήσια και μηνιαία έσοδα για να πληροφορεί την διεύθυνση.
+The **manager** of the store can:
 
-### Use case Diagram
+- UC3. [Enter business details (Name, phone, address, etc.) and create accounts for employee login](./docs/markdown/uc3-manager-sign-up.md)
+- UC4. [Register unique QR codes for each table and manage them](./docs/markdown/uc4-manager-tables-management.md)
+- UC5. [Enter the menu with its prices](./docs/markdown/uc5-manager-menu-management.md)
+- UC6. [Access information about total daily and monthly income](./docs/markdown/uc6-manager-records.md)
+
+The **barista** can:
+
+- UC7. [Login to the system with the account created by the manager](./docs/markdown/uc7-barista-login.md)
+- UC8. [Process the next order](./docs/markdown/uc8-process-order.md)
+
+Specifically, the barista starts preparing orders in the order they are received. For each product in the order, they check if they can prepare it (if they have all the necessary ingredients). If they can, they make it and mark it as ready. Otherwise, they inform the customer through the application that it is unavailable.
+
+The system must keep active orders in memory for baristas to handle, as well as total daily and monthly income to inform the manager.
+
+## Use case Diagram
 
 ![Use case diagram](./docs/markdown/uml/requirements/use-case-diagram.png)
 
-### Domain Diagram
+## Domain Model
 
 ![Domain Model](./docs/markdown/uml/requirements/domain-model.png)
 
-### Class Diagram
+## Class Diagram
+
 ![Class Diagram](./docs/markdown/uml/requirements/class-diagram.png)
+
+## Installation
+
+Before you begin, ensure:
+
+- You have Android Studio installed on your machine. You can find more information [here](https://developer.android.com/studio).
+- You have set up a compatible Android device or emulator.
+
+To clone and run this application, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Open Android Studio.
+3. Click on Open an existing Android Studio project.
+4. Navigate to the directory where you cloned the repository and select the root folder of the project.
+
+Once the project is loaded, wait for Android Studio to sync the project files.
